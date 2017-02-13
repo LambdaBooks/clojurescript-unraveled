@@ -1,40 +1,40 @@
 # Зміст
 
-* [ClojureScript Unraveled](/README.md)
-* About this book
-* Introduction
-* Language (the basics)
-  * First steps with Lisp syntax
-  * The base data types
-  * Vars
-  * Functions
-  * Flow control
-  * Truthiness
-  * Locals, Blocks, and Loops
-  * Collection types
-  * Destructuring
-  * Threading Macros
-  * Reader Conditionals
-  * Namespaces
-  * Abstractions and Polymorphism
-  * Data types
-  * Host interoperability
-  * State management
-* Tooling & Compiler
-  * Getting Started with the Compiler
-  * Working with the REPL
-  * The Closure Library
-  * Dependency management
-  * External dependencies
-  * Unit testing
-* Language (advanced topics)
-  * Transducers
+* [Розплутаний ClojureScript](/README.md)
+* Про цю книгу
+* Вступ
+* Мова (основи)
+  * Перші кроки з Lisp–синтаксисом
+  * Базові типи даних
+  * Змінні
+  * Функції
+  * Контроль над ходом виконання
+  * Істиності
+  * Локалі, блоки та цикли
+  * Колекції типів
+  * Деструктурування
+  * Потокові макроси
+  * Умови читача
+  * Простори імен
+  * Абстракції і поліморфізм
+  * Типи даних
+  * Сумісність з батьківською платформою
+  * Контроль над станом
+* Інструменти та компілятор
+  * Початок роботи з компілятором
+  * Робота з REPL
+  * Бібліотека Closure
+  * Контроль над залежностями
+  * Зовнішні залежності
+  * Юніт–тестування
+* Мова (поглиблені теми)
+  * Трансдюсери
   * Transients
-  * Metadata
-  * Core protocols
-  * CSP (with core.async)
-* Appendix
-  * Appendix A: Interactive development with Figwheel
-  * Appendix B: Setting up a ClojureScript development environment
-* Acknowledgments
-* Further Reading
+  * Метадані
+  * Базові протоколи
+  * CSP (з core.async)
+* Додатки
+  * Додаток А: Інтерактивна розробка з Figwheel
+  * Додаток Б: Встановлення середовища розробки на ClojureScript
+* Подяки
+* Подальше читання
