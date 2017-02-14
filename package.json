@@ -1,0 +1,41 @@
+{
+  "private": true,
+  "name": "clojurescript-unraveled",
+  "version": "0.0.0",
+  "description": "Ukrainian translation of “ClojureScript Unraveled”",
+  "author": "Roman Liutikov <roman01la@romanliutikov.com> (https://romanliutikov.com/)",
+  "contributors": [
+    {
+      "name": "Mariannna Chupryna",
+      "email": "marianna2398an@gmail.com"
+    },
+    {
+      "name": "Alex Zakrytyi",
+      "email": "nevusdance@gmail.com"
+    }
+  ],
+  "scripts": {
+    "install": "gitbook install",
+    "start": "gitbook serve",
+    "build": "gitbook build",
+    "deploy": "npm run build && gh-pages -d _book -m \"Updated at $(date +'%a, %d %b %Y, %T, %Z')\" --add"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LambdaBooks/clojurescript-unraveled.git"
+  },
+  "keywords": [
+    "book",
+    "documentation",
+    "guide"
+  ],
+  "license": "CC BY-NC-ND 4.0",
+  "bugs": {
+    "url": "https://github.com/LambdaBooks/clojurescript-unraveled/issues"
+  },
+  "homepage": "https://github.com/LambdaBooks/clojurescript-unraveled#readme",
+  "devDependencies": {
+    "gh-pages": "^0.12.0",
+    "gitbook-cli": "^2.1.3"
+  }
+}

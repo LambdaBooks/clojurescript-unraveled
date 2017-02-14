@@ -1,0 +1,42 @@
+{
+  "gitbook": "3.x.x",
+  "plugins": [
+    "edit-link", "github", "yametrika", "ga", "rss", "github-buttons"
+  ],
+  "pluginsConfig": {
+    "edit-link": {
+      "base": "https://github.com/LambdaBooks/clojurescript-unraveled/tree/master",
+      "label": "Редагувати"
+    },
+    "github": {
+      "url": "https://github.com/LambdaBooks/clojurescript-unraveled"
+    },
+    "ga": {
+      "token": "UA-40496885-8"
+    },
+    "rss": {
+      "title": "Розплутаний ClojureScript",
+      "description": "Український переклад книги «ClojureScript Unraveled».",
+      "author": "Denys Dovhan",
+      "site_url": "http://lambdabooks.github.io/clojurescript-unraveled",
+      "feed_url": "http://lambdabooks.github.io/clojurescript-unraveled/rss.xml",
+      "managingEditor": "email@denysdovhan.com (Denys Dovhan)",
+      "webMaster": "email@denysdovhan.com (Denys Dovhan)",
+      "categories": [
+        "frontend",
+        "js",
+        "javascript",
+        "es6",
+        "es2015",
+        "ecmascript"
+      ]
+    },
+    "github-buttons": {
+      "repo": "LambdaBooks/clojurescript-unraveled",
+      "types": [
+        "star"
+      ],
+      "size": "small"
+    }
+  }
+}
