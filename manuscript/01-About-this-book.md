@@ -1,32 +1,15 @@
-## About this book
+## Про цю книгу
 
-This book covers the ClojureScript programming language, serves as a detailed guide
-of its tooling for development, and presents a series of articles about topics that
-are applicable to day-to-day programming in ClojureScript.
+Ця книга охоплює мову програмування ClojureScript, служить детальним керівництвом до інструментарію для розробки та представляє собою серію статей на теми, що пов'язані з щоденним програмуванням на ClojureScript.
 
-It is not an introductory book to programming in that it assumes the reader has
-experience programming in at least one language. However, it doesn't assume
-experience with _Clojure_ or functional programming. We'll try to include links to
-reference material when talking about the theoretical underpinnings of ClojureScript
-that may not be familiar to everyone.
+Ця книга не є введенням до програмування, тому передбачається, що читач має досвід програмування принаймні на одній мові. Тим не менш, це не передбачає досвід роботи з Clojure або функціональним програмуванням. Ми будемо намагатися додавати посилання на довідкові матеріал, коли мова буде йти про теоретичні основи ClojureScript, які можуть бути незнайомі.
 
-Since the ClojureScript documentation is good but sparse, we wanted to write a
-compendium of reference information and extensive examples to serve as a
-ClojureScript primer as well as a series of practical how-to's. This document will
-evolve with the ClojureScript language, both as a reference of the language features
-and as a sort of cookbook with practical programming recipes.
+Документація ClojureScript непогана але поверхнева, тому ми хотіли написати збірник довідкової інформації і прикладів, що б слугували прикладом, а також серією практичних керівництв. Цей документ буде розвиватися разом з мовою ClojureScript, як довідник особливостей мови, так і, певною мірою, книгою практичних рецептів з програмування.
 
-You'll get the most out of this book if you:
+Ви отримаєте максимальну віддачу від цієї книги, якщо ви:
 
-* are curious about ClojureScript or functional programming and have some programming
-  experience;
-* write JavaScript or any other language that compiles to it and want to know what
-  ClojureScript has to offer;
-* already know some Clojure and want to learn how ClojureScript differs from it, plus
-  practical topics like how to target both languages with the same code base.
+* хочете знати ClojureScript або функціональне програмування та маєте певний досвід в програмуванні;
+* пишете на JavaScript або на будь-якій іншій мові, яка компілюється в нього і хочете знати що вам може запропонувати ClojureScript;
+* вже трохи знаєте Clojure і хочете дізнатися, як ClojureScript відрізняється від нього, та, наприклад, такі практичні теми, як використовування одного коду в двох мовах.
 
-Don't be turned off if you don't see yourself in any of the above groups. We
-encourage you to give this book a try and to give us feedback on how we can make it
-more accessible.  Our goal is to make ClojureScript more friendly to newcomers and
-spread the ideas about programming that Clojure has helped popularize, as we see a
-lot of value in them.
+Не звертайте увагу на те, що ви не бачите себе в жодній з вище зазначених груп. Ми заохочуємо вас спробувати цю книгу і повідомити нам про те, як ми можемо зробити ії більш доступною. Наша мета полягає в тому, щоб зробити ClojureScript більш дружнім до новачків і поширювати ідеї про програмування, що допомогла популяризувати мова Clojure, так як ми бачимо в них велику цінність.
