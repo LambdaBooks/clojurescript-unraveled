@@ -1,15 +1,14 @@
 language: node_js
-node_js:
-- node
-branches:
-  only: master
-before_script:
-- git config --global user.email "email@denysdovhan.com"
-- git config --global user.name "Denys Dovhan"
-- git remote rm origin
-- git remote add origin https://denysdovhan:${GH_TOKEN}@github.com/LambdaBooks/clojurescript-unraveled.git
-script:
-- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && npm run deploy || npm run build'
+node_js: node
+script: npm run build
+deploy:
+- provider: pages
+  skip-cleanup: true
+  email: email@denysdovhan.com
+  name: Denys Dovhan
+  github-token: ${GH_TOKEN}
+  on:
+    branch: master
 env:
   global:
     secure: E+b3RA8v7awboSJbGYBJHlt/3lQxMCEQpzkJjph3HKo6lggAZEvl49/xLPu0G1Gu3RYCIkqXY7r1kY4LfVrznhqXHKovtnDimScw2wKnE58Ac3kZoX72iRAKT4KazySm+VtK6+TdwiTqsC0ZSshSpH754YGjsH2CBgI/rEtxUDdD5Co+L0oH8nTWWLH8PGi1XYsXI+uFrME8FA96F2nTDRWz4DO6yGFqm+a0ICZpw8ldVUXtc+8bFAz+SCd2XIwcZED1pJsSHpKKOY8F13cxNfZOxD7Sv43Wc0tzYYMoirSbv6gTVEEIk/7OyTv3HZ5oEinZ7TKSo8MPD5zmmzIdfylhpZQu5YzMVhXaBOHphLlqIXl/AY5VyZJXfYDFQsqw8x9lr6GAEdquwD6YxeoyC4A0abw9mRd/z7I8zXe5hYA6h3fqtPSunly9HGmUfQK5tjP1LpaPljq6/JYGOWHEA+ftV8fA7tkDFUa/TAXRzf+0dlrOr8C3PIjAGrD5acq4ifPRlwiWQncyzM60qmRIbvhgZIepqwBNvqQuKROb9QuQFmYz72eVKGtK5z67vsp2i5RtqMAJs+QQ6QeAkL/PfmtHG4ZnN2vPB+5tKXiRM0Uz7FHimqPAQHvT+gdgaLL6OFvQeRExfJESuYtzEXmubBd+I42wLpp0Uo1S79x/kvA=
