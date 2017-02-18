@@ -1,8 +1,8 @@
-## First steps with Lisp syntax
+## Знайомство з синтаксисом мов родини Lisp
 
-Invented by John McCarthy in 1958, Lisp is one of the oldest programming languages that is still around. It has evolved into many derivatives called dialects, ClojureScript being one of them. It is a programming language written in its own data structures — originally lists enclosed in parentheses — but Clojure(Script) has evolved the Lisp syntax with more data structures, making it more pleasant to write and read.
+Мова Lisp була розроблена Джоном МакКарті у 1958 році і на сьогодні є однією з найстарших мов програмування, що досі використовуються. Від Lisp походить велика кількість інших мов, які називають діалектами Lisp. Мова ClojureScript - один з таких діалектів. Код на мові Lisp пишуть із використанням структур даних самої Lisp  - списків у дужках, але Clojure(Script) додав до первинного синтаксису Lisp нові структури даних, завдяки чому код на Clojure(Script) більш приємно писати та читати. I
 
-A list with a function in the first position is used for calling a function in ClojureScript. In the example below, we apply the addition function to three arguments. Note that unlike in other languages, `+` is not an operator but a function. Lisp has no operators; it only has functions. 
+У ClojureScript список, першим елементом якого є функція, використовується для виклику функції. У наступному прикладі ми викликаємо функцію додавання із троьма аргументами. Зверніть увагу на те, що у мовах родини Lisp знаком `+` позначають не оператор, а функцію. Операторів у Lisp немає, лише функції.
 
 [source, clojure]
 ----
@@ -10,7 +10,7 @@ A list with a function in the first position is used for calling a function in C
 ;; => 6
 ----
 
-In the example above, we're applying the addition function `+` to the arguments `1`, `2` and `3`. ClojureScript allows any unusual characters like `?` or `-` in symbol names, which makes it easier to read:
+У цьому прикладі ми застосовуємо функцію додавання `+` до трьох аргументів `1`, `2` та `3`. ClojureScript дозволяє використовувати знаки питання, тире та численні інші незвичайні знаки у назвах символів, що спрощує сприйняття коду:
 
 [source, clojure]
 ----
@@ -18,7 +18,7 @@ In the example above, we're applying the addition function `+` to the arguments 
 ;; => true
 ----
 
-To distinguish function calls from lists of data items, we can quote lists to keep them from being evaluated.  The uoted lists will be treated as data instead of as a function call:
+Для відокремлення викликів функцій від списків даних ми можемо цитувати списки за допомогою оператора `quote` і тим самим заборонити їх обчислення. Цитовані списки сприймаються компілятором як дані, а не як виклик функції:
 
 [source, clojure]
 ----
@@ -26,7 +26,7 @@ To distinguish function calls from lists of data items, we can quote lists to ke
 ;; => (+ 1 2 3)
 ----
 
-ClojureScript uses more than lists for its syntax. The full details will be covered later, but here is an example of the usage of a vector (enclosed in brackets) for defining local bindings:
+Синтаксис ClojureScript  не обмежується списками. Повну інформацію з цього питання ви знайдете у подальших розділах, а зараз лише наведемо приклад використання вектора (у прямокутних дужках) для визначення локальних звʼязувань (байндингів):
 
 [source, clojure]
 ----
@@ -37,4 +37,4 @@ ClojureScript uses more than lists for its syntax. The full details will be cove
 ;; => 6
 ----
 
-This is practically all the syntax we need to know for using not only ClojureScript, but any Lisp. Being written in its own data structures (often referred to as _homoiconicity_) is a great property since the syntax is uniform and simple; also, code generation via xref:macros-section[macros] is easier than in any other language, giving us plenty of power to extend the language to suit our needs.
+Це майже усе, що нам потрібно знати про синтаксис для написання коду на ClojureScript, а також на будь-якому іншому діалекті Lisp. Мови, які підтримують написання коду з використанням власних структур даних (їх називають _гомоіконічними_) мають багато переваг завдяки простому та однорідному синтаксису. Зокрема генерація коду за допомогою макросів у таких мовах простіша ніж у інших, що дає розробникам змогу розширяти мову за власними потребами.
