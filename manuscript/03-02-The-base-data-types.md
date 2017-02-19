@@ -1,26 +1,16 @@
-### The base data types
+### Основні типи даних
 
-The ClojureScript language has a rich set of data types like most programming
-languages. It provides scalar data types that will be very familiar to you, such as
-numbers, strings, and floats. Beyond these, it also provides a great number of
-others that might be less familiar, such as symbols, keywords, regexes (regular
-expressions), vars, atoms, and volatiles.
+Мова ClojureScript, як і більшість мов програмування має багатий набір типів даних. Вона має добре відомі вам скалярні типи даних, такі як числа, рядки та числа з рухомою крапкою. Також, в ній є багато інших, з якими ви можете бути незнайомі, такі як символи, ключові слова, регекспи (регулярні вирази), вари, атоми та волатайли (volatile).
 
-_ClojureScript_ embraces the host language, and where possible, uses the host's
-provided types. For example: numbers and strings are used as is and behave in the
-same way as in JavaScript.
+ClojureScript використовує типи даних батьківської платформи, коли це можливо. Наприклад: числа та рядки використовуються і поводяться так само, як і в JavaScript.
 
-#### Numbers
+#### Числа
 
-In _ClojureScript_, numbers include both integers and floating points. Keeping in
-mind that _ClojureScript_ is a guest language that compiles to JavaScript, integers
-are actually JavaScript's native floating points under the hood.
+В ClojureScript числа включають в себе цілі числа та числа з рухомою крапкою. Враховуючи те, що ClojureScript це гостьова мова, що компілюється в JavaScript, під капотом цілі числа насправді є числами з рухомою крапкою в JavaScript.
 
-As in any other language, numbers in _ClojureScript_ are represented in the
-following ways:
+Як і в багатьох інших мовах, в ClojureScript числа представлені в наступних форматах:
 
-[source, clojure]
-----
+```clojure
 23
 +23
 -100
@@ -29,222 +19,165 @@ following ways:
 33e8
 12e-14
 3.2e-4
-----
+```
 
-#### Keywords
+#### Ключові слова
 
-Keywords in _ClojureScript_ are objects that always evaluate to themselves. They are
-usually used in map data structures to efficiently represent the
-keys.
+В ClojureScript ключові слова — це тип даних, в якому значення означають нічого іншого крім самих себе. Вони використовуються, як ключі в мапах для ефективного доступу до значень.
 
-[source, clojure]
-----
+```clojure
 :foobar
 :2
 :?
-----
+:foo/bar
+```
 
-As you can see, the keywords are all prefixed with `:`, but this character is only
-part of the literal syntax and is not part of the name of the object.
+Як ви можете бачити, ключові слова починаються зі знаку `:`, але цей знак не є частиною імені об'єкту — він лише частина синтаксису літералу ключового слова.
 
-You can also create a keyword by calling the `keyword` function. Don't worry if you
-don't understand or are unclear about anything in the following example;
-<<function-section,functions>> are discussed in a later section.
+Також ключове слово можна створити, викликавши функцію `keyword`. Не турбуйтесь, якщо ви нічого не зрозумієте в наступному прикладі; функції будуть розглянуті пізніше.
 
-[source, clojure]
-----
+```clojure
 (keyword "foo")
 ;; => :foo
-----
+```
 
-#### Symbols
+#### Символи
 
-Symbols in _ClojureScript_ are very, very similar to *keywords* (which you now know
-about). But instead of evaluating to themselves, symbols are evaluated to something
-that they refer to, which can be functions, variables, etc.
+В ClojureScript символи дуже схожі на ключові слова (про які ви тепер знаєте). Але замість того, щоб означати тільки самих себе, символи означають те, на що вони посилаються: функція, значення, тощо.
 
-Symbols start with a non numeric character and can contain alphanumeric characters
-as well as *, +, !, -, _, ', and ? such as :
+Символи не можуть починатися цифрою, але можуть мати алфавітно-цифрові літери, а також знаки *, +, !, -, _, ', і ?, наприклад:
 
-[source, clojure]
-----
+```clojure
 sample-symbol
 othersymbol
 f1
 my-special-swap!
-----
+```
 
-Don't worry if you don't understand right away; symbols are used in almost all of
-our examples, which will give you the opportunity to learn more as we go on.
+Не хвилюйтесь якщо ви не розумієте цього зараз; символи використовуються практично у всіх наших прикладах, що дозволяє вам вивчити більше по ходу.
 
-#### Strings
+#### Рядки
 
-There is almost nothing new we can explain about strings that you don't already
-know. In _ClojureScript_, they work the same as in any other language. One point of
-interest, however, is that they are immutable.
+Ми не розкажемо нічого нового, чого ви можете не знати про рядки. В ClojureScript вони працюють так само, як і в будь-якій іншій мові. Цікаво лише те, що вони незмінні.
 
-In this case they are the same as in JavaScript:
+Вони такі ж самі, як і в JavaScript:
 
-[source, clojure]
-----
+```clojure
 "An example of a string"
-----
+```
 
-One peculiar aspect of strings in _ClojureScript_ is due to the language's Lisp
-syntax: single and multiline strings have the same syntax:
+Але, завдяки синтаксису Lisp, особливим аспектом рядків у ClojureScript є те, що одно- та багаторядкові рядки мають той самий синтаксис:
 
-[source, clojure]
-----
+```clojure
 "This is a multiline
       string in ClojureScript."
-----
+```
 
-#### Characters
+#### Літери
 
-_ClojureScript_ also lets you write single characters using Clojure's character
-literal syntax.
+ClojureScript також дозволяє писати окремі літери, використовуючи синтаксис літерала з Clojure.
 
-[source, clojure]
-----
+```clojure
 \a        ; The lowercase a character
 \newline  ; The newline character
-----
+```
 
-Since the host language doesn't contain character literals, _ClojureScript_
-characters are transformed behind the scenes into single character JavaScript
-strings.
+Оскільки батьківська мова не має синтаксису для літералу літери, в ClojureScript літери представлені як рядки з JavaScript з однією літерою.
 
-#### Collections
+#### Колекції
 
-Another big step in explaining a language is to explain its collections and
-collection abstractions. _ClojureScript_ is not an exception to this rule.
+Ще одним значним кроком у поясненні мови — є пояснення її колекцій та абстракцій колекції. ClojureScript не є винятком.
 
-_ClojureScript_ comes with many types of collections. The main difference between
-_ClojureScript_ collections and collections in other languages is that they are
-persistent and immutable.
+В ClojureScript є багато типів колекцій. Головною відмінністю колекцій в ClojureScript від колекцій в інших мовах є те, що вони стійкі (persistent) та незмінні.
 
-Before moving on to these (possibly) unknown concepts, we'll present a high-level
-overview of existing collection types in _ClojureScript_.
+Перед тим, як перейти до цих (можливо) невідомих понять, ми розглянемо існуючі типи колекцій в ClojureScript.
 
-##### Lists
+##### Списки
 
-This is a classic collection type in languages based on Lisp. Lists are the simplest
-type of collection in _ClojureScript_. Lists can contain items of any type,
-including other collections.
+Це класичний тип колекції в мовах родини Lisp. В ClojureScript списки — найпростіший тип колекції. Списки можуть містити елементи будь-якого типу, включаючи інші колекції.
 
-Lists in _ClojureScript_ are represented by items enclosed between parentheses:
+В ClojureScript списки представлені як ряд значень у круглих дужках:
 
-[source, clojure]
-----
+```clojure
 '(1 2 3 4 5)
 '(:foo :bar 2)
-----
+```
 
-As you can see, all list examples are prefixed with the `'` char. This is because
-lists in Lisp-like languages are often used to express things like function or macro
-calls. In that case, the first item should be a symbol that will evaluate to
-something callable, and the rest of the list elements will be function
-arguments. However, in the preceding examples, we don't want the first item as a
-symbol; we just want a list of items.
+Як ви можете бачити, приклади списків мають префікс `'`. Це тому, що в мовах родини Lisp списки часто використовуються для вираження виклику функції чи макросу. В такому випадку, першим елементом повинен бути символ, що означає щось, що можна викликати (функцію), а решта елементів будуть аргументами цієї функції. Однак, у цьому прикладі ми не хочемо, щоб перший елемент був символом; ми хочемо список елементів.
 
-The following example shows the difference between a list without and with the
-preceding single quote mark:
+Наступний приклад показує відмінність списку без та з одинарними лапками:
 
-[source, clojure]
-----
+```clojure
 (inc 1)
 ;; => 2
 
 '(inc 1)
 ;; => (inc 1)
-----
+```
 
-As you can see, if you evaluate `(inc 1)` without prefixing it with `'`, it will
-resolve the `inc` symbol to the *inc* function and will execute it with `1` as the
-first argument, returning the value `2`.
+Як ви можете побачити, якщо ви виконаєте `(inc 1)` без префіксу `'`, символ `inc` стане функцією, що буде выкликана з аргументом `1` і поверне результат `2`.
 
-You can also explicitly create a list with the `list` function:
+Список можна створити явно за допомогою функції `list`:
 
-[source, clojure]
-----
+```clojure
 (list 1 2 3 4 5)
 ;; => (1 2 3 4 5)
 
 (list :foo :bar 2)
 ;; => (:foo :bar 2)
-----
+```
 
-Lists have the peculiarity that they are very efficient if you access them
-sequentially or access their first elements, but a list is not a very good option if
-you need random (index) access to its elements.
+Списки особливі тим, що доступ до першого елементу та послідовний доступ до наступних є дуже ефективним, але вони не будуть вдалим вибором, коли вам потрібен випадковий (по індексу) доступ до елементів.
 
+##### Вектори
 
-##### Vectors
+Так само, як і списки, вектори містять ряд значень, але в цьому випадку, вони мають дуже ефективний доступ по індексу, на відміну від списків, які обчислюються поступово. Не турбуйтесь; в наступних частинах ми розглянемо це більш детально, але зараз простого пояснення буде більш ніж достатньо.
 
-Like lists, *vectors* store a series of values, but in this case, with very
-efficient index access to their elements, as opposed to lists, which are evaluated
-in order. Don't worry; in the following sections we'll go in depth with details, but
-at this moment, this simple explanation is more than enough.
+Вектори викорустовують квадратні дужки в синтаксисі літералу; давайте розглянемо кілька прикладів:
 
-Vectors use square brackets for the literal syntax; let's see some examples:
-
-[source, clojure]
-----
+```clojure
 [:foo :bar]
 [3 4 5 nil]
-----
+```
 
-Like lists, vectors can contain objects of any type, as you can observe in the
-preceding example.
+Як і списки, вектори можуть містити об’єкти будь-якого типу, що видно з попереднього прикладу.
 
-You can also explicitly create a vector with the `vector` function, but this is not
-commonly used in ClojureScript programs:
+Вектор також можна створити за допомогою функції `vector`, але звичайно це не використовується:
 
-[source, clojure]
-----
+```clojure
 (vector 1 2 3)
 ;; => [1 2 3]
 
 (vector "blah" 3.5 nil)
 ;; => ["blah" 3.5 nil]
-----
+```
 
-##### Maps
+##### Мапи
 
-Maps are a collection abstraction that allow you to store key/value pairs. In other
-languages, this type of structure is commonly known as a hash-map or dict
-(dictionary). Map literals in _ClojureScript_ are written with the pairs between
-curly braces.
+Мапа — це абстракція колекції, що дозволяє зберігати дані у вигляді пар ключ-значення. В інших мовах цей тип даних часто відомий як хеш-мапа або dict (словник). Літерал мапи в ClojureScript записується парами ключ-значення між фігурними дужками.
 
-[source, clojure]
-----
+```clojure
 {:foo "bar", :baz 2}
 {:alphabet [:a :b :c]}
-----
+```
 
-NOTE: Commas are frequently used to separate a key-value pair, but they are
-completely optional. In _ClojureScript_ syntax, commas are treated like spaces.
+> Примітка.
+>
+> Коми часто використовуються для поділу пар ключ-значення, але це не є обов’язковим. У синтаксисі ClojureScript, коми — це пробіли.
 
-Like vectors, every item in a map literal is evaluated before the result is stored
-in a map, but the order of evaluation is not guaranteed.
+Як і в векторах, кожен елемент в літералі мапи обчислюється перед збереженням у саму мапу, але порядок обчислення та збереження не гарантується.
 
+##### Множини
 
-##### Sets
+І нарешті, множини.
 
-And finally, *sets*.
+Множина — це невпорядкований ряд унікальних елементів будь-якого типу. Як і в мапах, літерал множини має фігурні дужки, але перед ними додається знак `#`. Можна також використовувати функцію `set` для конвертування колекцій у множини:
 
-Sets store zero or more unique items of any type and are unordered. Like maps, they
-use curly braces for their literal syntax, with the difference being that they use a
-`#` as the leading character. You can also use the `set` function to convert a
-collection to a set:
-
-[source, clojure]
-----
+```clojure
 #{1 2 3 :foo :bar}
 ;; => #{1 :bar 3 :foo 2}
 (set [1 2 1 3 1 4 1 5])
 ;; => #{1 2 3 4 5}
-----
+```
 
-In subsequent sections, we'll go in depth about sets and the other collection types
-you've seen in this section.
+У наступних розділах ми розглянемо множини та інші типи колекцій більш детально.
