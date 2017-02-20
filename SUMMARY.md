@@ -1,7 +1,7 @@
 # Зміст
 
 * [Розплутаний ClojureScript](/README.md)
-* Про цю книгу
+* [Про цю книгу](/manuscript/01-About-this-book.md)
 * Вступ
 * Мова (основи)
   * Перші кроки з Lisp–синтаксисом
