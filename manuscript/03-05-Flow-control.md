@@ -1,15 +1,10 @@
-### Flow control
+### Керування потоком виконання
 
-_ClojureScript_ has a very different approach to flow control than languages like
-JavaScript, C, etc.
+Підхід до керування потоком виконання програми у ClojureScript відрізняється від того, який зазвичай використовується в мовах JavaScript, C, та ін.
 
-#### Branching with `if`
+#### Розгалуження з `if`
 
-Let's start with a basic one: `if`. In _ClojureScript_, the `if` is an expression
-and not a statement, and it has three parameters: the first one is the condition
-expression, the second one is an expression that will be evaluated if the condition
-expression evaluates to logical true, and the third expression will be evaluated
-otherwise.
+Почнемо з основного: `if`. В ClojureScript `if` — це вираз з трьома параметрами: умова, вираз, що буде обчислений, якщо умова — логічне `true`, та вираз, що буде обчислений, коли умова — логічне `false`.
 
 ```clojure
 (defn discount
@@ -26,15 +21,13 @@ otherwise.
 ;; => 0.05
 ```
 
-The block expression `do` can be used to have multiple expressions in an `if`
-branch. `do` is explained in the next section.
+Блок виразів у формі `do` можна використати, в даному випадку, для того, щоб мати декілька виразів в одній із гілок `if`. Більше про `do` в наступній секції.
 
-#### Branching with `cond`
+#### Розгалуження з `cond`
 
-Sometimes, the `if` expression can be slightly limiting because it does not have the
-"else if" part to add more than one condition. The `cond` macro comes to the rescue.
+Деколи простого `if` може бути недостатньо, оскільки в ньому немає `else if`. Макрос `cond` вирішує цю проблему.
 
-With the `cond` expression, you can define multiple conditions:
+У виразі `cond` можна записати декілька умов:
 
 ```clojure
 (defn mypos?
@@ -51,9 +44,7 @@ With the `cond` expression, you can define multiple conditions:
 ;; => "negative"
 ```
 
-Also, `cond` has another form, called `condp`, that works very similarly to the
-simple `cond` but looks cleaner when the condition (also called a predicate) is the
-same for all conditions:
+Також `cond` має іншу, дуже схожу, форму — `condp`, яка підходить краще, коли усі умови мають однакову предикату:
 
 ```clojure
 (defn translate-lang-code
@@ -70,20 +61,13 @@ same for all conditions:
 ;; => "Unknown"
 ```
 
-The line `condp = (keyword code)` means that, in each of the following lines,
-_ClojureScript_ will apply the `=` function to the result of evaluating `(keyword
-code)`.
+Рядок `condp = (keyword code)` означає, що функція `=` буде викликана на кожній умові з результатом виразу `(keyword code)`.
 
+#### Розгалуження з `case`
 
-#### Branching with `case`
+Вираз розгалуження `case` схожий на `condp`. Головною відмінністю є те, що в `case` предикатою завжди буде `=`, а значення умов обчислюється під час компіляції. Саме тому ця форма ефективніша за `cond` та `condp`, але недоліком є те, що ці значення повинні бути статичні.
 
-The `case` branching expression has a similar use as our previous example with
-`condp`. The main differences are that `case` always uses the `=` predicate/function
-and its branching values are evaluated at compile time. This results in a more
-performant form than `cond` or `condp` but has the disadvantage that the condition
-value must be static.
-
-Here is the previous example rewritten to use `case`:
+Ось попередній приклад переписаний з використанням `case`:
 
 ```clojure
 (defn translate-lang-code
