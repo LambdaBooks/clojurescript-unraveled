@@ -1,47 +1,47 @@
-### Functions
+### Функції
 
-#### The first contact
+#### Знайомство
 
-It's time to make things happen. _ClojureScript_ has what are known as first class functions. They behave like any other type; you can pass them as parameters and you can return them as values, always respecting the lexical scope. _ClojureScript_ also has some features of dynamic scoping, but this will be discussed in another section. 
+Час переходити до активних дій! Функції у ClojureScript - це так звані об’єкти першого класу: за своєю поведінкою вони не відрізняються від інших типів. Такі функції можна передавати як аргументи або отримати як значення. Контекст при цьому завжди визначається статично. У певних ситуаціях ClojureScript підтримує динамічне визначення контексту, але про це ми поговоримо в іншому розділі. 
 
-If you want to know more about scopes, this link:http://en.wikipedia.org/wiki/Scope_(computer_science)[Wikipedia article] is very extensive and explains different types of scoping.
+За більш детальною інформацією щодо визначення контексту направляємо читачів до [статті з Вікіпедії](http://en.wikipedia.org/wiki/Scope_(computer_science)), у якій вичерпно роз’яснюються різні типи визначення контексту.
 
-As _ClojureScript_ is a Lisp dialect, it uses the prefix notation for calling a function:
+Для виклику функцій у ClojureScript використовується типова для діалектів Lisp префіксну нотацію:
 
 ```clojure
 (inc 1)
 ;; => 2
 ```
 
-In the example above, `inc` is a function and is part of the _ClojureScript_ runtime, and `1` is the first argument for the `inc` function.
+У наведеному прикладі `inc` - це функція та частина середовища виконання (рантайму) ClojureScript, а `1` - це перший аргумент функції `inc`. 
 
 ```clojure
 (+ 1 2 3)
 ;; => 6
 ```
 
-The `+` symbol represents an `add` function. It allows multiple parameters, whereas in ALGOL-type languages, `+` is an operator and only allows two parameters.
+Символ `+` представляє функцію додавання. На відміну від мов родини ALGOL, де знаком `+` позначається оператор додавання, що допускає лише два параметри, у ClojureScript  символ `+` означає функцію і кількість її параметрів не обмежена. 
 
-The prefix notation has huge advantages, some of them not always obvious. _ClojureScript_ does not make a distinction between a function and an operator; everything is a function. The immediate advantage is that the prefix notation allows an arbitrary number of arguments per "operator". It also completely eliminates the problem of operator precedence.
+Префіксна нотація має значні переваги, в тому числі досить неочевидні. ClojureScript не розрізняє функції та оператори, кожен оператор - це функція. Префіксна нотація знімає обмеження на кількість аргументів будь-якого “оператора”. Також префіксна нотація повністю усуває проблему пріоритету операторів.
 
 
-#### Defining your own functions   
+#### Визначення власних функцій  
 
-You can define an unnamed (anonymous) function with the `fn` special form. This is one type of function definition; in the following example, the function takes two parameters and returns their average. 
+Неіменовану (анонімну) функцію можна визначити за допомогою спеціальної форми `fn`. Це один з існуючих типів визначення функції. У наступному прикладі функція приймає два параметри та повертає їх середнє значення.  
 
 ```clojure
 (fn [param1 param2]
   (/ (+ param1 param2) 2.0))
 ```
 
-You can define a function and call it at the same time (in a single expression):
+Функцію можна визначити та викликати в одному виразі:
 
 ```clojure
 ((fn [x] (* x x)) 5)
 ;; => 25
 ```
 
-Let's start creating named functions. But what does a _named function_ really mean? It is very simple; in _ClojureScript_, functions are first-class and behave like any other value, so naming a function is done by simply binding the function to a symbol:
+Приступимо до створення іменованих функцій. Але спочатку спитаємо себе: що таке _іменована функція_? Все дуже просто: у ClojureScript функції - це об’єкти першого класу, що поводяться як будь-які інші значення, тому іменування функція - це поєднання функції та певного символа.
 
 ```clojure
 (def square (fn [x] (* x x)))
@@ -50,7 +50,7 @@ Let's start creating named functions. But what does a _named function_ really me
 ;; => 144
 ```
 
-_ClojureScript_ also offers the `defn` macro as a little syntactic sugar for making function definition more idiomatic:
+Також у ClojureScript існує макрос `defn` - синтаксичний цукор для більш виразного визначення фунцій:
 
 ```clojure
 (defn square
@@ -59,14 +59,14 @@ _ClojureScript_ also offers the `defn` macro as a little syntactic sugar for mak
   (* x x))
 ```
 
-The string that comes between the function name and the parameter vector is called a _docstring_ (documentation string); programs that automatically create web documentation from your source files will use these docstrings.
+Рядок між ім’ям функції та вектором параметрів називається _документаційним рядком_ _(docstring)_. Ці рядки будуть використані програмами, що автоматично створюють веб-документацію з сирцевих файлів.
 
 
-#### Functions with multiple arities
+#### Мультиарні функції
 
-_ClojureScript_ also comes with the ability to define functions with an arbitrary number of arguments. (The term _arity_ means the number of arguments that a function takes.) The syntax is almost the same as for defining an ordinary function, with the difference that it has more than one body.
+ClojureScript  підтримує можливість визначення мультиарних функції  - функцій зі змінною кількістю аргументів (термін “арність” вказує на допустиму кількість аргументів функції ). За синтаксисом мультиарні функції відрізняються від звичайних наявністю більш ніж одного тіла функції.
 
-Let's see an example, which will explain it better:
+Розглянемо на приклаlі:
 
 ```clojure
 (defn myinc
@@ -76,9 +76,9 @@ Let's see an example, which will explain it better:
    (+ x increment)))
 ```
 
-This line: `([x] (myinc x 1))` says that if there is only one argument, call the function `myinc` with that argument and the number `1` as the second argument. The other function body `([x increment] (+ x increment))` says that if there are two arguments, return the result of adding them.
+Рядок : `([x] (myinc x 1))`  означає, що за наявності лише одного аргумента слід викликати функцію  `myinc`  із цим аргументом та числом `1` у якості другого аргумента. Друге тіло функції `([x increment] (+ x increment))`  означає, що якщо аргументів два, слід повернути результат додавання цих аргументів.
 
-Here are some examples using the previously defined multi-arity function. Observe that if you call a function with the wrong number of arguments, the compiler will emit an error message.
+Наведемо приклади використання мультиарної функції, яку ми щойно визначили. Зверніть увагу: якщо ми викличемо функцію із невірною кількістю аргументів, компілятор повідомить про помилку.
 
 ```clojure
 (myinc 1)
@@ -91,11 +91,11 @@ Here are some examples using the previously defined multi-arity function. Observ
 ;; Compiler error
 ```
 
-NOTE: Explaining the concept of "arity" is out of the scope of this book, however you can read about that in this link:http://en.wikipedia.org/wiki/Arity[Wikipedia article].
+ЗАУВАЖЕННЯ: Концепція арності знаходиться за межами тем цієї книги, але ви можете ознайомитися з нею за цим посиланням: [Вікіпедія](http://en.wikipedia.org/wiki/Arity).
 
-#### Variadic functions
+#### Варіативні функції
 
-Another way to accept multiple parameters is defining variadic functions. Variadic functions are functions that accept an arbitrary number of arguments:
+Інший спосіб обходження із невизначеною кількістю аргументів - це створення варіативних функцій. Варіативні функції - такі функції, що приймають довільну кількість аргументів:
 
 ```clojure
 (defn my-variadic-set
@@ -106,12 +106,12 @@ Another way to accept multiple parameters is defining variadic functions. Variad
 ;; => #{1 2 3}
 ```
 
-The way to denote a variadic function is using the `&` symbol prefix on its arguments vector.
+Синтаксис варіативної функції передбачає символ `&` на початку вектора аргументів.
 
 
-#### Short syntax for anonymous functions
+#### Скорочений синтаксис анонімних функцій
 
-_ClojureScript_ provides a shorter syntax for defining anonymous functions using the `#()` reader macro (usually leads to one-liners). Reader macros are "special" expressions that will be transformed to the appropriate language form at compile time; in this case, to some expression that uses the `fn` special form.
+Для визначення анонімних функцій _ClojureScript_  пропонує скорочений синтаксис із використанням макросу читання `#()` (як правило, використовується із однорядковими функціями). Макроси читання - це спеціальні вирази, що трансформуються у відповідну мовну форму під час компіляції. У цьому випадку - у вираз, що використовує спеціальну форму  `fn`.
 
 ```clojure
 (def average #(/ (+ %1 %2) 2))
@@ -120,7 +120,7 @@ _ClojureScript_ provides a shorter syntax for defining anonymous functions using
 ;; => 3.5
 ```
 
-The preceding definition is shorthand for:
+Попередній вираз представляє собою скорочений запис наступного:
 
 ```clojure
 (def average-longer (fn [a b] (/ (+ a b) 2)))
@@ -129,11 +129,11 @@ The preceding definition is shorthand for:
 ;; => 7.5
 ```
 
-The `%1`, `%2`... `%N` are simple markers for parameter positions that are implicitly declared when the reader macro will be interpreted and converted to a `fn` expression. 
+Символи `%1`, `%2`... `%N` - це прості маркери позицій параметрів. Вони будуть імпліцитно оголошені під час інтрепретації макроса та конвертовані у вираз `fn` .  
 
-If a function only accepts one argument, you can omit the number after the `%` symbol, e.g., a function that squares a number: `#(* %1 %1))` can be written `++#++(* % %))`.
+Якщо функція приймає лише один аргумент, можна опустити число після символа`%&`. Наприклад, функцію, що підносить число до другого степеня `#(* %1 %1))` , можна записати так: `++#++(* % %))`.
 
-Additionally, this syntax also supports the variadic form with the `%&` symbol:
+Синтаксис також дозволяє використання варіативної форми із символом  `%&` :
 
 ```clojure
 (def my-variadic-set #(set %&))
