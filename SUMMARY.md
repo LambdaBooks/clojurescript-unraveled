@@ -4,7 +4,7 @@
 * [Про цю книгу](/manuscript/01-About-this-book.md)
 * [Вступ](/manuscript/02-Introduction.md)
 * Мова (основи)
-  * Перші кроки з Lisp–синтаксисом
+  * [Перші кроки з Lisp–синтаксисом](/manuscript/03-01-First-steps-with-Lisp-syntax.md)
   * Базові типи даних
   * Вари
   * Функції
