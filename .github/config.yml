@@ -8,6 +8,9 @@ labels:
   - name: chapter
     color: fbca04
 
+  - name: section
+    color: fef2c0
+
   # Finished chapters
   - name: done
     color: c7def8
