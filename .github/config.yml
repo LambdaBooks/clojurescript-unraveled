@@ -1,3 +1,12 @@
+repository:
+  # See https://developer.github.com/v3/repos/#edit for all available settings.
+  name: clojurescript-unraveled
+  description: Ukrainian translation of “ClojureScript Unraveled” by @funcool
+  homepage: https://lambdabooks.github.io/clojurescript-unraveled/
+  has_issues: true
+  has_wiki: false
+  default_branch: master
+
 # Labels: define labels for Issues and Pull Requests
 labels:
   # Bug with site or building system
