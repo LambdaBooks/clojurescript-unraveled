@@ -1,16 +1,10 @@
-### Locals, Blocks, and Loops
+### Локальні змінні, блоки та цикли
 
-#### Locals
+#### Локальні змінні
 
-_ClojureScript_ does not have the concept of variables as in ALGOL-like languages,
-but it does have locals. Locals, as per usual, are immutable, and if you try to
-mutate them, the compiler will throw an error.
+В ClojureScript немає поняття змінної, як в мовах родини ALGOL, але є так звані локальні зв'язування (для зручності будемо називати їх також змінними). Локальні змінні, за звичай, не змінюють свої значення. Якщо спробувати їх змінити, компілятор видасть повідомлення про помилку.
 
-Locals are defined with the `let` expression. The expression starts with a vector as
-the first parameter followed by an arbitrary number of expressions. The first
-parameter (the vector) should contain an arbitrary number of pairs that give a
-_binding form_ (usually a symbol) followed by an expression whose value will be
-bound to this new local for the remainder of the `let` expression.
+Локальні змінні створюються за допомогою виразу `let`. Вираз містить вектор і довільну послідовність виразів після нього. Вектор повинен мати пари значень, що описують зв'язування. Така пара складається з символу та виразу, значення якого буде зв'язано з цим символом. Локальні змінні доступні усім виразам, що містяться у тілі виразу `let`.
 
 ```clojure
 (let [x (inc 1)
@@ -21,23 +15,16 @@ bound to this new local for the remainder of the `let` expression.
 ;; => 6
 ```
 
-In the preceding example, the symbol `x` is bound to the value `(inc 1)`, which
-comes out to 2, and the symbol `y` is bound to the sum of `x` and 1, which comes out
-to 3. Given those bindings, the expressions `(println "Simple message from the body
-of a let")` and `(* x y)` are evaluated.
+У цьому прикладі символ `x` зв'язаний зі значенням виразу `(inc 1)`, що дорівнює `2`, а `y` зв'язаний з сумою `x` та `1`, що дорівнює `3`. Вирази `(println "Simple message from the body
+of a let")` та `(* x y)` обчислюються зі значеннями цих локальних змінних.
 
+#### Блоки
 
-#### Blocks
+У JavaScript фігурні дужки `{` та `}` виділяють окремий блок коду. У ClojureScript блоки створюються за допомогою виразу `do` і часто використовуються для виконання побічних ефектів, наприклад виведення у консоль або логування даних.
 
-In JavaScript, braces `{` and `}` delimit a block of code that “belongs
-together”. Blocks in _ClojureScript_ are created using the `do` expression and are
-usually used for side effects, like printing something to the console or writing a
-log in a logger.
+Побічний ефект — це вираз, який нічого не повертає.
 
-A side effect is something that is not necessary for the return value.
-
-The `do` expression accepts as its parameter an arbitrary number of other
-expressions, but it returns the return value only from the last one:
+Вираз `do` приймає довільну кількість виразів, але повертає значення лише останнього:
 
 ```clojure
 (do
@@ -51,32 +38,23 @@ expressions, but it returns the return value only from the last one:
 ;; => 3
 ```
 
-The body of the `let` expression, explained in the previous section, is very similar
-to the `do` expression in that it allows multiple expressions. In fact, the `let`
-has an implicit `do`.
+Тіло виразу `let`, про який ми говорили раніше, дуже схоже на вираз `do` тим, що воно теж приймає декілька виразів. Насправді `let` містить в собі неявний `do`.
 
+#### Цикли
 
-#### Loops
-
-The functional approach of _ClojureScript_ means that it does not have standard,
-well-known, statement-based loops such as `for` in JavaScript. The loops in
-_ClojureScript_ are handled using recursion.  Recursion sometimes requires
-additional thinking about how to model your problem in a slightly different way than
-imperative languages.
+Функціональний підхід в ClojureScript не обумовлює наявність стандартного механізму для створення циклів за допомогою спеціальних конструкцій, як наприклад цикл `for` у JavaScript. В ClojureScript цикли створюються за допомогою рекурсії. Рекурсія іноді потребує більше часу на моделювання рішення проблеми ніж цикли в імперативних мовах.
 
 Many of the common patterns for which `for` is used in other languages are achieved
 through higher-order functions - functions that accept other functions as
 parameters.
 
+Багато підходів, що використовують цикл `for` в інших мовах, досягаються за допомогою функцій вищого порядку — функції, що приймають інші функції.
 
-##### Looping with loop/recur
+##### Цикли за допомогою loop/recur
 
-Let's take a look at how to express loops using recursion with the `loop` and
-`recur` forms.  `loop` defines a possibly empty list of bindings (notice the
-symmetry with `let`) and `recur` jumps execution back to the looping point with new
-values for those bindings.
+Давайте розберемось як можна виразити цикл за допомогою форм `loop` та `recur`. `loop` містить вектор локальних змінних (так само, як `let`) та вираз, що ними оперує, а `recur` циклічно викликає `loop` з новими значеннями цих змінних.
 
-Let's see an example:
+Розглянемо приклад:
 
 ```clojure
 (loop [x 0]
@@ -84,20 +62,16 @@ Let's see an example:
   (if (= x 2)
     (println "Done looping!")
     (recur (inc x))))
-;; Looping with 0
-;; Looping with 1
-;; Looping with 2
-;; Done looping!
+;; Циклічный виклик з 0
+;; Циклічный виклик з 1
+;; Циклічный виклик з 2
+;; Цикл закінчився!
 ;; => nil
 ```
 
-In the above snippet, we bind the name `x` to the value `0` and execute the
-body. Since the condition is not met the first time, it's rerun with `recur`,
-incrementing the binding value with the `inc` function. We do this once more until
-the condition is met and, since there aren't any more `recur` calls, exit the loop.
+У цьому прикладі ми зв'язуємо значення `0` з символом `x` і виконуємо тіло циклу — вираз, у якому є умова. Під час першого виконання цього виразу, умова не справджується, тому `recur` повторює цикл в результатом виразу обчислення `(inc x)`. Так буде продовжуватись доки умова не виконається, і тоді цикл `loop` вийде з рекурсії повернувши результат.
 
-Note that `loop` isn't the only point we can `recur` to; using `recur` inside a
-function executes the body of the function recursively with the new bindings:
+Зауважимо, що за допомогою `recur` можна зациклювати не лише `loop`; `recur` в функції також створить рекурсивний виклик з новими значеннями аргументів:
 
 ```clojure
 (defn recursive-function
@@ -108,31 +82,25 @@ function executes the body of the function recursively with the new bindings:
     (recur (inc x))))
 
 (recursive-function 0)
-;; Looping with 0
-;; Looping with 1
-;; Looping with 2
-;; Done looping!
+;; Циклічный виклик з 0
+;; Циклічный виклик з 1
+;; Циклічный виклик з 2
+;; Цикл закінчився!
 ;; => nil
 ```
 
+##### Замінюємо цикл for на функції вищого порядку
 
-##### Replacing for loops with higher-order functions
+В імперативних мовах програмування цикл `for` часто використовується для ітерування даних і їх перетворення, за звичай це роблять у наступних випадках:
 
-In imperative programming languages it is common to use `for` loops to iterate over
-data and transform it, usually with the intent being one of the following:
+- Перетворити кожне значення у колекції і створити нову колекцію з цими значеннями
+- Відфільтрувати значення у колекції по деякому критерію
+- Перетворити колекцію у значення, коли кожна наступна ітерація залежить від результаті минулої
+- Виконати обчислення для кожного значення в колекції
 
-- Transform every value in the iterable yielding another iterable
-- Filter the elements of the iterable by certain criteria
-- Convert the iterable to a value where each iteration depends on the result from
-  the previous one
-- Run a computation for every value in the iterable
+В ClojureScript ці операції виражені за допомогою функцій вищого порядку та синтаксичних конструкцій; давайте розглянемо приклади для перших трьох випадків.
 
-The above actions are encoded in higher-order functions and syntactic constructs in
-ClojureScript; let's see an example of the first three.
-
-For transforming every value in an iterable data structure we use the `map`
-function, which takes a function and a sequence and applies the function to every
-element:
+Для перетворення елементів колекції ми використовуємо функцію `map`, яка приймає перетворюючу функцію та саму послідовність. Під час виконання функція викликається на кожному елементі з колекції і в результаті ми отримуємо нову колекцію:
 
 ```clojure
 (map inc [0 1 2])
@@ -144,6 +112,8 @@ returns a value.  For example, if you had a graphing application and you wanted 
 graph the equation `y&#160;=&#160;3x&#160;+&#160;5` for a set of _x_ values, you
 could get the _y_ values like this:
 
+Першим параметром в `map` може бути будь-яка функція що приймає один аргумент і повертає значення. Наприклад, якщо у вас був би застосунок для створення графіків і вам потрібно було б створити графік функції `y&#160;=&#160;3x&#160;+&#160;5` для ряду значень `x`, то ви могли б обчислити значення `y` наступним чином:
+
 ```clojure
 (defn y-value [x] (+ (* 3 x) 5))
 
@@ -151,8 +121,7 @@ could get the _y_ values like this:
 ;; => (8 11 14 17 20)
 ```
 
-If your function is short, you can use an anonymous function instead, either the
-normal or short syntax:
+Якщо функція невелика, то можна використати анонімну функцію, у звичайному чи скороченому вигляді:
 
 ```clojure
 (map (fn [x] (+ (* 3 x) 5)) [1 2 3 4 5])
@@ -162,39 +131,28 @@ normal or short syntax:
 ;; => (8 11 14 17 20)
 ```
 
-For filtering the values of a data structure we use the `filter` function, which
-takes a predicate and a sequence and gives a new sequence with only the elements
-that returned `true` for the given predicate:
+Для фільтрування елементів послідовності ми використовуємо функцію `filter`, яка приймає предикату і послідовність, та повертає нову, в якій залишились тільки ті елементи, для яких предиката повернула `true`:
 
 ```clojure
 (filter odd? [1 2 3 4])
 ;; => (1 3)
 ```
 
-Again, you can use any function that returns `true` or `false` as the first argument
-to `filter`.  Here is an example that keeps only words less than five characters
-long. (The `count` function returns the length of its argument.)
+Знову ж таки, першим аргументом в `filter` може бути будь-яка функція, що повертає `true` або `false`. В цьому прикладі ми створюємо колекцію, в якій кожен елемент — рядок довжиною менше п'яти знаків. (Функція `count` обчислює довжину значення.)
 
 ```clojure
 (filter (fn [word] (< (count word) 5)) ["ant" "baboon" "crab" "duck" "echidna" "fox"])
 ;; => ("ant" "crab" "duck" "fox")
 ```
 
-Converting an iterable to a single value, accumulating the intermediate result at
-every step of the iteration can be achieved with `reduce`, which takes a function
-for accumulating values, an optional initial value and a collection:
+Функція `reduce` використовується для перетворення колекції в значення. Цей процес називається згортуванням, коли колекція згортується у якесь значення через згортування попереднього згорнутого значення з наступним значенням в колекції. Функція `reduce` приймає згортуючу функцію та колекцію, а також необов'язкове початкове значення:
 
 ```clojure
 (reduce + 0 [1 2 3 4])
 ;; => 10
 ```
 
-Yet again, you can provide your own function as the first argument to `reduce`, but
-your function must have _two_ parameters. The first one is the "accumulated value"
-and the second parameter is the collection item being processed. The function
-returns a value that becomes the accumulator for the next item in the list.  For
-example, here is how you would find the sum of squares of a set of numbers (this is
-an important calculation in statistics). Using a separate function:
+`reduce` приймає будь-яку функцію, що приймає _два_ аргументи та повертає значення. Першим аргументом буде згорнуте значення, другим — наступне значення в колекції. Функція повертає значення, що буде згорнутим значенням (першим аргументом) в наступній ітерації. Наприклад, ось як можна використати `reduce`, щоб знайти суму квадратів усіх чисел у колекції (це часто використовується в статистиці):
 
 ```clojure
 (defn sum-squares
@@ -205,48 +163,39 @@ an important calculation in statistics). Using a separate function:
 ;; => 50
 ```
 
-...and with an anonymous function:
+...те ж саме за допомогою анонімної функції:
 
 ```clojure
 (reduce (fn [acc item] (+ acc (* item item))) 0 [3 4 5])
 ;; => 50
 ```
 
-Here is a `reduce` that finds the total number of characters in a set of words:
+Ось приклад з `reduce`, що обчислює сумарну довжину усіх рядків у колекції:
 
 ```clojure
 (reduce (fn [acc word] (+ acc (count word))) 0 ["ant" "bee" "crab" "duck"])
 ;; => 14
 ```
 
-We have not used the short syntax here because, although it requires less typing, it
-can be less readable, and when you are starting with a new language, it's important
-to be able to read what you wrote! If you are comfortable with the short syntax,
-feel free to use it.
+У цих прикладах ми не використовуємо синтаксис для скороченого запису анонімних функцій, щоб вам було легше читати та розуміти їх. Але це не означає, що скорочений запис не треба використовувати.
 
-Remember to choose your starting value for the accumulator carefully. If you wanted
-to use `reduce` to find the product of a series of numbers, you would have to start
-with one rather than zero, otherwise all the numbers would be multiplied by zero!
+Будьте уважні з початковим значенням для `reduce`. Наприклад, якщо вам треба знайти добуток усіх чисел в колекції, то починати треба з одиниці, а не з нуля, інакше усі числа будуть помножені на нуль!
 
 ```clojure
-;; wrong starting value
+;; неправильне початкове значення
 (reduce * 0 [3 4 5])
 ;; => 0
 
-;; correct starting accumulator
+;; правильне початкове значення
 (reduce * 1 [3 4 5])
 ;; => 60
 ```
 
+##### Створення послідовностей за допомогою `for`
 
-##### `for` sequence comprehensions
+В ClojureScript вираз `for` використовується не для ітерування, а для створення послідовностей. Ця операція також відома, як «sequence comprehension». В цьому розділі ми дізнаємось як вона працює та як її використовувати для декларативного створення послідовностей.
 
-In ClojureScript, the `for` construct isn't used for iteration but for generating
-sequences, an operation also known as "sequence comprehension". In this section
-we'll learn how it works and use it to declaratively build sequences.
-
-`for` takes a vector of bindings and an expression and generates a sequence of the
-result of evaluating the expression. Let's take a look at an example:
+`for` приймає вектор локальних зв'язувань та вираз, і створює послідовність, в якій кожним елементом є результат обчислення цього виразу з поточними значеннями локальних змінних. Давайте розглянемо такий приклад:
 
 ```clojure
 (for [x [1 2 3]]
@@ -254,12 +203,9 @@ result of evaluating the expression. Let's take a look at an example:
 ;; => ([1 1] [2 4] [3 9])
 ```
 
-In this example, `x` is bound to each of the items in the vector `[1 2 3]` in turn,
-and returns a new sequence of two-item vectors with the original item squared.
+У цьому прикладі символ `x` зв'язаний з поточним значенням з вектору `[1 2 3]`, а результатом обчислення усього виразу буде послідовність векторів з двох елементів, в яких другий елемент — квадрат поточного значення локальної змінної.
 
-`for` supports multiple bindings, which will cause the collections to be iterated in
-a nested fashion, much like nesting `for` loops in imperative languages. The
-innermost binding iterates “fastest.”
+`for` може мати декілька зв'язувань. Це утворить вкладені цикли, так само, як декілька вкладених циклів `for` у інших мовах. Кожен вкладений цикл буде виконуватись для кожного поточного значення поточного циклу.
 
 ```clojure
 (for [x [1 2 3]
@@ -269,12 +215,9 @@ innermost binding iterates “fastest.”
 ;; => ([1 4] [1 5] [2 4] [2 5] [3 4] [3 5])
 ```
 
-We can also follow the bindings with three modifiers: `:let` for creating local
-bindings, `:while` for breaking out of the sequence generation, and `:when` for
-filtering out values.
+Після визначення локальних зв'язувань для поточних значень можна використати три модифікатори: `:let` для створення додаткових локальних зв'язувань, `:while` для виходу с процесу створення колекції, та `:when` для фільтрування значень.
 
-Here's an example of local bindings using the `:let` modifier; note that the
-bindings defined with it will be available in the expression:
+Наступний приклад показує використання модифікатора `:let`; зауважимо, що локальні змінні створені у модифікаторі також доступні у основному виразі циклу:
 
 ```clojure
 (for [x [1 2 3]
@@ -284,8 +227,7 @@ bindings defined with it will be available in the expression:
 ;; => (5 6 6 7 7 8)
 ```
 
-We can use the `:while` modifier for expressing a condition that, when it is no
-longer met, will stop the sequence generation. Here's an example:
+Ми можемо використати модифікатор `:while` щоб створити умову, яка призведе до виходу з процесу створення колекції коли результатом її обчислення буде логічне `false`. Ось приклад:
 
 ```clojure
 (for [x [1 2 3]
@@ -296,8 +238,7 @@ longer met, will stop the sequence generation. Here's an example:
 ;; => ([1 4] [2 4] [3 4])
 ```
 
-For filtering out generated values, use the `:when` modifier as in the following
-example:
+Наступний приклад показує, як використовувати `:when` для фільтрування значень:
 
 ```clojure
 (for [x [1 2 3]
@@ -308,8 +249,7 @@ example:
 ;; => ([1 5] [2 4])
 ```
 
-We can combine the modifiers shown above for expressing complex sequence generations
-or more clearly expressing the intent of our comprehension:
+Усі модифікатори можна використовувати разом для вираження комплексного процесу створення послідовності:
 
 ```clojure
 (for [x [1 2 3]
@@ -321,13 +261,9 @@ or more clearly expressing the intent of our comprehension:
 ;; => ([1 5] [2 4])
 ```
 
-When we outlined the most common usages of the `for` construct in imperative
-programming languages, we mentioned that sometimes we want to run a computation for
-every value in a sequence, not caring about the result. Presumably we do this for
-achieving some sort of side-effect with the values of the sequence.
+Коли ми розглядали найбільш поширені випадки використання циклу `for` в імперативних мовах, ми зазначили, що іноді нам треба виконати якусь операцію для кожного значення в колекції, не створюючи при цьому нову. Звичайно це означає, що вам треба виконати деякі побічні дії для кожного значення в колекції.
 
-ClojureScript provides the `doseq` construct, which is analogous to `for` but
-executes the expression, discards the resulting values, and returns `nil`.
+В ClojureScript є конструкція `doseq`, що схожа на `for`, але після її обчислення повертається `nil`.
 
 ```clojure
 (doseq [x [1 2 3]
@@ -344,9 +280,7 @@ executes the expression, discards the resulting values, and returns `nil`.
 ;; => nil
 ```
 
-If you want just iterate and apply some side effectfull operation (like `println`)
-over each item in the collection, you can just use the specialized function `run!`
-that internally uses fast reduction:
+Якщо ви хочете лише проітерувати колекцію і виконати побічну дію для кожного значення (наприклад `println`), ви можете використати спеціально створену для цього функцію `run!`, що внутрішньо використовує швидке згортування:
 
 ```clojure
 (run! println [1 2 3])
@@ -356,4 +290,4 @@ that internally uses fast reduction:
 ;; => nil
 ```
 
-This function explicitly returns `nil`.
+Після обчислення повертається `nil`.
