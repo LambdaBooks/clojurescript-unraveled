@@ -4,12 +4,12 @@
 * [Про цю книгу](/manuscript/01-About-this-book.md)
 * [Вступ](/manuscript/02-Introduction.md)
 * Мова (основи)
-  * Перші кроки з Lisp–синтаксисом
-  * Базові типи даних
-  * Змінні
-  * Функції
-  * Керування потоком виконання
-  * Істинність
+  * [Перші кроки з Lisp–синтаксисом](/manuscript/03-01-First-steps-with-Lisp-syntax.md)
+  * [Базові типи даних](/manuscript/03-02-The-base-data-types.md)
+  * [Змінні](/manuscript/03-03-Vars.md)
+  * [Функції](/manuscript/03-04-Functions.md)
+  * [Керування потоком виконання](/manuscript/03-05-Flow-control.md)
+  * [Істинність](/manuscript/03-06-Truthiness.md)
   * Локальні зв'язування, блоки та цикли
   * Типи колекцій
   * Деструктурування
