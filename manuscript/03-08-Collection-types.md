@@ -1,12 +1,12 @@
-### Collection types
+### Типи колекцій
 
-#### Immutable and persistent
+#### Незмінність та стійкість
 
-We mentioned before that ClojureScript collections are persistent and immutable, but we didn't explain what that meant.
+Раніше ми вже згадували про те, що колекції у ClojureScript  незмінні (immutable) та стійкі(persistent), але не пояснювали значення цих термінів.
 
-An immutable data structure, as its name suggests, is a data structure that cannot be changed. In-place updates are not allowed in immutable data structures.
+Незмінна структура даних, як свідчить назва, не може бути змінена, а саме: не дозволяється безпосереднє оновлення даних без створення допоміжних структур. 
 
-Let's illustrate that with an example: appending values to a vector using the `conj` (conjoin) operation.
+Продемонструємо дію цього принципу на наступному прикладі: спробуємо додати нове значення до вектора за допомогою операції `conj` (conjoin). 
 
 ```cljs
 (let [xs [1 2 3]
@@ -19,13 +19,13 @@ Let's illustrate that with an example: appending values to a vector using the `c
 ;; => nil
 ```
 
-As you can see, we derived a new version of the `xs` vector appending an element to it and got a new vector `ys` with the element added. However, the `xs` vector remained unchanged because it is immutable.
+Як бачимо, додавши елемент до вектора `xs`, ми створили нову версію цього вектора, що містить доданий елемент.  При цьому вектор  `xs`  залишився в оригінальному стані, бо він незмінний.
 
-A persistent data structure is a data structure that returns a new version of itself when transforming it, leaving the original unmodified. ClojureScript makes this memory and time efficient using an implementation technique called _structural sharing_, where most of the data shared between two versions of a value is not duplicated and transformations of a value are implemented by copying the minimal amount of data required.
+Стійка структура даних - це така структура, що при трансформації повертає нову версію самої себе та лишається не зміненою.  Завдяки техніці _structural sharing_  (спільне користування структурами) ClojureScript проводить такі трансформації ефективно з точки зору використання пам’яті та швидкості. Спільне користування структурами дозволяє при трансформації не дублювати більшу частину даних, спільних для старої та нової версії. Натомість копіюється лише необхідний для трансформацій значення мінімум даних. 
 
-If you want to see an example of how structural sharing works, read on. If you're not interested in more details you can skip over to the xref:the-sequence-abstraction[next section].
+Далі ми розглянемо приклад спільного користування структурами, тому, якщо ви не цікавитеся деталями таких операцій, ви можете перейти одразу до наступного розділу.
 
-For illustrating the structural sharing of ClojureScript data structures, let's compare whether some  parts of the old and new versions of a data structure are actually the same object with the `identical?` predicate. We'll use the list data type for this purpose:
+ Щоб показати роботу спільних структур, порівняємо за допомогою предикати `identical?` оригінальну та нову версію списку та перевіримо, чи є частини цих двох версій тим самим обʼєктом:
 
 ```cljs
 (let [xs (list 1 2 3)
@@ -41,16 +41,15 @@ For illustrating the structural sharing of ClojureScript data structures, let's 
 ;; => true
 ```
 
-As you can see in the example, we used `cons` (construct) to prepend a value to the `xs` list and we got a new list `ys` with the element added. The `rest` of the `ys` list (all the values but the first) are the same object in memory as the `xs` list, thus `xs` and `ys` share structure. 
+Як видно з прикладу, ми додали у початок списку `xs` нове значення за допомогою функції `cons` (construct) і отримали новий список `ys`, що містить доданий елемент. Далі, ми викликали функцію  `rest`  та отримали усі значення списку  `ys`,  окрім першого, та переконалися, що ці значення є той самий об’єкт у пам’яті, яким є список `xs`. Отож, списки `xs` та `ys` мають спільну структурну частину.
 
 
-[[the-sequence-abstraction]]
-### The sequence abstraction
+### Абстрація “послідовність”
 
-One of the central ClojureScript abstractions is the _sequence_ which can be thought of as a list and can be derived from any of the collection types. It is persistent and immutable like all collection types, and many of the core ClojureScript functions return sequences.
+_Послідовність_ - одна з найважливіших абстракцій у ClojureScript. Послідовність можна розуміти як список, що може бути створений на основі елементу будь-якого типу колекцій. Це стійка та незмінна структура, як усі типи колекцій. Значна частина функцій стандартної бібіліотеки ClojureScript повертає саме послідовності.
 
-The types that can be used to generate a sequence are called "seqables"; we can call `seq` on them and get a sequence back. Sequences support two basic operations: `first` and `rest`. They both call `seq` on the argument we provide them:
-
+Типи колекцій, які можуть створювати послідовності, називаються "seqables" - “спископодібні”. Після виклику функції `seq` з ними ми отримаємо послідовність.   Дві основні операції, які можна виконувати на послідовностях, це `first` (повернути перше значення) та `rest` (повернути усі значення, окрім першого). Обидві операції викликають функцію `seq`  з аргументами, які отримують: 
+  
 ```cljs
 (first [1 2 3])
 ;; => 1
@@ -59,7 +58,7 @@ The types that can be used to generate a sequence are called "seqables"; we can 
 ;; => (2 3)
 ```
 
-Calling `seq` on a seqable can yield different results if the seqable is empty or not. It will return `nil` when empty and a sequence otherwise:
+Виклик функції  `seq`  зі спископодібним об’єктом може привести до різних результатів залежно від того, чи був спископодібний об’єкт порожнім. Відповідно, функція `seq` поверне або значення `nil`, або послідовність:
 
 ```cljs
 (seq [])
@@ -69,7 +68,9 @@ Calling `seq` on a seqable can yield different results if the seqable is empty o
 ;; => (1 2 3)
 ```
 
-`next` is a similar sequence operation to `rest`, but it differs from the latter in that it yields a `nil` value when called with a sequence with one or zero elements. Note that, when given one of the aforementioned sequences, the empty sequence returned by `rest` will evaluate as a boolean true whereas the `nil` value returned by `next` will evaluate as false (xref:truthiness-section[see the section on _truthiness_ later in this chapter]).
+`next` - операція, схожа на `rest`, але `next` повертає значення  `nil`, якщо передати їй послідовність, що містить лише один елемент або не містить жодного.
+Зауважимо, що у такому випадку порожня послідовність як результат роботи `rest` буде обчислена як логічне true,  у той час як `nil`, що буде результатом роботи `next`, обчислиться як логічне `false`. 
+Докладніше про це розповідається у розділі про істинність цієї глави.
 
 ```cljs
 (rest [])
@@ -85,9 +86,9 @@ Calling `seq` on a seqable can yield different results if the seqable is empty o
 ;; => (2 3)
 ```
 
-##### nil-punning
+##### Використання багатозначност `nil`
 
-Since `seq` returns `nil` when the collection is empty, and `nil` evaluates to false in boolean context, you can check to see if a collection is empty by using the `seq` function. The technical term for this is nil-punning.
+Отож, `seq` при виклику з порожньою колекцією повертає значення `nil`, а `nil` обчислюється як логічне `false`. Ми можеме скоритатися цим знанням для виявлення порожніх колекцій. Такий прийом називається використанням багатозначності `nil` (nil-punning).
 
 ```cljs
 (defn print-coll
@@ -109,7 +110,7 @@ Since `seq` returns `nil` when the collection is empty, and `nil` evaluates to f
 ;; => nil
 ```
 
-Though `nil` is neither a seqable nor a sequence, it is supported by all the functions we saw so far:
+`nil` не є ані спископодібним елементом, ані послідовністю, але усі функції, які ми розглядали раніше, приймають це значення.
 
 ```cljs
 (seq nil)
@@ -123,9 +124,9 @@ Though `nil` is neither a seqable nor a sequence, it is supported by all the fun
 ```
 
 
-##### Functions that work on sequences
+##### Функції для роботи з послідовностями
 
-The ClojureScript core functions for transforming collections make sequences out of their arguments and are implemented in terms of the generic sequence operations we learned about in the preceding section. This makes them highly generic because we can use them on any data type that is seqable. Let's see how we can use `map` with a variety of seqables:
+Функції стандартної бібіліотеки ClojureScript, призначені для трансформування колекцій, створюють послідовності зі своїх аргументів та, в свою чергу, імплементовані за допомогою стандартних операцій на послідовностях, які ми розглянули у попередньому розділі. Завдяки цьому такі функції універсальні, бо ми можемо використати їх із будь-яким типом даних, що може бути перетворений на послідовність. Подивимося на використання функції `map` із різними спископодібними структурами:
 
 ```cljs
 (map inc [1 2 3])
@@ -141,7 +142,8 @@ The ClojureScript core functions for transforming collections make sequences out
 ;; => (2 3 4)
 ```
 
-NOTE: When you use the `map` function on a map collection, your higher-order function will receive a two-item vector containing a key and value from the map. The following example uses xref:destructuring-section[destructuring] to access the key and value.      
+
+>ЗАУВАЖЕННЯ: при виклику функції `map` із колекцією типу “мапа” функція вищого порядку отримує двохелементний вектор, що містить ключ та значення з мапи. Для доступу до ключів та значень у наступному прикладі використовується деструктурування:      
 
 ```cljs
 (map (fn [[key value]] (* value value))
@@ -149,7 +151,7 @@ NOTE: When you use the `map` function on a map collection, your higher-order fun
 ;; => (100 49 16)
 ```
 
-Obviously the same operation can be done in more idiomatic way only obtaining a seq of values:
+Звичайно, така операція може бути проведена у більш ідіоматичний спосіб, якщо натомість передати `map` спископодібну послідовності, що містить лише значення:
 
 ```cljs
 (map (fn [value] (* value value))
@@ -157,7 +159,7 @@ Obviously the same operation can be done in more idiomatic way only obtaining a 
 ;; => (100 49 16)
 ```
 
-As you may have noticed, functions that operate on sequences are safe to use with empty collections or even `nil` values since they don't need to do anything but return an empty sequence when encountering such values.
+Можливо, ви вже помітили, що функції, які маніпулюють послідовностями, можуть бути викликані із порожніми колекціями, та навіть із значеннями  `nil`, без помилки: у таких випадках вони лише повертають порожню колекцію.
 
 ```cljs
 (map inc [])
@@ -170,9 +172,9 @@ As you may have noticed, functions that operate on sequences are safe to use wit
 ;; => ()
 ```
 
-We already saw examples with the usual suspects like `map`, `filter`, and `reduce`, but ClojureScript offers a plethora of generic sequence operations in its core namespace. Note that many of the operations we'll learn about either work with seqables or are extensible to user-defined types.
+Ми бачили приклади із найбільш часто вживаними функціями, що працюють із колекціями -  `map`, `filter`, та `reduce`. Та насправді простір імен стандартної бібліотеки ClojureScript  пропонує велику кількість універсальних операцій на колекціях. Зауважимо, що значна частина операцій, які ми розглядатимемо далі, або працюють зі спископодібними типами, або можуть бути розширені до використання типів, визначених користувачем.
 
-We can query a value to know whether it's a collection type with the `coll?` predicate:
+Предиката  `coll?` дозволяє перевірити, чи є певний елемент колекцією:
 
 ```cljs
 (coll? nil)
@@ -188,7 +190,7 @@ We can query a value to know whether it's a collection type with the `coll?` pre
 ;; => false
 ```
 
-Similar predicates exist for checking if a value is a sequence (with `seq?`) or a seqable (with `seqable?`):
+Існують схожі за функціональністю предикати для перевірки, чи є певне значення послідовністю (`seq?`) або спископодібним типом (`seqable?`):
 
 ```cljs
 (seq? nil)
@@ -212,7 +214,7 @@ Similar predicates exist for checking if a value is a sequence (with `seq?`) or 
 ;; => false
 ```
 
-For collections that can be counted in constant time, we can use the `count` operation. This operation also works on strings, even though, as you have seen, they are not collections, sequences, or seqable. 
+Для колекцій, які можуть бути пораховані протягом фіксованого проміжку часу, доступна операція `count`. З рядками `count` теж працює, хоча рядки не належать ані до колекцій, ані до послідовностей, ані до спископодібних.
 
 ```cljs
 (count nil)
@@ -228,7 +230,7 @@ For collections that can be counted in constant time, we can use the `count` ope
 ;; => 13
 ```
 
-We can also get an empty variant of a given collection with the `empty` function: 
+Ми можемо отримати порожній варіант певної колекції за допомогою функції `empty`: 
 
 ```cljs
 (empty nil)
@@ -241,7 +243,7 @@ We can also get an empty variant of a given collection with the `empty` function
 ;; => #{}
 ```
 
-The `empty?` predicate returns true if the given collection is empty:
+Предиката  `empty?` повертає значеня true,  якщо її аргумент - порожня колекція:
 
 ```cljs
 (empty? nil)
@@ -254,8 +256,8 @@ The `empty?` predicate returns true if the given collection is empty:
 ;; => false
 ```
 
-The `conj` operation adds elements to collections and may add them in different "places" depending on the type of collection. It adds them where it is most performant for the collection type, but note that not every collection has a defined order. 
-We can pass as many elements as we want to add to `conj`; let's see it in action:
+Операція `conj` додає елементи до колекцій. Нові елементи розміщуються на тих позиціях колекції, де це найбільш продуктивно для певного типу колекцій. При цьому не кожна колекція має визначений порядок.
+Кількість аргументів  `conj`  не обмежена. Розглянемо на прикладі:
 
 ```cljs
 (conj nil 42)
@@ -278,11 +280,13 @@ We can pass as many elements as we want to add to `conj`; let's see it in action
 ```
 
 
-##### Laziness
+##### Схильність до лінивої поведінки
 
-Most of ClojureScript's sequence-returning functions generate lazy sequences instead of eagerly creating a whole new sequence. Lazy sequences generate their contents as they are requested, usually when iterating over them. Laziness ensures that we don't do more work than we need to and gives us the possibility of treating potentially infinite sequences as regular ones.
 
-Consider the `range` function, which generates a range of integers:
+Більшість функцій  ClojureScript, що повертають послідовності, не створюють одразу усю послідовність. Натомість вони створюють так звані ліниві послідовності. Ліниві послідовності генерують свій вміст у той момент, коли на нього надходить запит, зазвичай у формі ітерування. Схильність до лінивої поведінки дозволяє не робити більше роботи, ніж необхідно, та надає можливість розглядати потенційно бескінечні послідовності як звичайні. 
+
+Розглянемо функцію `range`, яка повертає цілі числа у межах визначеного інтервалу:
+
 
 ```cljs
 (range 5)
@@ -293,8 +297,8 @@ Consider the `range` function, which generates a range of integers:
 ;; (10 25 40 55 70 85)
 ```
 
-If you just say `(range)`, you will get an infinite sequence of all the integers. Do *not* try this in the REPL, unless you are prepared to wait for a very, very long time, because the REPL wants to fully evaluate the expression. 
-Here is a contrived example. Let's say you are writing a graphing program and you are graphing the equation _y_= 2 _x_ ^2^ + 5, and you want only those values of _x_ for which the _y_ value is less than 100. You can generate all the numbers 0 through 100, which will certainly be enough, and then `take-while` the condition holds:
+Якщо викликати  `(range)` без аргументів, то результатом буде нескінченна послідовність цілих чисел. Не відтворюйте цю пораду у REPL, якщо не готові чекати на результат дуже, дуже довго, бо REPL прагне обчислити вираз цілком. 
+Ось дещо штучний приклад. Скажімо, ви пишете програму для створення графіків і вам необхідно створити графік рівняння  `y&#160;=&#160;3x&#160;+&#160;5`.  Ви хочете відібрати лише ті значення _x_, для яких значення _y_ не перевищує 100. Ви можете згенерувати усі числа в диапазоні від 0 до 100, що буде більш ніж достатньо, викликати функцію  `take-while` і передати їй необхідну умову:
 
 ```cljs
 (take-while (fn [x] (< (+ (* 2 x x) 5) 100))
@@ -302,39 +306,41 @@ Here is a contrived example. Let's say you are writing a graphing program and yo
 ;; => (0 1 2 3 4 5 6)
 ```
 
-#### Collections in depth
+####  Поглиблене вивчення колекцій
 
-Now that we're acquainted with ClojureScript's sequence abstraction and some of the generic sequence manipulating functions, it's time to dive into the concrete collection types and the operations they support.
+Ми познайомилися із абстрацією послідовності у ClojureScript та з деякими універсальними функціями для роботи з колекціями. Час перейти до вивчення окремих типів колекцій та операцій, які вони підтримують. 
 
 
-##### Lists
+##### Списки
 
-In ClojureScript, lists are mostly used as a data structure for grouping symbols together into programs. Unlike in other Lisps, many of the syntactic constructs of ClojureScript use data structures different from the list (vectors and maps).  This makes code less uniform, but the gains in readability are well worth the price. 
+Списки у ClojureScript використовуються переважно для групування символів у програму. На відміну від інших діалектів Лісп, у ClojureScript значна частина синтаксичних конструкцій вимагає використання не списків, а векторів та мап. Код стає менш однорідним, але простійшим для читання, тому таке рішення цілком виправдане.
 
-You can think of ClojureScript lists as singly linked lists, where each node contains a value and a pointer to the rest of the list. This makes it natural (and fast!) to add items to the front of the list, since adding to the end would require traversal of the entire list. The prepend operation is performed using the `cons` function.
+
+Списки ClojureScript можна розглядати як однобічно пов’язані структури, де кожен вузол містить значення та вказівник на решту списку. Тому найбільш природним (та швидким) способом додавання нових елементів буде вставка на початку списку, адже для додавання нового елемента у кінці списку доведеться пройти весь список. Додавання елементу на початку здійснюється за допомогою функції `cons`.
 
 ```cljs
 (cons 0 (cons 1 (cons 2 ())))
 ;; => (0 1 2)
 ```
 
-We used the literal `()` to represent the empty list. Since it doesn't contain any symbols, it is not treated as a function call. However, when using list literals that contain elements, we need to quote them to prevent ClojureScript from evaluating them as a function call:
+Ми вже використовували літерал `()` у значенні порожнього списка. Через те, що він не містить жодного символа, він не сприймається компілятором як виклик функції. Але не варто забувати: літерали, що містять елементи, слід цитувати, аби ClojureScript не обчислював їх як виклик функції:
 
 ```cljs
 (cons 0 '(1 2))
 ;; => (0 1 2)
 ```
 
-Since the head is the position that has constant time addition in the list collection, the `conj` operation on lists naturally adds items to the front: 
+Додавання елементів до "голови" списку займає постійний час, тому опеарція `conj` додає нові елементи саме на початку.  
+
 
 ```cljs
 (conj '(1 2) 0)
 ;; => (0 1 2)
 ```
 
-Lists and other ClojureScript data structures can be used as stacks using the `peek`, `pop`, and `conj` functions. Note that the top of the stack will be the "place" where `conj` adds elements, making ` onj` equivalent to the stack's push operation. In the case of lists, `conj` adds elements to the front of the list, `peek` returns the first element of the list, and `pop` returns a list with all the elements but the first one.
+Списки та інші структури даних у ClojureScript при виклику функцій `peek`, `pop`, та `conj` функціонують як стек. Зверніть увагу: функція `conj` додає нові елементи до верхівки стеку і таким чином виступає як еквівалент операції push. При виклику зі списком `conj` додає елементи на початку списку, `peek` повертає перший елемент списку, `pop` - усі елементи, окрім першого. 
 
-Note that the two operations that return a stack (`conj` and `pop`) don't change the type of the collection used for the stack.
+Зауважимо, що операції, які повертають стек - `conj` та `pop` - не змінюють тип колекції, з якої був створений стек.
 
 ```cljs
 (def list-stack '(0 1 2))
@@ -355,14 +361,14 @@ Note that the two operations that return a stack (`conj` and `pop`) don't change
 ;; => cljs.core/List
 ```
 
-One thing that lists are not particularly good at is random indexed access. Since they are stored in a single linked list-like structure in memory, random access to a given index requires a linear traversal in order to either retrieve the requested item or throw an index out of bounds error. Non-indexed ordered collections like lazy sequences also suffer from this limitation. 
+Слабке місце списків - ускладнений довільний доступ до елементу за індексом. Списки зберігаються у памʼяті як стурктури, подібні до однобічно зв'язаного списку, тому доступ до елементу за заданим індексом вимагає лінійного обходу, в ході якого буде знайдене необхідне значення, або виникне помилка виходу індексу за допустимі межі. Ці обмеження характерні також для неіндексованих впорядкованих колекцій - лінивих послідовностей та інших.
 
 
-##### Vectors
+##### Вектори
 
-Vectors are one of the most common data structures in ClojureScript. They are used as a syntactic construct in many places where more traditional Lisps use lists, for example in function argument declarations and `let` bindings.
+Вектори належать до найбільш розповсюджених структур даних у ClojureScript. Вони використовуються як синтаксичні конструкти у багатьох випадках, де більш традиційні діалекти Лісп вимагають списків. Прикладом може бути декларація аргументів функцій або оголошення локальних змінних за допомогою `let`.
 
-ClojureScript vectors have enclosing brackets `[]` in their syntax literals. They can be created with `vector` and from another collection with `vec`:
+Синтаксичний літерал вектора у ClojureScript передбачає прямокутні дужки `[]`. Вектори також можуть бути створені за домогою операції `vector` або при виклику функції `vec` із колекцією:
 
 ```cljs
 (vector? [0 1 2])
@@ -375,28 +381,28 @@ ClojureScript vectors have enclosing brackets `[]` in their syntax literals. The
 ;; => [0 1 2]
 ```
 
-Vectors are, like lists, ordered collections of heterogeneous values. Unlike lists, vectors grow naturally from the tail, so the `conj` operation appends items to the end of a vector. Insertion on the end of a vector is effectively constant time:
+Подібно до списків, вектори являють собою впорядковані колекції різнорідних значень, але списки та вектори ростуть з різних країв: операція `conj` додає елементи на кінець вектора. Вставка нового елемента у кінці вектора займає фіксований час:
 
 ```cljs
 (conj [0 1] 2)
 ;; => [0 1 2]
 ```
 
-Another thing that differentiates lists and vectors is that vectors are indexed collections and as such support efficient random index access and non-destructive updates. We can use the `nth` function to retrieve values given an index:
+ Інша відмінність векторів від списків полягає у тому, що вектори - це індексовані колекції, що підтримують довільний доступ до елементів за індексом та безпечне оновлення значень. Для отримання значення за обраним індексом використовується функція `nth`. 
 
 ```cljs
 (nth [0 1 2] 0)
 ;; => 0
 ```
 
-Since vectors associate sequential numeric keys (indexes) to values, we can treat them as an associative data structure. ClojureScript provides the `assoc` function that, given an associative data structure and a set of key-value pairs, yields a new data structure with the values corresponding to the keys modified. Indexes begin at zero for the first element in a vector.
+Вектори зʼєднують послідовні числові ключі (індекси) та значення, тому ми можемо працювати з ними як із асоційованими структурами даних. ClojureScript має функцію  `assoc`, яка отримує асоційовану структуру даних та множину пар типу "ключ-значення" та створює нову структуру даних, що містить значення, які відповідають зміненим ключам. Нумерація індексів починаються з нуля, що вказує на перший елемент вектора. 
 
 ```cljs
 (assoc ["cero" "uno" "two"] 2 "dos")
 ;; => ["cero" "uno" "dos"]
 ```
 
-Note that we can only `assoc` to a key that is either contained in the vector already or if it is the last position in a vector:
+Зверніть увагу: використати фунцію  `assoc` можна із ключем, що вже міститься у векторі, або якщо задана позиція буде останньою у векторі:
 
 ```cljs
 (assoc ["cero" "uno" "dos"] 3 "tres")
@@ -406,7 +412,7 @@ Note that we can only `assoc` to a key that is either contained in the vector al
 ;; Error: Index 4 out of bounds [0,3]
 ```
 
-Perhaps surprisingly, associative data structures can also be used as functions. They are functions of their keys to the values they are associated with. In the case of vectors, if the given key is not present an exception is thrown:
+Може здатися дивним, але асоційовані структури даних також можуть бути викликані як функції. Вектору можна передати ключ та отримати повʼязане за цим ключем значення. Якщо заданий ключ відстуній, з'явиться помилка:
 
 ```cljs
 (["cero" "uno" "dos"] 0)
@@ -419,7 +425,7 @@ Perhaps surprisingly, associative data structures can also be used as functions.
 ;; Error: Not item 3 in vector of length 3
 ```
 
-As with lists, vectors can also be used as stacks with the `peek`, `pop`, and `conj` functions. Note, however, that vectors grow from the opposite end of the collection as lists:
+Подібно по списків, вектори також можуть функціонувати як стеки при виклику функцій `peek`, `pop` та `conj`. Але слід зауважити, що на відміну від списків, зростання векторів відбувається з кінця колекції:
 
 ```cljs
 (def vector-stack [0 1 2])
@@ -440,7 +446,7 @@ As with lists, vectors can also be used as stacks with the `peek`, `pop`, and `c
 ;; => cljs.core/PersistentVector
 ```
 
-The `map` and `filter` operations return lazy sequences, but as it is common to need a fully realized sequence after performing those operations, vector-returning counterparts of such functions are available as `mapv` and `filterv`. They have the advantages of being faster than building a vector from a lazy sequence and making your intent more explicit:
+Операції `map` та `filter` повертають ліниві послідовності, але дуже часто при роботі з векторами ми очікуємо отримати вже реалізовану послідовність, тому існують еквіваленти таких операцій, що повертають вектори - `mapv` та `filterv`. Такі операції працюють швидше, ніж побудова вектора на основі лінивої колекції; також використання `mapv` та `filterv` робить ваші наміри більш чіткими.
 
 ```cljs
 (map inc [0 1 2])
@@ -456,11 +462,11 @@ The `map` and `filter` operations return lazy sequences, but as it is common to 
 ;; => cljs.core/PersistentVector
 ```
 
-##### Maps
+##### Мапи
 
-Maps are ubiquitous in ClojureScript. Like vectors, they are also used as a syntactic construct, particularly for attaching xref:metadata-section[metadata] to vars. Any ClojureScript data structure can be used as a key in a map, although it's common to use keywords since they can also be called as functions.
+Мапи у ClojureScript використовуються дуже широко. Подібно до векторів, вони виступають як синтаксичний конструкт, у першу чергу для додавання мета-даних до змінних. Будь-яка структура даних у ClojureScript може бути використана як ключі у мапі, але найчастіше представлені ключові слова, бо вони також можуть бути викливані як фунції. 
 
-ClojureScript maps are written literally as key-value pairs enclosed in braces `{}`. Alternatively, they can be created with the `hash-map` function:
+Літерал мапи у ClojureScript - це фігурні дужки, що містять пари типу "ключ - значення". Також для створення мап доступна функція `hash-map`.
 
 ```cljs
 (map? {:name "Cirilla"})
@@ -473,7 +479,7 @@ ClojureScript maps are written literally as key-value pairs enclosed in braces `
 ;; => {:name "Cirilla" :surname "Fiona"}
 ```
 
-Since regular maps don't have a specific order, the `conj` operation just adds one or more key-value pairs to a map. `conj` for maps expects one or more sequences of key-value pairs as its last arguments:
+ Звичайні мапи не мають визначеного порядку, тому операція `conj`  додає нову пару типу "ключ-значення" у невизначеній позиції. Операція `conj` при використанні з мапою має отримати останнім аргументом одну чи більше послідовностей пар "ключ-значення": 
 
 ```cljs
 (def ciri {:name "Cirilla"})
@@ -485,9 +491,9 @@ Since regular maps don't have a specific order, the `conj` operation just adds o
 ;; => {:name "Cirilla", :surname "Fiona", :occupation "Wizard"}
 ```
 
-In the preceding example, it just so happens that the order was preserved, but if you have many keys, you will see that the order is not preserved.
+У попередньому прикладі порядок був збережений випадково, але за наявності великої кількості ключів ви побачите, что за нормальних умов порядок не зберігається.
 
-Maps associate keys to values and, as such, are an associative data structure. They support adding associations with `assoc` and, unlike vectors, removing them with `dissoc`. `assoc` will also update the value of an existing key. Let's explore these functions:
+Мапи поєднують ключі та значення і, таким чином є асоційованими структурами. Вони дозволяють додавати нові асоціації за допомогою функції `assoc` та, на відміну від векторів, дозволяють видаляти існуючі асоціації за допомогою функції `dissoc`. `assoc` також може актуалізувати значення існуючого ключа. Давайте подивимося на роботу цих функцій:
 
 ```cljs
 (assoc {:name "Cirilla"} :surname "Fiona")
@@ -498,7 +504,8 @@ Maps associate keys to values and, as such, are an associative data structure. T
 ;; => {}
 ```
 
-Maps are also functions of their keys, returning the values related to the given keys. Unlike vectors, they return `nil` if we supply a key that is not present in the map:
+
+Мапи - це функції від своїх ключів, що повертають значення за обраним ключем. На відміну від векторів, мапи повертають значення  `nil`, якщо обраний ключ у даній мапі не знайдений.
 
 ```cljs
 ({:name "Cirilla"} :name)
@@ -508,7 +515,7 @@ Maps are also functions of their keys, returning the values related to the given
 ;; => nil
 ```
 
-ClojureScript also offers sorted hash maps which behave like their unsorted versions but preserve order when iterating over them. We can create a sorted map with default ordering with `sorted-map`:
+ClojureScript також має сортовані хеш-мапи, які за поведінкою схожі на несортовані мапи, але при ітеруванні зберігають порядок. Сортовану мапу із звичайним впорядкуванням можно створити за допомогою функції `sorted-map`:
 
 ```cljs
 (def sm (sorted-map :c 2 :b 1 :a 0))
@@ -518,7 +525,7 @@ ClojureScript also offers sorted hash maps which behave like their unsorted vers
 ;; => (:a :b :c)
 ```
 
-If we need a custom ordering we can provide a comparator function to `sorted-map-by`, let's see an example inverting the value returned by the built-in `compare` function. Comparator functions take two items to compare and return -1 (if the first item is less than the second), 0 (if they are equal), or 1 (if the first item is greater than the second).
+Для створення мапи із довільним впорядкуванням ми можемо передати функцію `sorted-map-by`, яка використовується при порівнянні елементів. Функції для порівняння приймають два елемента та повертають значення -1 (якщо перший елемент менший за другий), 0 (якщо елементи рівні), або 1 (якщо перший елемент більший за другий). 
 
 ```cljs
 (defn reverse-compare [a b] (compare b a))
@@ -531,9 +538,9 @@ If we need a custom ordering we can provide a comparator function to `sorted-map
 ```
 
 
-##### Sets
+##### Множини
 
-Sets in ClojureScript have literal syntax as values enclosed in `#{}` and they can be created with the `set` constructor. They are unordered collections of values without duplicates.
+Літеральний синтаксис множин у ClojureScript складається зі значень, огорнутих у фігурні дужки: `#{}`. Також множини можна створювати за допомогою конструктору `set`. Множини являють собою невпорядковані колекції значень без повторення. 
 
 ```cljs
 (set? #{\a \e \i \o \u})
@@ -543,15 +550,14 @@ Sets in ClojureScript have literal syntax as values enclosed in `#{}` and they c
 ;; => #{1 2 3}
 ```
 
-Set literals cannot contain duplicate values. If you accidentally write a set literal with duplicates an error will be thrown:
+Літерали множин не можуть містити дублікатів. Якщо випадково написати літерал множини із дублікатами, виникне помилка:
 
 ```cljs
 #{1 1 2 3}
 ;; clojure.lang.ExceptionInfo: Duplicate key: 1
 ```
 
-There are many operations that can be performed with sets, although they are located in the `clojure.set` namespace and thus need to be imported. You'll learn xref:namespace-section[the details of namespacing] later; for now, you only need to know that we are loading a namespace called `clojure.set` and binding it to the `s`
-symbol.
+Існує багато операцій, що доступні на множинах, але ці операції знаходяться у просторі імен `clojure.set` і мають бути імпортовані. Пізніше ми розглянемо простори імен більш докладно, а поки що вам слід знати, що ми завантажуємо простір імен `clojure.set` та приєднуємо його до символу `s`.
 
 ```cljs
 (require '[clojure.set :as s])
@@ -572,9 +578,9 @@ symbol.
 ;; => #{"a" "e" "i" "o" "u"}
 ```
 
-A nice property of immutable sets is that they can be nested. Languages that have mutable sets can end up containing duplicate values, but that can't happen in ClojureScript. In fact, all ClojureScript data structures can be nested arbitrarily due to immutability.
+Перевага незмінних множин у тому, що вони можуть бути вкладені. У мовах, де множини - змінна структура, при вкладенні можливе дублювання значень. У ClojureScript такого не станеться. Насправді завдяки незмінності усі структури даних ClojureScript можуть бути довільно вкладені. 
 
-Sets also support the generic `conj` operation just like every other collection does.
+Як усі колекції, множини також підтримують універсальную операцію `conj`.
 
 ```cljs
 (def spanish-vowels #{\a \e \i \o \u})
@@ -587,7 +593,7 @@ Sets also support the generic `conj` operation just like every other collection 
 ;; => #{1 3 2}
 ```
 
-Sets act as read-only associative data that associates the values it contains to themselves. Since every value except `nil` and `false` is truthy in ClojureScript, we can use sets as predicate functions:
+Множини виступають як доступні лише для читання асоціативні дані, що поєднують значення, що в них містяться, до себе самих. У ClojureScript, окрім `nil` та `false` усі значення обчислюються як логічне `true`, ми можемо використовувати множини як функції-предикати:
 
 ```cljs
 (def vowels #{\a \e \i \o \u})
@@ -609,7 +615,7 @@ Sets act as read-only associative data that associates the values it contains to
 ;; => ("o" "u" "o")
 ```
 
-Sets have a sorted counterpart like maps do that are created using the functions `sorted-set` and `sorted-set-by` which are analogous to map's `sorted-map` and `sorted-map-by`.
+Подібно до мап, множини мають сортований різновид. Сортовану множину можна створити за допомогою функції `sorted-set` та `sorted-set-by`, що є аналогами функцій `sorted-map` та `sorted-map-by`.
 
 ```cljs
 (def unordered-set #{[0] [1] [2]})
@@ -618,7 +624,7 @@ Sets have a sorted counterpart like maps do that are created using the functions
 (seq unordered-set)
 ;; => ([0] [2] [1])
 
-(def ordered-set (sorted-set [0] [1] [2]))
+(def ordered-set (sorted-`set [0] [1] [2]))
 ;; =># {[0] [1] [2]}
 
 (seq ordered-set)
@@ -627,16 +633,16 @@ Sets have a sorted counterpart like maps do that are created using the functions
 
 
 
-##### Queues
+##### Черги
 
-ClojureScript also provides a persistent and immutable queue. Queues are not used as pervasively as other collection types.  They can be created using the `#queue []` literal syntax, but there are no convenient constructor functions for them.
+У ClojureScript підтримує стійкі та незмінні черги. Черги - найменш розповсюджений тип колекцій. Створити чергу можна за допомогою літерального синтаксису `#queue []`, але зручних функцій-конструкторів для створення черги не існує. 
 
 ```cljs
 (def pq #queue [1 2 3])
 ;; => #queue [1 2 3]
 ```
 
-Using `conj` to add values to a queue adds items onto the rear:
+Функція `conj` додає значення у кінець черги:
 
 ```cljs
 (def pq #queue [1 2 3])
@@ -646,7 +652,7 @@ Using `conj` to add values to a queue adds items onto the rear:
 ;; => #queue [1 2 3 4 5]
 ```
 
-A thing to bear in mind about queues is that the stack operations don't follow the usual stack semantics (pushing and popping from the same end). `pop` takes values from the front position, and `conj` pushes (appends) elements to the back.
+ При роботі з чергами варто памʼятати, що стекові операції на чергах не дотримуються звичної  семантики, а саме додавання та видалення елементів з одного кінця стеку. Фукція  `pop` видаляє значення з початку черги, але `conj` додає нові елементи на кінець черги.
 
 ```cljs
 (def pq #queue [1 2 3])
@@ -662,4 +668,4 @@ A thing to bear in mind about queues is that the stack operations don't follow t
 ;; => #queue [1 2 3 4]
 ```
 
-Queues are not as frequently used as lists or vectors, but it is good to know that they are available in ClojureScript, as they may occasionally come in handy. 
+Черги використовуються менш часто, ніж списки та вектори, але знання про їхнє існування у  ClojureScript може стати у нагоді у певних випадках.
