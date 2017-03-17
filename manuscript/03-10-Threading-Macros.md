@@ -1,28 +1,18 @@
+### Потокові макроси
 
-### Threading Macros
+Потокові макроси, також відомі як функції стрілки, використовуються для запису вкладених викликів функцій у простішому форматі, що більш зрозумілий для читання.
 
-Threading macros, also known as arrow functions, enables one to write more readable code
-when multiple nested function calls are performed.
+Уявіть, що у вас є вираз `(f (g (h x)))`, в якому функція `f` отримує результат обчислення функції `g` і так далі, з навіть більшою кількістю вкладених викликів. За допомогою потокового макросу `->` такий вираз можна записати як `(-> x (h) (g) (f))`, що набагато легше читати.
 
-Imagine you have `(f (g (h x)))` where a function `f` receives as its first parameter the
-result of executing function `g`, repeated multiple times. With the most basic `->` threading
-macro you can convert that into `(\-> x (h) (g) (f))` which is easier to read.
+Це синтаксичний цукор, бо функція стрілка насправді є макросом, що перетворює вираз `(-> x (h) (g) (f))` в `(f (g (h x)))` на етапі компілювання коду в JavaScript.
 
-The result is syntactic sugar, because the arrow functions are defined as macros
-and it does not imply any runtime performance. The `(\-> x (h) (g) (f))` is
-automatically converted to (f (g (h x))) at compile time.
+Прийміть до уваги, що круглі дужки навколо `h`, `g` та `f` необов'язкові, якщо ці функції не мають додаткових параметрів. Тобто вираз `(f (g (h x)))` можна записати як `(-> x h g f)`.
 
-Take note that the parenthesis on `h`, `g` and `f` are optional, and can be ommited:
-`(f (g (h x)))` is the same as `(\-> x h g f)`.
+#### Макрос першого потоку (`->`)
 
+Його називають макросом *першого потоку* тому, що він встановлює значення першим аргументом для всіх виразів.
 
-#### The thread-first macro (`\->`)
-
-This is called *thread first* because it threads the first argument throught the
-different expressions as first arguments.
-
-Using a more concrete example, this is how the code looks without using threading
-macros:
+Давайте розглянемо наступний приклад без потокового макросу:
 
 ```clojure
 (def book {:name "Lady of the Lake"
@@ -32,7 +22,7 @@ macros:
 ;; => {:name "Lady of the lake" :age 1999 :readers 1}
 ```
 
-We can rewrite that code to use the `\->` threading macro:
+З макросом `->` це буде виглядати так:
 
 ```clojure
 (-> book
@@ -41,18 +31,13 @@ We can rewrite that code to use the `\->` threading macro:
 ;; => {:name "Lady of the lake" :age 1999 :readers 1}
 ```
 
-This threading macro is especially useful for transforming data structures, because
-_ClojureScript_ (and _Clojure_) functions for data structures transformations
-consistently uses the first argument for receive the data structure.
+У ClojureScript функції, що трансформують структури даних завжди приймають дані першим аргументом. Тому цей потоковий макрос дуже зручний у використанні коли треба записати підряд декілька таких трансформацій.
 
+#### Макрос останнього потоку (`->>`)
 
-#### The thread-last macro (`\->>`)
+Основна відмінність макросу останнього потоку від макросу першого потоку у тому, що макрос `->>` встановлює значення останнім аргументом в усіх виразах.
 
-The main difference between the thread-last and thread-first macros is that instead
-of threading the first argument given as the first argument on the following expresions,
-it threads it as the last argument.
-
-Let's look at an example:
+Давайте розглянемо приклад:
 
 ```clojure
 (def numbers [1 2 3 4 5 6 7 8 9 0])
@@ -61,7 +46,7 @@ Let's look at an example:
 ;; => (3 5)
 ```
 
-The same code written using `\->>` threading macro:
+Той самий приклад з використанням макросу `->>`:
 
 ```clojure
 (->> numbers
@@ -71,23 +56,15 @@ The same code written using `\->>` threading macro:
 ;; => (3 5)
 ```
 
-This threading macro is especially useful for transforming sequences or collections
-of data because _ClojureScript_ functions that work with sequences and collections
-consistently use the last argument position to receive them.
+Цей потоковий макрос дуже зручний у використанні коли треба трансформувати послідовності або колекції даних. Бо у ClojureScript функції, що трансформують послідовності та колекції завжди приймають дані останнім аргументом.
 
+#### Потоковий макрос (`as->`)
 
-#### The thread-as macro (`as\->`)
+Інколи може бути так, що макроси першого та останнього потоку незручно використовувати. В таких випадках використовується макрос `as->`, що дозволяє встановити значення на довільне місце для кожного виразу окремо, а не лише в початок чи кінець виразу.
 
-Finally, there are cases where neither `\->` nor `\->>` are applicable. In these
-cases, you’ll need to use `as\->`, the more flexible alternative, that allows you to
-thread into any argument position, not just the first or last.
+Цей макрос приймає два значення і довільну кількість виразів. Як і в звичайному потоковому макросі, перший аргумент — це значення що буде встановлено аргументом у всі вирази. А от другим аргументом повинен бути символ з яким воно буде звязане. Цей символ використовується у всіх виразах в макросі для встановлення значення на довільне місце в аргументах функцій.
 
-It expects two fixed arguments and an arbitrary number of expressions. As with
-`\->`, the first argument is a value to be threaded through the following forms. The
-second argument is the name of a binding. In each of the subsequent forms, the bound
-name can be used for the prior expression's result.
-
-Let's see an example:
+Давайте розглянемо приклад:
 
 ```clojure
 (as-> numbers $
@@ -98,15 +75,11 @@ Let's see an example:
 ;; => {:result 3 :id 1}
 ```
 
+#### Потокові макроси `some->` та `some->>`
 
-#### The thread-some macros (`some\->` and `some\->>`)
+Ще одна пара потокових макросів для спеціальних випадків. Вони працюють майже так само, як макроси `->` та `->>`, але мають можливість припинити виконання послідовності виразів якщо один з них поверне `nil`.
 
-Two of the more specialized threading macros that _ClojureScript_ comes with. They work
-in the same way as their analagous `\->` and `\->>` macros with the additional
-support for short-circuiting the expression if one of the expresions evaluates
-to `nil`.
-
-Let's see another example:
+Розглянемо такий приклад:
 
 ```clojure
 (some-> (rand-nth [1 nil])
@@ -118,13 +91,13 @@ Let's see another example:
 ;; => nil
 ```
 
-This is an easy way avoid null pointer exceptions.
+Це простий спосіб уникнення помилок, коли `nil` передається в функцію, яка цього не чекає.
 
+#### Потокові макроси `cond->` та `cond->>`
 
-#### The thread-cond macros (`cond\->` and `cond\->>`)
+Макроси `cond->` та `cond->>` також схожі на `->` та `->>` . Але вони дозволяють пропускати виконання виразів за допомогою умови, що записується перед кожним виразом.
 
-The `cond\->` and `cond\->>` macros are analgous to `\->` and `\->>` that offers
-the ability to conditionally skip some steps from the pipeline. Let see an example:
+Розглянемо приклад:
 
 ```clojure
 (defn describe-number
@@ -142,10 +115,9 @@ the ability to conditionally skip some steps from the pipeline. Let see an examp
 ;; => ["even" "positive"]
 ```
 
-The value threading only happens when the corresponding condition evaluates to
-logical true.
+Тут виконуються лише ті вирази, для яких умова обчислюється в логічне `true`.
 
-#### Additional Readings
+#### Додаток
 
-- http://www.spacjer.com/blog/2015/11/09/lesser-known-clojure-variants-of-threading-macro/
-- http://clojure.org/guides/threading_macros
+- [http://www.spacjer.com/blog/2015/11/09/lesser-known-clojure-variants-of-threading-macro/](http://www.spacjer.com/blog/2015/11/09/lesser-known-clojure-variants-of-threading-macro/)
+- [http://clojure.org/guides/threading_macros](http://clojure.org/guides/threading_macros)
