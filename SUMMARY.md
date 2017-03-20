@@ -10,9 +10,9 @@
   * [Функції](/manuscript/03-04-Functions.md)
   * [Керування потоком виконання](/manuscript/03-05-Flow-control.md)
   * [Істинність](/manuscript/03-06-Truthiness.md)
-  * Локальні змінні, блоки та цикли
-  * Типи колекцій
-  * Деструктурування
+  * [Локальні змінні, блоки та цикли](./manuscript/03-07-Locals-Blocks-and-Loops.md)
+  * [Типи колекцій](./manuscript/03-08-Collection-types.md)
+  * [Деструктурування](./manuscript/03-09-Destructuring.md)
   * Потокові макроси
   * Умови читача
   * Простори імен
