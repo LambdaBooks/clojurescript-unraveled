@@ -1,11 +1,8 @@
-### Namespaces
+### Простори імен
 
-#### Defining a namespace
+#### Створення простору імен
 
-The _namespace_ is ClojureScript's fundamental unit of code modularity. Namespaces
-are analogous to Java packages or Ruby and Python modules and can be defined with
-the `ns` macro. If you have ever looked at a little bit of ClojureScript source, you
-may have noticed something like this at the beginning of the file:
+Простір імен (namespace) — основна одиниця модульності в _ClojureScript_. Простори імен схожі на пакети в Java або модулі в Ruby та Python. Вони створюються за допомогою макросу `ns`. Якщо ви бачили код на ClojureScript, ви могли помітити щось подібне на початку кожного файлу:
 
 ```clojure
 (ns myapp.core
@@ -14,26 +11,18 @@ may have noticed something like this at the beginning of the file:
 (def x "hello")
 ```
 
-Namespaces are dynamic, meaning you can create one at any time. However, the
-convention is to have one namespace per file. Naturally, a namespace definition is
-usually at the beginning of the file, followed by an optional docstring.
+Простори імен динамічні, що дає змогу створювати їх у будь-який час. Існує домовленість, що на кожен файл повинно бути по одному простору імен. Звичайно простір імен створюється на початку файлу, після якого може бути рядок з документацією.
 
-Previously we have explained vars and symbols. Every var that you define will be
-associated with its namespace. If you do not define a concrete namespace, then the
-default one called "cljs.user" will be used:
+Раніше ми розглянули змінні та символи. Кожна змінна зв'язана з простором імен, в якому вона створена. Якщо створити змінну окремо від простору імен, вона автоматично буде зв'язана з простором імен `cljs.user`, що існує за замовчуванням:
 
 ```clojure
 (def x "hello")
 ;; => #'cljs.user/x
 ```
 
-#### Loading other namespaces
+#### Завантаження інших просторів імен
 
-Defining a namespace and the vars in it is really easy, but it's not very useful if
-we can't use symbols from other namespaces. For this purpose, the `ns` macro offers
-a simple way to load other namespaces.
-
-Observe the following:
+Створювати простори імен та змінні в них дуже просто, але в цьому не було б сенсу, якщо не можна було б використовувати символи з інших просторів імен. Макрос `ns` вміє завантажувати інші простори імен і має для цього наступний синтаксис:
 
 ```clojure
 (ns myapp.main
@@ -44,13 +33,9 @@ Observe the following:
 ;; => "HELLO"
 ```
 
-As you can observe, we are using fully qualified names (namespace + var name) for
-access to vars and functions from different namespaces.
+Як ви можете бачити, ми використовуємо повністю кваліфіковані імена (простір імен + ім'я символу) для доступу до змінних та функцій з іншого простору імен.
 
-While this will let you access other namespaces, it's also repetitive and overly
-verbose. It will be especially uncomfortable if the name of a namespace is very
-long. To solve that, you can use the `:as` directive to create an additional
-(usually shorter) alias to the namespace.  This is how it can be done:
+Хоч так ми й можемо використовувати змінні з інших просторів імен, цей спосіб надмірно багатослівний. Буде дуже незручно, якщо простори імен матимуть довгі імена. Дериктива `:as` використовується для створення додаткових (звичайно коротших) імен для просторів імен. Ось як це виглядає:
 
 ```clojure
 (ns myapp.main
@@ -61,11 +46,7 @@ long. To solve that, you can use the `:as` directive to create an additional
 ;; => "HELLO"
 ```
 
-Additionally, _ClojureScript_ offers a simple way to refer to specific vars or
-functions from a concrete namespace using the `:refer` directive, followed by a
-sequence of symbols that will refer to vars in the namespace. Effectively, it is as
-if those vars and functions are now part of your namespace, and you do not need to
-qualify them at all.
+Також в _ClojureScript_ можна посилатися лише на конкретні змінні та функції з іншого простору імен за допомогою директиви `:refer`, після якої записується вектор символів, що відповідають іменам функцій та змінних з цього простору імен. Фактично такі змінні стають частиною поточного простору імен.
 
 ```clojure
 (ns myapp.main
@@ -74,13 +55,9 @@ qualify them at all.
 ;; => "HELLO"
 ```
 
-And finally, you should know that everything located in the `cljs.core` namespace is
-automatically loaded and you should not require it explicitly. Sometimes you may
-want to declare vars that will clash with some others defined in the `cljs.core`
-namespace. To do this, the `ns` macro offers another directive that allows you to
-exclude specific symbols and prevent them from being automatically loaded.
+І нарешті, ви повинні знати, що все, що є у просторі імен `cljs.core` автоматично завантажується у всі простори імен, тому змінні та функції з цього простору імен не потребують явного завантаження. Інколи ви можете створити змінну з ім'ям, яке вже є в `cljs.core`, що призведе до конфлікту. Для цього в макросі `ns` є директива, що дозволяє вказувати імена, які не будуть завантажені в поточний простір імен.
 
-Observe the following:
+Розглянемо такий приклад:
 
 ```clojure
 (ns myapp.main
@@ -93,15 +70,16 @@ Observe the following:
     x))
 ```
 
-The `ns` macro also has other directives for loading host classes (with `:import`)
-and macros (with `:refer-macros`), but these are explained in other sections.
+Також в макросі `ns` є інші директиви, як от `:import` для завантаження класів з коду батьківської платформи, та `:require-macros` про яку ми поговоримо пізніше.
 
-#### Namespaces and File Names
+#### Простори імен та імена файлів
 
 When you have a namespace like `myapp.core`, the code must be in a file named
 _core.cljs_ inside the _myapp_ directory.  So, the preceding examples with
 namespaces `myapp.core` and `myapp.main` would be found in project with a file
 structure like this:
+
+Ящко у вас є простір імен, наприклад `myapp.core`, код у ньому повинен бути у файлі _core.cljs_, що знаходиться у директорії _myapp_. Файлова структура проекту з просторами імен `myapp.core` та `myapp.main` буде виглядати наступним чином:
 
 ```
 myapp
