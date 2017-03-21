@@ -1,17 +1,12 @@
-### Reader Conditionals
+### Умови читача
 
-This language feature allows different dialects of Clojure to share common code that
-is mostly platform independent but need some platform dependent code.
+Ця особливість мови дає можливість діалектам Clojure використовувати код на різних платформах та мати частини коду специфічні до кожної з цих платформ.
 
-To use reader conditionals, all you need is to rename your source file with
-`.cljs` extension to one with `.cljc`, because reader conditionals only work if
-they are placed in files with `.cljc` extension.
+Умови читача можна використовувати лише у файлах `.cljc`. Тому усі файли в яких ви хочете використати умови читача вам треба перейменувати у `.cljc`.
 
-#### Standard (`#?`)
+#### Стандартна умова (`#?`)
 
-There are two types of reader conditionals, standard and splicing. The standard
-reader conditional behaves similarly to a traditional cond and the syntax looks
-like this:
+Існує два типи умов читача: стандартна та розгортуюча. Стандартна умова читача поводиться приблизно так само, як конструкція `cond`, але синтаксис виглядає поіншому:
 
 ```clojure
 (defn parse-int
@@ -20,17 +15,11 @@ like this:
      :cljs (js/parseInt s)))
 ```
 
-As you can observe, `#?` reading macro looks very similar to cond, the difference is
-that the condition is just a keyword that identifies the platform, where `:cljs` is
-for _ClojureScript_ and `:clj` is for _Clojure_. The advantage of this approach, is
-that it is evaluated at compile time so no runtime performance overhead exists for
-using this.
+Як ви можете бачити макрос `#?` дуже схожий на `cond`, але відрізняється тим, що умови представлені як ключові слова, що ідентифікують платформу. `:cljs` означає, що цей код буде використаний лише для _ClojureScript_, а `:clj` — для _Clojure_. Перевагою такого підходу полягає у тому, що умови читача обчислюються на етапі компіляції, тому у скомпільованому коді буде лише код для конкретної платформи.
 
-#### Splicing (`#?@`)
+#### Розгортуюча умова (`#?@`)
 
-The splicing reader conditional works in the same way as the standard and allows
-splice lists into the containing form. The `#?@` reader macro is used for that
-and the code looks like this:
+Розгортуюча умова читача працює так само як і стандартна, але також дозволяє розгортувати списки у окремі форми. Синтаксис макросу `#?@` виглядає наступним чином:
 
 ```clojure
 (defn make-list
@@ -43,7 +32,7 @@ and the code looks like this:
 ;; => (1 2 3 4)
 ```
 
-The _ClojureScript_ compiler will read that code as this:
+Після прочитання коду компілятор _ClojureScript_ залишить лише код для _ClojureScript_:
 
 ```clojure
 (defn make-list
@@ -51,8 +40,7 @@ The _ClojureScript_ compiler will read that code as this:
   (list 1 2 3 4))
 ```
 
-The splicing reader conditional can't be used to splice multiple top level forms,
-so the following code is ilegal:
+Розгортуюча умова читача не може бути використана для розгортування декількох форм на вищому рівні простору імен:
 
 ```clojure
 #?@(:cljs [(defn func-a [] :a)
@@ -60,8 +48,7 @@ so the following code is ilegal:
 ;; => #error "Reader conditional splicing not allowed at the top level."
 ```
 
-If you need so, you can use multiple forms or just use `do` block for group
-multiple forms together:
+Для цього можна використати стандартну умову для кожної форми окремо, або загорнути їх у блок `do`:
 
 ```clojure
 #?(:cljs (defn func-a [] :a))
@@ -75,10 +62,8 @@ multiple forms together:
      (defn func-b [] :b)))
 ```
 
+#### Додаткові матеріали
 
-#### More readings
-
-- http://clojure.org/guides/reader_conditionals
-- https://danielcompton.net/2015/06/10/clojure-reader-conditionals-by-example
-- https://github.com/funcool/cuerdas (example small project that uses
-  reader conditionals)
+* http://clojure.org/guides/reader_conditionals
+* https://danielcompton.net/2015/06/10/clojure-reader-conditionals-by-example
+* https://github.com/funcool/cuerdas (приклад невеликого проекту, який використовує умови читача)
