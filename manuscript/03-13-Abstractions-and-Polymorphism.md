@@ -1,89 +1,66 @@
-### Abstractions and Polymorphism
+### Абстракції та поліморфізм
 
-I'm sure that at more than one time you have found yourself in this situation: you
-have defined a great abstraction (using interfaces or something similar) for your
-"business logic", and you have found the need to deal with another module over which
-you have absolutely no control, and you probably were thinking of creating adapters,
-proxies, and other approaches that imply a great amount of additional complexity.
+Ви напевно не раз були в такій ситуації: ви створили абстракцію (наприклад за допомогою інтерфейсів) для бізнес логіки, з часом у вас виникає потреба працювати з іншим модулем, який ви не контролюєте, тому скоріш за все ви вирішили зробити адаптер або проксі, чи застосувати інші підходи які приносять багато допоміжної складності.
 
-Some dynamic languages allow "monkey-patching"; languages where the classes are open
-and any method can be defined and redefined at any time. Also, it is well known that
-this technique is a very bad practice.
+Деякі динамічні мови дозволяють робити так званий «monkey-patching»; мови, в яких класи відкриті і будь-який метод може бути створений чи переписаний у будь-який час. Ця техніка є дуже поганою практикою.
 
-We can not trust languages that allow you to silently overwrite methods that you are
-using when you import third party libraries; you cannot expect consistent behavior
-when this happens.
+Ми не можемо довіряти мовам, що дозволяють переписувати методи, які ви використовуєте у себе, іншими бібліотеками; коли таке трапляється поведінка програми може бути непередбаченою.
 
-These symptoms are commonly called the "expression problem";
-see http://en.wikipedia.org/wiki/Expression_problem for more details
+Такі симптоми називають проблемою виразу (expression problem); дізнайтеся більше за посиланням http://en.wikipedia.org/wiki/Expression_problem
 
-#### Protocols
+#### Протоколи
 
-The _ClojureScript_ primitive for defining "interfaces" is called a protocol. A
-protocol consists of a name and set of functions. All the functions have at least
-one argument corresponding to the `this` in JavaScript or `self` in Python.
+В _ClojureScript_ примітив для створення «інтерфейсів» називається протокол. Протокол складається з імені та набору функцій. Усі аргументи функцій мають хоча б один аргумент, що відповідає об'єкту `this` у JavaScript або `self` у Python.
 
-Protocols provide a type-based polymorphism, and the dispatch is always done by the
-first argument (equivalent to JavaScript’s `this`, as previously mentioned).
+Протоколи забезпечують поліморфізм на основі типів. Тип завжди визначається по першому аргументу (об'єкт еквівалентний `this` у JavaScript, як було зазначено раніше).
 
-A protocol looks like this:
+Протокол виглядає наступним чином:
 
 ```clojure
 (ns myapp.testproto)
 
 (defprotocol IProtocolName
-  "A docstring describing the protocol."
-  (sample-method [this] "A doc string associated with this function."))
+  "Рядок документації описуючий протокол."
+  (sample-method [this] "Рядок документації для функції."))
 ```
 
-NOTE: the "I" prefix is commonly used to designate the separation of protocols and
-types. In the Clojure community, there are many different opinions about how the "I"
-prefix should be used. In our opinion, it is an acceptable solution to avoid name
-clashing and possible confusion. But not using the prefix is not considered bad
-practice.
+> ЗАУВАЖЕННЯ: Префікс «I» часто використовується для розрізнення протоколів та типів за іменем. В громаді Clojure розробників існує багато різних думок на рахунок того, як повинен використовуватись префікс «I». На нашу думку це прийнятне рішення для запобігання конфлікту імен. У той же час не використовувати префікс «I» не є поганою практикою.
 
-From the user perspective, protocol functions are simply plain functions defined in
-the namespace where the protocol is defined. This enables an easy and simple aproach
-for avoid conflicts between different protocols implemented for the same type that
-have conflicting function names.
+З точки зору користувача, функції протоколів — це звичайні функції, що створені у тому ж просторі імен де і сам протокол. Це дає простий та легкий спосіб уникнення конфліктів між протоколами з однаковими іменами функцій, що імплементовані для одного типу.
 
-Here is an example. Let's create a protocol called `IInvertible` for data that can
-be "inverted".  It will have a single method named `invert`.
+Давайте створимо протокол `IInvertible` для даних, що можуть бути «інвертовані». Він матиме один метод `invert`.
 
 ```clojure
 (defprotocol IInvertible
-  "This is a protocol for data types that are 'invertible'"
-  (invert [this] "Invert the given item."))
+  "Це протокол для типів даних, що можуть бути «інвертовані»"
+  (invert [this] "Інвертує передане значення."))
 ```
 
-##### Extending existing types
+##### Розширення існуючих типів
 
-One of the big strengths of protocols is the ability to extend existing and maybe
-third party types. This operation can be done in different ways.
+Однією з переваг протоколів є те, що вони дозволяють розширювати існуючі та зовнішні типи. Це можна зробити декількома способами.
 
-The majority of time you will tend to use the *extend-protocol* or the *extend-type*
-macros. This is how `extend-type` syntax looks:
+Майже завжди ви будете використовувати макроси `extend-protocol` або `extend-type`. Ось як виглядає синтаксис `extend-type`:
 
 ```clojure
 (extend-type TypeA
   ProtocolA
   (function-from-protocol-a [this]
-    ;; implementation here
+    ;; імплементація тут
     )
 
   ProtocolB
   (function-from-protocol-b-1 [this parameter1]
-    ;; implementation here
+    ;; імплементація тут
     )
   (function-from-protocol-b-2 [this parameter1 parameter2]
-    ;; implementation here
+    ;; імплементація тут
     ))
 ```
 
-You can observe that with *extend-type* you are extending a single type with
-different protocols in a single expression.
+Ви можете побачити, що вираз `extend-type` розширює один тип довільною кількістю протоколів.
 
-Let's play with our `IInvertible` protocol defined previously:
+Давайте використаємо раніше створений протокол `IInvertible`:
 
 ```clojure
 (extend-type string
@@ -99,17 +76,11 @@ Let's play with our `IInvertible` protocol defined previously:
   (invert [this] (into [] (reverse this))))
 ```
 
-You may note that a special symbol *string* is used instead of `js/String` for
-extend the protol for string. This is because the builtin javascript types have
-special treatment and if you replace the `string` with `js/String` the compiler
-will emit a warning about that.
+Ви могли помітити, що ми використали символ `string` замість `js/String` коли розширювали протоколом тип рядок. Це тому, що типи з JavaScript не можна розширювати. Якщо ви спробуєте розширити тип `js/String` компілятор сповістить про це показавши помилку.
 
-So if you want extend your protocol to javascript primitive types, instead of using
-`js/Number`, `js/String`, `js/Object`, `js/Array`, `js/Boolean` and `js/Function`
-you should use the respective special symbols: `number`, `string`, `object`,
-`array`, `boolean` and `function`.
+Тому, якщо ви хочете розширити типи з JavaScript, замість `js/Number`, `js/String`, `js/Object`, `js/Array`, `js/Boolean` та `js/Function` треба використати спеціальні символи: `number`, `string`, `object`, `array`, `boolean` and `function`.
 
-Now, it's time to try our protocol implementation:
+Тепер можна випробувати нашу імплементацію протоколу:
 
 ```clojure
 (invert "abc")
@@ -125,23 +96,22 @@ Now, it's time to try our protocol implementation:
 ;; => [3 2 1]
 ```
 
-In comparison, *extend-protocol* does the inverse; given a protocol, it adds
-implementations for multiple types. This is how the syntax looks:
+`extend-protocol` працює навпаки; маючи протокол, цей макрос дозволяє додати імплементацію до декількох типів одразу. Ось як виглядає синтаксис:
 
 ```clojure
 (extend-protocol ProtocolA
   TypeA
   (function-from-protocol-a [this]
-    ;; implementation here
+    ;; імплементація тут
     )
 
   TypeB
   (function-from-protocol-a [this]
-    ;; implementation here
+    ;; імплементація тут
     ))
 ```
 
-Thus, the previous example could have been written equally well with this way:
+Попередній приклад можна переписати наступним чином:
 
 ```clojure
 (extend-protocol IInvertible
@@ -155,14 +125,11 @@ Thus, the previous example could have been written equally well with this way:
   (invert [this] (into [] (reverse this))))
 ```
 
-##### Participate in ClojureScript abstractions
+##### Використання протоколів з ClojureScript
 
-ClojureScript itself is built up on abstractions defined as protocols. Almost all
-behavior in the _ClojureScript_ language itself can be adapted to third party
-libraries. Let's look at a real life example.
+ClojureScript побудована на абстракціях, що створені за допомогою протоколів. Майже будь-яка поведінка в мові може бути адаптована до зовнішніх бібліотек. Давайте розглянемо реальний приклад.
 
-In previous sections, we have explained the different kinds of built-in
-collections. For this example we will use a *set*. See this snippet of code:
+У минулих частинах ми розглянули різні типи колекцій. В цьому прикладі ми використаємо `set`. Подивіться на цей код:
 
 ```clojure
 (def mynums #{1 2})
@@ -171,20 +138,16 @@ collections. For this example we will use a *set*. See this snippet of code:
 ;; => (1 2 1)
 ```
 
-What happened? In this case, the _set_ type implements the _ClojureScript_ internal
-`IFn` protocol that represents an abstraction for functions or anything
-callable. This way it can be used like a callable predicate in filter.
+Що тут відбувається? У цьому випадку тип `set` імплементує протокол `IFn`, що є абстракцією для функцій або всього, що може бути викликаним як функція. Таким чином `set` може бути використаний як предиката.
 
-OK, but what happens if we want to use a regular expression as a predicate function
-for filtering a collection of strings:
+Добре, та що, якщо ми хочемо використати регулярний вираз як предикату для фільтрування колекції рядків:
 
 ```clojure
 (filter #"^foo" ["haha" "foobar" "baz" "foobaz"])
 ;; TypeError: Cannot call undefined
 ```
 
-The exception is raised because the `RegExp` type does not implement the `IFn`
-protocol so it cannot behave like a callable, but that can be easily fixed:
+Ми одержали помилку, бо тип `RegExp` не імплементує протокол `IFn`, тому він і не може бути використаний як функція. Але це можна легко змінити:
 
 ```clojure
 (extend-type js/RegExp
@@ -194,132 +157,98 @@ protocol so it cannot behave like a callable, but that can be easily fixed:
      (re-find this a))))
 ```
 
-Let’s analyze this: we are extending the `js/RegExp` type so that it implements the
-`invoke` function in the `IFn` protocol. To invoke a regular expression `a` as if it
-were a function, call the `re-find` function with the object of the function and the
-pattern.
+Давайте проаналізуємо цей приклад: ми розширили тип `js/RegExp` імплементацією функції `invoke` у протоколі `IFn`. Щоб регулярний вираз `а` поводився як функція, в імплементації нам треба виконати операцію `re-find` з об'єктом виразу та патерном.
 
-Now, you will be able use the regex instances as predicates in a filter operation:
+Тепер ви можете використати регулярний вираз як предикату, наприклад в функції `filter`:
 
 ```clojure
 (filter #"^foo" ["haha" "foobar" "baz" "foobaz"])
 ;; => ("foobar" "foobaz")
 ```
 
-##### Introspection using Protocols
+##### Аналіз за допомогою протоколів
 
-_ClojureScript_ comes with a useful function that allows runtime introspection:
-`satisfies?`. The purpose of this function is to determine at runtime if some object
-(instance of some type) satisfies the concrete protocol.
+В _ClojureScript_ є корисна функція для аналізу (introspection) даних через протоколи: `satisfies?`. За допомогою цієї функції можна перевірити об'єкт (інстанс типу) на наявність імплементації конкретного протоколу.
 
-So, with the previous examples, if we check if a `set` instance satisfies an *IFn*
-protocol, it should return `true`:
+Наприклад ось так ми можемо перевірити, що `set` імплементує протокол `IFn`:
 
 ```clojure
 (satisfies? IFn #{1})
 ;; => true
 ```
 
-#### Multimethods
+#### Мультіметоди
 
-We have previously talked about protocols which solve a very common use case of
-polymorphism: dispatch by type. But in some circumstances, the protocol approach can
-be limiting. And here, *multimethods* come to the rescue.
+Раніше ми говорили про протоколи, що вирішують часту проблему поліморфізму: визначення по типу. Та за деяких обставин протоколи можуть обмежувати. Для таких випадків існують _мультіметоди_.
 
-These *multimethods* are not limited to type dispatch only; instead, they also offer
-dispatch by types of multiple arguments and by value. They also allow ad-hoc
-hierarchies to be defined. Also, like protocols, multimethods are an "Open System",
-so you or any third parties can extend a multimethod for new types.
+_Мультіметоди_ не обмежені визначенням по типу; вони дозволяють визначати по типам декількох аргументів та значенню. Вони також дозволяють утворювати спеціалізовані (ad-hoc) ієрархії. Як і протоколи, мультіметоди — це відкрита система, в якій зовнішні бібліотеки можуть розширювати мультіметоди для нових типів.
 
-The basic constructions of *multimethods* are the `defmulti` and `defmethod`
-forms. The `defmulti` form is used to create the multimethod with an initial
-dispatch function. This is a model of what it looks like:
+Для створення мультіметодів використовують форми `defmulti` та `defmethod`. Мультіметод створюється за допомогою `defmulti` і приймає функцію, що визначає метод. Ось як це виглядає:
 
 ```clojure
 (defmulti say-hello
-  "A polymorphic function that return a greetings message
-  depending on the language key with default lang as `:en`"
+  "Поліморфна функція, що повертає повідомлення з вітанням
+  в залежності від значення ключа `:locale`
+  у якого встановлено значення за замовчуванням `:en`"
   (fn [param] (:locale param))
   :default :en)
 ```
 
-The anonymous function defined within the `defmulti` form is a dispatch function. It
-will be called in every call to the `say-hello` function and should return some kind
-of marker object that will be used for dispatch. In our example, it returns the
-contents of the `:locale` key of the first argument.
+Анонімна функція у `defmulti` — функція, що визначає який з методів повинен бути викликаний. Ця функція буде викликана кожного разу, коли ми викликаємо `say-hello` і повинна повертати деяке значення, що буде використане для визначення методу. У нашому прикладі це значення по ключу `:locale` в першому аргументі.
 
-And finally, you should add implementations. That is done with the `defmethod` form:
+І нарешті ми можемо імплементувати декілька методів. Використаємо для цього `defmethod`:
 
 ```clojure
 (defmethod say-hello :en
   [person]
-  (str "Hello " (:name person "Anonymous")))
+  (str "Привіт " (:name person "Анонімний")))
 
 (defmethod say-hello :es
   [person]
-  (str "Hola " (:name person "Anónimo")))
+  (str "Привет " (:name person "Анонимный")))
 ```
 
-So, if you execute that function over a hash map containing the `:locale` and
-optionally the `:name` key, the multimethod will first call the dispatch function to
-determine the dispatch value, then it will search for an implementation for that
-value. If an implementation is found, the dispatcher will execute it. Otherwise, the
-dispatch will search for a default implementation (if one is specified) and execute
-it.
+Якщо викликати нашу функцію і передати в неї мапу з ключами `:locale` та `:name`, мультіметод спочатку викличе визначаючу функцію, щоб отримати визначаюче значення, а потім знайде імплементацію для цього значення і викличе знайдену функцію. Якщо такої імплементації немає, то мультіметод спробує викликати імплементацію за замовчуванням, якщо така є.
 
 ```clojure
 (say-hello {:locale :es})
-;; => "Hola Anónimo"
+;; => "Привет Анонимный"
 
-(say-hello {:locale :en :name "Ciri"})
-;; => "Hello Ciri"
+(say-hello {:locale :en :name "Роман"})
+;; => "Привіт Роман"
 
 (say-hello {:locale :fr})
-;; => "Hello Anonymous"
+;; => "Привіт Анонімний"
 ```
 
-If the default implementation is not specified, an exception will be raised
-notifying you that some value does not have an implementation for that multimethod.
+Якщо імплементації за замовчунням немає, буде виведена помилка з повідомленням про те, що для використаного значення відсутня імплементація в мультіметоді.
 
-#### Hierarchies
+#### Ієрархії
 
-Hierarchies are _ClojureScript_’s way to let you build whatever relations that your
-domain may require. Hierarchies are defined in term of relations between named
-objects, such as symbols, keywords, or types.
+В _ClojureScript_ ієрархії використовуються для побудови відносин у системі. Ієрархії створюються як відносини між такими об'єктами як символи, ключові слова та типи.
 
-Hierarchies can be defined globally or locally, depending on your needs. Like
-multimethods, hierarchies are not limited to a single namespace. You can extend a
-hierarchy from any namespace, not only from the one in which it is defined.
+В залежності від ваших потреб ієрархії можна будувати локально чи глобально. Як і мультіметоди ієрархії не обмежені одним простором імен. Їх можна розширювати з будь-якого простору імен.
 
-The global namespace is more limited, for good reasons. Keywords or symbols that are
-not namespaced can not be used in the global hierarchy. That behavior helps prevent
-unexpected situations when two or more third party libraries use the same symbol for
-different semantics.
+Глобальний простір імен більш обмежений, що зроблено навмисно. Ключові слова та символи, що не прив'язані до простору імен не можуть бути використані у глобальній ієрархії. Така поведінка допомагає уникнути несподіваних ситуацій коли декілька зовнішніх бібліотек використовують один і той же символ по-різному.
 
-##### Defining a hierarchy
+##### Створення ієрархії
 
-The hierarchy relations should be established using the `derive` function:
+Ієрархічний зв'язок створюється за допомогою функції `derive`:
 
 ```clojure
 (derive ::circle ::shape)
 (derive ::box ::shape)
 ```
 
-We have just defined a set of relationships between namespaced keywords. In this
-case the `::circle` is a child of `::shape`, and `::box` is also a child of
-`::shape`.
+Ми створили набір зв'язків між іменованими ключовими словами. У цьому випадку `::circle` та `::box` є дочірніми для `::shape`.
 
-TIP: The `::circle` keyword syntax is a shorthand for `:current.ns/circle`. So if
-you are executing it in a REPL, `::circle` will be evaluated as `:cljs.user/circle`.
+> ПІДКАЗКА: Синтаксис ключового слова `::circle` — це скорочений запис `:current.ns/circle`. Якщо обчислити його у REPL ви побачите, що `::circle` насправді поверне `:cljs.user/circle`.
 
-##### Hierarchies and introspection
+##### Ієрархії та аналіз
 
-_ClojureScript_ comes with a little toolset of functions that allows runtime
-introspection of globally or locally defined hierarchies. This toolset consists of
-three functions: `isa?`, `ancestors`, and `descendants`.
+В _ClojureScript_ є декілька спеціальних функцій для аналізу глобальних та локальних ієрархій. Це функції `isa?`, `ancestors` та `descendants`.
 
-Let's see an example of how it can be used with the hierarchy defined in the
-previous example:
+Давайте розглянемо приклад з використанням цих функцій:
 
 ```clojure
 (ancestors ::box)
@@ -335,11 +264,9 @@ previous example:
 ;; => false
 ```
 
-##### Locally defined hierarchies
+##### Локальні ієрархії
 
-As we mentioned previously, in _ClojureScript_ you also can define local
-hierarchies. This can be done with the `make-hierarchy` function. Here is an example
-of how you can replicate the previous example using a local hierarchy:
+Як ми вже говорили раніше, в _ClojureScript_ також є локальні ієрархії. Вони створюються за допомогою функції `make-hierarchy`. Ось код з минулого прикладу переписанный з використанням ієрархій:
 
 ```clojure
 (def h (-> (make-hierarchy)
@@ -347,8 +274,7 @@ of how you can replicate the previous example using a local hierarchy:
            (derive :circle :shape)))
 ```
 
-Now you can use the same introspection functions with that locally defined
-hierarchy:
+Для аналізу локальних ієрархій теж використовується функці `isa?`:
 
 ```clojure
 (isa? h :box :shape)
@@ -358,70 +284,58 @@ hierarchy:
 ;; => false
 ```
 
-As you can observe, in local hierarchies we can use normal (not namespace qualified)
-keywords, and if we execute the `isa?` without passing the local hierarchy
-parameter, it returns `false` as expected.
+Як ви можете бачити, в локальних ієрархіях ми можемо використовувати нормальні (не іменовані) ключові слова, а функція `isa?` повертає `false` якщо в неї не передати ієрархію.
 
-##### Hierarchies in multimethods
+##### Ієрархії у мультіметодах
 
-One of the big advantages of hierarchies is that they work very well together with
-multimethods.  This is because multimethods by default use the `isa?` function for
-the last step of dispatching.
+Однією із значних переваг ієрархій є те, що вони дуже добре працюють з мультіметодами. Мультіметоди використовують функцію `isa?` на останньому етапі визначення методу.
 
-Let's see an example to clearly understand what that means. First, we define the
-multimethod with the `defmulti` form:
+Давайте розглянемо приклад щоб зрозуміти, що це означає. Спочатку ми створюємо мультіметод за допомогою форми `defmulti`:
 
 ```clojure
 (defmulti stringify-shape
-  "A function that prints a human readable representation
-  of a shape keyword."
+  "Функція, що виводить текстовий опис форми."
   identity
   :hierarchy #'h)
 ```
 
-With the `:hierarchy` keyword parameter, we indicate to the multimethod what
-hierarchy we want to use; if it is not specified, the global hierarchy will be used.
+Ключове слово `:hierarchy` вказує мультіметоду, яку ієрархію ми хочемо використовувати; без ієрархії мульіметод буде використовувати глобальну ієрархію.
 
-Second, we define an implementation for our multimethod using the `defmethod` form:
+Далі ми створюємо імплементації мультіметоду як за звичай, за допомогою `defmethod`:
 
 ```clojure
 (defmethod stringify-shape :box
   [_]
-  "A box shape")
+  "Форма коробки")
 
 (defmethod stringify-shape :shape
   [_]
-  "A generic shape")
+  "Загальна форма")
 
 (defmethod stringify-shape :default
   [_]
-  "Unexpected object")
+  "Несподіваний об'єкт")
 ```
 
-Now, let's see what happens if we execute that function with a box:
+Тепер подивимось, що відбудеться коли ми викличемо мультіметод:
 
 ```clojure
 (stringify-shape :box)
-;; => "A box shape"
+;; => "Форма коробки"
 ```
 
-Now everything works as expected; the multimethod executes the direct matching
-implementation for the given parameter. Next, let's see what happens if we execute
-the same function but with the `:circle` keyword as the parameter which does not
-have the direct matching dispatch value:
+Все працює як і очікувалось; мультіметод викликає імплементацію по ключовому слову `:box`. Тепер подивимось, що буде якщо викликати мультіметод з ключовим словом `:circle`, для якого імплементація відсутня:
 
 ```clojure
 (stringify-shape :circle)
-;; => "A generic shape"
+;; => "Загальна форма"
 ```
 
-The multimethod automatically resolves it using the provided hierarchy, and since
-`:circle` is a descendant of `:shape`, the `:shape` implementation is executed.
+Мультіметод автоматично визначає імплементацію за допомогою ієрархії. `:circle` є нащадком `:shape`, тому викликається імплементація `:shape`.
 
-Finally, if you give a keyword that isn't part of the hierarchy, you get the
-`:default` implementation:
+Нарешті, якщо передати у мультіметод ключове слово, для якого нема імплементації ні в ієрархії, ні створеної напряму, спрацює імплементація за замовчуванням, `:default`:
 
 ```clojure
 (stringify-shape :triangle)
-;; => "Unexpected object"
+;; => "Несподіваний об'єкт"
 ```
