@@ -1,70 +1,70 @@
-#### Data types
+#### Типи «дані» 
 
-Until now, we have used maps, sets, lists, and vectors to represent our data. And in most cases, this is a really great approach. But sometimes we need to define our own types, and in this book we will call them *data types*.
+До цього моменту для представлення даних ми використовували мапи, множини, списки та вектори. У більшості випадків такий підхід є оптимальним, але інколи зʼявляється необхідність визначити власні типи. У цій книзі ми будемо називати такі типи типами «дані» (англ. *data types*). 
 
-A data type provides the following:
+Тип "дані" має такі властивості:
 
-* A unique host-backed type, either named or anonymous.
-* The ability to implement protocols (inline).
-* Explicitly declared structure using fields or closures.
-* Map-like behavior (via records, see below).
+* Унікальний тип, іменований чи анонімний, на базі типів батьківської платформи.
+* Підтримує можливість вбудованої реалізації протоколів
+* Має явно оголошену структуру, що використовує поля або замикання
+* Демонструє поведінку, подібну до мапів (через записи, див. далі)
 
 
-#### Deftype
+#### Конструкція Deftype
 
-The most low-level construction in _ClojureScript_ for creating your own types is the `deftype` macro. As a demonstration, we will define a type called `User`:
+ Конструкція найнижчого рівня абстракції для створення власних типів у _ClojureScript_ — це макрос `deftype`. Для демонстрації роботи цього макросу визначимо тип під назвою `User`:
 
-```cljs
+```clojure
 (deftype User [firstname lastname])
 ```
 
-Once the type has been defined, we can create an instance of our `User`. In the following example, the `.` after `User` indicates that we are calling a constructor.
+Після оголошення типу можна створити екземпляр типу `User`. У наступному прикладі крапка після назви типу `User` вказує на виклик конструктора.
 
-```cljs
+```clojure
 (def person (User. "Triss" "Merigold"))
 ```
 
-Its fields can be accessed using the prefix dot notation:
+Доступ до полів створеного екземпляру здійснюється через крапку:
 
-```cljs
+```clojure
 (.-firstname person)
 ;; => "Triss"
 ```
 
-Types defined with `deftype` (and `defrecord`, which we will see later) create a host-backed class-like object associated with the current namespace. For convenience, _ClojureScript_ also defines a constructor function called `->User` that can be imported using the `:require` directive.
+Типи, визначені за допомогою макросу `deftype` (а також `defrecord`, який буде розглянуто далі), створюють обʼєкти, адаптовані до типів батьківської платформи, подібні до класів та повʼязані з поточним простором імен. Для зручності _ClojureScript_ також визначає функцію-конструктор під назвою `->User`, яку можна імпортувати за допомогою директиви `:require`.
 
-We personally do not like this type of function, and we prefer to define our own constructors with more idiomatic names:
+Наголосимо на тому, що нам не подобається цей тип функції — ми віддаємо перевагу визначенню власних конструкторів із більш ідіоматичними назвами:
 
-```cljs
+```clojure
 (defn make-user
   [firstname lastname]
   (User. firstname lastname))
 ```
 
-We use this in our code instead of `->User`.
+Замість виклику `->User` ми використовуємо саме таку функцію.
 
 
-#### Defrecord
+#### Макрос Defrecord
 
-The record is a slightly higher-level abstraction for defining types in _ClojureScript_ and should be the preferred way to do it.
+Запис(record) — абстракція дещо вищого рівня, ніж `type`; саме макросу `defrecord` слід віддавати перевагу для визначення типів у _ClojureScript_. 
 
-As we know, _ClojureScript_ tends to use plain data types such as maps, but in most cases we need a named type to represent the entities of our application. Here come the records.
+Як відомо, у _ClojureScript_  переважно використовуються чисті типи, такі як мапи, але для представлення сутностей наших застосунків найчастіше нам потрібні іменовані типи, і тоді у нагоді стають записи.
 
-A record is a data type that implements the map protocol and therefore can be used like any other map.  And since records are also proper types, they support type-based polymorphism through protocols.
+Запис (англ. *record*) — це тип, який реалізує протокол типу «мапа» і, таким чином, може бути застосований як будь-яка мапа, але завдяки тому, що записи — це власні типи, через протоколи вони реалізують поліморфізм, заснований на типах.
 
-In summary: with records, we have the best of both worlds, maps that can play in different abstractions.
+Як наслідок, ми одночасно отримали переваги мап та типів, що можуть виступати у різних абстракціях.
 
-Let's start defining the `User` type but using records:
+Визначимо тип `User` за допомогою запису:
 
 ```cljs
 (defrecord User [firstname lastname])
 ```
 
-It looks really similar to the `deftype` syntax; in fact, it uses `deftype` behind the scenes as a low-level primitive for defining types.
+Синтаксис `defrecord` дуже схожий на `deftype`; насправді, за лаштунками макрос `defrecord` використовує `deftype` у якості низькорівневого примітивного типу для визначення типів. 
 
-Now, look at the difference with raw types for access to its fields:
+Зверніть увагу на те, як доступ до полів власного типу відрізняється від чистих типів:
 
-```cljs
+```clojure
 (def person (User. "Yennefer" "of Vengerberg"))
 
 (:firstname person)
@@ -74,27 +74,27 @@ Now, look at the difference with raw types for access to its fields:
 ;; => "Yennefer"
 ```
 
-As we mentioned previously, records are maps and act like them:
+Як ми згадували раніше, записи — це мапи, вони демонструють відподвідну поведінку:
 
-```
+```clojure
 (map? person)
 ;; => true
 ```
 
-And like maps, they support extra fields that are not initially defined:
+Також, подібно до мап, записи дозволяють створювати нові поля, які не буди визначені від початку:
 
-```
+```clojure
 (def person2 (assoc person :age 92))
 
 (:age person2)
 ;; => 92
 ```
 
-As we can see, the `assoc` function works as expected and returns a new instance of the same type but with new key value pair. But take care with `dissoc`! Its behavior with records is slightly different than with maps; it will return a new record if the field being dissociated is an optional field, but it will return a plain map if you dissociate a mandatory field.
+Як бачите, функція `assoc` поводиться очікуваним чином та повертає новий екземпляр того ж типу, але з новою парою ключ-значення. Але будьте обережні із функцією `dissoc`! Поведінка цієї функції із записами трохи відрізняється від поведінки з мапами: якщо видалене поле було опціональним, `dissoc` повертає новий запис, але якщо ви видалите обов'язкове поле, функція поверне порожню мапу.
 
-Another difference with maps is that records do not act like functions:
+Інша відмінність від мап полягає у тому, що записи не можна викликати як функції:
 
-```cljs
+```clojure
 (def plain-person {:firstname "Yennefer", :lastname "of Vengerberg"})
 
 (plain-person :firstname)
@@ -104,28 +104,28 @@ Another difference with maps is that records do not act like functions:
 ;; => person.User does not implement IFn protocol.
 ```
 
-For convenience, the `defrecord` macro, like `deftype`, exposes a `->User` function, as well as an additional `map->User` constructor function. We have the same opinion about that constructor as with `deftype` defined ones: we recommend defining your own instead of using the other ones. But as they exist, let’s see how they can be used:
+Для зручності макрос `defrecord`, подібно до `deftype`, надає доступ до функції `->User`, а також до додаткової функції-конструктора `map->User`. Наша думка з цього приводу така сама, як і щодо конструктора, який створюється макросом `deftype`: ми рекомендуємо визначати власні конструктори.
 
-```
+```clojure
 (def cirilla (->User "Cirilla" "Fiona"))
 (def yen (map->User {:firstname "Yennefer"
                      :lastname "of Vengerberg"}))
 ```
 
 
-#### Implementing protocols
+#### Реалізація протоколів
 
-Both type definition primitives that we have seen so far allow inline implementations for protocols (explained in a previous section). Let's define one for example purposes:
+Обидва примітива для визначення власних типів, які ми розглянули, дозволяють вбудовану реалізацію протоколів (див. минулий розділ). Визначемо тип для прикладу:
 
-```
+```clojure
 (defprotocol IUser
   "A common abstraction for working with user types."
   (full-name [_] "Get the full name of the user."))
 ```
 
-Now, you can define a type with inline implementation for an abstraction, in our case the `IUser`:
+Тепер ви можете визначити тип із вбудованою реалізацією певної абстракції, у нашому випадку — `IUser`: 
 
-```
+```clojure
 (defrecord User [firstname lastname]
   IUser
   (full-name [_]
@@ -139,13 +139,13 @@ Now, you can define a type with inline implementation for an abstraction, in our
 ```
 
 
-#### Reify
+#### Макрос Reify
 
-The `reify` macro is an _ad hoc constructor_ you can use to create objects without pre-defining a type.  Protocol implementations are supplied the same as `deftype` and `defrecord`, but in contrast, `reify` does not have accessible fields.
+Макрос `reify`  представляє собою конструктор спеціального призначення (англ. _ad hoc constructor_), який дозволяє створювати об'єкти без попереднього визначення типу. Реалізації протоколів макросу `reify` такі самі, як і для `deftype` та `defrecord`, але на відміну від них, `reify`не має доступних полів.
 
-This is how we can emulate an instance of the user type that plays well with the `IUser` abstraction:
+Ось як можна емулювати екземпляр типу `user`, який добре поєднується із абстракцією  `IUser`:
 
-```cljs
+```clojure
 (defn user
   [firstname lastname]
   (reify
@@ -158,11 +158,11 @@ This is how we can emulate an instance of the user type that plays well with the
 ;; => "Yennefer of Vengerberg"
 ```
 
-#### Specify
+#### Макрос Specify
 
-`specify!` is an advanced alternative to `reify`, allowing you to add protocol implementations to an existing JavaScript object.  This can be useful if you want to graft protocols onto a JavaScript library's components.
+Макрос `specify!` — це покращена альтернатива `reify`, яка дозволяє додавати реалізації протоколів до існуючих об'єктів JavaScript. Це може бути корисно, якщо ви хочете додати протоколи до компонентів стандартної бібліотеки JavaScript. 
 
-```cljs
+```clojure
 (def obj #js {})
 
 (specify! obj
@@ -174,9 +174,9 @@ This is how we can emulate an instance of the user type that plays well with the
 ;; => "my full name"
 ```
 
-`specify` is an immutable version of `specify!` that can be used on immutable, copyable values implementing `ICloneable` (e.g. ClojureScript collections).
+`specify` — це незмінна версія макросу `specify!`. `specify` можна використовувати із незмінним значеннями, які реалізують протокол `ICloneable` (наприклад, колекції ClojureScript).
 
-```
+```clojure
 (def a {})
 
 (def b (specify a
