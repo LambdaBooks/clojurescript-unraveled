@@ -1,34 +1,26 @@
 
-### Working with the REPL
+### Робота з REPL
 
 
-#### Introduction
+#### Вступ
 
-Although you can create a source file and compile it every time you want to try
-something out in ClojureScript, it's easier to use the REPL. REPL stands for:
+Коли потрібно спробувати щось на ClojureScript, можна створити та компілювати необхідні сирцеві файли, але  зручніше для невеличких обчислень використовувати REPL. Абревіатура REPL розшифровується наступним чином:
 
-* Read - get input from the keyboard
-* Evaluate the input
-* Print the result
-* Loop back for more input
+* Read - отримання вводу з клавіатури
+* Evaluate - обчислення вводу
+* Print - друк результату
+* Loop - повтор циклу для отримання нового вводу
 
-In other words, the REPL lets you try out ClojureScript concepts and get immediate
-feedback.
+Іншими словами, REPL дозволяє випробовувати концепти ClojureScript та негайно отримати результат.
 
-_ClojureScript_ comes with support for executing the REPL in different execution
-environments, each of which has its own advantages and disadvantages. For example,
-you can run a REPL in nodejs but in that environment you don't have any access to the
-DOM.  Which REPL environment is best for you depends on your specific needs and
-requirements.
+У мові _ClojureScript_ передбачена підтримка виконання REPL у різних середовищах, кожне з яких має свої переваги та недоліки. Наприклад, запустити REPL у середовищі nodejs можливо, але в такому середовищі неможливо отримати доступ до DOM. Вірний вибір REPL залежить від конкретних потреб та вимог.
 
 
 #### Nashorn REPL
 
-The Nashorn REPL is the easiest and perhaps most painless REPL environment because it
-does not require any special stuff, just the JVM (JDK 8) that you have used in
-previous examples for running the _ClojureScript_ compiler.
+Nashorn REPL - найпростіше та, мабуть, найбільш безпроблемне середовище REPL завдяки тому, що воно не має спецальних вимог, окрім JVM (JDK 8), яким ви користувалися у минулих прикладах для запуску компілятора _ClojureScript_.
 
-Let’s start creating the _repl.clj_ file with the following content:
+Почнемо зі створення файлу  _repl.clj_ із наступним змістом:
 
 ```clojure
 (require '[cljs.repl]
@@ -40,7 +32,7 @@ Let’s start creating the _repl.clj_ file with the following content:
  :cache-analysis true)
 ```
 
-Then, execute the following command to get the REPL up and running:
+Виконайте наступну команду для запуску REPL:
 
 ```bash
 $ java -cp cljs.jar:src clojure.main repl.clj
@@ -49,16 +41,9 @@ cljs.user=> (+ 1 2)
 3
 ```
 
-You may have noticed that the REPL does not have support for history and other
-shell-like facilities. This is because the default REPL does not comes with
-"readline" support. But this problem can be solved using a simple tool named `rlwrap`
-which you should be able to find find with the package manager of your operating
-system (e.g. for Ubuntu, type `sudo apt install -y rlwrap` to install).
+Ви могли помітити, що REPL не підтримує збереження історії та деяких інших можливостей програмної оболонки. Це пояснюється тим, що звичайний REPL не має підтримки функції "readline". Цю проблему легко подолати використанням інструменту `rlwrap`, який ви можете знайти за допомогою встановленого на вашій системі менеджеру пакетів (наприклад, відповідна команда для встановлення `rlwrap` на Ubuntu - це `sudo apt install -y rlwrap`).
 
-The `rlwrap` tool gives the REPL "readline" capability, and will allow you to have
-command history, code navigation, and other shell-like utilities that will make your
-REPL experience much more pleasant. To use it, just prepend it to the previous
-command that we used to start the REPL:
+Інструмент `rlwrap` надає REPL здібність до виконання "readline" та дозволить зберігати історію команд, переміщатися по коду та деякі інші можливості програмної оболонки, завдяки яким робота у REPL буде більш приємною. Для використання `rlwrap` вкажіть його перед вводом команди, за допомогою якої ми запускали REPL:
 
 ```bash
 $ rlwrap java -cp cljs.jar:src clojure.main repl.clj
@@ -70,15 +55,11 @@ cljs.user=> (+ 1 2)
 
 #### Node.js REPL
 
-You must, of course, have nodejs installed on your system to use this REPL.
+Звичайно, для використання цього REPL на вашій операційній системі має бути встановлений nodejs.
 
-You may be wondering why we might want a nodejs REPL, when we already have the
-nashorn REPL available which doesn't have any external dependencies. The answer is
-very simple: nodejs is the most used JavaScript execution environment on the backend,
-and it has a great number of community packages built around it.
+Можливо, у вас виникло питання, навіщо використовувати nodejs REPL, якщо ми вже маємо nashorn REPL, який не має зовнішніх залежностей. Відповідь дуже проста: nodejs найбільш розповсюджене середовище для виконання коду на JavaScript на сервері.
 
-The good news is that starting a nodejs REPL is very easy once you have it installed
-in your system. Start writing this content to a new `repl.clj` file:
+Приємно знати, що для запуску nodejs REPL достатньо просто встановити його на свою операційну систему. Почніть з написання наступного коду у файлі `repl.clj`:
 
 ```clojure
 (require '[cljs.repl]
@@ -88,9 +69,9 @@ in your system. Start writing this content to a new `repl.clj` file:
  (cljs.repl.node/repl-env)
  :output-dir "out"
  :cache-analysis true)
-````
+```
 
-And start the REPL like you have done it previously with nashorn REPL:
+Запустіть REPL, як робили раніше із nashorn REPL:
 
 ```clojure
 $ rlwrap java -cp cljs.jar:src clojure.main repl.clj
@@ -100,12 +81,11 @@ cljs.user=> (+ 1 2)
 ```
 
 
-#### Browser REPL
+#### browser REPL
 
-This REPL is the most laborious to get up and running. This is because it uses a
-browser for its execution environment and it has additional requirements.
+Цей REPL вимагає найбільших зусиль для запуску. Це пов'язане з використання браузера як середовища виконання та приводить по появи додаткових вимог.
 
-Let’s start by creating a file named `brepl.clj` with the following content:
+Створіть файл під назвою `brepl.clj` за наступним змістом:
 
 ```clojure
 (require
@@ -125,18 +105,16 @@ Let’s start by creating a file named `brepl.clj` with the following content:
   :output-dir "out")
 ```
 
-This script builds the source, just as we did earlier, and then starts the REPL.
+Скрипт виконує компіляцію сирцевих файлів, як ми робили раніше, після чого запускає REPL.
 
-But the browser REPL also requires that some code be executed in the browser before
-the REPL gets working. To do that, just re-create the application structure very
-similar to the one that we have used in previous sections:
+Але browser REPL потребує виконання певного коду у середовищі браузера перед початком роботи REPL. Для цього слід відтворити структуру застусунку, який ми використовували у попередніх розділах:
 
 ```clojure
 mkdir -p src/myapp
 touch src/myapp/core.cljs
 ```
 
-Then, write new content to the `src/myapp/core.cljs` file:
+Заповніть файл `src/myapp/core.cljs` наступним кодом:
 
 ```clojure
 (ns myapp.core
@@ -150,8 +128,7 @@ Then, write new content to the `src/myapp/core.cljs` file:
 (println "Hello, world!")
 ```
 
-And finally, create the missing _index.html_ file that is going to be used as the
-entry point for running the browser side code of the REPL:
+Насамкінець створіть файл _index.html_, який буде точкою входу для запуску коду REPL на стороні браузера: 
 
 ```html
 <!DOCTYPE html>
@@ -166,9 +143,7 @@ entry point for running the browser side code of the REPL:
 </html>
 ```
 
-Well, that was a lot of setup! But trust us, it’s all worth it when you see it in
-action.  To do that, just execute the `brepl.clj` in the same way that we have done
-it in previous examples:
+Так, налаштувань насправді багато, але результат переконає вас у виправданності цих зусиль. Виконайте команду `brepl.clj` так, як виконували у минулих прикладах:
 
 ```bash
 $ rlwrap java -cp cljs.jar:src clojure.main brepl.clj
@@ -176,9 +151,7 @@ Compiling client js ...
 Waiting for browser to connect ...
 ```
 
-And finally, open your favourite browser and go to http://localhost:9000/. Once the
-page is loaded (the page will be blank), switch back to the console where you have
-run the REPL and you will see that it is up and running:
+І нарешті відкрийте ваш улюблений браузер та перейдіть за посиланням http://localhost:9000/. Після завантаження сторінки (сторінка буде порожня) поверніться до консолі, у якій запущено REPL, і переконайтеся, що він продовжує роботу.
 
 ```bash
 [...]
@@ -186,7 +159,4 @@ To quit, type: :cljs/quit
 cljs.user=> (+ 14 28)
 42
 ```
-
-One of the big advantages of the browser REPL is that you have access to everything
-in the browser environment. For example, type `(js/alert "hello world")` in the
-REPL. This will cause the browser to display an alert box. Nice!
+Одна з найбільш суттєвих переваг використання REPL у браузері - це доступ до відповідного оточення. Для прикладу наберіть `(js/alert "hello world")` у REPL, і браузер відобразить вікно повідомлення. Чудово!
