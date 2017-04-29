@@ -13,9 +13,9 @@
   * [Локальні змінні, блоки та цикли](./manuscript/03-07-Locals-Blocks-and-Loops.md)
   * [Типи колекцій](./manuscript/03-08-Collection-types.md)
   * [Деструктурування](./manuscript/03-09-Destructuring.md)
-  * Потокові макроси
-  * Умови читача
-  * Простори імен
+  * [Потокові макроси](./manuscript/03-10-Threading-Macros.md)
+  * [Умови читача](./manuscript/03-11-Reader-Conditionals.md)
+  * [Простори імен](./manuscript/03-12-Namespaces.md)
   * Абстракції і поліморфізм
   * Типи даних
   * Сумісність з батьківською платформою
