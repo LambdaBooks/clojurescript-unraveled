@@ -1,22 +1,23 @@
-### Transients
+### Перехідні структури даних
 
-Although ClojureScript's immutable and persistent data structures are reasonably performant there are situations in which we are transforming large data structures using multiple steps to only share the final result. For example, the core `into` function takes a collection and eagerly populates it with the contents of a sequence:
+
+Незмінні та стійкі стуктури даних мови ClojureScript відрізняються доволі високою продуктивністю, але трапляються ситуації, коли необхідно трансформувати великі структури даних за кілька окремих кроків і лише кінцевий результат має бути доступний для інших користувачів. Наприклад, функція стандартної бібліотеки `into` отримує колекцію та негайно заповнює цю колекцію змістом наданої послідовності на кожній ітерації:
 
 ```clojure
 (into [] (range 100))
 ;; => [0 1 2 ... 98 99]
 ```
 
-In the above example we are generating a vector of 100 elements `conj`-ing one at a time. Every intermediate vector that is not the final result won't be seen by anybody except the `into` function and the array copying required for persistence is an unnecesary overhead.
+В наведеному прикладі ми створюємо вектор зі 100 елементів, додаючи по одному за раз. При цьому вектори, які створюються на проміжних кроках, будуть видні лише функції `into`, а копіювання масиву, що є необхідним для збереження стійкості, виявляється необоʼязковими витратами.
 
-For these situations ClojureScript provides a special version of some of its persistent data structures, which are called transients. Maps, vectors and sets have a transient counterpart.  Transients are always derived from a persistent data structure using the `transient` function, which creates a transient version in constant time:
+Для подібних ситуациій у ClojureScript передбачені спеціальні версії певних стійких структур даних, які називаються перехідними (англ. `transients`). Мапи, вектори та множини мають перехідні аналоги. Перехідні версії завжди створюються на базі відповідних стійких структур за допомогою функції `transient`, яка формує перехідну версію за постійний час:
 
 ```clojure
 (def tv (transient [1 2 3]))
 ;; => #<[object Object]>
 ```
 
-Transients support the read API of their persistent counterparts:
+Перехідні версії підтримують інтерфейс читання відповідних стійких аналогів.
 
 ```clojure
 (def tv (transient [1 2 3]))
@@ -41,7 +42,7 @@ Transients support the read API of their persistent counterparts:
 ;; => :a
 ```
 
-Since transients don't have persistent and immutable semantics for updates they can't be transformed using the already familiar `conj` or `assoc` functions. Instead, the transforming functions that work on transients end with a bang. Let's look at an example using `conj!` on a transient:
+Щодо запису, через те, що для перехідних структур не визначено семантики стійкості та незмінності, їх значення не можна оновлювати за допомогою вже знайомих функцій `conj` та `assoc`. Для трансформації перехідних структур існують спеціальні функції, назви яких закінчуються знаком оклику. Розглянемо приклад застосування функції  `conj!` до перехідної структури:
 
 ```clojure
 (def tv (transient [1 2 3]))
@@ -53,7 +54,7 @@ Since transients don't have persistent and immutable semantics for updates they 
 ;; => 4
 ```
 
-As you can see, the transient version of the vector is neither immutable nor persistent. Instead, the vector is mutated in place. Although we could transform `tv` repeatedly using `conj!` on it we shouldn't abandon the idioms used with the persistent data structures: when transforming a transient, use the returned version of it for further modifications like in the following example:
+Як ви можете переконатися, перехідна версія вектора не є ані незмінною, ані стійкою. Натомість, вектор змінюється без створення додаткових структур. Зауважимо, що можна неодноразово змінювати `tv` за допомогою функції `conj!`, але не слід відмовлятися від ідіом, які застосовуються до стійких структур: при трансформації перехідної структури використовуйте для подальших модифікацій версію, яка є результатом попередньої трансформації, як у наступному прикладі:
 
 ```clojure
 (-> [1 2 3]
@@ -63,7 +64,7 @@ As you can see, the transient version of the vector is neither immutable nor per
 ;; => #<[object Object]>
 ```
 
-We can convert a transient back to a persistent and immutable data structure by calling `persistent!` on it. This operation, like deriving a transient from a persistent data structure, is done in constant time.
+Можна перетворити перехідну структуру на стійку та незмінну шляхом застосування функції `persistent!`. Як і створення перехідної структури зі стійкої, зворотнє перетворення вимагає постійного часу:
 
 ```clojure
 (-> [1 2 3]
@@ -74,7 +75,7 @@ We can convert a transient back to a persistent and immutable data structure by 
 ;; => [1 2 3 4 5]
 ```
 
-A peculiarity of transforming transients into persistent structures is that the transient version is invalidated after being converted to a persistent data structure and we can't do further transformations to it. This happens because the derived persistent data structure uses the transient's internal nodes and mutating them would break the immutability and persistent guarantees:
+Особливість перетворення перехідної структури на стійку полягає у тому, що перехідна структура після перетворення на стійку стає недійсною і подальші трансформації з нею неможливі. Це пояснюється тим, що похідна стійка структура використовує внутрішні вузли перехідної, а змінення цих вузлів може порушити гарантії стійкості та незмінності:
 
 ```clojure
 (def tm (transient {}))
@@ -90,7 +91,7 @@ A peculiarity of transforming transients into persistent structures is that the 
 ;; Error: assoc! after persistent!
 ```
 
-Going back to our initial example with `into`, here's a very simplified implementation of it that uses a transient for performance, returning a persistent data structure and thus exposing a purely functional interface although it uses mutation internally:
+Повернемося до прикладу з функцією  `into` та наведемо дуже спрощену імплементацію такої функції, яка використовує перехідну структуру для підвищення продуктивності, повертає стійку структуру даних і таким чином надає повністю функціональний інтерфейс, але у внутрішніх процесах вдається до мутацій:
 
 ```clojure
 (defn my-into
