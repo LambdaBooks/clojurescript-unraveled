@@ -16,8 +16,8 @@
   * [Потокові макроси](./manuscript/03-10-Threading-Macros.md)
   * [Умови читача](./manuscript/03-11-Reader-Conditionals.md)
   * [Простори імен](./manuscript/03-12-Namespaces.md)
-  * Абстракції і поліморфізм
-  * Типи даних
+  * [Абстракції і поліморфізм](./manuscript/03-13-Abstractions-and-Polymorphism.md)
+  * [Типи даних](./manuscript/03-14-Data-types.md)
   * Сумісність з батьківською платформою
   * Керування станом
 * Інструментарій та компілятор
