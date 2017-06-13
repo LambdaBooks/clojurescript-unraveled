@@ -1,14 +1,14 @@
 
-### Metadata
+### Метадані
 
-ClojureScript symbols, vars and persistent collections support attaching metadata to them. Metadata is a map with information about the entity it's attached to. The ClojureScript compiler uses metadata for several purposes such as type hints, and the metadata system can be used by tooling, library and application developers too.
+_ClojureScript_ дозволяє додавати до символів, варів та стійких колекцій метадані. Метадані мають форму мапи та містять інформацію про сутність, до якої відносяться. Компілятор _ClojureScript_ використовує метадані для певних цілей, зокрема для визначення типів; також система метаданих може бути корисною для розробників інструментів, бібліотек та застосунків.
 
-There may not be many cases in day-to-day ClojureScript programming where you need metadata, but it is a nice language feature to have and know about; it may come in handy at some point. It makes things like runtime code introspection and documentation generation very easy. You'll see why throughout this section.
+У щоденній роботі нечасто зʼявляються причини скористатися метаданими, але це корисна можливість мови, про яку варто знати, бо у певний момент вона стане у нагоді. Метадані спрощують інстроспекцію коду у рантаймі та документування коду. Протягом цього розділу ми у цьому переконаємося.
 
 
-#### Vars
+#### Вари
 
-Let's define a var and see what metadata is attached to it by default. Note that this code is executed in a REPL, and thus the metadata of a var defined in a source file may vary. We'll use the `meta` function to retrieve the metadata of the given value:
+Визначимо вар та розглянемо, метадані, що їх додано до нього за замовчуванням. Зверніть увагу на те, що код виконується у REPL, тому метадані вару, визначеного у файлі коду, можуть бути іншими. Для отримання метаданих певного значення слід викликати функцію `meta`:
 
 ```clojure
 (def answer-to-everything 42)
@@ -31,9 +31,9 @@ Let's define a var and see what metadata is attached to it by default. Note that
 ;;     :test nil}
 ```
 
-Few things to note here. First of all, `#'answer-to-everything` gives us a reference to the `Var` that holds the value of the `answer-to-everything` symbol. We see that it includes information about the namespace (`:ns`) in which it was defined, its name, file (although, since it was defined at a REPL doesn't have a source file), source, position in the file where it was defined, argument list (which only makes sense for functions), documentation string and test function.
+Слід звернути увагу на кілька речей. Попреше, `#'answer-to-everything` надає посилання на `Var`, який містить значення символу `answer-to-everything`. Ми бачимо, що він містить інформацію про простір імен  (`:ns`), у якому був визначений, його імʼя, файл (хоча він був визначений у REPL і не має файлу вихідного коду), джерело, позицію у файлі, де він був визначений, список аргументів (це має сенс лише для функцій), документаційний рядок та тестову функцію.
  
-Let's take a look at a function var's metadata:
+Подивимося на метадані функції:
 
 ```clojure
 (defn add
@@ -55,7 +55,7 @@ Let's take a look at a function var's metadata:
 ;;     :test nil}
 ```
 
-We see that the argument lists are stored in the `:arglists` field of the var's metadata and its documentation in the `:doc` field. We'll now define a test function to learn about what `:test` is used for:
+Видно, що список аргументів збережений у полі `:arglists`, а відповідний документаційний рядок - у полі `:doc`. Тепер визначимо тестову функцію та дізнаємося, як використовується поле  `:test`. 
 
 ```clojure
 (require '[cljs.test :as t])
@@ -77,12 +77,12 @@ We see that the argument lists are stored in the `:arglists` field of the var's 
 ;;     :test #<function (){ ... }>}
 ```
 
-The `:test` attribute (truncated for brevity) in the `i-pass` var's metadata is a test function. This is used by the `cljs.test` library for discovering and running tests in the namespaces you tell it to.
+Атрибут `:test` (скорочений для стислості) у полі  `i-pass` представляє собою тестову функцію.  Ця функція використовується бібліотекою `cljs.test` для визначення та запуску тестів у вказаних просторах імен.
 
 
-#### Values
+#### Значення
 
-We learned that vars can have metadata and what kind of metadata is added to them for consumption by the compiler and the `cljs.test` testing library. Persistent collections can have metadata too, although they don't have any by default. We can use the `with-meta` function to derive an object with the same value and type with the given metadata attached. Let's see how:
+Ми дізналися про те, що вари можуть мати метадані і як саме такі метадані виглядають з точки зору бібліотеки для тестування  `cljs.test`. Стійкі колекції також можуть мати метадані, хоча і не мають їх за замовчуванням. Ми можемо використати функцію `with-meta` для створення похідного обʼєкта з тим самим значенням та типом, що має надані метадані:
 
 ```clojure
 (def map-without-metadata {:language "ClojureScript"})
@@ -107,9 +107,9 @@ We learned that vars can have metadata and what kind of metadata is added to the
 ;; => false
 ```
 
-It shouldn't come as a surprise that metadata doesn't affect equality between two data structures since equality in ClojureScript is based on value. Another interesting thing is that `with-meta` creates another object of the same type and value as the given one and attaches the given metadata to it.
+Навряд чи стане несподіванкою те, що метадані не впливають на рівність двох структур даних, адже рівніть у _ClojureScript_ виходить зі значення. Інший цікавий аспект - функція `with-meta` створіє новий обʼєкт того ж типу та значення та додає метадані вихідного обʼєкта.
 
-Another open question is what happens with metadata when deriving new values from a persistent data structure.  Let's find out:
+А що станеться з метаданими, якщо створити нове значення на базі стійкої структури даних?
 
 ```clojure
 (def derived-map (assoc map-with-metadata :language "Clojure"))
@@ -119,7 +119,7 @@ Another open question is what happens with metadata when deriving new values fro
 ;; => {:answer-to-everything 42}
 ```
 
-As you can see in the example above, metadata is preserved in derived versions of persistent data structures. There are some subtleties, though. As long as the functions that derive new data structures return collections with the same type, metadata will be preserved; this is not true if the types change due to the transformation. To ilustrate this point, let's see what happens when we derive a seq or a subvector from a vector:
+Як ви можете побачити у цьому прикладі, у похідних версіях стійких структур даних зберігаються метадані оригіналів. Але треба памʼятати про певні нюанси. Метадані зберігаться лише у тих випадках, коли функція, що створює похідну структуру, повертає колекцію того ж типу. Зовсім інший ефект буде при трансформації, що призводить до зміни типу. Продемонструємо таку поведінку на прикладі створення послідовності або субвектора з вектора: 
 
 ```clojure
 (def v (with-meta [0 1 2 3] {:foo :bar}))
@@ -136,9 +136,9 @@ As you can see in the example above, metadata is preserved in derived versions o
 ```
 
 
-#### Syntax for metadata
+#### Синтаксис метаданих
 
-The ClojureScript reader has syntactic support for metadata annotations, which can be written in different ways. We can prepend var definitions or collections with a caret (`^`) followed by a map for annotating it with the given metadata map:
+Рідер ClojureScrip має синтаксичну підтримку різних типів запису метаданих. Можна ставити перед визначенням варів та колекцій знак «карет» (`^`) та мапи з відповідною анотацією.
 
 ```clojure
 (def ^{:doc "The answer to Life, Universe and Everything."} answer-to-everything 42)
@@ -164,9 +164,9 @@ The ClojureScript reader has syntactic support for metadata annotations, which c
 ;; => {:answer-to-everything 42}
 ```
 
-Notice how the metadata given in the `answer-to-everything` var definition is merged with the var metadata.
+Зверніть увагу на те, що метадані, що їх було надано при визначенні вару `answer-to-everything`, поєднані з метаданими вару.
 
-A very common use of metadata is to set certain keys to a `true` value. For example we may want to add to a var's metadata that the variable is dynamic or a constant. For such cases, we have a shorthand notation that uses a caret followed by a keyword. Here are some examples:
+Розповсюдженим прикладом використання метаданих є присвоєння значення `true` певним ключам. Наприклад, нам потрібно вказати у метаданих вару, чи відповідна змінна є динамічною змінною або константною. Для таких випадків є скорочений запис із використання знаку «карет» та ключового слова. Ось деякі приклади:
 
 ```clojure
 (def ^:dynamic *foo* 42)
@@ -182,7 +182,7 @@ A very common use of metadata is to set certain keys to a `true` value. For exam
 ;; => {:foo true, :bar true}
 ```
 
-There is another shorthand notation for attaching metadata. If we use a caret followed by a symbol it will be added to the metadata map under the `:tag` key. Using tags such as `^boolean` gives the ClojureScript compiler hints about the type of expressions or function return types.
+Інше скорочення для зпису метаданих - використання "карет" та символу, що їх буде додано до метаданих мапи за ключем `:tag`. Використання тегів, зокрема `^boolean`, надає компілятору _ClojureScript_ інформацію щодо типу виразу або типу значення, що його повертає функція.
 
 ```clojure
 (defn ^boolean will-it-blend? [_] true)
@@ -195,10 +195,9 @@ There is another shorthand notation for attaching metadata. If we use a caret fo
 ;; => false
 ```
 
-#### Functions for working with metadata
+#### Функції для роботи з метаданими
 
-We've learned about `meta` and `with-meta` so far but ClojureScript offers a few functions for transforming metadata. There is `vary-meta` which is similar to `with-meta` in that it derives a new object with the same type and value as the original but it doesn't take the metadata to attach directly. Instead, it takes a function to apply to the metadata of the given object to transform it for deriving
-new metadata. This is how it works:
+Ми вже дізналися про функцї  `meta` та `with-meta`, але _ClojureScript_ має цілу низку функцій для роботи з метаданими. Є функція `vary-meta`, подібна до  `with-meta` у тому, що створює новий похідний обʼєкт того ж типу та значення, що й оригінальний, але не приймає метадані, щоб додати їх напряму. Натомість, ця функція приймає функцію, яка буде застосована до метаданих вказаного обʼєкта з метою трансформування для отримання нових метаданих. Ось як це відбувається:
 
 ```clojure
 (def map-with-metadata ^{:foo 40} {:language "ClojureScript"})
@@ -214,7 +213,7 @@ new metadata. This is how it works:
 ;; => {:foo 42}
 ```
 
-If instead we want to change the metadata of an existing var or value we can use `alter-meta!` for changing it by applying a function or `reset-meta!` for replacing it with another map:
+Якщо ми натомість хочемо змінити метадані існуючого вара чи його значення, ми можемо скористатися функцією `alter-meta!` або замінити на іншу мапу за допомогою `alter-meta!`:
 
 ```clojure
 (def map-with-metadata ^{:foo 40} {:language "ClojureScript"})
