@@ -1,31 +1,31 @@
-### Host interoperability
+### Взаємодія з JavaScript
 
-_ClojureScript_, in the same way as its brother Clojure, is designed to be a "guest" language. This means that the design of the language works well on top of an existing ecosystem such as JavaScript for _ClojureScript_ and the JVM for _Clojure_.
-
-
-#### The types
-
-_ClojureScript_, unlike what you might expect, tries to take advantage of every type that the platform provides. This is a (perhaps incomplete) list of things that _ClojureScript_ inherits and reuses from the underlying platform:
-
-* _ClojureScript_ strings are JavaScript *Strings*.
-* _ClojureScript_ numbers are JavaScript *Numbers*.
-* _ClojureScript_ `nil` is a JavaScript *null*.
-* _ClojureScript_ regular expressions are JavaScript `RegExp` instances.
-* _ClojureScript_ is not interpreted; it is always compiled down to JavaScript.
-* _ClojureScript_ allows easy call to platform APIs with the same semantics.
-* _ClojureScript_ data types internally compile to objects in JavaScript.
-
-On top of it, _ClojureScript_ builds its own abstractions and types that do not exist in the platform, such as Vectors, Maps, Sets, and others that are explained in preceding sections of this chapter.
+_ClojureScript_ — це гостьова мова, так само, як і її сестра Clojure. Це означає, що обидві мови орієнтовані на інтеграцію з батьківською платформою (JavaScript для _ClojureScript_ та JVM для _Clojure_).
 
 
-#### Interacting with platform types
+#### Типи
 
-_ClojureScript_ comes with a little set of special forms that allows it to interact with platform types such as calling object methods, creating new instances, and accessing object properties.
+_ClojureScript_ прагне використовувати усі існуючі типи з JavaScript, хоча це може здатися несподіваним для мови, що не має нічого спільного з JavaScript. Ось неповний список особливостей, що наслідуються з батьківської платформи та використовуються в ClojureScript:
+
+* Рядки в _ClojureScript_ — це звичайні рядки з JavaScript
+* Числа у _ClojureScript_ — ті самі, що і в JavaScript
+* Значення `nil` в _ClojureScript_ перетворюється на null у JavaScript
+* Регулярні вирази в _ClojureScript_ — екземпляри класу RegExp з JavaScript
+* _ClojureScript_ не інтерпретована мова; вона завжди компілюється у JavaScript
+* В  _ClojureScript_ дуже просто використовувати API батьківської платформи, при цьому семантика таких API не змінюється
+* Усі структури даних в _ClojureScript_ компілюються в об'єкти в JavaScript, що імплементують ці структури даних
+
+Окрім цього _ClojureScript_ будує власні абстракції та структури даних, яких немає у батьківській платформі — вектори, мапи, множини та інші, що були розглянуті у попередніх частинах.
 
 
-##### Access to the platform
+#### Взаємодія з типами даних батьківської платформи
 
-_ClojureScript_ has a special syntax for access to the entire platform environment through the `js/` special namespace. This is an example of an expression to execute JavaScript's built-in `parseInt` function:
+У _ClojureScript_ є невеликий набір спеціальних форм для роботи з типами даних батьківської платформи, наприклад: виклик методу об'єкту, створення екземплярів класів та доступ до властивостей об'єктів.
+
+
+##### Доступ до платформи
+
+Доступ до середовища батьківської платформи у _ClojureScript_ здійснюється через простір імен `js/`. Ось приклад використання функції `parseInt` з JavaScript:
 
 ```clojure
 (js/parseInt "222")
@@ -33,31 +33,28 @@ _ClojureScript_ has a special syntax for access to the entire platform environme
 ```
 
 
-##### Creating new instances
+##### Створення екземплярів класу
 
-_ClojureScript_ has two ways to create instances:
+Створити екземпляр класу у _ClojureScript_ можна двома способами:
 
-Using the `new` special form
-
+За допомогою спеціальної форми `new`
 ```clojure
 (new js/RegExp "^foo$")
 ```
 
-Using the `.` special form
-
+Або спеціальної форми `.`
 ```clojure
 (js/RegExp. "^foo$")
 ```
 
-The last one is the recommended way to create instances. We are not aware of any real differences between the two forms, but in the ClojureScript community, the last one is used most often.
+Рекомендованою формою створення екземплярів є друга — саме їй надає перевагу спільнота _ClojureScript_, хоча нам невідомі суттєві відмінності між цими двома формами.
 
 
-##### Invoke instance methods
+##### Виклик методів об'єкту
 
-To invoke methods of some object instance, as opposed to how it is done in JavaScript (e.g., `obj.method()`, the method name comes first like any other standard function in Lisp languages but with a little variation: the function name
-starts with special form `.`.
+Виклик методів об'єкту в _ClojureScript_ дещо відрізняється від JavaScript, де ми пишемо так: `obj.method()`. В _ClojureScript_ спочатку записується назва методу, а потім назва об'єкту, а не навпаки. Також на початку назви методу додається спеціальна форма `.`
 
-Let's see how we can call the `.test()` method of a regexp instance:
+Розглянемо як приклад виклик методу `.test()` регулярного виразу:
 
 ```clojure
 (def re (js/RegExp "^Clojure"))
@@ -66,7 +63,7 @@ Let's see how we can call the `.test()` method of a regexp instance:
 ;; => true
 ```
 
-You can invoke instance methods on JavaScript objects. The first example follows the pattern you have seen; the last one is a shortcut:
+Методи екземплярів обʼєктів JavaScript також можна викликати. Перший приклад використовує вже знайому нам форму запису, а другий демонструє скорочену форму:
 
 ```clojure
 (.sqrt js/Math 2)
@@ -76,9 +73,10 @@ You can invoke instance methods on JavaScript objects. The first example follows
 ```
 
 
-##### Access to object properties
+#####  Доступ до властивостей об'єкту
 
-Access to an object's properties is really very similar to calling a method. The difference is that instead of using the `.` you use `.-`. Let's see an example:
+Синтаксис доступу до властивостей об'єкту дуже схожий на виклик методу, але замість `.` використовується `.-`. Розглянемо приклад:
+
 
 ```clojure
 (.-multiline re)
@@ -88,9 +86,9 @@ Access to an object's properties is really very similar to calling a method. The
 ```
 
 
-##### Property access shorthand
+##### Скорочена форма доступу до властивостей об'єкту
 
-Symbols with the `js/` prefix can contain dots to denote nested property access. Both of the following expressions invoke the same function:
+Символи з префіксом `js/` можуть містити крапки для позначення доступу до вкладених властивостей. Обидва наступні вирази викликають одну функцію:
 
 ```clojure
 (.log js/console "Hello World")
@@ -98,7 +96,7 @@ Symbols with the `js/` prefix can contain dots to denote nested property access.
 (js/console.log "Hello World")
 ```
 
-And both of the following expressions access the same property:
+А ці вирази вирази отримують доступ до однієї властивості обʼєкту:
 
 ```clojure
 (.-PI js/Math)
@@ -109,47 +107,46 @@ js/Math.PI
 ```
 
 
-##### JavaScript objects
+##### Об'єкти JavaScript
 
-_ClojureScript_ has different ways to create plain JavaScript objects; each one has its own purpose. The basic one is the `js-obj` function. It accepts a variable number of pairs of keys and values and returns a JavaScript object:
+_ClojureScript_ пропонує кілька способів створення об'єктів; кожен з них має свою сферу застосування. Функція `js-obj` приймає будь-яку кількість пар «ключ-значення» і повертає об'єкт JavaScript: 
 
 ```clojure
 (js-obj "country" "FR")
 ;; => #js {:country "FR"}
 ```
 
-The return value can be passed to some kind of third party library that accepts a plain JavaScript object, but you can observe the real representation of the return value of this function. It is really another form for doing the same thing.
+Це може стати вам у нагоді, коли треба працювати зі сторонніми бібліотеками JavaScript, що приймають звичайні об'єкти. У прикладі вище ви могли побачити, як виглядає об'єкт в ClojureScript. Насправді це ще одна форма запису.
 
-Using the reader macro `#js` consists of prepending it to a ClojureScript map or vector, and the result will be transformed to plain JavaScript:
+`#js` — це макрос читача, що додається до мап та векторів, які будуть трансформовані у об'єкти та масиви JavaScript: 
 
 ```clojure
 (def myobj #js {:country "FR"})
 ```
 
-The translation of that to plain JavaScript is similar to this:
+Те саме у JavaScript:
 
 ```javascript
 var myobj = {country: "FR"};
 ```
 
-As explained in the previous section, you can also access the plain object properties using the `.-` syntax:
+У попередньому розділі ми згадували про те, що доступ до властивосетй обʼєктів можливий за допомогою синтаксису `.-`
 
 ```clojure
 (.-country myobj)
 ;; => "FR"
 ```
 
-And as JavaScript objects are mutable, you can set a new value for some property using the `set!` function:
+Об'єкти JavaScript є змінними. У _ClojureScript_ можна змінювати значення певних властивостей обʼєктів JavaScript за допомогою функції `set!`:
 
 ```clojure
 (set! (.-country myobj) "KR")
 ```
 
 
-##### Conversions
+#####  Перетворення
 
-The inconvenience of the previously explained forms is that they do not make recursive transformations, so if you have nested objects, the nested objects will not be converted.  Consider this example that uses Clojurescript maps, then a
-similar one with JavaScript objects:
+Усі розглянуті форми створення об'єктів мають один недолік: об'єкти не трансформуються рекурсивно. Це означає, що вкладені об'єкти не будуть перетворені у JavaScript. Розглянемо наступний приклад з мапами в _ClojureScript_ та об'єктами в JavaScript:
 
 ```clojure
 (def clj-map {:country {:code "FR" :name "France"}})
@@ -165,7 +162,7 @@ similar one with JavaScript objects:
 ;; => nil
 ```
 
-To solve that use case, _ClojureScript_ comes with the `clj->js` and `js->clj` functions that transform Clojure collection types into JavaScript and back. Note that the conversion to ClojureScript changes the `:country` keyword to a string.
+Для вирішення цієї проблеми в _ClojureScript_ є функції `clj->js` та `js->clj`, що перетворюють структури даних з ClojureScript у JavaScript та навпаки. Зверніть увагу на те, що під час конверсії ключове слово `:country` перетворюється на рядок.
 
 ```clojure
 (clj->js {:foo {:bar "baz"}})
@@ -174,7 +171,7 @@ To solve that use case, _ClojureScript_ comes with the `clj->js` and `js->clj` f
 ;; => {"country" {:code "FR", :name "France"}}
 ```
 
-In the case of arrays, there is a specialized function `into-array` that behaves as expected:
+Для перетворення вектора на масив використовується спеціалізована функція `into-array`:
 
 ```clojure
 (into-array ["France" "Korea" "Peru"])
@@ -182,24 +179,24 @@ In the case of arrays, there is a specialized function `into-array` that behaves
 ```
 
 
-##### Arrays
+##### Масиви
 
-In the previous example, we saw how we can create an array from an existing _ClojureScript_ collection. But there is another function for creating arrays: `make-array`.
+У попередньому прикладі ми побачили перетворення існуючої колекції з _ClojureScript_ на масив JavaScript. Для створення нових масивів використовують функцію `make-array`:
 
-.Creating a preallocated array with length 10
+.Створення масиву довжиною 10 елементів:
 ```clojure
 (def a (make-array 10))
 ;; => #js [nil nil nil nil nil nil nil nil nil nil]
 ```
 
-In _ClojureScript_, arrays also play well with sequence abstractions, so you can iterate over them or simply get the number of elements with the `count` function:
+В ClojureScript масиви сумісні з абстракцією колекції, тому ви можете використовувати будь-які функції для перетворення масиву значень, як зі звичайними колекціями в _ClojureScript_. Наприклад функція `count` повертає значення довжини будь-якої колекції:
 
 ```clojure
 (count a)
 ;; => 10
 ```
 
-As arrays in the JavaScript platform are a mutable collection type, you can access a concrete index and set the value at that position:
+Масиви у JavaScript є змінною стрктурою даних, тому у _ClojureScript_ також можливо  записати значення масиву за певним індексом:
 
 ```clojure
 (aset a 0 2)
@@ -208,14 +205,14 @@ a
 ;; => #js [2 nil nil nil nil nil nil nil nil nil]
 ```
 
-Or access in an indexed way to get its values:
+Значення масиву можна прочитати за індексом, як і в JavaScript:
 
 ```clojure
 (aget a 0)
 ;; => 2
 ```
 
-In JavaScript, array index access is equivalent to object property access, so you can use the same functions for interacting with plain objects:
+Доступ до значень масиву по індексу та доступ до значень в мапі за ключем мають однаковий синтаксис у JavaScript, тому для роботи з об'єктами можна використовувати ті ж функції, що і для масивів::
 
 ```clojure
 (def b #js {:hour 16})
