@@ -1,15 +1,10 @@
-### The Closure Library
+### Бібліотека Closure
 
-The Google Closure Library is a javascript library developed by Google. It has a
-modular architecture, and provides cross-browser functions for DOM manipulations and
-events, ajax and JSON, and other features.
+Google Closure Library — це бібліотека на JavaScript, розроблена в Google. Це модульна бібліотека з набором функцій для роботи з DOM та подіями в DOM, Ajax і JSON та багатьма іншими функціями.
 
-The Google Closure Library is written specifically to take advantage of the Closure
-Compiler (which is used internally by the _ClojureScript_ compiler).
+Бібліотека Google Closure Library написана з орієнтацією на максимальну сумісність із компілятором Closure Compiler (компілятор _ClojureScript_ потребує його для роботи).
 
-_ClojureScript_ is built on the Google Closure Compiler and Closure Library. In fact,
-_ClojureScript_ namespaces are Closure modules. This means that you can interact with
-the Closure Library very easily:
+Мова _ClojureScript_ та її компілятор використовують Google Closure Compiler та бібліотеку Closure. Простори імен _ClojureScript_ — це фактично модулі, сумісні з Closure. Це означає, що з бібліотекою Closure можна працювати майже так само, як зі звичайними просторами імен в _ClojureScript_:
 
 ```clojure
 (ns yourapp.core
@@ -18,12 +13,9 @@ the Closure Library very easily:
 (def element (dom/getElement "body"))
 ```
 
-This code snippet shows how you can import the *dom* module of the Closure library
-and use a function declared in that module.
+Цей приклад показує, як імпортувати модуль *dom* з бібліотеки Closure і використовувати оголошені в ньому функції.
 
-Additionally, the closure library exposes "special" modules that behave like a class
-or object. To use these features, you must use the `:import` directive in the `(ns
-...)` form:
+Також бібліотека Closure надає доступ до спеціальних модулів, що поводяться як класи або об'єкти. Щоб імпортувати такі модулі в формі `(ns...)`, використовують директиву `:import`:
 
 ```clojure
 (ns yourapp.core
@@ -32,6 +24,4 @@ or object. To use these features, you must use the `:import` directive in the `(
 (def instance (History.))
 ```
 
-In a _Clojure_ program, the `:import` directive is used for host (Java) interop to
-import Java classes.  If, however, you define types (classes) in _ClojureScript_, you
-should use the standard `:require` directive and not the `:import` directive
+В програмах на _Clojure_ директива `:import` використовується для імпортування класів з бібліотек батьківської платформи (Java), так само, як і в _ClojureScript_ з JavaScript. Але для імпортування типів (класів), написаних на _ClojureScript_, замість `:import` слід використовувати звичайний `:require`.
