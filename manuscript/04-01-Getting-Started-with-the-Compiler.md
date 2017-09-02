@@ -1,46 +1,46 @@
-### Getting Started with the Compiler
+### Основи роботи з компілятором
 
-At this point, you are surely very bored with the constant theoretical explanations about the language itself and will want to write and execute some code. The goal of this section is to provide a little practical introduction to the _ClojureScript_ compiler.
+Ми розуміємо, що наші читачі вже втомилися від теоретичних пояснень аспектів мови та хочуть приступити до написання та виконання коду. У цьому розділі ми надамо вступні відомості про практику роботи з компілятором  _ClojureScript_.
 
-The _ClojureScript_ compiler takes the source code that has been split over numerous directories and namespaces and compiles it down to JavaScript. Today, JavaScript has a great number of different environments where it can be executed - each with its own peculiarities.
+Компілятор  _ClojureScript_ отримує код, розташований у кількох директоріях та просторах імен, та компілює його у JavaScript. Сучасний JavaScript виконується у різних середовищах і кожне з них має свої особливості.
 
-This chapter intends to explain how to use _ClojureScript_ without any additional tooling.  This will help you understand how the compiler works and how you can use it when other tooling is not available (such as link:http://leiningen.org/[leiningen] + link:https://github.com/emezeske/lein-cljsbuild[cljsbuild] or link:http://boot-clj.com/[boot]).
-
-
-#### Execution environments
-
-What is an execution environment? An execution environment is an engine where JavaScript can be executed. For example, the most popular execution environment is a browser (Chrome, Firefox, ...) followed by the second most popular - link:https://nodejs.org/[nodejs].
-
-There are others, such as Rhino (JDK 6+), Nashorn (JDK 8), QtQuick (QT),... but none of them have significant differences from the first two. So, _ClojureScript_ at the moment may compile code to run in the browser or in nodejs-like environments out of the box.
+Цей розділ пояснює, як використовувати _ClojureScript_ без додаткових інструментів. Таким чином ви зрозумієте, як працює компілятор та як його використовувати, коли такі інструменти, як [leiningen](http://leiningen.org/) + [cljsbuild](https://github.com/emezeske/lein-cljsbuild) або [boot](http://boot-clj.com/), недоступні.
 
 
-#### Download the compiler
+#### Оточення виконання
 
-Although the _ClojureScript_ is self hosted, the best way to use it is just using the JVM implementation. To use it, you should have jdk8 installed. _ClojureScript_ itself only requires JDK 7, but the standalone compiler that we are going to use in this chapter requires JDK 8, which can be found at http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+Що таке оточення виконання? Оточення виконання — це програмний рушій, шо виконує код JavaScript. Найбільш популярне оточення виконання — браузер (Chrome, Firefox та ін.), не менш популярним є [Node.js](https://nodejs.org/).
 
-You can download the latest _ClojureScript_ compiler using `wget`:
+Існують інші, що не дуже відрізняються від перших двох — Rhino (JDK 6+), Nashorn (JDK 8), QtQuick (QT) тощо. На даний момент _ClojureScript_ компілюється у JavaScript, що може виконуватись у браузері, Node.js і схожих на нього оточеннях.
+
+
+#### Встановлення компілятора
+
+Хоча компілятор _ClojureScript_ може бути скомпільований у JavaScript, ефективніше все ж використовувати його оригінальну імплементацію на Clojure для JVM. Для цього слід встановити JDK 8. Сам по собі _ClojureScript_ працює з JDK 7, але зараз ми будемо використовувати його як самостійний інструмент, а він потребує JDK 8, який можна знайти за наступним посиланням: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+Останню версію компілятору можна завантажити за допомогою `wget`:
 
 ```bash
 wget https://github.com/clojure/clojurescript/releases/download/r1.9.36/cljs.jar
 ```
 
-The _ClojureScript_ compiler is packaged in a standalone executable jar file, so this is the only file (along with JDK 8) that you need to compile your _ClojureScript_ source code to JavaScript.
+Компілятор ClojureScript запакований як самостійний файл у форматі jar, тому для компіляції коду на _ClojureScript_ у JavaScript вам потрібні лише два файли: JDK 8 та сам компілятор.
 
 
-#### Compile for Node.js
+#### Компіляція для Node.js
 
-Let’s start with a practical example compiling code that will target *Node.js* (hereafter simply "nodejs"). For this example, you should have nodejs installed.
+Почнемо з практичного прикладу — скомпілюємо код для *Node.js* (далі -  "nodejs"). Для цього слід встановити Node.js.
 
-There are different ways to install nodejs, but the recommended way is using nvm ("Node.js Version Manager"). You can read the instructions on how to install and use nvm on its link:https://github.com/creationix/nvm[home page].
+Node.js можна встановити різними способами, але краще зробити це за допомогою nvm ("Node.js Version Manager"). Ви можете прочитати про те, як встановити та використовувати nvm на [сторінці проекту](https://github.com/creationix/nvm).
 
-When you have installed nvm, follow installing the latest version of nodejs:
+Після встановлення nvm встановіть останню версію node.js:
 
 ```shell
 nvm install v6.2.0
 nvm alias default v6.2.0
 ```
 
-You can test if *nodejs* is installed in your system with this command:
+Наявність *nodejs* у системі можна перевірити за допомогою наступної команди:
 
 ```shell
 $ node --version
@@ -48,18 +48,18 @@ v6.2.0
 ```
 
 
-##### Create the example application
+##### Створення застосунку
 
-For the first step of our practical example, we will create our application directory structure and populate it with example code.
+Для першого прикладу ми створимо структуру проекту та додамо код прикладу.
 
-Start by creating the directory tree structure for our “hello world” application:
+Створіть файлову структуру для нашого проекту `«hello world»`:
 
 ```bash
 mkdir -p myapp/src/myapp
 touch myapp/src/myapp/core.cljs
 ```
 
-Resulting in this directory tree:
+У вас має бути наступна структура директорій:
 
 ```text
 myapp
@@ -69,8 +69,7 @@ myapp
 ```
 
 
-Second, write the example code into the previously created
-`myapp/src/myapp/core.cljs` file:
+Далі додайте цей код у файл `myapp/src/myapp/core.cljs`:
 
 ```clojure
 (ns myapp.core
@@ -85,14 +84,14 @@ Second, write the example code into the previously created
 (set! *main-cli-fn* -main)
 ```
 
-NOTE: It is very important that the declared namespace in the file exactly matches the directory structure. This is the way _ClojureScript_ structures its source code.
+ЗАУВАЖЕННЯ: Дуже важливо, щоб ім'я простору імен у файлі співпадало зі шляхом до цього файлу у проекті. Таким чином ClojureScript структурує увесь код.
 
 
-##### Compile the example application
+##### Компіляція прикладу
 
-In order to compile that source code, we need a simple build script that tells the _ClojureScript_ compiler the source directory and the output file. _ClojureScript_ has a lot of other options, but at this moment we can ignore that.
+Для того? щоб скомпілювати проект, треба створити скрипт, який запустить компілятор з наступною конфігурацією: шлях до коду проекту та шлях до файлу, в який буде записаний JavaScript. Компілятор має багато інших опцій, про які ми поговоримо пізніше.
 
-Let’s create the _myapp/build.clj_ file with the following content:
+Створимо файл _myapp/build.clj_ з наступним кодом:
 
 ```clojure
 (require '[cljs.build.api :as b])
@@ -105,20 +104,20 @@ Let’s create the _myapp/build.clj_ file with the following content:
   :verbose true})
 ```
 
-This is a brief explanation of the compiler options used in this example:
+Коротко розглянемо використані опції компілятора:
 
-* The `:output-to` parameter indicates to the compiler the destination of the compiled code, in this case to the "main.js" file.
-* The `:main` property indicates to the compiler the namespace that will act as the entry point of your application when it's executed.
-* The `:target` property indicates the platform where you want to execute the compiled code. In this case, we are going to use *nodejs*. If you omit this parameter, the source will be compiled to run in the browser environment.
+* Параметр`:output-to` вказує шлях до файлу, в який буде записаний скомпільований код, у нашому випадку це "main.js".
+* У полі `:main` записане ім'я простору імен, яке є точкою входу у наш застосунок.
+* У полі `:target` записане ім'я платформи, для якої буде скомпільований код. У цьому випадку це Node.js. За замовчуванням код компілюється для браузеру.
 
-To run the compilation, just execute the following command:
+Для запуску компілятора виконайте наступну команду:
 
 ```bash
 cd myapp
 java -cp ../cljs.jar:src clojure.main build.clj
 ```
 
-And when it finishes, execute the compiled file using *node*:
+Після закінчення спробуйте запустити скомпільований файл у Node.js:
 
 ```shell
 $ node main.js
@@ -126,18 +125,18 @@ Hello world!
 ```
 
 
-#### Compile for the Browser
+#### Компіляція для браузера
 
-In this section we are going to create an application similar to the "hello world" example from the previous section to run in the browser environment. The minimal requirement for this application is just a browser that can execute JavaScript.
+У цьому розділі ми створимо схожий застосунок `"hello world"`, але тепер скомпілюємо його для виконання у браузері. Вам будуть потрібні ті самі інструменти та веб-браузер.
 
-The process is almost the same, and the directory structure is the same. The only things that changes is the entry point of the application and the build script. So, start re-creating the directory tree from previous example in a different directory.
+Процес роботи та структура проекту залишаються незмінними. Ми внесемо зміни лише в файл точки входу, в код застосунку та скрипт компілятора. Створіть таку ж саму структуру в іншій директорії:
 
 ```bash
 mkdir -p mywebapp/src/mywebapp
 touch mywebapp/src/mywebapp/core.cljs
 ```
 
-Resulting in this directory tree:
+Структура проекту повинна виглядати так:
 
 ```text
 mywebapp
@@ -146,7 +145,7 @@ mywebapp
         └── core.cljs
 ```
 
-Then, write new content to the `mywebapp/src/mywebapp/core.cljs` file:
+Тепер додайте наступний код у файл `mywebapp/src/mywebapp/core.cljs`:
 
 ```clojure
 (ns mywebapp.core)
@@ -156,12 +155,12 @@ Then, write new content to the `mywebapp/src/mywebapp/core.cljs` file:
 (println "Hello world!")
 ```
 
-In the browser environment we do not need a specific entry point for the application, so the entry point is the entire namespace.
+На відміну від Node.js проект для браузеру не потребує точки входу у вигляді конкретної функції, тут точкою входу буде сам простір імен.
 
 
-##### Compile the example application
+##### Компіляція прикладу
 
-In order to compile the source code to run properly in a browser, overwrite the _mywebapp/build.clj_ file with the following content:
+Компіляція для браузеру потребує іншої конфігурації компілятору, тому додайте цей код у ваш скрипт _mywebapp/build.clj_:
 
 ```clojure
 (require '[cljs.build.api :as b])
@@ -175,24 +174,24 @@ In order to compile the source code to run properly in a browser, overwrite the 
   :optimizations :none})
 ```
 
-This is a brief explanation of the compiler options we're using:
+Розглянемо нову конфігурацію::
 
-* The `:output-to` parameter indicates to the compiler the destination of the compiled code, in this case the "main.js" file.
-* The `:main` property indicates to the compiler the namespace that will act as the  entry point of your application when it's executed.
-* `:source-map` indicates the destination of the source map. (The source map connects the ClojureScript source to the generated JavaScript so that error messages can point you back to the original source.)
-* `:output-dir` indicates the destination directory for all file sources used in a compilation. It is just for making source maps work properly with the rest of the code, not only your source.
-* `:optimizations` indicates the compilation optimization. There are different values for this option, but that will be covered in subsequent sections in more detail.
+* У полі `:output-to` записаний шлях до файлу, в який буде записаний скомпільований код, у нашому прикладі це файл "main.js".
+* У полі `:main` записане ім'я простору імен, яке є точкою входу у застосунок
+* Додавши поле `:source-map`, компілятор створить source map для скомпільованого коду (source map описує відношення коду на ClojureScript до скомпільованого JavaScript для більш зручного зневадження коду).
+* У полі `:output-dir` записаний шлях до директорії? в яку будуть поміщені всі оригінальні файли, що будуть скомпільовані. Це потрібно для правильної роботи source maps для усіх залежностей, а не тільки для вашого коду.
+* Поле `:optimizations` задає рівень оптимізації компілятора. Це поле може мати різні значення, але більш детально про це ми поговоримо пізніше.
 
-To run the compilation, just execute the following command:
+Для запуску компіляції виконайте цю команду:
 
 ```bash
 cd mywebapp;
 java -cp ../cljs.jar:src clojure.main build.clj
 ```
 
-This process can take some time, so do not worry; wait a little bit. The JVM bootstrap with the Clojure compiler is slightly slow. In the following sections, we will explain how to start a watch process to avoid constantly starting and stopping this slow process.
+Це може зайняти певний час, тому не хвилюйтесь; зачекайте трохи. JVM разом с компілятором запускається доволі повільно. У наступній частині ми розповімо, як створити процес компілятора, що наглядає за змінами у коді і тому працює значно швидше.
 
-While waiting for the compilation, let's create a dummy HTML file to make it easy to execute our example app in the browser. Create the _index.html_ file with the following content; it goes in the main _mywebapp_ directory.
+Поки ви чекаєте, створіть файл HTML, який буде завантажувати скрипт у браузері. Створіть файл _index.html_ з наступним вмістом; файл повинен бути у головній директорії проекту _mywebapp_.
 
 ```html
 <!DOCTYPE html>
@@ -207,14 +206,15 @@ While waiting for the compilation, let's create a dummy HTML file to make it eas
 </html>
 ```
 
-Now, when the compilation finishes and you have the basic HTML file you can just open it with your favorite browser and take a look in the development tools console. The "Hello world!" message should appear there.
+Тепер, коли компіляція закінчилась, ви можете відкрити у браузері HTML сторінку і консоль у інструментах розробника і побачити там повідомлення `"Hello world!"`
 
 
-#### Watch process
 
-You may have already noticed the slow startup time of the _ClojureScript_ compiler. To solve this, the _ClojureScript_ standalone compiler comes with a tool to watch for changes in your source code, and re-compile modified files as soon as they are written to disk
+#### Поступова компіляція
 
-Start by creating another build script, but this time name it _watch.clj_:
+Напевне ви вже помітили як довго стартує компілятор. Для вирішення цієї проблеми у компілятора є можливість компілювати поступово, наглядаючи за змінами у коді і компілюючи тільки те, що змінилось.
+
+Почнемо зі створення скрипта компілятора у файлі _watch.clj_:
 
 ```clojure
 (require '[cljs.build.api :as b])
@@ -227,7 +227,7 @@ Start by creating another build script, but this time name it _watch.clj_:
   :optimizations :none})
 ```
 
-Now, execute the script just like you have in previous sections:
+Тепер виконайте цей скрипт:
 
 ```bash
 $ java -cp ../cljs.jar:src clojure.main watch.clj
@@ -240,45 +240,43 @@ Using cached cljs.core out/cljs/core.cljs
 Watching paths: /home/niwi/cljsbook/playground/mywebapp/src
 ```
 
-Go back to the `mywebapp.core` namespace, and change the print text to `"Hello World, Again!"`.  You'll see that the file `src/mywebapp/core.cljs` the file is immediately recompiled, and if you reload `index.html` in your browser the new text is displayed in the developer console.  Another advantage of this method is that it gives a little bit more output.
+Відкрийте у редакторі простір імен `mywebapp.core` і змініть текст, що виводиться у консоль, на `"Hello World, Again!"`. Ви побачите як скомпілюється файл `src/mywebapp/core.cljs`, і якщо перезавантажити сторінку `index.html`, ви побачите новий текст у консолі.
 
+#### Рівні оптимізації
 
-#### Optimization levels
+Компілятор  _ClojureScript_ оптимізується на різних рівнях. За лаштунками ці рівні компяліції забезпечуються компілятором Google Closure Compiler.
 
-The _ClojureScript_ compiler has different levels of optimization. Behind the scenes, those compilation levels are coming from the Google Closure Compiler.
+Ось спрощене представлення процесу компяліції:
 
-A simplified overview of the compilation process is:
+1. Читач ClojureScript читає код і проводить його аналіз. На цьому етапі компілятор може повідомити про синтаксичні помилки у коді.
+2. Після цього компілятор _ClojureScript_ перетворює код у JavaScript. Для кожного файлу з ClojureScript кодом буде створений файл з перетвореним JavaScript кодом.
+3. Далі згенеровані файли передаються в Google Closure Compiler який, в залежності від встановленого рівня оптимізації та іншої конфігурації (sourcemap, output-dir, output-to та ін.) згенерує файл(и) з оптимізованим JavaScript.
 
-1. The reader reads the code and does some analysis. This compiler may raise some warnings during this phase.
-2. Then, the _ClojureScript_ compiler emits JavaScript code. The result is one JavaScript output file for each ClojureScript input file.
-3. The generated JavaScript files are passed through the Google Closure Compiler which, depending on the optimization level and other options (sourcemaps, output dir output to, ...), generates the final output file(s).
-
-The final output format depends on the optimization level chosen:
+Формат коду на виході залежить від обраного рівня оптимізації:
 
 
 ##### none
 
-This optimization level causes the generated JavaScript to be written into separate output files for each namespace, without any additional transformations to the code.
+На цьому рівні для кожного простору імен буде створений окремий файл з JavaScript без жодних оптимізацій коду.
 
 
 ##### whitespace
 
-This optimization level causes the generated JavaScript files to be concatenated into a single output file, in dependency order.  Line breaks and other whitespace are removed.
+Усі файли будуть зібрані в один, враховуючи порядок залежностей. Переходи на новий рядок та пробіли будуть видалені.
 
-This reduces compilation speed somewhat, resulting in a slower compilations. However, it is not terribly slow and it is quite usable for small-to-medium sized applications.
+На цьому рівні процес компіляції трохи повільніший, але достатній для невеликих проектів.
 
 ##### simple
 
-The simple compilation level builds on the work from the `whitespace` optimization level, and additionally performs optimizations within expressions and functions, such as renaming local variables and function parameters to have shorter names.
+Простий рівень оптимізації `simple` робить те саме, що `whitespace`, а також проводить ряд оптимізацій у виразах та функціях, наприклад скорочує імена локальних змінних та параметрів функцій.
 
-Compilation with the `:simple` optimization always preserves the functionality of syntactically valid JavaScript, so it does not interfere with the interaction between the compiled _ClojureScript_ and other JavaScript.
+Рівень `:simple` ніколи не змінює функціональність коду, тому якщо у вас є взаємодія між ClojureScript та зовнішнім оточенням у JavaScript, після оптимізації це також буде працювати.
 
 
 ##### advanced
 
-The advanced compilation level builds on the `simple` optimization level, and additionally performs more aggressive optimizations and dead code elimination. This results in a significantly smaller output file.
+На рівні `advanced` компілятор робить те саме, що і на рівні `simple`, але також виконує ряд агресивних оптимізацій та усуває «мертвий» код. В результаті розмір коду на виході значно зменшується.
 
-The `:advanced` optimizations only work for a strict subset of JavaScript which follows the Google Closure Compiler rules.  _ClojureScript_ generates valid JavaScript within this strict subset, but if you are interacting with third party JavaScript code, some additional work is required to make everything work as
-expected.
+Рівень оптимізацій `:advanced` працює лише для строгої підмножини JavaScript, що слідує правилам написання коду, встановленими компілятором Google Closure Compiler. Компілятор_ClojureScript_ генерує код JavaScript, що відповідає цим вимогам, але якщо ви взаємодієте із зовнішнім оточенням JavaScript із _ClojureScript_, це потребує додаткової конфігурації та можливо змін у коді для того, щоб скомпільований код працював правильно.
 
-This interaction with third party javascript libraries will be explained in later sections.
+У наступних частинах ми розповімо більш детально про цю конфігурацію.
