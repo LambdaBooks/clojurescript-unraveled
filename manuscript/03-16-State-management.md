@@ -1,21 +1,21 @@
 
-### State management
+### Керування станом
 
-We've learned that one of ClojureScript's fundamental ideas is immutability. Both scalar values and collections are immutable in ClojureScript, except those mutable types present in the JS host like `Date`.
+Ми вже знаємо, що однією з фундаментальних ідей в ClojureScript є незмінність даних. Скалярні значення та колекції в ClojureScript — незмінні. Змінювати можливо лише об'єкти JavaScript, наприклад `Date`, тому, що вони змінні за своєю сутністю.
 
-Immutability has many great properties but we are sometimes faced with the need to model values that change over time. How can we achieve this if we can't change data structures in place?
-
-
-#### Vars
-
-Vars can be redefined at will inside a namespace but there is no way to know *when* they change. The inability to redefine vars from other namespaces is a bit limiting; also, if we are modifying state, we're probably interested in knowing when it occurs.
+Незмінність має багато корисних властивостей, але інколи нам потрібна можливість змінювати значення з плином часу. Як цього досягти, якщо ми не можемо змінювати структури даних?
 
 
-#### Atoms
+#### Змінні
 
-ClojureScript gives us the `Atom` type, which is an object containing a value that can be altered at will. Besides altering its value, it also supports observation through watcher functions that can be attached and detached from it and validation for ensuring that the value contained in the atom is always valid.
+Значення змінних можливо змінювати лише у тому просторі імен, де вони були створені, але при цьому ми не маємо можливості дізнатись коли це сталось. Неможливість змінювати значення змінних з інших просторів імен дещо обмежує; також, зазвичай, коли ми змінюємо стан, ми зацікавлені у тому, щоб знати, коли це сталось.
 
-If we were to model an identity corresponding to a person called Ciri, we could wrap an immutable value containing Ciri's data in an atom. Note that we can get the atom's value with the `deref` function or using its shorthand `@` notation:
+
+#### Атоми
+
+ClojureScript має тип `Atom`, що представляє собою об'єкт, який тримає в собі значення, що може бути змінене. Крім того, атом дає можливість спостерігати за зміною значення за допомогою спостерігаючих функцій, які можна додавати та видаляти з атому. Також є можливість додавати валідуючі функції для перевірки значення атому після його зміни.
+
+Якщо б ми моделювали ідентичність, що описує людину з ім'ям Цирі, ми могли б покласти незмінне значення з описом Цирі у атом. Значення із атому можна прочитати за допомогою функції `deref` або скороченого позначення `@`:
 
 ```clojure
 (def ciri (atom {:name "Cirilla" :lastname "Fiona" :age 20}))
@@ -28,7 +28,7 @@ If we were to model an identity corresponding to a person called Ciri, we could 
 ;; {:name "Cirilla", :lastname "Fiona", :age 20}
 ```
 
-We can use the `swap!` function on an atom to alter its value with a function. Since Ciri's birthday is today, let's increment her age count:
+Функція `swap!` використовується для зміни значення атому за допомогою функції. Сьогодні день народження Цирі, тому давайте збільшимо її вік на одиницю:
 
 ```clojure
 (swap! ciri update :age inc)
@@ -48,9 +48,9 @@ The `reset!` functions replaces the value contained in the atom with a new one:
 ;; {:name "Cirilla", :lastname "Fiona", :age 22}
 ```
 
-##### Observation
+##### Спостереження
 
-We can add and remove watcher functions for atoms. Whenever the atom's value is changed through a `swap!` or `reset!`, all the atom's watcher functions will be called. Watchers are added with the `add-watch` function. Notice that each watcher has a key associated (`:logger` in the example) to it which is later used to remove the watch from the atom.
+Ми можемо додавати та видаляти спостерігаючі функції для атому. Ці функції будуть викликані, коли ми змінемо значення атому за допомогою функції `swap!` або `reset!`. Спостерігачі додаються за допомогою функції `add-watch`. Кожен такий спостерігач пов'язаний з ключем (ключ :logger у наступному прикладі), що потім може бути використаний для видалення спостерігача.
 
 ```clojure
 (def a (atom))
@@ -70,11 +70,11 @@ We can add and remove watcher functions for atoms. Whenever the atom's value is 
 ```
 
 
-#### Volatiles
+#### Легкі атоми
 
-Volatiles, like atoms, are objects containing a value that can be altered. However, they don't provide the observation and validation capabilities that atoms provide. This makes them slightly more performant and a more suitable mutable container to use inside stateful functions that don't need observation nor validation.
+Легкий атом (`volatile`) схожі на атоми - це обʼєкти, що містять змінюване значення. Але легкий атом не має можливості спостерігати за зміною значення та валідування. Легкі атоми більш швидкі і більше підходять для ролі змінного контейнеру для значень у функціях зі станом, яким не потрібне спостереження та валідація.
 
-Their API closely resembles that of atoms. They can be dereferenced to grab the value they contain and support swapping and resetting with `vswap!` and `vreset!` respectively:
+API легких атомів схоже на звичайні атоми. З них можна прочитати значення, та змінити або замінити його за допомогою функцій `vswap!` та `vreset!`:
 
 ```clojure
 (def ciri (volatile! {:name "Cirilla" :lastname "Fiona" :age 20}))
@@ -93,4 +93,4 @@ Their API closely resembles that of atoms. They can be dereferenced to grab the 
 ;; {:name "Cirilla", :lastname "Fiona", :age 22}
 ```
 
-Note that another difference with atoms is that the constructor of volatiles uses a bang at the end. You create volatiles with `volatile!` and atoms with `atom`.
+Зверніть увагу, що ім'я конструктора легкого атому має знак оклику в кінці. Легкі атоми створюються за допомогою функції `volatile!`, а атоми - за допомогою функції `atom`.
