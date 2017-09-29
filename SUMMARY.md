@@ -18,12 +18,12 @@
   * [Простори імен](./manuscript/03-12-Namespaces.md)
   * [Абстракції і поліморфізм](./manuscript/03-13-Abstractions-and-Polymorphism.md)
   * [Типи даних](./manuscript/03-14-Data-types.md)
-  * Сумісність з батьківською платформою
-  * Керування станом
+  * [Сумісність з батьківською платформою](./manuscript/03-15-Host-interoperability.md)
+  * [Керування станом](./manuscript/03-16-State-management.md)
 * Інструментарій та компілятор
-  * Починаємо працювати з компілятором
-  * Робота з REPL
-  * Бібліотека Closure
+  * [Починаємо працювати з компілятором](./manuscript/04-01-Getting-Started-with-the-Compiler.md)
+  * [Робота з REPL](./manuscript/04-02-Working-with-the-REPL.md)
+  * [Бібліотека Closure](./manuscript/04-03-The-Closure-Library.md)
   * Керування залежностями
   * Зовнішні залежності
   * Модульне тестування
