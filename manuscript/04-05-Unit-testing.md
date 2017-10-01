@@ -1,41 +1,35 @@
-### Unit testing
+### Модульне тестування
 
-As you might expect, testing in _ClojureScript_ consists of the same concepts widely
-used by other language such as Clojure, Java, Python, JavaScript, etc.
+Як можна було очікувати, тестування в _ClojureScript_ включає в себе ті самі концепції, що і тестування в інших мовах, таких як Clojure, Java, Python, JavaScript та ін.
 
-Regardless of the language, the main objective of unit testing is to run some test
-cases, verifying that the code under test behaves as expected and returns without
-raising unexpected exceptions.
+Незалежно від мови основним завданням модульного тестування є реалізація певної кількості тестових випадків з метою переконатися, що код, який проходить тестування, поводиться коректним чином та не спричиняє неочікуваних винятків.
 
-The immutablity of _ClojureScript_ data structures helps to make programs less error
-prone, and facilitates testing a little bit. Another advantage of _ClojureScript_ is
-that it tends to use plain data instead of complex objects. Building "mock" objects
-for testing is thus greatly simplified.
+Незмінність даних в _ClojureScript_ допомагає створювати програми з потенційно меншою кількістю помилок, а також робить тестування дещо простішим. Ще одна перевага _ClojureScript_ полягає в тому, що мова заохочує до використання простиих даних замість складних об'єктів. Це дуже спрощує створення  mock-об'єктів (фіктивних об'єктів).
 
 
-#### First steps
+#### Перші кроки
 
-The "official" _ClojureScript_ testing framework is in the "cljs.test" namespace. It is a very simple library, but it should be more than enough for our purposes.
+Так би мовити «офіційний» фреймворк для тестування _ClojureScript_ знаходиться в просторі імен `cljs.test`. Це дуже проста бібліотека, але для наших потреб її цілком вистачить.
 
-There are other libraries that offer additional features or directly different approaches to testing, such as link:https://github.com/clojure/test.check[test.check]. However, we will not cover them here.
+Існують інші бібліотеки з додатковими можливостями або зовсім іншими підходами до тестування, наприклад [test.check](https://github.com/clojure/test.check). Але в цій книзі ми не розглядаємо їх.
 
-Start creating a new project using the *mies* leiningen template for experimenting with tests:
+Почніть зі створення нового проекту за шаблоном *mies* для `leiningen`:
 
 ```bash
 $ lein new mies mytestingapp
 $ cd mytestingapp
 ```
 
-This project will contain the same layout as we have seen in the *dependency management* subchapter, so we won’t explain it again.
+Структура цього проекту така сама, як у розділі про управління залежностями, тому тут ми не будемо зупинятися на ній детально.
 
-The next step is a creating a directory tree for our tests:
+Створіть структуру директорій для тестів:
 
 ```bash
 $ mkdir -p test/mytestingapp
 $ touch test/mytestingapp/core_tests.cljs
 ```
 
-Also, we should adapt the existing `watch.clj` script to work with this newly created test directory:
+Також слід переписати скрипт компілятора `watch.clj` наступним чином, щоб він працював з тестами:
 
 ```clojure
 (require '[cljs.build.api :as b])
@@ -48,9 +42,9 @@ Also, we should adapt the existing `watch.clj` script to work with this newly cr
    :verbose true})
 ```
 
-This new script will compile and watch both directories "src" and "test", and it sets the new entry point to the `mytestingapp.core_tests` namespace.
+Цей скрипт буде спостерігати за змінами та компілювати код  у директоріях `src` та `test`. Точкою входу тепер буде простір імен `mytestingapp.core_tests`.
 
-Next, put some test code in the `core_tests.cljs` file:
+Скопіюйте наступний код з тестами до файлу `core_tests.cljs`:
 
 ```clojure
 (ns mytestingapp.core-tests
@@ -64,28 +58,28 @@ Next, put some test code in the `core_tests.cljs` file:
 (set! *main-cli-fn* #(t/run-tests))
 ```
 
-The relevant part of that code snippet is:
+Нас цікавить лише ця частина коду тестів:
 
 ```clojure
 (t/deftest my-first-test
   (t/is (= 1 2)))
 ```
 
-The `deftest` macro is a basic primitive for defining our tests. It takes a name as its first parameter, followed by one or multiple assertions using the `is` macro. In this example, we try to assert that `(= 1 2)` is true.
+Макрос `deftest` є базовим примітивом для створення тестів. Першим параметром він приймає назву тесту, після якого можуть бути одна або більше перевірок, записаних за допомогою макросу `is`. У цьому прикладі ми спробуємо перевірити, чи дорівнює `true` вираз `(= 1 2)`.
 
-Let's try to run this. First start the watch process:
+Давайте випробуємо наші тести. Спочатку запустимо компілятор:
 
 ```bash
 $ ./scripts/watch
 Building ...
-Copying jar:file:/home/niwi/.m2/repository/org/clojure/clojurescript/1.9.36/clojurescript-1.9.36.jar!/cljs/core.cljs to out/cljs/core.cljs
-Reading analysis cache for jar:file:/home/niwi/.m2/repository/org/clojure/clojurescript/1.9.36/clojurescript-1.9.36.jar!/cljs/core.cljs
+Copying jar:file:/home/niwi/.m2/repository/org/clojure/_clojurescript_/1.9.36/_clojurescript_-1.9.36.jar!/cljs/core.cljs to out/cljs/core.cljs
+Reading analysis cache for jar:file:/home/niwi/.m2/repository/org/clojure/_clojurescript_/1.9.36/_clojurescript_-1.9.36.jar!/cljs/core.cljs
 Compiling out/cljs/core.cljs
 ... done. Elapsed 3.862126827 seconds
 Watching paths: /home/niwi/cljsbook/playground/mytestingapp/test, /home/niwi/cljsbook/playground/mytestingapp/src
 ```
 
-When the compilation is finished, try to run the compiled file with `nodejs`:
+Післа завершення процесу компіляції спробуйте виконати скомпільований файл у `nodejs`:
 
 ```bash
 $ node out/mytestingapp.js
@@ -100,7 +94,7 @@ Ran 1 tests containing 1 assertions.
 1 failures, 0 errors.
 ```
 
-You can see that the expected assert failure is successfully printed in the console. To fix the test, just change the `=` with `not=` and run the file again:
+Ви можете побачити, що в консоль виведене повідомлення про негативний результат перевірки, як і очікувалось. Щоб виправити тест, замініть `=` на `not=` і знову виконайте скомпільований файл:
 
 ```bash
 $ node out/mytestingapp.js
@@ -111,7 +105,7 @@ Ran 1 tests containing 1 assertions.
 0 failures, 0 errors.
 ```
 
-It is fine to test these kinds of assertions, but they are not very useful. Let's go to test some application code. For this, we will use a function to check if a year is a leap year or not. Write the following content to the `src/mytestingapp/core.clj` file:
+Звісно ми можемо писати такі прості перевірки, але вони не дуже корисні. Давайте протестуємо код застосунку. Створимо функцію, що перевіряє, чи є рік високосним. Запишіть цей код у файл `src/mytestingapp/core.clj`:
 
 ```clojure
 (defn leap?
@@ -121,7 +115,7 @@ It is fine to test these kinds of assertions, but they are not very useful. Let'
        (pos? (js-mod year 400))))
 ```
 
-Next, write a new test case to check that our new `leap?` function works properly. Make the `core_tests.cljs` file look like:
+Далі, у файлі `core_tests.cljs` створіть тести для перевірки нашої функції `leap?`:
 
 ```clojure
 (ns mytestingapp.core-tests
@@ -140,18 +134,15 @@ Next, write a new test case to check that our new `leap?` function works properl
 (set! *main-cli-fn* #(t/run-tests))
 ```
 
-Run the compiled file again to see that there are now two tests running.  The first test passes as before, and our two new leap year tests pass as well.
+Знову запустіть скомпільований файл. Попередній тест проходить перевірку, як і раніше, а за ним виконуються два нових тести, що також проходять перевірку.
 
+#### Асинхронне тестування
 
-#### Async Testing
+Однією з особливостей _ClojureScript_ є те, що код на _ClojureScript_ виконується в асинхронному, однопоточному оточенні, як і JavaScript, що має свої особливості.
 
-One of the peculiarities of _ClojureScript_ is that it runs in an asynchronous, single-threaded execution environment, which has its challenges.
+В асинхронному оточенні ми повинні мати можливість тестувати асинхронні функції. Для цього в бібліотеці для тестування в _ClojureScript_ існує макрос `async`, що спрощує тестування асинхронного коду.
 
-In an async execution environment, we should be able to test asynchronous functions. To this end, the _ClojureScript_ testing library offers the `async` macro, allowing
-you to create tests that play well with asynchronous code.
-
-First, we need to write a function that works in an asynchronous way. For this purpose, we will create the `async-leap?` predicate that will do the same operation
-but asychronously return a result using a callback:
+Для початку нам треба створити нову функцію, що виконується асинхронно. Створимо предикату  `async-leap?`, що буде виконувати те саме завадання, але асинхронно, повертаючи результат у функцію зворотнього виклику:
 
 ```clojure
 (defn async-leap?
@@ -164,9 +155,9 @@ but asychronously return a result using a callback:
        (callback result)))))
 ```
 
-The JavaScript function `setImmediate` is used to emulate an asynchronous task, and the callback is executed with the result of that predicate.
+Функція `setImmediate` у JavaScript використовується для емуляціі асинхронної задачі. Функція зворотнього виклику викликається з результатом обчислення предикати.
 
-To test it, we should write a test case using the previously mentioned `async` macro:
+Для тестування такої функції використаємо макрос `async`:
 
 ```clojure
 (t/deftest my-async-test
@@ -176,24 +167,22 @@ To test it, we should write a test case using the previously mentioned `async` m
                              (done)))))
 ```
 
-The `done` function exposed by the `async` macro should be called after the asynchronous operation is finished and all assertions have run.
+Функція `done`, яку надає макрос `async`, повинна бути викликана по закінченню обчислення асинхронного коду і всіх перевірок.
 
-It is very important to execute the `done` function only once. Omitting it or executing it twice may cause strange behavior and should be avoided.
-
-
-#### Fixtures
-
-TBD
+Дуже важливо викликати `done` лише один раз. Не викликавши її зовсім або викликавши більше одного разу може привести до несподіваної поведінки.
 
 
-#### Integrating with CI
+#### Фікстури
 
-Most continuous integration tools and services expect that test scripts you provide return a standard exit code. But the ClojureScript test framework cannot customize this exit code without some configuration, because JavaScript lacks a universal exit code API for ClojureScript to use.
+Розділ ще не написано.
 
-To fix this, the _ClojureScript_ test framework provides an avenue for executing custom code after the tests are done. This is where you are expected to set the environment-specific exit code depending on the final test status: `0` for success,
-`1` for failure.
+#### Інтеграція з СІ
 
-Insert this code at the end of `core_tests.cljs`:
+Більшість інструментів для неперервної інтеграції очікують скрипт, що виконує тести і повертає стандартний код виходу з програми. Але в _ClojureScript_ неможливо повернути необхідний код виходу без спеціальної конфігурації. В JavaScript немає для цього універсального API, яке можна було б використовувати в _ClojureScript_.
+
+Для вирішення цієї проблеми в бібліотеці для тестування є можливість конфігурації функції, що буде виконана після закінчення обчислення тестів. Саме тут слід вказати код для необхідної нам платформи (Node.js), що поверне правильний код виходу з програми: `0` якщо всі тести пройшли, `1` — якщо ні.
+
+Додайте цей код в кінець файлу `core_tests.cljs`:
 
 ```clojure
 (defmethod t/report [::t/default :end-run-tests]
@@ -203,12 +192,11 @@ Insert this code at the end of `core_tests.cljs`:
     (set! (.-exitCode js/process) 1)))
 ```
 
-Now, you may check the exit code of the test script after running:
+Перевірте код виходу після виконання тестів:
 
 ```bash
 $ node out/mytestingapp.js
 $ echo $?
 ```
 
-This code snippet obviously assumes that you are running the tests using *nodejs*. If you are running your script in another execution environment, you should be aware
-of how you can set the exit code in that environment and modify the previous snippet accordingly.
+Звичайно це буде працювати лише для `Node.js`. Якщо ви виконуєте скрипт у іншому оточенні, вам потрібно знати, як правильно втсановлювати код виходу в цьому оточенні.
