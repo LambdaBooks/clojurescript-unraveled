@@ -1,13 +1,13 @@
-### Dependency management
+### Керування залежностями
 
-Until now, we have used the builtin _ClojureScript_ toolchain to compile our source files to JavaScript.  This is the minimal setup required for working with and understanding the compiler. For larger projects, however, we often want to use a more powerful build tool that can manage a project's dependencies on other libraries.
+До цього момента для компіляції коду у JavaScript ми користувалися готовим набором інструментів _ClojureScript_. Це мінімум, необхідний для компіляції та для розуміння основ роботи компілятора. Але для більш-менш великих проектів нам знадобиться більш потужний інструмент для зборки та керування залежностями від сторонніх бібліотек.
 
-For this reason, the remainder of this chapter will explain how to use *Leiningen*, the de facto clojure build and dependency management tool, for building _ClojureScript_ projects. The *boot* build tool is also growing in popularity, but for the purposes of this book we will limit ourselves to Leiningen.
+Решта цього розділу присвячена поясненню роботи інструмента *Leiningen*, який фактично є стандартним інструментом для зборки проектів на _ClojureScript_ та для керування залежностями. Інший інструмент, *boot*, також набирає популярність, але в цій книзі ми обмежимося розглядом *Leiningen*. 
 
 
-#### Installing leiningen
+#### Інсталяція leiningen
 
-The installation process of leiningen is quite simple; just follow these steps:
+Процес істаляції _leiningen_ доволі простий. Виконайте наступні кроки:
 
 ```bash
 mkdir ~/bin
@@ -17,25 +17,25 @@ chmod a+x ./lein
 export PATH=$PATH:~/bin
 ```
 
-Make sure that the `~/bin` directory is always set on your path. To make it permanent, add the line starting with `export` to your `~/.bashrc` file (assuming you are using the bash shell).
+Переконайтеся, що директорія `~/bin` завжди присутня у `path`. Можна додати рядок, що починається з `export`, до файлу `~/.bashrc` (для оболонки bash).
 
-Now, open another clean terminal and execute `lein version`.  You should see something like the following:
+Відкрийте новий термінал та виконайте команду `lein version`. Результат має бути приблизно такий:
 
 ```bash
 $ lein version
 Leiningen 2.5.1 on Java 1.8.0_45 OpenJDK 64-Bit Server VM
 ```
 
-NOTE: We assume here that you are using a Unix-like system such as Linux or BSD. If you are a Windows user, please check the instructions on the link:http://leiningen.org/[Leiningen homepage]. You can also get the Linux/Mac OS X/BSD version of the leiningen script at the web site.
+ЗАУВАЖЕННЯ. Ми виходимо з того, що наші читачі користуються юніксоподібними системами, як Linux або BSD. Користувачам  Windows рекомендуємо відвідати сторінку [Leiningen](http://leiningen.org/) та скористуватися наданими там інструкціями. Також на іказаному веб-сайті можна знайти код скрипту leiningen для Linux, Mac OS X, або BSD тощо.
 
 
-#### First project
+#### Перший проект
 
-The best way to show how a tool works is by creating a toy project with it. In this case, we will create a small application that determines if a year is a leap year or not. To start, we will use the *mies* leiningen template.
+Найкарщий спосіб продемонструвати роботу інструменту - використати його для створення некладного проекту. Ми напишемо застосунок, який визначає, чи є певний рік високосним. Для початку ми скористуємося шаблоном *mies* для leiningen.
 
-NOTE: Templates are a facility in leiningen for creating an initial project structure.  The clojure community has a great many of them. In this case we'll use the *mies* template that was started by the clojurescript core developer.  Consult the leiningen docs to learn more about templates.
+ЗАУВАЖЕННЯ: Шаблони - це функція leiningen, що дозволяє створювати певну вихідну структуру проекту. Спільнота розробників на  clojure створила багато зручних шаблонів. В цьому випадку ми скористаємося шаблоном *mies*, який був започаткований розробником стандартної бібліотеки clojurescript. Рекомендуємо звернутися до документації leiningen по подробиці.
 
-Let's start creating the project layout:
+Почнемо зі створення основи проекту:
 
 ```bash
 $ lein new mies leapyears
@@ -43,6 +43,7 @@ $ cd leapyears # move into newly created project directory
 ```
 
 The project has the following structure:
+Проект має таку структуру:
 
 ```
 leapyears
@@ -60,9 +61,9 @@ leapyears
         └── core.cljs
 ```
 
-The `project.clj` file contains information that Leiningen uses to download dependencies and build the project. For now, just trust that everything in that file is exactly as it should be.
+Файл `project.clj` містить інформацію, яка потрібна Leiningen для завантаження залежностей та зборки проекту. Поки що домовимося, що зміст цього файлу саме такий, яким має бути. 
 
-Open the `index.html` file and add the following content at the beginning of body:
+Відкрийте файл `index.html` та додайте наступний код напочатку елементу body:
 
 ```html
 <section class="viewport">
@@ -76,7 +77,7 @@ Open the `index.html` file and add the following content at the beginning of bod
 </section>
 ```
 
-The next step is adding some code to make the form interactive. Put the following code into the `src/leapyears/core.cljs`:
+Наступний крок - зробити форму інтерактивною. Додайте наступний код у файл `src/leapyears/core.cljs`:
 
 ```clojure
 (ns leapyears.core
@@ -106,30 +107,30 @@ The next step is adding some code to make the form interactive. Put the followin
 (events/listen input "keyup" on-change)
 ```
 
-Now, compile the clojurescript code with:
+Тепер скомпілюємо код наступною командою:
 
 ```bash
 $ ./scripts/watch
 ```
 
-Behind the scenes, the `watch` script uses the `lein` build tool to execute a command similar to the `java` build command from the previous sections:
+За лаштунками скрипт `watch` використовує інструмент для зборки `lein` для виконання команд подібним чином до команди `java` з минулого розділу:
 
 ```bash
 rlwrap lein trampoline run -m clojure.main scripts/watch.clj
 ```
 
-WARNING: You must have `rlwrap` installed on your system.
+УВАГА: у вашій операційній системі має бути встановлений `rlwrap`.
 
-Finally, open the `index.html` file in a browser.  Typing a year in the textbox should display an indication of its leap year status.
+Насамкінець відркийте файл `index.html` у браузері. Якщо ввести рік у форму, на екрані бути виведено, чи є вказаний рік високосним.
 
-You may have noticed other files in the scripts directory, like `build` and `release`.  These are the same build scripts mentioned in the previous section, but we will stick with `watch` here.
+Як ви могли помітити, у директорії зі скриптами присутні інші файли, зокрема `build` та `release`. Це ті скрипти, про які ми згадували у попередньому розділі, але поки що ми розглядатимемо лише `watch`.
 
 
-#### Managing dependencies
+#### Керування залежностями
 
-The real purpose of using Leiningen for the ClojureScript compilation process is to automate the retrieval of dependencies.  This is dramatically simpler than retrieving them manually.
+Справжня цінність використання Leiningen у процесі компіляції ClojureScript полягає в автоматизації запиту залежностей. Це значно спрощує процес у порівняння з ручним доданням бібліотек.
 
-The dependencies, among other parameters, are declared in the `project.clj` file and have this form (from the *mies* template):
+Залежності оголошуються разом з іншими параметрами проекту у файлі `project.clj` наступним чином (приклад з шаблону *mies*):
 
 ```clojure
 (defproject leapyears "0.1.0-SNAPSHOT"
@@ -146,11 +147,11 @@ The dependencies, among other parameters, are declared in the `project.clj` file
   :target-path "target")
 ```
 
-And here is a brief explanation of the properties relevant for ClojureScript:
+Далі наведемо коротке пояснення властивосей, що мають значення у контексті ClojureScript:
 
-* `:dependencies`: a vector of dependencies that your project needs.
-* `:clean-targets`: a vector of paths that `lein clean` should delete.
+* `:dependencies`: вектор залежностей вашого проекту
+* `:clean-targets`: вектор шляхів, які має видалити `lein clean`.
 
-The dependencies in ClojureScript are packaged using `jar` files. If you are coming from Clojure or any JVM language, `jar` files will be very familiar to you. But if you aren't familiar with them, do not worry: a .jar file is like a plain zip file that contains the `project.clj` for the library, some metadata, and the ClojureScript sources. The packaging will be explained in another section.
+Залежності у ClojureScript пакуються у файли типу `jar`. Якщо ви писали на Clojure або на іншій мові, що працює з JVM, файли `jar` вам мають бути знайомі. Якщо це не так, не переймайтеся: файл `jar` схожий на звичайний zip-файл, який містить `project.clj` для бібліотек, певні метадані та сирцеві файли на ClojureScript. Процес пакування ми пояснимо в іншому розділі.
 
-Clojure packages are often published on link:http://clojars.org[Clojars]. You can also find many third party libraries on the link:https://github.com/clojure/clojurescript/wiki#libraries[ClojureScript Wiki].
+Пакети на Clojure часто публікують за посиланням  [Clojars](http://clojars.org). Також багато бібліотек можна знайти на [ClojureScript Wiki](https://github.com/clojure/clojurescript/wiki#libraries)
