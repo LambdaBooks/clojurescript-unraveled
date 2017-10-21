@@ -1,24 +1,24 @@
-### External dependencies
+###  Зовнішні залежності
 
-In some circumstances you may found yourself that you need some library but that does not exists in _ClojureScript_ but it is already implemented in javascript and you want to use it on your project.
+За певних обставин вам може знадобитися можливості бібліотеки, написаної на JavaScript, для якої немає аналогу в ClojureScript. Тобто вам потрібна можливість підключити таку бібліотеку у проект.
 
-There are many ways that you can do it mainly depending on the library that you want to include. Let see some ways.
+В залежності від бібліотеки спрособів підключення може бути багато. Розглянемо деякі з них.
 
 
-#### Closure Module compatible library
+#### Бібліотеки, сумісні з модулями Google Closure
 
-If you have a library that is just written to be compatible with google closure module system and you want to include it on your project you should just put it in the source (classpath) and access it like any other clojure namespace.
+Якщо бібліотека сумісна з системою модулів в Google Closure Library, вам потрібно лише покласти її в проект поряд з вашим кодом і звернутися до неї через простір імен так само, як це роблять з просторами імен в ClojureScript.
 
-This is the most simplest case, because google closure modules are directly compatible and you can mix your clojure code with javascript code written using google closure module system without any additional steps.
+Це найпростіший спосіб, бо модулі Google Closure напряму сумісні з ClojureScript і ви спокійно можете використовувати їх у вашому коді.
 
-Let play with it creating new project using *mies* template:
+Давайте спробуємо підключити такий модуль у проекті за допомогою шаблона *mies*.
 
 ```shell
 lein new mies myextmods
 cd myextmods
 ```
 
-Create a simple google closure module for experiment:
+Далі створіть модуль Google Closure для експременту:
 
 .src/myextmods/myclosuremodule.js
 ```javascript
@@ -32,7 +32,7 @@ goog.scope(function() {
 });
 ```
 
-Now, open the repl, require the namespace and try to use the exposed function:
+Тепер відкрийте REPL та спробуйте імпортувати простір імен і викликати функцію з нього:
 
 ```clojure
 (require '[myextmods.myclosuremodule :as cm])
@@ -40,14 +40,13 @@ Now, open the repl, require the namespace and try to use the exposed function:
 ;; => "Hello from google closure module."
 ```
 
-NOTE: you can open the nodejs repl just executing `./scripts/repl` on the root of the repository.
+> ЗАУВАЖЕННЯ: ви можете відкрити ClojureScript REPL в Node.js виконавши скрипт `./scripts/repl`.
 
+#### Бібліотеки, сумісні з модулями CommonJS
 
-#### CommonJS modules compatible libraries
+Завдяки популярності Node.js формат модулів CommonJS є найпопулярнішим в JavaScript бібліотеках, незалежно від того, де вони використовуються: у клієнтських застосунках чи на сервері.
 
-Due to the Node.JS popularity the commonjs used in node is today the most used module format for javascript libraries, independently if they will be used in server side development using nodejs or using browser side applications.
-
-Let's play with that. Start creating a simple file using commonjs module format (pretty analgous to the previous example using google closure modules):
+Подивимося, що вийшло. Створіть файл з модулем у форматі CommonJS (дуже схожий на модуль з попереднього прикладу):
 
 .src/myextmods/mycommonjsmodule.js
 ```javascript
@@ -58,9 +57,9 @@ function getGreetings() {
 exports.getGreetings = getGreetings;
 ```
 
-Later, in order to use that simple pet library you should indicate to the _ClojureScript_ compiler the path to that file and the used module type with `:foreign-libs` attribute.
+Для того, щоб ми могли застосувати цю бібліотеку, нам треба підключити її за допомогою спеціальної конфігурації для компілятора. У полі `:foreign-libs` описуються модулі JavaScript: шлях до файлу, формат модуля та ім'я простору імен, під яким цей модуль буде доступний з ClojureScript.
 
-Open `scripts/repl.clj` and modify it to somethig like this:
+Відкрийте файл `scripts/repl.clj` та замінять його вміст на цей:
 
 ```clojure
 (require
@@ -78,9 +77,9 @@ Open `scripts/repl.clj` and modify it to somethig like this:
  :cache-analysis false)
 ```
 
-NOTE: Although the direct path is used to point to this pet library you can specify a full URI to remote resource and it will be automatically downloaded.
+> ЗАУВАЖЕННЯ: Шлях до файлу модуля може бути не тільки локальним, а й посиланням на файл на іншому веб-сервері, який автоматично буде завантажений.
 
-Now, let's try to play with moment within the repl (executing the `./scripts/repl` script that uses the previously modified `./scripts/repl.clj` file):
+Спробуємо застосувати цей модуль у REPL. Запустіть REPL за допомогою скрипта `./scripts/repl` і спробуйте виконати наступні команди:
 
 ```clojure
 (require '[myextmods.mycommonjsmodule :as cm])
@@ -89,15 +88,15 @@ Now, let's try to play with moment within the repl (executing the `./scripts/rep
 ```
 
 
-#### Legacy, module-less (global scope) libraries
+#### Бібліотеки без модулів
 
-Although today is very common have libraries packaged using some kind of modules, there are also a great amount of libraries that just exposes a global objects and does not uses any kind of modules; and you may want to use them from _ClojureScript_.
+Хоча сьогодні за зазвичай бібліотеки побудовані з використанням модулів, все ще існують такі, що не використовують їх, а просто експортують глобальний об'єкт; і у вас може виникнути необхідність використовувати їх в _ClojureScript_.
 
-In order to  use a library that  exposes a global object, you  should follow similar steps  as  with  commojs  modules  with  the exception  that  you  should  omit  the `:module-type` attribute.
+Для використання бібіліотек, які використовують глобальні обʼєкти, слід створити конфігурацію, схожу на ту, що використовується для модулів CommonJS, але в описі модуля не треба вказувати поле `:module-type`.
 
-This will create a _synthetic_ namespace that you should require in order to be able to access to the global object through the `js/` namespace. The namespace is called _synthetic_ because it does not expose any object behind it, it just indicates to the compiler that you want that dependency.
+В результаті буде створений синтетичний простір імен, який треба імпортувати, щоб мати доступ до глобального об'єкту модуля у просторі імен `js/`. Простір імен називається синтетичним, бо не містить жодних об'єктів, він просто вказує компілятору на необхідність підключити залежність.
 
-Let's play with that. Start creating a simple file declaring just a global function: 
+Перевіримо результат. Створіть файл з глобальною функцією:
 
 .src/myextmods/myglobalmodule.js
 ```javascript
@@ -106,7 +105,7 @@ function getGreetings() {
 }
 ```
 
-Open `scripts/repl.clj` and modify it to somethig like this:
+Відкрийте `scripts/repl.clj` та змініть його вміст на цей:
 
 ```clojure
 (require
@@ -126,7 +125,7 @@ Open `scripts/repl.clj` and modify it to somethig like this:
  :cache-analysis false)
 ```
 
-And in the same way as in previous examples, let evaluate that in the repl:
+Тепер спробуємо застосувати цей модуль в REPL:
 
 ```clojure
 (require 'myextmods.myglobalmodule)
