@@ -1,8 +1,9 @@
-### Transducers
+### Перетворювачі
 
-#### Data transformation
+#### Трансформація даних
 
-ClojureScript offers a rich vocabulary for data transformation in terms of the sequence abstraction, which makes such transformations highly general and composable. Let's see how we can combine several collection processing functions to build new ones. We will be using a simple problem throughout this section: splitting grape clusters, filtering out the rotten ones, and cleaning them. We have a collection of grape clusters like the following:
+_ClojureScript_  має великий набір інструментів для перетворення даних, що побудовані над абстракцією послідовності. Таким чином трансформація даних стає найбільш узагальненою та придатною до композиції. Давайте подивимося, як поєднати кілька функцій для обробки колекцій в одну. У цьому розділі ми будемо використовувати як приклад наступне нескладне завдання: треба розділити грона винограду на окремі ягоди, відібрати зіпсовані та вимити решту. Ми маємо наступну колекцію грон винограду:
+
 
 ```clojure
 (def grape-clusters
@@ -14,7 +15,8 @@ ClojureScript offers a rich vocabulary for data transformation in terms of the s
     :color :black}])
 ```
 
-We are interested in splittinqg the grape clusters into individual grapes, discarding the rotten ones and cleaning the remaining grapes so they are ready for eating. We are well-equipped in ClojureScript for this data transformation task; we could implement it using the familiar `map`, `filter` and `mapcat` functions:
+Наша мета — підготувати виноград до вживання, а саме розділити грона на окремі ягоди, відібрати зіпсовані та помити решту. З _ClojureScript_ ми маємо багатий вибір інструментів для вирішення цієї задачі. Зокрема ми можемо скористатися вже знайомими нам функціями `map`, `filter` та `mapcat`:
+
 
 ```clojure
 (defn split-cluster
@@ -36,7 +38,7 @@ We are interested in splittinqg the grape clusters into individual grapes, disca
 ;; => ({rotten? false :clean? true} {:rotten? false :clean? true})
 ```
 
-In the above example we succintly solved the problem of selecting and cleaning the grapes, and we can even abstract such transformations by combining the `mapcat`, `filter` and `map` operations using partial application and function composition:
+У цьому прикладі ми успішно вирішили проблему відбору та миття ягід, і навіть можемо абстрагувати таку трансформацію шляхом поєднання операцій `mapcat`, `filter` та `map` за допомогою часткового застосування та композиції функцій.
 
 ```clojure
 (def process-clusters
@@ -49,14 +51,13 @@ In the above example we succintly solved the problem of selecting and cleaning t
 ;; => ({rotten? false :clean? true} {:rotten? false :clean? true})
 ```
 
-The code is very clean, but it has a few problems. For example, each call to `map`, `filter` and `mapcat` consumes and produces a sequence that, although lazy, generates intermediate results that will be discarded. Each sequence is fed to the next step, which also returns a sequence. Wouldn't be great if we could do the transformation in a single transversal of the `grape-cluster` collection?
+Це чистий код, але він має певні вади. Наприклад, кожен виклик `mapcat`, `filter` та `map` споживає та створює послідовність, яка є лінивою, але тим не менш генерує проміжні результати, які не будуть використані. Кожна послідовність переходить у наступну фазу, що також повертає послідовність. Було б чудово виконати цю трансформацію за один обхід колекції `grape-cluster`, чи не так?
 
-Another problem is that even though our `process-clusters` function works with any sequence, we can't reuse it with anything that is not a sequence. Imagine that instead of having the grape cluster collection available in memory it is being pushed to us asynchronously in a stream. In that situation we couldn't reuse `process-clusters` since usually `map`, `filter` and mapcat` have concrete implementations depending on the type.
+Друга проблема полягає у тому, що фукнція `grape-cluster` може працювати з будь-якою колекцією, але застосувати її до інших типів даних ми не можемо. Уявіть собі, що колекція грон винограду не буде зберігається у памʼяті, натомість вона надходить асинхронно у вигляді потоку. В такій ситуації ми не зможемо використати `process-clusters`, бо функції `map`, `filter` та `mapcat` мають конкретні імплементації залежно від типу.
 
+#### Узагальнення до трансформацій процесу
 
-#### Generalizing to process transformations
-
-The process of mapping, filtering or mapcatting isn't necessarily tied to a concrete type, but we keep reimplementing them for different types. Let's see how we can generalize such processes to be context independent. We'll start by implementing naive versions of `map` and `filter` first to see how they work internally:
+Процес застосування функцій `map`, `filter` та `mapcat` не обовʼязково повʼязаний з конкретним типом, але ми можемо повторно реалізувати його для різних типів. Подивимося, як можна узагальнити такі процеси та зробити їх незалежними від контексту. Почнемо з реалізації наївної версії функцій `map` та `filter` та подивимося на її внутрішню реалізацію.
 
 ```clojure
 (defn my-map
@@ -80,7 +81,7 @@ The process of mapping, filtering or mapcatting isn't necessarily tied to a conc
 ;; => (1)
 ```
 
-As we can see, they both assume that they receive a seqable and return a sequence. Like many recursive functions they can be implemented in terms of the already familiar `reduce` function. Note that functions that are given to reduce receive an accumulator and an input and return the next accumulator. We'll call these types of functions reducing functions from now on.
+Як можна побачити, обидві функції очікують послідовність чи іншу структуру, що реалізує інтерфейс послідовності, та повертають колекцію. Подібно до більшості рекурсивних функцій, вони можуть бути реалізовані за допомогою вже знайомої нам функції `reduce`. Зауважимо, що фукнції, які потрапляють до `reduce`, отримують акумулятор та певні дані та повертають новий акумулятор. З цього моменту подібні функції ми будемо називати функціями-редʼюсерами.
 
 ```clojure
 (defn my-mapr
@@ -106,9 +107,9 @@ As we can see, they both assume that they receive a seqable and return a sequenc
 ;; => [1]
 ```
 
-We've made the previous versions more general since using `reduce` makes our functions work on any thing that is reducible, not just sequences. However you may have noticed that, even though `my-mapr` and `my-filterr` don't know anything about the source (`coll`) they are still tied to the output they produce (a vector) both with the initial value of the reduce (`[]`) and the hardcoded `conj` operation in the body of the reducing function. We could have accumulated results in another data structure, for example a lazy sequence, but we'd have to rewrite the functions in order to do so.
+Попередні версії ми робили більш узагальненими, бо використання `reduce` дозволяє нашим функціям працювати з будь-якою струкутрою даних, яку можна передавати функції `reduce`, а не тільки з послідовностями. Але ви можете побачити, що функції  `my-mapr` та `my-filterr` не знають нічого про джерело (`coll`), але вони тим не менш привʼязані до результату, який створюють (вектор) через вихідне значення reduce ([]) та записану в тілі фукнції-редʼюсера операцію `conj`. Ми могли б зібрати результати в іншу структуру даних, наприклад, у ліниву послідовність, але для цього функції доведеться переписати.
 
-How can we make these functions truly generic? They shouldn't know about either the source of inputs they are transforming nor the output that is generated. Have you noticed that `conj` is just another reducing function? It takes an accumulator and an input and returns another accumulator. So, if we parameterise the reducing function that `my-mapr` and `my-filterr` use, they won't know anything about the type of the result they are building. Let's give it a shot:
+Як зробити такі функції по-справжньому узагальненими? Вони не мають знати ані про джерело надходження даних, які трансформуватимуть, ані про результат, який створюватимуть. Чи помітили ви, що `conj` — це просто ще одна функція, що реалізує інтерфейс `reduce`? Ця функція очикує акумулятор та дані і повертає новий акумулятор. Таким чином, якщо ми визначимо параметри функції, яку використовують `my-mapr` та `my-filterr`, то ці функції не будуть знати про тип власного  результату. Давайте спробуємо:
 
 ```clojure
 (defn my-mapt
@@ -136,9 +137,9 @@ How can we make these functions truly generic? They shouldn't know about either 
 ;; => [1]
 ```
 
-That's a lot of higher-order functions so let's break it down for a better understanding of what's going on. We'll examine how `my-mapt` works step by step. The mechanics are similar for `my-filtert`, so we'll leave it out for now.
+Функцій вищого порядку стає все більше, тож давайте розберемося детальніше у тому, що відбувається. Пройдемо кроки роботи `my-mapt`. Механізм для `my-filtert` схожий, тому на нього не будемо зараз витрачати час. 
 
-First of all, `my-mapt` takes a mapping function; in the example we are giving it `inc` and getting another function back. Let's replace `f` with `inc` to see what we are building:
+Попреше, `my-mapt` очікує функцію, що реалізує відображення значень. В нашому прикладі ми передаємо функцію `inc` та отримує нову функцію. Давайте замінимо `f` на `inc` і подивимося, що відбувається:
 
 ```clojure
 (def incer (my-mapt inc))
@@ -148,7 +149,7 @@ First of all, `my-mapt` takes a mapping function; in the example we are giving i
 ;;               ^^^
 ```
 
-The resulting function is still parameterised to receive a reducing function to which it will delegate, let's see what happens when we call it with `conj`:
+Отримана функція все ще очікує на функцію-редʼюсер, якому вона передасть дані для обробки. Що буде, якщо ми передамо їй `conj`? 
 
 ```clojure
 (incer conj)
@@ -157,9 +158,9 @@ The resulting function is still parameterised to receive a reducing function to 
 ;;    ^^^^
 ```
 
-We get back a reducing function which uses `inc` to transform the inputs and the `conj` reducing function to accumulate the results. In essence, we have defined map as the transformation of a reducing function.  The functions that transform one reducing function into another are called transducers in ClojureScript.
+Ми отримали функцію-редʼюсер, яка використовує функцію `inc` для обробки даних та функцію `conj` як редʼюсер для отримання акумульованого результату. В цілому, ми визначили відображення як трансформацію для функції-редʼюсера. Функція, що трансформує один редʼюсер в інший, в _ClojureScript_ називається перетворювачем.
 
-To ilustrate the generality of transducers, let's use different sources and destinations in our call to `reduce`:
+Для ілюстрації загальності перетворювачів давайте використаємо різні джерела та призначення у виклику `reduce`:
 
 ```clojure
 (reduce (incer str) "" [0 1 2])
@@ -169,10 +170,9 @@ To ilustrate the generality of transducers, let's use different sources and dest
 ;; => "1"
 ```
 
-The transducer versions of `map` and `filter` transform a process that carries inputs from a source to a destination but don't know anything about where the inputs come from and where they end up. In their implementation they contain the _essence_ of what they accomplish, independent of context.
+Нова версія `map` та `filter`, яка є перетворювачем, перетворює процес, що передає дані від джерела до призначення, але не знає нічого про те, звідки взялися дані і куди потраплять потім. Імплементація таких функцій демонструє те, до чого ми прагнемо, а саме незалежність від контексту.
 
-Now that we know more about transducers we can try to implement our own version of `mapcat`. We already have a fundamental piece of it: the `map` transducer. What `mapcat` does is map a function over an input and flatten the resulting structure one
-level. Let's try to implement the catenation part as a transducer:
+Тепер ми знаємо більше про перетворювачі, тож спробуємо реалізувати власну версію `mapcat`. Ми вже має основну частину, а саме перетворювач `map`. Завдання `mapcat` — обробити вхідні дані та повернути спрощену на один рівень структуру. Давайте реалізуємо катенацію перетворювача:
 
 ```clojure
 (defn my-cat
@@ -184,7 +184,7 @@ level. Let's try to implement the catenation part as a transducer:
 ;; => [0 1 2 3 4 5]
 ```
 
-The `my-cat` transducer returns a reducing function that catenates its inputs into the accumulator. It does so reducing the `input` reducible with the `rfn` reducing function and using the accumulator (`acc`) as the initial value for such reduction. `mapcat` is simply the composition of `map` and `cat`. The order in which transducers are composed may seem backwards but it'll become clear in a moment.
+Перетворювач `my-cat` повертає функцію-редʼюсер, що поєднує вхідні дані з акумулятором, а саме застосовує функцію `rfn` до `input` та застосовує акумулятор (`acc`) як вихідне значення. `mapcat` — це просто композиція `map` та `cat`. Порядок, у якому проходить композиція перетворювачів, може здатися дивним, але ми згодом пояснимо, чому так відбувається. 
 
 ```clojure
 (defn my-mapcat
@@ -201,9 +201,9 @@ The `my-cat` transducer returns a reducing function that catenates its inputs in
 ;; => [0 0 1 1 2 2]
 ```
 
-#### Transducers in ClojureScript core
+#### Перетворювачі в стандартній бібліотеці ClojureScript
 
-Some of the ClojureScript core functions like `map`, `filter` and `mapcat` support an arity 1 version that returns a transducer. Let's revisit our definition of `process-cluster` and define it in terms of transducers:
+Певні функції стандартної бібліотеки _ClojureScript_, а саме `map`, `filter` та `mapcat` мають унарну версію, що повертає перетворювач. Переглянемо наше визначення `process-cluster` та визначимо цю функцію на основі перетворювачів:
 
 ```clojure
 (def process-clusters
@@ -213,13 +213,14 @@ Some of the ClojureScript core functions like `map`, `filter` and `mapcat` suppo
     (map clean-grape)))
 ```
 
-A few things changed since our previous definition `process-clusters`. First of all, we are using the transducer-returning versions of `mapcat`, `filter` and `map` instead of partially applying them for working on sequences.
+З моменту попереднього оголошення `process-cluster` дещо змінилося. Поперше, ми використовуємо версії `mapcat`, `filter` and `map`, що повертають перетворювачі, замість часткового застосування стандартнимх версій для роботи з послідовностями.
 
-Also you may have noticed that the order in which they are composed is reversed, they appear in the order they are executed. Note that all `map`, `filter` and `mapcat` return a transducer. `filter` transforms the reducing function returned by `map`, applying the filtering before proceeding; `mapcat` transforms the reducing function returned by `filter`, applying the mapping and catenation before proceeding.
+Також ви могли помітити, що порядок композиції змінився на протилежний. Функції зʼявляються у тому порядку, в якому виконуються. Зауважимо, що усі функції `map`, `filter` and `mapcat` повертають перетворювач. Функція `filter` трансформує функцію, що її повертає `map`, шляхом застовування фільтру до подальшого виконання коду, `mapcat` трансформує функцію, яку повертає `filter`, шляхом застосування відображення та катенації до подальшого виконання коду.
 
-One of the powerful properties of transducers is that they are combined using regular function composition.  What's even more elegant is that the composition of various transducers is itself a transducer! This means that our `process-cluster` is a transducer too, so we have defined a composable and context-independent algorithmic transformation.
+Однією з переваг перетворювачів є те, що їх можна комбінувати за допомогою звичайної композиції функцій. Ще більш елегантним є те, що композиція різних перетворювачів — це також перетворювач! Це означає, що написаний нами `process-cluster` — це перетворювач, тому ми визначили алгоритмічну, незалежну від контексту трансформацію, яку можна компонувати.
 
-Many of the core ClojureScript functions accept a transducer, let's look at some examples with our newly created `process-cluster`:
+
+Серед функцій стандартної бібліотеки _ClojureScript_ є багато таких, що можуть бути викликані з перетворювачами у якості аргументів. Давайте розглянемо кілька прикладів і скористуємося для цього щойно створеним `process-cluster`:
 
 ```clojure
 (into [] process-clusters grape-clusters)
@@ -232,7 +233,7 @@ Many of the core ClojureScript functions accept a transducer, let's look at some
 ;; => [{:rotten? false, :clean? true} {:rotten? false, :clean? true}]
 ```
 
-Since using `reduce` with the reducing function returned from a transducer is so common, there is a function for reducing with a transformation called `transduce`. We can now rewrite the previous call to `reduce` using `transduce`:
+Використання функції reduce із фукнцією-редʼюсером як результатом перетворювача зустрічається дуже часто, тому є окрема фукнція, що проводить редукцію та трансформацію. Вона називається `transduce`. Тепер ми можему переписати попередній виклик і провести редукцію за допомогою `transduce`:
 
 ```clojure
 (transduce process-clusters conj [] grape-clusters)
@@ -240,23 +241,25 @@ Since using `reduce` with the reducing function returned from a transducer is so
 ```
 
 
-#### Initialisation
+#### Ініціалізація
 
-In the last example we provided an initial value to the `transduce` function (`[]`) but we can omit it and get the same result:
+
+В останньому прикладі ми передали вихідне значення функції transduce ([]), але ми можемо цього не робити і отримати той самий результат:
+
 
 ```clojure
 (transduce process-clusters conj grape-clusters)
 ;; => [{:rotten? false, :clean? true} {:rotten? false, :clean? true}]
 ```
 
-What's going on here? How can `transduce` know what initial value use as an accumulator when we haven't specified it? Try calling `conj` without any arguments and see what happens:
+Що відбувається? Звідки функція `transduce` знає, яке вихідне значення використати для накопичувача, якщо ми цього значення не задавали? Ви зрозуміте, що відбувається, якщо спробуєте викликати функцію `conj` без аргументів.
 
 ```clojure
 (conj)
 ;; => []
 ```
 
-The `conj` function has a arity 0 version that returns an empty vector but is not the only reducing function that supports arity 0. Let's explore some others:
+Функція `conj` має варіант із нульовою арністью, який повертає порожній вектор. Але це не єдина функція-перетворювач, що може бути викликана без жодниіх аргументів. Подивимося на інші:
 
 ```clojure
 (+)
@@ -272,7 +275,8 @@ The `conj` function has a arity 0 version that returns an empty vector but is no
 ;; => true
 ```
 
-The reducing function returned by transducers must support the arity 0 as well, which will typically delegate to the transformed reducing function. There is no sensible implementation of the arity 0 for the transducers we have implemented so far, so we'll simply call the reducing function without arguments. Here's how our modified `my-mapt` could look like:
+Функція-редʼюсер з перетворювача має підтримувати також нульову арність; найчастіше при цьому буде виконуватися делегування до трансформованої функції-редʼюсера. Не існує жодної реалізаціїї нульової арності для перетворювача, який ми реалізовували до цього момента, тому ми просто викличемо функцію-редʼюсер без аргументів. Ось як може виглядати модифікована функція `my-mapt`: 
+
 
 ```clojure
 (defn my-mapt
@@ -284,27 +288,27 @@ The reducing function returned by transducers must support the arity 0 as well, 
         (rfn acc (f input))))))
 ```
 
-The call to the arity 0 of the reducing function returned by a transducer will call the arity 0 version of every nested reducing function, eventually calling the outermost reducing function. Let's see an example with our already defined `process-clusters` transducer:
+При виклику версії функції-редʼюсера, створеної перетворювачем, із нульовою арністю, буде здійснюватися виклик кожної вкладеної функції у версії з нульовою арністю. На певному етапі буде викликана найперша функція-редʼюсер. Подивимося на це на прикладі перетворювача `process-clusters`:
 
 ```clojure
 ((process-clusters conj))
 ;; => []
 ```
 
-The call to the arity 0 flows through the transducer stack, eventually calling
-`(conj)`.
+Виклик версії функції із нульовою арністю проходить весь стек перетворювача та врешті решт викликає `(conj)`.
 
 
-#### Stateful transducers
+#### Перетворювачі, що зберігають стан
 
-So far we've only seen purely functional transducer; they don't have any implicit state and are very predictable. However, there are many data transformation functions that are inherently stateful, like `take`. `take` receives a number `n` of elements to keep and a collection and returns a collection with at most `n` elements.
+
+До цього моменту ми розглядали тільки чисто функціональні перетворювачі. Вони не мають неявного стану і поводяться передбачуваним чином. Але існує багато функцій для трансформації даних, що мають стан, наприклад `take`. `take` очікує кількість `n` елементів, яку слід залишити та певну колекцію, а повертає колекцію, що містить не більш ніж `n` елементів.
 
 ```clojure
 (take 10 (range 100))
 ;; => (0 1 2 3 4 5 6 7 8 9)
 ```
 
-Let's step back for a bit and learn about the early termination of the `reduce` function. We can wrap an accumulator in a type called `reduced` for telling `reduce` that the reduction process should terminate immediately. Let's see an example of a reduction that aggregates the inputs in a collection and finishes as soon as there are 10 elements in the accumulator:
+Давайте звернемо увагу на завчасне припинення виконання функції `reduce`. Ми можемо огорнути акумулятор у тип `reduced` і сповістити таким чином функцію `reduce` про те, що процесс обробки має бути негайно припинений у певний момент. Розглянемо приклад, в якому вхідні дані складаються в колекцію, а процес завершується як тільки акумулятор містить 10 елементів:
 
 ```clojure
 (reduce (fn [acc input]
@@ -316,9 +320,9 @@ Let's step back for a bit and learn about the early termination of the `reduce` 
 ;; => [0 1 2 3 4 5 6 7 8 9]
 ```
 
-Since transducers are modifications of reducing functions they also use `reduced` for early termination.  Note that stateful transducers may need to do some cleanup before the process terminates, so they must support an arity 1 as a "completion" step. Usually, like with arity 0, this arity will simply delegate to the transformed reducing function's arity 1.
+Через те, що перетворювачі є модифікаціями функцій-редʼюсерів, вони також використовують `reduced` для завчасно припинення виконання. Зверніть увагу на те, що перетворювачі, що зберігають стан, можуть бути змушені виадлити більше даних перед завершенням процесу, тому мають підтримувати арність "1" у якості завершуючого кроку. Зазвичай, як і з нульовою арністью, така арність делегує виконання до трансформованої функції-редʼюсера. 
 
-Knowing this we are able to write stateful transducers like `take`. We'll be using mutable state internally for tracking the number of inputs we have seen so far, and wrap the accumulator in a `reduced` as soon as we've seen enough elements:
+Таким чином, ми можемо  писати перетворювачі, такі як `take`. Ми будемо використовувати змінювані стани для відслідковування кількості даних, що вже надійшли, а також огорнемо акумулятор у `reduced`, як тільки побачимо достатньо елементів.
 
 ```clojure
 (defn my-take
@@ -339,9 +343,9 @@ Knowing this we are able to write stateful transducers like `take`. We'll be usi
               result)))))))
 ```
 
-This is a simplified version of the `take` function present in ClojureScript core. There are a few things to note here so let's break it up in pieces to understand it better.
+Це спрощена версія функції `take` зі стандартної бібліотеки _ClojureScript_. Необхідно відмітити кілька нюансів, тому давайте вивчимо її роботу більш детально.
 
-The first thing to notice is that we are creating a mutable value inside the transducer. Note that we don't create it until we receive a reducing function to transform. If we created it before returning the transducer we couldn't use `my-take` more than once. Since the transducer is handed a reducing function to transform each time it is used, we can use it multiple times and the mutable variable will be created in every use.
+Перше, на що треба звернути увагу: ми створюємо змінюване значення в середині перетворювача. Ми створюємо це значення, як тільки отримуємо функцію-редʼюсер для трансформації. Якщо б ми створили це значення раніше, ми змогли б використати функцію `my-take` лише один раз. Перетворювач отримує функцію-редʼюсер наново кожен раз при його використанні, тому ми використовуємо редʼюсер повторно та змінюване значення строюється щоразу.
 
 ```clojure
 (fn [rfn]
@@ -359,7 +363,7 @@ The first thing to notice is that we are creating a mutable value inside the tra
 ;; => [0 1 2 3 4]
 ```
 
-Let's now dig into the reducing function returned from `my-take`. First of all we `deref` the volatile to get the number of elements that remain to be taken and decrement it to get the next remaining value.  If there are still remaining items to take, we call `rfn` passing the accumulator and input; if not, we already have the final result.
+Розберемо функцію-редʼюсер, створену `my-take`. Перш за все ми застосовуємо функцію `deref` до волатайла та отримуємо кількість елементів, що лишаються, та зменшуємо цю кількість для отримання наступного залишку. Якщо елементи ще лишилися, викликаємо функцію `rfn` і передаємо акумулятор та вхідні дані. Інакше ми вважаємо, що отримали фінальний результат. 
 
 ```clojure
 ([acc input]
@@ -372,7 +376,7 @@ Let's now dig into the reducing function returned from `my-take`. First of all w
 ))
 ```
 
-The body of `my-take` should be obvious by now. We check whether there are still items to be processed using the next remainder (`nr`) and, if not, wrap the result in a `reduced` using the `ensure-reduced` function. `ensure-reduced` will wrap the value in a `reduced` if it's not reduced already or simply return the value if it's already reduced. In case we are not done yet, we return the accumulated `result` for further processing.
+Тіло функції `my-take` має бути вам вже зрозумілим. Ми перевіряємо, чи лишилися необроблені елементи, за допомогою (`nr`). Якщо ні, то огортаємо результат у `reduced` за допомогою функції `ensure-reduced`. Ця функція повертає результат або огортає значення у `reduced` за необхідності. Якщо обробка не закінчена, функція повертає акумульований `result` для подальшої обробки.
 
 ```clojure
 (if (not (pos? nr))
@@ -380,14 +384,14 @@ The body of `my-take` should be obvious by now. We check whether there are still
   result)
 ```
 
-We've seen an example of a stateful transducer but it didn't do anything in its completion step. Let's see an example of a transducer that uses the completion step to flush an accumulated value. We'll implement a simplified version of `partition-all`, which given a `n` number of elements converts the inputs in vectors of size `n`. For understanding its purpose better let's see what the arity 2 version gives us when providing a number and a collection:
+Ми побачили приклад перетворювача, що зберігає стан, але він нічого не робив на завершуючому кроці роботи. Розглянемо приклда перетворювача, який видаляє накопичене значення на останньому кроці. Реалізуємо спрощену версію `partition-all`, що отримує число елементів `n` та конвертує вхідні дані у вектори розміру `n`. Для кращого розуміння подивимося, що ми отримаємо від версії з арністю 2, якщо передати такій функції число та колекцію: 
 
 ```clojure
 (partition-all 3 (range 10))
 ;; => ((0 1 2) (3 4 5) (6 7 8) (9))
 ```
 
-The transducer returning function of `partition-all` will take a number `n` and return a transducer that groups inputs in vectors of size `n`. In the completion step it will check if there is an accumulated result and, if so, add it to the result. Here's a simplified version of ClojureScript core `partition-all` function, where `array-list` is a wrapper for a mutable JavaScript array:
+Перетворювач, що повертає функцію з `partition-all`, отримує число `n`, та повертає перетворювач, що групує вхідні дані у вектори розміру `n`. Завершуючий крок перевіряє, чи є акумульований результат, та додає до результату. Ось спрощена версія функції  `partition-all` зі стандартної бібліотеки ClojureScript, де `array-list` — це обгортка змінюваного масива з JavaScript:
 
 ```clojure
 (defn my-partition-all
@@ -418,9 +422,9 @@ The transducer returning function of `partition-all` will take a number `n` and 
 ```
 
 
-#### Eductions
+#### Едукції
 
-Eductions are a way to combine a collection and one or more transformations that can be reduced and iterated over, and that apply the transformations every time we do so. If we have a collection that we want to process and a transformation over it that we want others to extend, we can hand them a eduction, encapsulating the source collection and our transformation. We can create an eduction with the `eduction` function:
+Едукції — це спосіб поєднання колекції та одної чи більше трансформацій, що їх можна спрощувати та перебирати, при цьому щоразу застосовуються трансформації. Якщо ми маємо колекцію, яку потрібно обробити, та трансформацію цієї колекції, що її потрібно розширити, можна передати їм едукцію і таким чином ізолювати вихідну колекцію та трансформацію. Едукції створюються за допомогю фукнції `eduction`:
 
 ```clojure
 (def ed (eduction (filter odd?) (take 5) (range 100)))
@@ -433,19 +437,19 @@ Eductions are a way to combine a collection and one or more transformations that
 ```
 
 
-#### More transducers in ClojureScript core
+#### Інші перетворювачі у стандартній бібліотеці ClojureScript
 
-We learned about `map`, `filter`, `mapcat`, `take` and `partition-all`, but there are a lot more transducers available in ClojureScript. Here is an incomplete list of some other intersting ones:
+Ми познайомилися з функціями `map`, `filter`, `mapcat`, `take` та `partition-all`, але у _ClojureScript_ є значно більше перетворювачів. Наведемо неповний список вартих уваги перетворювачів:
 
-- `drop` is the dual of `take`, dropping up to `n` values before passing inputs to the reducing function
-- `distinct` only allows inputs to occur once
-- `dedupe` removes succesive duplicates in input values
+- `drop` — це доповнення до `take`, що пропускає `n` значень перед тим, як передати вхідні дані до функції-редʼюсера
+- `distinct` дозволяє лише вхідні дані, що не повторюються
+- `dedupe` видаляє послідовні дублікати з вхідних даних
 
-We encourage you to explore ClojureScript core to see what other transducers are out there.
+Рекомендуємо переглянути документацію стандартної бібліотеки ClojureScript та подивитися, які ще перетворювачі представлені у мові.
 
-#### Defining our own transducers
+#### Визначення власних перетворювачів
 
-There a few things to consider before writing our own transducers so in this section we will learn how to properly implement one. First of all, we've learned that the general structure of a transducer is the following:
+Перед написанням власних перетворювачів слід звернути увагу на певні нюанси, тому в цьому розділі ми дізнаємося, як реалізовувати перетворювачі правильно. Перш за все ми вивчили, що у загальному випадку структура перетворювача така:
 
 ```clojure
 (fn [xf]
@@ -458,21 +462,18 @@ There a few things to consider before writing our own transducers so in this sec
       ...)))
 ```
 
-Usually only the code represented with `...` changes between transducers, these are the invariants that must be preserved in each arity of the resulting function:
+Зазвичай від одного перетворювача до наступного змінюється лише код, позначений у прикладі знаком `...`. Ось інваріанти, що мають зберігатися з кожною арністю результуючої функції:
 
- * arity 0 (init): must call the arity 0 of the nested transform `xf`
- * arity 1 (completion): used to produce a final value and potentially flush state,
-   must call the arity 1 of the nested transform `xf` *exactly once*
- * arity 2 (step): the resulting reducing function which will call the arity 2 of
-   the nested transform `xf` zero, one or more times
+ * арність 0(init): має викликати нульову арність вкладеної функції `xf`
+ * арність 1 (completion): використовується для створення фінального значення та можливого видалення станів, слід викликати арність 1 вкладеної функції `xf` лише один раз
+ * арність 2 (step): функція-редʼюсер, що викличе арність 2 вкладеної функції `xf` нуль, один або більше разів.
 
 
-#### Transducible processes
+#### Процеси, що можуть бути перетворені
 
-A transducible process is any process that is defined in terms of a succession of steps ingesting input values.  The source of input varies from one process to another. Most of our examples dealt with inputs from a collection or a lazy sequence, but it could be an asynchronous stream of values or a `core.async` channel. The outputs produced by each step are also different for every process; `into` creates a collection with every output of the transducer, `sequence` yields a lazy sequence, and asynchronous streams would probably push the outputs to their listeners.
+Процесом, що може бути перетворений, називають будь-який процес, що можна визначити як послідовність кроків з переробки вхідних даних. Джерело надходження вхідних даних може бути різним залежно від процесу. Більшість наведених прикладів демонстрували надходження даних з колекції або з лінивої послідовності, але дані можуть також надходити з асинхронного потоку або з каналу `core.async`. Результати роботи кожного кроку процесу також можуть бути різні. `into` свтворює колекцію з кожного результату перетворювача, `sequence` повертає ліниву послідовність, а асинхронні потоки вірогідно відправлять результат своїм слухачам.
 
-In order to improve our understanding of transducible processes, we're going to implement an unbounded queue, since adding values to a queue can be thought in terms of a succession of steps ingesting input. First of all we'll define a protocol and a
-data type that implements the unbounded queue:
+Для покращення розуміння процесів, що можуть бути перетворені реалізуємо необмежену чергу, бо додання значень до черги можна уявити як послідовні кроки з обробки вхідних даних. Перш за все визначимо протокол та тип даних, що реалізує необмежену чергу:
 
 ```clojure
 (defprotocol Queue
@@ -493,7 +494,7 @@ data type that implements the unbounded queue:
     (set! closed true)))
 ```
 
-We defined the `Queue` protocol and as you may have noticed the implementation of `UnboundedQueue` doesn't know about transducers at all. It has a `put!` operation as its step function and we're going to implement the transducible process on top of that interface:
+Ми визначили протокол `Queue` і ви можете помітити, що реалізація `UnboundedQueue` не знає про  перетворювачі. Натомість для неї визначена операція `put!`, і ми реалізцємо процес, що може бути трансформований, на базі цього інтерфейсу:
 
 ```clojure
 (defn unbounded-queue
@@ -520,7 +521,7 @@ We defined the `Queue` protocol and as you may have noticed the implementation o
          (shutdown! q))))))
 ```
 
-As you can see, the `unbounded-queue` constructor uses an `UnboundedQueue` instance internally, proxying the `take!` and `shutdown!` calls and implementing the transducible process logic in the `put!` function. Let's deconstruct it to understand what's going on.
+Ви можете побачити, що конструктор `unbounded-queue` використовує екземпляр `UnboundedQueue`, перехоплює виклики `take!` і `shutdown!` ті реалізує логігку процесу перетворення у функції `put!`. Розглянемо детальніше кожен крок.
 
 ```clojure
 (let [put! (completing put!)
@@ -530,8 +531,7 @@ As you can see, the `unbounded-queue` constructor uses an `UnboundedQueue` insta
 )
 ```
 
-First of all, we use `completing` for adding the arity 0 and arity 1 to the `Queue` protocol's `put!` function.  This will make it play nicely with transducers in case we give this reducing function to `xform` to derive another.  After that, if a
-transducer (`xform`) was provided, we derive a reducing function applying the transducer to `put!`.  If we're not handed a transducer we will just use `put!`. `q` is the internal instance of `UnboundedQueue`.
+Перш за все ми застосовуємо функцію `completing` для того, щоб додати функції `put!` протоколу `Queue` арність 0 та арність 1. Це забезпечить безпроблемну роботу з перетворювачами, якщо передати цю функцію-редʼюсер функції `xform` для отримання іншої. Якщо перетворювач (`xform`) визначений, то після цього ми створюємо похідну функцію-редʼюсер шляхом застосування перетворювача до `put!`. Якщо перетворювач відсутній, використовуємо `put!`. `q` - це внутрішній екземпляр `UnboundedQueue`.
 
 ```clojure
 (reify
@@ -549,11 +549,11 @@ transducer (`xform`) was provided, we derive a reducing function applying the tr
 )
 ```
 
-The exposed `put!` operation will only be performed if the queue hasn't been shut down. Notice that the `put!` implementation of `UnboundedQueue` uses an assert to verify that we can still put values to it and we don't want to break that invariant. If the queue isn't closed we can put values into it, we use the possibly transformed `xput!` for doing so.
+Операція `put!` виконується лише у тому випадку, коли черга не завершилася. Зауважимо, що реалізація `put!` з `UnboundedQueue` використовує конструкцію `assert`, щоб переконатися у можливості додання подальших даних і не варто порушувати цю поведінку. Якщо черга не завершилася, до неї можна додавати значення. Для цього можна скористатися `xput!`.
 
-If the put operation gives back a reduced value it's telling us that we should terminate the transducible process.  In this case that means shutting down the queue to not accept more values. If we didn't get a reduced value we can happily continue accepting puts.
+якщо результатом операції `put` стане значення, ми зрозуміємо, що час припиняти перетворений процес. У цьому випадку це означає закриття черги таким чином, що вона не приймає подальші значення. Якщо ми не отримали значення, то продовжуємо отримувати нові дані.
 
-Let's see how our queue behaves without transducers:
+Подивимося на поведінку черги без перетворювачів:
 
 ```clojure
 (def q (unbounded-queue))
@@ -572,7 +572,7 @@ Let's see how our queue behaves without transducers:
 ;; => nil
 ```
 
-Pretty much what we expected, let's now try with a stateless transducer:
+Поведінка відповідає нашим очікуванням. Спробуємо тепер застосувати перетворювач без стану:
 
 ```clojure
 (def incq (unbounded-queue (map inc)))
@@ -591,7 +591,7 @@ Pretty much what we expected, let's now try with a stateless transducer:
 ;; => nil
 ```
 
-To check that we've implemented the transducible process, let's use a stateful transducer. We'll use a transducer that will accept values while they aren't equal to 4 and will partition inputs in chunks of 2 elements:
+Щоб переконатися у тому, що ми реалізували процес, що піддається перетворенню, використаємо перетворювач, що зберігає стан. М и використаємо перетворювач, що приймає значення, не рівні чотирьом, та розбиває вхідні дані на блоки по два елемента:
 
 ```clojure
 (def xq (unbounded-queue (comp
@@ -614,8 +614,8 @@ To check that we've implemented the transducible process, let's use a stateful t
 ;; => nil
 ```
 
-The example of the queue was heavily inspired by how `core.async` channels use transducers in their internal step. We'll discuss channels and their usage with transducers in a later section.
+Приклад з чергою зʼявився завдяки використанню перетворювачів каналами `core.async` у внутрішнії процесах. Про канали та про те, як вони використовують перетворювачі, поговоримо у наступних розділах.
 
-Transducible processes must respect `reduced` as a way for signaling early termination. For example, building a collection stops when encountering a `reduced` and `core.async` channels with transducers are closed.  The `reduced` value must be unwrapped with `deref` and passed to the completion step, which must be called exactly once.
+Процеси, що піддаються перетворенню, мають поважати `reduced`  як спосіб подання сигналу про передчасне завершення роботи. Наприклад, створення колекції зупиняється на значенні `reduced`, а канали `core.async` із перетворювачами закриті. Значення має бути розгорнуте за допомогою функції `deref` та передане до завершального кроку, що його буде викликано лише один раз.
 
-Transducible processes shouldn't expose the reducing function they generate when calling the transducer with their own step function since it may be stateful and unsafe to use from elsewhere.
+Процеси, що піддаються перетвренню, мають ховати функцію-редʼюсер, яку створюють, інакше це може привести до появи стану та стане небезпечним для використання.
