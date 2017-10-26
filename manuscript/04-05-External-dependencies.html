@@ -1,0 +1,864 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Зовнішні залежності · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="04-06-Unit-testing.html" />
+    
+    
+    <link rel="prev" href="04-04-Dependency-management.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"LambdaBooks/clojurescript-unraveled","types":["star"],"size":"small"};
+    </script>
+
+    <link href="http://lambdabooks.com/clojurescript-unraveled/rss.xml" title="Розплутаний ClojureScript" rel="alternate" type="application/rss+xml" />
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Розплутаний ClojureScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-About-this-book.html">
+            
+                <a href="01-About-this-book.html">
+            
+                    
+                    Про цю книгу
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-Introduction.html">
+            
+                <a href="02-Introduction.html">
+            
+                    
+                    Вступ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    Мова (основи)
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="03-01-First-steps-with-Lisp-syntax.html">
+            
+                <a href="03-01-First-steps-with-Lisp-syntax.html">
+            
+                    
+                    Перші кроки з Lisp–синтаксисом
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="03-02-The-base-data-types.html">
+            
+                <a href="03-02-The-base-data-types.html">
+            
+                    
+                    Базові типи даних
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="03-03-Vars.html">
+            
+                <a href="03-03-Vars.html">
+            
+                    
+                    Змінні
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03-04-Functions.html">
+            
+                <a href="03-04-Functions.html">
+            
+                    
+                    Функції
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="03-05-Flow-control.html">
+            
+                <a href="03-05-Flow-control.html">
+            
+                    
+                    Керування потоком виконання
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="03-06-Truthiness.html">
+            
+                <a href="03-06-Truthiness.html">
+            
+                    
+                    Істинність
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="03-07-Locals-Blocks-and-Loops.html">
+            
+                <a href="03-07-Locals-Blocks-and-Loops.html">
+            
+                    
+                    Локальні змінні, блоки та цикли
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="03-08-Collection-types.html">
+            
+                <a href="03-08-Collection-types.html">
+            
+                    
+                    Типи колекцій
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="03-09-Destructuring.html">
+            
+                <a href="03-09-Destructuring.html">
+            
+                    
+                    Деструктурування
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="03-10-Threading-Macros.html">
+            
+                <a href="03-10-Threading-Macros.html">
+            
+                    
+                    Потокові макроси
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="03-11-Reader-Conditionals.html">
+            
+                <a href="03-11-Reader-Conditionals.html">
+            
+                    
+                    Умови читача
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="03-12-Namespaces.html">
+            
+                <a href="03-12-Namespaces.html">
+            
+                    
+                    Простори імен
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="03-13-Abstractions-and-Polymorphism.html">
+            
+                <a href="03-13-Abstractions-and-Polymorphism.html">
+            
+                    
+                    Абстракції і поліморфізм
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="03-14-Data-types.html">
+            
+                <a href="03-14-Data-types.html">
+            
+                    
+                    Типи даних
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="03-15-Host-interoperability.html">
+            
+                <a href="03-15-Host-interoperability.html">
+            
+                    
+                    Сумісність з батьківською платформою
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="03-16-State-management.html">
+            
+                <a href="03-16-State-management.html">
+            
+                    
+                    Керування станом
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    Інструментарій та компілятор
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="04-01-Getting-Started-with-the-Compiler.html">
+            
+                <a href="04-01-Getting-Started-with-the-Compiler.html">
+            
+                    
+                    Основи роботи з компілятором
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="04-02-Working-with-the-REPL.html">
+            
+                <a href="04-02-Working-with-the-REPL.html">
+            
+                    
+                    Робота з REPL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="04-03-The-Closure-Library.html">
+            
+                <a href="04-03-The-Closure-Library.html">
+            
+                    
+                    Бібліотека Closure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="04-04-Dependency-management.html">
+            
+                <a href="04-04-Dependency-management.html">
+            
+                    
+                    Керування залежностями
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.5" data-path="04-05-External-dependencies.html">
+            
+                <a href="04-05-External-dependencies.html">
+            
+                    
+                    Зовнішні залежності
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="04-06-Unit-testing.html">
+            
+                <a href="04-06-Unit-testing.html">
+            
+                    
+                    Модульне тестування
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    Мова (поглиблені теми)
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" >
+            
+                <span>
+            
+                    
+                    Перетворювачі
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="05-02-Transients.html">
+            
+                <a href="05-02-Transients.html">
+            
+                    
+                    Перехідні структури даних
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" >
+            
+                <span>
+            
+                    
+                    Метадані
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" >
+            
+                <span>
+            
+                    
+                    Основні протоколи
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" >
+            
+                <span>
+            
+                    
+                    CSP (з core.async)
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    Додатки
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" >
+            
+                <span>
+            
+                    
+                    Додаток А: Інтерактивна розробка з Figwheel
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" >
+            
+                <span>
+            
+                    
+                    Додаток Б: Встановлення середовища розробки на ClojureScript
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    Подяки
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    Подальше читання
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Зовнішні залежності</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="&#x437;&#x43E;&#x432;&#x43D;&#x456;&#x448;&#x43D;&#x456;-&#x437;&#x430;&#x43B;&#x435;&#x436;&#x43D;&#x43E;&#x441;&#x442;&#x456;">&#x417;&#x43E;&#x432;&#x43D;&#x456;&#x448;&#x43D;&#x456; &#x437;&#x430;&#x43B;&#x435;&#x436;&#x43D;&#x43E;&#x441;&#x442;&#x456;</h3>
+<p>&#x417;&#x430; &#x43F;&#x435;&#x432;&#x43D;&#x438;&#x445; &#x43E;&#x431;&#x441;&#x442;&#x430;&#x432;&#x438;&#x43D; &#x432;&#x430;&#x43C; &#x43C;&#x43E;&#x436;&#x443;&#x442;&#x44C; &#x437;&#x43D;&#x430;&#x434;&#x43E;&#x431;&#x438;&#x442;&#x438;&#x441;&#x44F; &#x43C;&#x43E;&#x436;&#x43B;&#x438;&#x432;&#x43E;&#x441;&#x442;&#x456; &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x438;, &#x43D;&#x430;&#x43F;&#x438;&#x441;&#x430;&#x43D;&#x43E;&#x457; &#x43D;&#x430; JavaScript, &#x430;&#x43D;&#x430;&#x43B;&#x43E;&#x433;&#x443; &#x44F;&#x43A;&#x43E;&#x457; &#x43D;&#x435;&#x43C;&#x430;&#x454; &#x432; <em>ClojureScript</em>, &#x442;&#x43E;&#x431;&#x442;&#x43E; &#x432;&#x430;&#x43C; &#x431;&#x443;&#x434;&#x435; &#x43F;&#x43E;&#x442;&#x440;&#x456;&#x431;&#x43D;&#x43E; &#x43F;&#x456;&#x434;&#x43A;&#x43B;&#x44E;&#x447;&#x438;&#x442;&#x438; &#x442;&#x430;&#x43A;&#x443; &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x443; &#x432; &#x43F;&#x440;&#x43E;&#x435;&#x43A;&#x442;.</p>
+<p>&#x417;&#x432;&#x43B;&#x435;&#x436;&#x43D;&#x43E; &#x432;&#x456;&#x434; &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x438; &#x441;&#x43F;&#x43E;&#x441;&#x43E;&#x431;&#x456;&#x432; &#x43F;&#x456;&#x434;&#x43A;&#x43B;&#x44E;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x43C;&#x43E;&#x436;&#x435; &#x431;&#x443;&#x442;&#x438; &#x431;&#x430;&#x433;&#x430;&#x442;&#x43E;. &#x420;&#x43E;&#x437;&#x433;&#x43B;&#x44F;&#x43D;&#x435;&#x43C;&#x43E; &#x434;&#x435;&#x44F;&#x43A;&#x456; &#x437; &#x43D;&#x438;&#x445;.</p>
+<h4 id="&#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x438;-&#x441;&#x443;&#x43C;&#x456;&#x441;&#x43D;&#x456;-&#x437;-&#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x44F;&#x43C;&#x438;-google-closure">&#x411;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x438;, &#x441;&#x443;&#x43C;&#x456;&#x441;&#x43D;&#x456; &#x437; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x44F;&#x43C;&#x438; Google Closure</h4>
+<p>&#x42F;&#x43A;&#x449;&#x43E; &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x430; &#x441;&#x443;&#x43C;&#x456;&#x441;&#x43D;&#x430; &#x437; &#x441;&#x438;&#x441;&#x442;&#x435;&#x43C;&#x43E;&#x44E; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x456;&#x432; &#x432; Google Closure Library, &#x432;&#x430;&#x43C; &#x43F;&#x43E;&#x442;&#x440;&#x456;&#x431;&#x43D;&#x43E; &#x43B;&#x438;&#x448;&#x435; &#x434;&#x43E;&#x434;&#x430;&#x442;&#x438; &#x457;&#x457; &#x434;&#x43E; &#x43F;&#x440;&#x43E;&#x435;&#x43A;&#x442;&#x443; &#x456; &#x437;&#x432;&#x435;&#x440;&#x43D;&#x443;&#x442;&#x438;&#x441;&#x44F; &#x434;&#x43E; &#x43D;&#x435;&#x457; &#x447;&#x435;&#x440;&#x435;&#x437; &#x43F;&#x440;&#x43E;&#x441;&#x442;&#x456;&#x440; &#x456;&#x43C;&#x435;&#x43D; &#x442;&#x430;&#x43A; &#x441;&#x430;&#x43C;&#x43E;, &#x44F;&#x43A; &#x446;&#x435; &#x440;&#x43E;&#x431;&#x43B;&#x44F;&#x442;&#x44C; &#x437; &#x43F;&#x440;&#x43E;&#x441;&#x442;&#x43E;&#x440;&#x430;&#x43C;&#x438; &#x456;&#x43C;&#x435;&#x43D; &#x432; <em>ClojureScript</em>.</p>
+<p>&#x426;&#x435; &#x43D;&#x430;&#x439;&#x43F;&#x440;&#x43E;&#x441;&#x442;&#x456;&#x448;&#x438;&#x439; &#x441;&#x43F;&#x43E;&#x441;&#x456;&#x431;, &#x431;&#x43E; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x456; Google Closure &#x43D;&#x430;&#x43F;&#x440;&#x44F;&#x43C;&#x443; &#x441;&#x443;&#x43C;&#x456;&#x441;&#x43D;&#x456; &#x437; <em>ClojureScript</em>, &#x456; &#x432;&#x438; &#x441;&#x43F;&#x43E;&#x43A;&#x456;&#x439;&#x43D;&#x43E; &#x43C;&#x43E;&#x436;&#x435;&#x442;&#x435; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x432;&#x430;&#x442;&#x438; &#x457;&#x445; &#x443; &#x432;&#x430;&#x448;&#x43E;&#x43C;&#x443; &#x43A;&#x43E;&#x434;&#x456;.</p>
+<p>&#x414;&#x430;&#x432;&#x430;&#x439;&#x442;&#x435; &#x441;&#x43F;&#x440;&#x43E;&#x431;&#x443;&#x454;&#x43C;&#x43E; &#x43F;&#x456;&#x434;&#x43A;&#x43B;&#x44E;&#x447;&#x438;&#x442;&#x438; &#x442;&#x430;&#x43A;&#x438;&#x439; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x44C; &#x443; &#x43F;&#x440;&#x43E;&#x435;&#x43A;&#x442;&#x456; &#x437;&#x430; &#x434;&#x43E;&#x43F;&#x43E;&#x43C;&#x43E;&#x433;&#x43E;&#x44E; &#x448;&#x430;&#x431;&#x43B;&#x43E;&#x43D;&#x430; <em>mies</em>.</p>
+<pre><code class="lang-shell">lein new mies myextmods
+cd myextmods
+</code></pre>
+<p>&#x414;&#x430;&#x43B;&#x456; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x456;&#x442;&#x44C; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x44C; Google Closure &#x434;&#x43B;&#x44F; &#x435;&#x43A;&#x441;&#x43F;&#x435;&#x440;&#x438;&#x43C;&#x435;&#x43D;&#x442;&#x443;:</p>
+<p>.src/myextmods/myclosuremodule.js</p>
+<pre><code class="lang-javascript">goog.provide(<span class="hljs-string">&quot;myextmods.myclosuremodule&quot;</span>);
+
+goog.scope(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> <span class="hljs-built_in">module</span> = myextmods.myclosuremodule;
+  <span class="hljs-built_in">module</span>.get_greetings = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello from google closure module.&quot;</span>;
+  };
+});
+</code></pre>
+<p>&#x422;&#x435;&#x43F;&#x435;&#x440; &#x432;&#x456;&#x434;&#x43A;&#x440;&#x438;&#x439;&#x442;&#x435; REPL &#x442;&#x430; &#x441;&#x43F;&#x440;&#x43E;&#x431;&#x443;&#x439;&#x442;&#x435; &#x456;&#x43C;&#x43F;&#x43E;&#x440;&#x442;&#x443;&#x432;&#x430;&#x442;&#x438; &#x43F;&#x440;&#x43E;&#x441;&#x442;&#x456;&#x440; &#x456;&#x43C;&#x435;&#x43D; &#x456; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x430;&#x442;&#x438; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E; &#x437; &#x43D;&#x44C;&#x43E;&#x433;&#x43E;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name">require</span> &apos;[myextmods.myclosuremodule <span class="hljs-symbol">:as</span> cm])
+(<span class="hljs-name">cm/get_greetings</span>)
+<span class="hljs-comment">;; =&gt; &quot;Hello from google closure module.&quot;</span>
+</code></pre>
+<blockquote>
+<p>&#x417;&#x410;&#x423;&#x412;&#x410;&#x416;&#x415;&#x41D;&#x41D;&#x42F;: &#x432;&#x438; &#x43C;&#x43E;&#x436;&#x435;&#x442;&#x435; &#x432;&#x456;&#x434;&#x43A;&#x440;&#x438;&#x442;&#x438; ClojureScript REPL &#x432; Node.js, &#x432;&#x438;&#x43A;&#x43E;&#x43D;&#x430;&#x432;&#x448;&#x438; &#x441;&#x43A;&#x440;&#x438;&#x43F;&#x442; <code>./scripts/repl</code>.</p>
+</blockquote>
+<h4 id="&#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x438;-&#x441;&#x443;&#x43C;&#x456;&#x441;&#x43D;&#x456;-&#x437;-&#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x44F;&#x43C;&#x438;-commonjs">&#x411;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x438;, &#x441;&#x443;&#x43C;&#x456;&#x441;&#x43D;&#x456; &#x437; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x44F;&#x43C;&#x438; CommonJS</h4>
+<p>&#x417;&#x430;&#x432;&#x434;&#x44F;&#x43A;&#x438; &#x43F;&#x43E;&#x43F;&#x443;&#x43B;&#x44F;&#x440;&#x43D;&#x43E;&#x441;&#x442;&#x456; Node.js &#x444;&#x43E;&#x440;&#x43C;&#x430;&#x442; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x456;&#x432; CommonJS &#x454; &#x43D;&#x430;&#x439;&#x431;&#x456;&#x43B;&#x44C;&#x448; &#x432;&#x436;&#x438;&#x432;&#x430;&#x43D;&#x438;&#x43C; &#x432; JavaScript &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x430;&#x445; &#x43D;&#x435;&#x437;&#x430;&#x43B;&#x435;&#x436;&#x43D;&#x43E; &#x432;&#x456;&#x434; &#x442;&#x43E;&#x433;&#x43E;, &#x434;&#x435; &#x432;&#x43E;&#x43D;&#x438; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x44E;&#x442;&#x44C;&#x441;&#x44F;: &#x443; &#x43A;&#x43B;&#x456;&#x454;&#x43D;&#x442;&#x441;&#x44C;&#x43A;&#x438;&#x445; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x443;&#x43D;&#x43A;&#x430;&#x445; &#x447;&#x438; &#x43D;&#x430; &#x441;&#x435;&#x440;&#x432;&#x435;&#x440;&#x456;.</p>
+<p>&#x41F;&#x43E;&#x434;&#x438;&#x432;&#x438;&#x43C;&#x43E;&#x441;&#x44F;, &#x449;&#x43E; &#x432;&#x438;&#x439;&#x448;&#x43B;&#x43E;. &#x421;&#x442;&#x432;&#x43E;&#x440;&#x456;&#x442;&#x44C; &#x444;&#x430;&#x439;&#x43B; &#x437; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x435;&#x43C; &#x443; &#x444;&#x43E;&#x440;&#x43C;&#x430;&#x442;&#x456; CommonJS (&#x434;&#x443;&#x436;&#x435; &#x441;&#x445;&#x43E;&#x436;&#x438;&#x439; &#x43D;&#x430; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x44C; &#x437; &#x43F;&#x43E;&#x43F;&#x435;&#x440;&#x435;&#x434;&#x43D;&#x44C;&#x43E;&#x433;&#x43E; &#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;&#x443;):</p>
+<p>.src/myextmods/mycommonjsmodule.js</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getGreetings</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello from commonjs module.&quot;</span>;
+}
+
+exports.getGreetings = getGreetings;
+</code></pre>
+<p>&#x414;&#x43B;&#x44F; &#x442;&#x43E;&#x433;&#x43E;, &#x449;&#x43E;&#x431; &#x43C;&#x438; &#x43C;&#x43E;&#x433;&#x43B;&#x438; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x443;&#x432;&#x430;&#x442;&#x438; &#x446;&#x44E; &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x443;, &#x43D;&#x430;&#x43C; &#x442;&#x440;&#x435;&#x431;&#x430; &#x43F;&#x456;&#x434;&#x43A;&#x43B;&#x44E;&#x447;&#x438;&#x442;&#x438; &#x457;&#x457; &#x437;&#x430; &#x434;&#x43E;&#x43F;&#x43E;&#x43C;&#x43E;&#x433;&#x43E;&#x44E; &#x441;&#x43F;&#x435;&#x446;&#x456;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;&#x457; &#x43A;&#x43E;&#x43D;&#x444;&#x456;&#x433;&#x443;&#x440;&#x430;&#x446;&#x456;&#x457; &#x434;&#x43B;&#x44F; &#x43A;&#x43E;&#x43C;&#x43F;&#x456;&#x43B;&#x44F;&#x442;&#x43E;&#x440;&#x430;. &#x423; &#x43F;&#x43E;&#x43B;&#x456; <code>:foreign-libs</code> &#x43E;&#x43F;&#x438;&#x441;&#x443;&#x44E;&#x442;&#x44C;&#x441;&#x44F; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x456; JavaScript: &#x448;&#x43B;&#x44F;&#x445; &#x434;&#x43E; &#x444;&#x430;&#x439;&#x43B;&#x443;, &#x444;&#x43E;&#x440;&#x43C;&#x430;&#x442; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x44F; &#x442;&#x430; &#x456;&#x43C;&apos;&#x44F; &#x43F;&#x440;&#x43E;&#x441;&#x442;&#x43E;&#x440;&#x443; &#x456;&#x43C;&#x435;&#x43D;, &#x43F;&#x456;&#x434; &#x44F;&#x43A;&#x438;&#x43C; &#x446;&#x435;&#x439; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x44C; &#x431;&#x443;&#x434;&#x435; &#x434;&#x43E;&#x441;&#x442;&#x443;&#x43F;&#x43D;&#x438;&#x439; &#x437; <em>ClojureScript</em>.</p>
+<p>&#x412;&#x456;&#x434;&#x43A;&#x440;&#x438;&#x439;&#x442;&#x435; &#x444;&#x430;&#x439;&#x43B; <code>scripts/repl.clj</code> &#x442;&#x430; &#x437;&#x430;&#x43C;&#x456;&#x43D;&#x456;&#x442;&#x44C; &#x439;&#x43E;&#x433;&#x43E; &#x432;&#x43C;&#x456;&#x441;&#x442; &#x43D;&#x430; &#x446;&#x435;&#x439;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name">require</span>
+  &apos;[cljs.repl <span class="hljs-symbol">:as</span> repl]
+  &apos;[cljs.repl.node <span class="hljs-symbol">:as</span> node])
+
+(<span class="hljs-name">repl/repl</span>
+ (<span class="hljs-name">node/repl-env</span>)
+ <span class="hljs-symbol">:language-in</span>  <span class="hljs-symbol">:ecmascript5</span>
+ <span class="hljs-symbol">:language-out</span> <span class="hljs-symbol">:ecmascript5</span>
+ <span class="hljs-symbol">:foreign-libs</span> [{<span class="hljs-symbol">:file</span> <span class="hljs-string">&quot;myextmods/mycommonjsmodule.js&quot;</span>
+                 <span class="hljs-symbol">:provides</span> [<span class="hljs-string">&quot;myextmods.mycommonjsmodule&quot;</span>]
+                 <span class="hljs-symbol">:module-type</span> <span class="hljs-symbol">:commonjs</span>}]
+ <span class="hljs-symbol">:output-dir</span> <span class="hljs-string">&quot;out&quot;</span>
+ <span class="hljs-symbol">:cache-analysis</span> <span class="hljs-literal">false</span>)
+</code></pre>
+<blockquote>
+<p>&#x417;&#x410;&#x423;&#x412;&#x410;&#x416;&#x415;&#x41D;&#x41D;&#x42F;: &#x428;&#x43B;&#x44F;&#x445; &#x434;&#x43E; &#x444;&#x430;&#x439;&#x43B;&#x443; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x44F; &#x43C;&#x43E;&#x436;&#x435; &#x431;&#x443;&#x442;&#x438; &#x43D;&#x435; &#x442;&#x456;&#x43B;&#x44C;&#x43A;&#x438; &#x43B;&#x43E;&#x43A;&#x430;&#x43B;&#x44C;&#x43D;&#x438;&#x43C;, &#x430; &#x439; &#x443; &#x432;&#x438;&#x433;&#x43B;&#x44F;&#x434;&#x456; &#x43F;&#x43E;&#x441;&#x438;&#x43B;&#x430;&#x43D;&#x43D;&#x44F; &#x43D;&#x430; &#x444;&#x430;&#x439;&#x43B; &#x43D;&#x430; &#x456;&#x43D;&#x448;&#x43E;&#x43C;&#x443; &#x432;&#x435;&#x431;-&#x441;&#x435;&#x440;&#x432;&#x435;&#x440;&#x456;, &#x44F;&#x43A;&#x438;&#x439; &#x437;&#x430;&#x432;&#x430;&#x43D;&#x442;&#x430;&#x436;&#x438;&#x442;&#x44C;&#x441;&#x44F; &#x430;&#x432;&#x442;&#x43E;&#x43C;&#x430;&#x442;&#x438;&#x447;&#x43D;&#x43E;.</p>
+</blockquote>
+<p>&#x421;&#x43F;&#x440;&#x43E;&#x431;&#x443;&#x454;&#x43C;&#x43E; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x443;&#x432;&#x430;&#x442;&#x438; &#x446;&#x435;&#x439; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x44C; &#x443; REPL. &#x417;&#x430;&#x43F;&#x443;&#x441;&#x442;&#x456;&#x442;&#x44C; REPL &#x437;&#x430; &#x434;&#x43E;&#x43F;&#x43E;&#x43C;&#x43E;&#x433;&#x43E;&#x44E; &#x441;&#x43A;&#x440;&#x438;&#x43F;&#x442;&#x430; <code>./scripts/repl</code> &#x456; &#x441;&#x43F;&#x440;&#x43E;&#x431;&#x443;&#x439;&#x442;&#x435; &#x432;&#x438;&#x43A;&#x43E;&#x43D;&#x430;&#x442;&#x438; &#x43D;&#x430;&#x441;&#x442;&#x443;&#x43F;&#x43D;&#x456; &#x43A;&#x43E;&#x43C;&#x430;&#x43D;&#x434;&#x438;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name">require</span> &apos;[myextmods.mycommonjsmodule <span class="hljs-symbol">:as</span> cm])
+(<span class="hljs-name">cm/getGreetings</span>)
+<span class="hljs-comment">;; =&gt; &quot;Hello from commonjs module.&quot;</span>
+</code></pre>
+<h4 id="&#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x438;-&#x431;&#x435;&#x437;-&#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x456;&#x432;">&#x411;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x438; &#x431;&#x435;&#x437; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x456;&#x432;</h4>
+<p>&#x425;&#x43E;&#x447;&#x430; &#x441;&#x44C;&#x43E;&#x433;&#x43E;&#x434;&#x43D;&#x456; &#x431;&#x456;&#x43B;&#x44C;&#x448;&#x456;&#x441;&#x442;&#x44C; &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A; &#x43F;&#x43E;&#x431;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x430; &#x437; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x43D;&#x43D;&#x44F;&#x43C; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x456;&#x432;, &#x432;&#x441;&#x435; &#x449;&#x435; &#x456;&#x441;&#x43D;&#x443;&#x44E;&#x442;&#x44C; &#x442;&#x430;&#x43A;&#x456;, &#x449;&#x43E; &#x43F;&#x440;&#x43E;&#x441;&#x442;&#x43E; &#x435;&#x43A;&#x441;&#x43F;&#x43E;&#x440;&#x442;&#x443;&#x44E;&#x442;&#x44C; &#x433;&#x43B;&#x43E;&#x431;&#x430;&#x43B;&#x44C;&#x43D;&#x438;&#x439; &#x43E;&#x431;&apos;&#x454;&#x43A;&#x442;. &#x423; &#x432;&#x430;&#x441; &#x43C;&#x43E;&#x436;&#x435; &#x432;&#x438;&#x43D;&#x438;&#x43A;&#x43D;&#x443;&#x442;&#x438; &#x43D;&#x435;&#x43E;&#x431;&#x445;&#x456;&#x434;&#x43D;&#x456;&#x441;&#x442;&#x44C; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x432;&#x430;&#x442;&#x438; &#x457;&#x445; &#x432; <em>ClojureScript</em>.</p>
+<p>&#x414;&#x43B;&#x44F; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x443;&#x432;&#x430;&#x43D;&#x43D;&#x44F; &#x431;&#x456;&#x431;&#x456;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;, &#x44F;&#x43A;&#x456; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x44E;&#x442;&#x44C; &#x433;&#x43B;&#x43E;&#x431;&#x430;&#x43B;&#x44C;&#x43D;&#x456; &#x43E;&#x431;&#x2BC;&#x454;&#x43A;&#x442;&#x438;, &#x441;&#x43B;&#x456;&#x434; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x438;&#x442;&#x438; &#x43A;&#x43E;&#x43D;&#x444;&#x456;&#x433;&#x443;&#x440;&#x430;&#x446;&#x456;&#x44E;, &#x441;&#x445;&#x43E;&#x436;&#x443; &#x43D;&#x430; &#x442;&#x443;, &#x449;&#x43E; &#x43F;&#x43E;&#x442;&#x440;&#x456;&#x431;&#x43D;&#x430; &#x434;&#x43B;&#x44F; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x456;&#x432; CommonJS. &#x412;&#x456;&#x434;&#x43C;&#x456;&#x43D;&#x43D;&#x456;&#x441;&#x442;&#x44E; &#x431;&#x443;&#x434;&#x435; &#x442;&#x435;, &#x449;&#x43E; &#x432; &#x43E;&#x43F;&#x438;&#x441;&#x456; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x44F; &#x43D;&#x435; &#x43F;&#x43E;&#x442;&#x440;&#x456;&#x431;&#x43D;&#x43E; &#x432;&#x43A;&#x430;&#x437;&#x443;&#x432;&#x430;&#x442;&#x438; &#x43F;&#x43E;&#x43B;&#x435; <code>:module-type</code>.</p>
+<p>&#x412; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;&#x456; &#x431;&#x443;&#x434;&#x435; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x438;&#x439; &#x441;&#x438;&#x43D;&#x442;&#x435;&#x442;&#x438;&#x447;&#x43D;&#x438;&#x439; &#x43F;&#x440;&#x43E;&#x441;&#x442;&#x456;&#x440; &#x456;&#x43C;&#x435;&#x43D;, &#x44F;&#x43A;&#x438;&#x439; &#x442;&#x440;&#x435;&#x431;&#x430; &#x456;&#x43C;&#x43F;&#x43E;&#x440;&#x442;&#x443;&#x432;&#x430;&#x442;&#x438;, &#x449;&#x43E;&#x431; &#x43C;&#x430;&#x442;&#x438; &#x434;&#x43E;&#x441;&#x442;&#x443;&#x43F; &#x434;&#x43E; &#x433;&#x43B;&#x43E;&#x431;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;&#x433;&#x43E; &#x43E;&#x431;&apos;&#x454;&#x43A;&#x442;&#x443; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x44F; &#x443; &#x43F;&#x440;&#x43E;&#x441;&#x442;&#x43E;&#x440;&#x456; &#x456;&#x43C;&#x435;&#x43D; <code>js/</code>. &#x41F;&#x440;&#x43E;&#x441;&#x442;&#x456;&#x440; &#x456;&#x43C;&#x435;&#x43D; &#x43D;&#x430;&#x437;&#x438;&#x432;&#x430;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x441;&#x438;&#x43D;&#x442;&#x435;&#x442;&#x438;&#x447;&#x43D;&#x438;&#x43C;, &#x431;&#x43E; &#x43D;&#x435; &#x43C;&#x456;&#x441;&#x442;&#x438;&#x442;&#x44C; &#x436;&#x43E;&#x434;&#x43D;&#x438;&#x445; &#x43E;&#x431;&apos;&#x454;&#x43A;&#x442;&#x456;&#x432;, &#x432;&#x456;&#x43D; &#x43F;&#x440;&#x43E;&#x441;&#x442;&#x43E; &#x432;&#x43A;&#x430;&#x437;&#x443;&#x454; &#x43A;&#x43E;&#x43C;&#x43F;&#x456;&#x43B;&#x44F;&#x442;&#x43E;&#x440;&#x443; &#x43D;&#x430; &#x43D;&#x435;&#x43E;&#x431;&#x445;&#x456;&#x434;&#x43D;&#x456;&#x441;&#x442;&#x44C; &#x43F;&#x456;&#x434;&#x43A;&#x43B;&#x44E;&#x447;&#x438;&#x442;&#x438; &#x437;&#x430;&#x43B;&#x435;&#x436;&#x43D;&#x456;&#x441;&#x442;&#x44C;.</p>
+<p>&#x41F;&#x435;&#x440;&#x435;&#x432;&#x456;&#x440;&#x438;&#x43C;&#x43E; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;. &#x421;&#x442;&#x432;&#x43E;&#x440;&#x456;&#x442;&#x44C; &#x444;&#x430;&#x439;&#x43B; &#x437; &#x433;&#x43B;&#x43E;&#x431;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;&#x44E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x454;&#x44E;:</p>
+<p>.src/myextmods/myglobalmodule.js</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getGreetings</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello from global scope.&quot;</span>;
+}
+</code></pre>
+<p>&#x412;&#x456;&#x434;&#x43A;&#x440;&#x438;&#x439;&#x442;&#x435; <code>scripts/repl.clj</code> &#x442;&#x430; &#x437;&#x43C;&#x456;&#x43D;&#x456;&#x442;&#x44C; &#x439;&#x43E;&#x433;&#x43E; &#x432;&#x43C;&#x456;&#x441;&#x442; &#x43D;&#x430; &#x446;&#x435;&#x439;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name">require</span>
+  &apos;[cljs.repl <span class="hljs-symbol">:as</span> repl]
+  &apos;[cljs.repl.node <span class="hljs-symbol">:as</span> node])
+
+(<span class="hljs-name">repl/repl</span>
+ (<span class="hljs-name">node/repl-env</span>)
+ <span class="hljs-symbol">:language-in</span>  <span class="hljs-symbol">:ecmascript5</span>
+ <span class="hljs-symbol">:language-out</span> <span class="hljs-symbol">:ecmascript5</span>
+ <span class="hljs-symbol">:foreign-libs</span> [{<span class="hljs-symbol">:file</span> <span class="hljs-string">&quot;myextmods/mycommonjsmodule.js&quot;</span>
+                 <span class="hljs-symbol">:provides</span> [<span class="hljs-string">&quot;myextmods.mycommonjsmodule&quot;</span>]
+                 <span class="hljs-symbol">:module-type</span> <span class="hljs-symbol">:commonjs</span>}
+                {<span class="hljs-symbol">:file</span> <span class="hljs-string">&quot;myextmods/myglobalmodule.js&quot;</span>
+                 <span class="hljs-symbol">:provides</span> [<span class="hljs-string">&quot;myextmods.myglobalmodule&quot;</span>]}]
+ <span class="hljs-symbol">:output-dir</span> <span class="hljs-string">&quot;out&quot;</span>
+ <span class="hljs-symbol">:cache-analysis</span> <span class="hljs-literal">false</span>)
+</code></pre>
+<p>&#x422;&#x435;&#x43F;&#x435;&#x440; &#x441;&#x43F;&#x440;&#x43E;&#x431;&#x443;&#x454;&#x43C;&#x43E; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x443;&#x432;&#x430;&#x442;&#x438; &#x446;&#x435;&#x439; &#x43C;&#x43E;&#x434;&#x443;&#x43B;&#x44C; &#x432; REPL:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name">require</span> &apos;myextmods.myglobalmodule)
+(<span class="hljs-name">js/getGreetings</span>)
+<span class="hljs-comment">;; =&gt; &quot;Hello from global scope.&quot;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="04-04-Dependency-management.html" class="navigation navigation-prev " aria-label="Previous page: Керування залежностями">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="04-06-Unit-testing.html" class="navigation navigation-next " aria-label="Next page: Модульне тестування">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Зовнішні залежності","level":"1.5.5","depth":2,"next":{"title":"Модульне тестування","level":"1.5.6","depth":2,"path":"manuscript/04-06-Unit-testing.md","ref":"./manuscript/04-06-Unit-testing.md","articles":[]},"previous":{"title":"Керування залежностями","level":"1.5.4","depth":2,"path":"manuscript/04-04-Dependency-management.md","ref":"./manuscript/04-04-Dependency-management.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.x.x","theme":"default","variables":{},"plugins":["edit-link","github","ga","rss","github-buttons"],"pluginsConfig":{"github":{"url":"https://github.com/LambdaBooks/clojurescript-unraveled"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":["frontend","js","javascript","es6","es2015","ecmascript"],"title":"Розплутаний ClojureScript","description":"Український переклад книги «ClojureScript Unraveled».","author":"Denys Dovhan","site_url":"http://lambdabooks.com/clojurescript-unraveled","feed_url":"http://lambdabooks.com/clojurescript-unraveled/rss.xml","managingEditor":"denysdovhan@gmail.com (Denys Dovhan)","webMaster":"denysdovhan@gmail.com (Denys Dovhan)"},"highlight":{},"github-buttons":{"repo":"LambdaBooks/clojurescript-unraveled","types":["star"],"size":"small"},"ga":{"configuration":"auto","token":"UA-40496885-11"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Редагувати","base":"https://github.com/LambdaBooks/clojurescript-unraveled/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"manuscript/04-05-External-dependencies.md","mtime":"2017-10-26T13:33:53.217Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-26T13:35:13.263Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

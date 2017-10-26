@@ -1,0 +1,897 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Типи даних · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="03-15-Host-interoperability.html" />
+    
+    
+    <link rel="prev" href="03-13-Abstractions-and-Polymorphism.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"LambdaBooks/clojurescript-unraveled","types":["star"],"size":"small"};
+    </script>
+
+    <link href="http://lambdabooks.com/clojurescript-unraveled/rss.xml" title="Розплутаний ClojureScript" rel="alternate" type="application/rss+xml" />
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Розплутаний ClojureScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-About-this-book.html">
+            
+                <a href="01-About-this-book.html">
+            
+                    
+                    Про цю книгу
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-Introduction.html">
+            
+                <a href="02-Introduction.html">
+            
+                    
+                    Вступ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    Мова (основи)
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="03-01-First-steps-with-Lisp-syntax.html">
+            
+                <a href="03-01-First-steps-with-Lisp-syntax.html">
+            
+                    
+                    Перші кроки з Lisp–синтаксисом
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="03-02-The-base-data-types.html">
+            
+                <a href="03-02-The-base-data-types.html">
+            
+                    
+                    Базові типи даних
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="03-03-Vars.html">
+            
+                <a href="03-03-Vars.html">
+            
+                    
+                    Змінні
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03-04-Functions.html">
+            
+                <a href="03-04-Functions.html">
+            
+                    
+                    Функції
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="03-05-Flow-control.html">
+            
+                <a href="03-05-Flow-control.html">
+            
+                    
+                    Керування потоком виконання
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="03-06-Truthiness.html">
+            
+                <a href="03-06-Truthiness.html">
+            
+                    
+                    Істинність
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="03-07-Locals-Blocks-and-Loops.html">
+            
+                <a href="03-07-Locals-Blocks-and-Loops.html">
+            
+                    
+                    Локальні змінні, блоки та цикли
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="03-08-Collection-types.html">
+            
+                <a href="03-08-Collection-types.html">
+            
+                    
+                    Типи колекцій
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="03-09-Destructuring.html">
+            
+                <a href="03-09-Destructuring.html">
+            
+                    
+                    Деструктурування
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="03-10-Threading-Macros.html">
+            
+                <a href="03-10-Threading-Macros.html">
+            
+                    
+                    Потокові макроси
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="03-11-Reader-Conditionals.html">
+            
+                <a href="03-11-Reader-Conditionals.html">
+            
+                    
+                    Умови читача
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="03-12-Namespaces.html">
+            
+                <a href="03-12-Namespaces.html">
+            
+                    
+                    Простори імен
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="03-13-Abstractions-and-Polymorphism.html">
+            
+                <a href="03-13-Abstractions-and-Polymorphism.html">
+            
+                    
+                    Абстракції і поліморфізм
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.14" data-path="03-14-Data-types.html">
+            
+                <a href="03-14-Data-types.html">
+            
+                    
+                    Типи даних
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="03-15-Host-interoperability.html">
+            
+                <a href="03-15-Host-interoperability.html">
+            
+                    
+                    Сумісність з батьківською платформою
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="03-16-State-management.html">
+            
+                <a href="03-16-State-management.html">
+            
+                    
+                    Керування станом
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    Інструментарій та компілятор
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="04-01-Getting-Started-with-the-Compiler.html">
+            
+                <a href="04-01-Getting-Started-with-the-Compiler.html">
+            
+                    
+                    Основи роботи з компілятором
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="04-02-Working-with-the-REPL.html">
+            
+                <a href="04-02-Working-with-the-REPL.html">
+            
+                    
+                    Робота з REPL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="04-03-The-Closure-Library.html">
+            
+                <a href="04-03-The-Closure-Library.html">
+            
+                    
+                    Бібліотека Closure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="04-04-Dependency-management.html">
+            
+                <a href="04-04-Dependency-management.html">
+            
+                    
+                    Керування залежностями
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="04-05-External-dependencies.html">
+            
+                <a href="04-05-External-dependencies.html">
+            
+                    
+                    Зовнішні залежності
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="04-06-Unit-testing.html">
+            
+                <a href="04-06-Unit-testing.html">
+            
+                    
+                    Модульне тестування
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    Мова (поглиблені теми)
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" >
+            
+                <span>
+            
+                    
+                    Перетворювачі
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="05-02-Transients.html">
+            
+                <a href="05-02-Transients.html">
+            
+                    
+                    Перехідні структури даних
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" >
+            
+                <span>
+            
+                    
+                    Метадані
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" >
+            
+                <span>
+            
+                    
+                    Основні протоколи
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" >
+            
+                <span>
+            
+                    
+                    CSP (з core.async)
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    Додатки
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" >
+            
+                <span>
+            
+                    
+                    Додаток А: Інтерактивна розробка з Figwheel
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" >
+            
+                <span>
+            
+                    
+                    Додаток Б: Встановлення середовища розробки на ClojureScript
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    Подяки
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    Подальше читання
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Типи даних</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h4 id="&#x442;&#x438;&#x43F;&#x438;-&#x434;&#x430;&#x43D;&#x438;&#x445;">&#x422;&#x438;&#x43F;&#x438; &#x434;&#x430;&#x43D;&#x438;&#x445;</h4>
+<p>&#x414;&#x43E; &#x446;&#x44C;&#x43E;&#x433;&#x43E; &#x43C;&#x43E;&#x43C;&#x435;&#x43D;&#x442;&#x443;, &#x434;&#x43B;&#x44F; &#x43F;&#x440;&#x435;&#x434;&#x441;&#x442;&#x430;&#x432;&#x43B;&#x435;&#x43D;&#x43D;&#x44F; &#x434;&#x430;&#x43D;&#x438;&#x445;, &#x43C;&#x438; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x432;&#x430;&#x43B;&#x438; &#x43C;&#x430;&#x43F;&#x438;, &#x43C;&#x43D;&#x43E;&#x436;&#x438;&#x43D;&#x438;, &#x441;&#x43F;&#x438;&#x441;&#x43A;&#x438; &#x442;&#x430; &#x432;&#x435;&#x43A;&#x442;&#x43E;&#x440;&#x438;. &#x423; &#x431;&#x456;&#x43B;&#x44C;&#x448;&#x43E;&#x441;&#x442;&#x456; &#x432;&#x438;&#x43F;&#x430;&#x434;&#x43A;&#x456;&#x432; &#x442;&#x430;&#x43A;&#x438;&#x439; &#x43F;&#x456;&#x434;&#x445;&#x456;&#x434; &#x454; &#x43E;&#x43F;&#x442;&#x438;&#x43C;&#x430;&#x43B;&#x44C;&#x43D;&#x438;&#x43C;, &#x430;&#x43B;&#x435; &#x456;&#x43D;&#x43A;&#x43E;&#x43B;&#x438; &#x437;&#x2BC;&#x44F;&#x432;&#x43B;&#x44F;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x43D;&#x435;&#x43E;&#x431;&#x445;&#x456;&#x434;&#x43D;&#x456;&#x441;&#x442;&#x44C; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x438;&#x442;&#x438; &#x432;&#x43B;&#x430;&#x441;&#x43D;&#x456; &#x442;&#x438;&#x43F;&#x438;. &#x423; &#x446;&#x456;&#x439; &#x43A;&#x43D;&#x438;&#x437;&#x456; &#x43C;&#x438; &#x431;&#x443;&#x434;&#x435;&#x43C;&#x43E; &#x43D;&#x430;&#x437;&#x438;&#x432;&#x430;&#x442;&#x438; &#x442;&#x430;&#x43A;&#x456; &#x442;&#x438;&#x43F;&#x438; &#x442;&#x438;&#x43F;&#x430;&#x43C;&#x438; &#xAB;&#x434;&#x430;&#x43D;&#x456;&#xBB; (&#x430;&#x43D;&#x433;&#x43B;. <em>data types</em>).</p>
+<p>&#x422;&#x438;&#x43F; &quot;&#x434;&#x430;&#x43D;&#x456;&quot; &#x43C;&#x430;&#x454; &#x442;&#x430;&#x43A;&#x456; &#x432;&#x43B;&#x430;&#x441;&#x442;&#x438;&#x432;&#x43E;&#x441;&#x442;&#x456;:</p>
+<ul>
+<li>&#x423;&#x43D;&#x456;&#x43A;&#x430;&#x43B;&#x44C;&#x43D;&#x438;&#x439; &#x442;&#x438;&#x43F;, &#x456;&#x43C;&#x435;&#x43D;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x439; &#x447;&#x438; &#x430;&#x43D;&#x43E;&#x43D;&#x456;&#x43C;&#x43D;&#x438;&#x439;, &#x43D;&#x430; &#x431;&#x430;&#x437;&#x456; &#x442;&#x438;&#x43F;&#x456;&#x432; &#x431;&#x430;&#x442;&#x44C;&#x43A;&#x456;&#x432;&#x441;&#x44C;&#x43A;&#x43E;&#x457; &#x43F;&#x43B;&#x430;&#x442;&#x444;&#x43E;&#x440;&#x43C;&#x438;.</li>
+<li>&#x41F;&#x456;&#x434;&#x442;&#x440;&#x438;&#x43C;&#x443;&#x454; &#x43C;&#x43E;&#x436;&#x43B;&#x438;&#x432;&#x456;&#x441;&#x442;&#x44C; &#x432;&#x431;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x43E;&#x457; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x430;&#x446;&#x456;&#x457; &#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B;&#x456;&#x432;</li>
+<li>&#x41C;&#x430;&#x454; &#x44F;&#x432;&#x43D;&#x43E; &#x43E;&#x433;&#x43E;&#x43B;&#x43E;&#x448;&#x435;&#x43D;&#x443; &#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x443;&#x440;&#x443;, &#x449;&#x43E; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x454; &#x43F;&#x43E;&#x43B;&#x44F; &#x430;&#x431;&#x43E; &#x437;&#x430;&#x43C;&#x438;&#x43A;&#x430;&#x43D;&#x43D;&#x44F;</li>
+<li>&#x414;&#x435;&#x43C;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x454; &#x43F;&#x43E;&#x432;&#x435;&#x434;&#x456;&#x43D;&#x43A;&#x443;, &#x43F;&#x43E;&#x434;&#x456;&#x431;&#x43D;&#x443; &#x434;&#x43E; &#x43C;&#x430;&#x43F; (&#x447;&#x435;&#x440;&#x435;&#x437; &#x437;&#x430;&#x43F;&#x438;&#x441;&#x438;, &#x434;&#x438;&#x432;. &#x434;&#x430;&#x43B;&#x456;)</li>
+</ul>
+<h4 id="&#x43A;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43A;&#x446;&#x456;&#x44F;-deftype">&#x41A;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43A;&#x446;&#x456;&#x44F; Deftype</h4>
+<p> &#x41A;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43A;&#x446;&#x456;&#x44F; &#x43D;&#x430;&#x439;&#x43D;&#x438;&#x436;&#x447;&#x43E;&#x433;&#x43E; &#x440;&#x456;&#x432;&#x43D;&#x44F; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x456;&#x457; &#x434;&#x43B;&#x44F; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x43D;&#x44F; &#x432;&#x43B;&#x430;&#x441;&#x43D;&#x438;&#x445; &#x442;&#x438;&#x43F;&#x456;&#x432; &#x443; <em>ClojureScript</em> &#x2014; &#x446;&#x435; &#x43C;&#x430;&#x43A;&#x440;&#x43E;&#x441; <code>deftype</code>. &#x414;&#x43B;&#x44F; &#x434;&#x435;&#x43C;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x430;&#x446;&#x456;&#x457; &#x440;&#x43E;&#x431;&#x43E;&#x442;&#x438; &#x446;&#x44C;&#x43E;&#x433;&#x43E; &#x43C;&#x430;&#x43A;&#x440;&#x43E;&#x441;&#x443; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x438;&#x43C;&#x43E; &#x442;&#x438;&#x43F; &#x43F;&#x456;&#x434; &#x43D;&#x430;&#x437;&#x432;&#x43E;&#x44E; <code>User</code>:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">deftype</span></span> User [firstname lastname])
+</code></pre>
+<p>&#x41F;&#x456;&#x441;&#x43B;&#x44F; &#x43E;&#x433;&#x43E;&#x43B;&#x43E;&#x448;&#x435;&#x43D;&#x43D;&#x44F; &#x442;&#x438;&#x43F;&#x443; &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x438;&#x442;&#x438; &#x435;&#x43A;&#x437;&#x435;&#x43C;&#x43F;&#x43B;&#x44F;&#x440; &#x442;&#x438;&#x43F;&#x443; <code>User</code>. &#x423; &#x43D;&#x430;&#x441;&#x442;&#x443;&#x43F;&#x43D;&#x43E;&#x43C;&#x443; &#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;&#x456; &#x43A;&#x440;&#x430;&#x43F;&#x43A;&#x430; &#x43F;&#x456;&#x441;&#x43B;&#x44F; &#x43D;&#x430;&#x437;&#x432;&#x438; &#x442;&#x438;&#x43F;&#x443; <code>User</code> &#x432;&#x43A;&#x430;&#x437;&#x443;&#x454; &#x43D;&#x430; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A; &#x43A;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x43E;&#x440;&#x430;.</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> person (<span class="hljs-name">User.</span> <span class="hljs-string">&quot;Triss&quot;</span> <span class="hljs-string">&quot;Merigold&quot;</span>))
+</code></pre>
+<p>&#x414;&#x43E;&#x441;&#x442;&#x443;&#x43F; &#x434;&#x43E; &#x43F;&#x43E;&#x43B;&#x456;&#x432; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x43E;&#x433;&#x43E; &#x435;&#x43A;&#x437;&#x435;&#x43C;&#x43F;&#x43B;&#x44F;&#x440;&#x430; &#x437;&#x434;&#x456;&#x439;&#x441;&#x43D;&#x44E;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x447;&#x435;&#x440;&#x435;&#x437; &#x43A;&#x440;&#x430;&#x43F;&#x43A;&#x443;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name">.-firstname</span> person)
+<span class="hljs-comment">;; =&gt; &quot;Triss&quot;</span>
+</code></pre>
+<p>&#x422;&#x438;&#x43F;&#x438;, &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x456; &#x437;&#x430; &#x434;&#x43E;&#x43F;&#x43E;&#x43C;&#x43E;&#x433;&#x43E;&#x44E; &#x43C;&#x430;&#x43A;&#x440;&#x43E;&#x441;&#x443; <code>deftype</code> (&#x430; &#x442;&#x430;&#x43A;&#x43E;&#x436; <code>defrecord</code>, &#x44F;&#x43A;&#x438;&#x439; &#x431;&#x443;&#x434;&#x435; &#x440;&#x43E;&#x437;&#x433;&#x43B;&#x44F;&#x43D;&#x443;&#x442;&#x43E; &#x434;&#x430;&#x43B;&#x456;), &#x441;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x44E;&#x442;&#x44C; &#x43E;&#x431;&#x2BC;&#x454;&#x43A;&#x442;&#x438;, &#x430;&#x434;&#x430;&#x43F;&#x442;&#x43E;&#x432;&#x430;&#x43D;&#x456; &#x434;&#x43E; &#x442;&#x438;&#x43F;&#x456;&#x432; &#x431;&#x430;&#x442;&#x44C;&#x43A;&#x456;&#x432;&#x441;&#x44C;&#x43A;&#x43E;&#x457; &#x43F;&#x43B;&#x430;&#x442;&#x444;&#x43E;&#x440;&#x43C;&#x438;, &#x43F;&#x43E;&#x434;&#x456;&#x431;&#x43D;&#x456; &#x434;&#x43E; &#x43A;&#x43B;&#x430;&#x441;&#x456;&#x432; &#x442;&#x430; &#x43F;&#x43E;&#x432;&#x2BC;&#x44F;&#x437;&#x430;&#x43D;&#x456; &#x437; &#x43F;&#x43E;&#x442;&#x43E;&#x447;&#x43D;&#x438;&#x43C; &#x43F;&#x440;&#x43E;&#x441;&#x442;&#x43E;&#x440;&#x43E;&#x43C; &#x456;&#x43C;&#x435;&#x43D;. &#x414;&#x43B;&#x44F; &#x437;&#x440;&#x443;&#x447;&#x43D;&#x43E;&#x441;&#x442;&#x456;, <em>ClojureScript</em> &#x442;&#x430;&#x43A;&#x43E;&#x436; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x430;&#x454; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;-&#x43A;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x43E;&#x440; &#x43F;&#x456;&#x434; &#x43D;&#x430;&#x437;&#x432;&#x43E;&#x44E; <code>-&gt;User</code>, &#x44F;&#x43A;&#x443; &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x456;&#x43C;&#x43F;&#x43E;&#x440;&#x442;&#x443;&#x432;&#x430;&#x442;&#x438; &#x437;&#x430; &#x434;&#x43E;&#x43F;&#x43E;&#x43C;&#x43E;&#x433;&#x43E;&#x44E; &#x434;&#x438;&#x440;&#x435;&#x43A;&#x442;&#x438;&#x432;&#x438; <code>:require</code>.</p>
+<p>&#x41D;&#x430;&#x433;&#x43E;&#x43B;&#x43E;&#x441;&#x438;&#x43C;&#x43E; &#x43D;&#x430; &#x442;&#x43E;&#x43C;&#x443;, &#x449;&#x43E; &#x43D;&#x430;&#x43C; &#x43D;&#x435; &#x43F;&#x43E;&#x434;&#x43E;&#x431;&#x430;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x446;&#x435;&#x439; &#x442;&#x438;&#x43F; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; &#x2014; &#x43C;&#x438; &#x432;&#x456;&#x434;&#x434;&#x430;&#x454;&#x43C;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x432;&#x430;&#x433;&#x443; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44E; &#x432;&#x43B;&#x430;&#x441;&#x43D;&#x438;&#x445; &#x43A;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x43E;&#x440;&#x456;&#x432; &#x456;&#x437; &#x431;&#x456;&#x43B;&#x44C;&#x448; &#x456;&#x434;&#x456;&#x43E;&#x43C;&#x430;&#x442;&#x438;&#x447;&#x43D;&#x438;&#x43C;&#x438; &#x43D;&#x430;&#x437;&#x432;&#x430;&#x43C;&#x438;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> make-user
+  [firstname lastname]
+  (<span class="hljs-name">User.</span> firstname lastname))
+</code></pre>
+<p>&#x417;&#x430;&#x43C;&#x456;&#x441;&#x442;&#x44C; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x443; <code>-&gt;User</code> &#x43C;&#x438; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x454;&#x43C;&#x43E; &#x441;&#x430;&#x43C;&#x435; &#x442;&#x430;&#x43A;&#x443; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;.</p>
+<h4 id="&#x43C;&#x430;&#x43A;&#x440;&#x43E;&#x441;-defrecord">&#x41C;&#x430;&#x43A;&#x440;&#x43E;&#x441; Defrecord</h4>
+<p>&#x417;&#x430;&#x43F;&#x438;&#x441;(record) &#x2014; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x456;&#x44F; &#x434;&#x435;&#x449;&#x43E; &#x432;&#x438;&#x449;&#x43E;&#x433;&#x43E; &#x440;&#x456;&#x432;&#x43D;&#x44F;, &#x43D;&#x456;&#x436; <code>type</code>; &#x441;&#x430;&#x43C;&#x435; &#x43C;&#x430;&#x43A;&#x440;&#x43E;&#x441;&#x443; <code>defrecord</code> &#x441;&#x43B;&#x456;&#x434; &#x432;&#x456;&#x434;&#x434;&#x430;&#x432;&#x430;&#x442;&#x438; &#x43F;&#x435;&#x440;&#x435;&#x432;&#x430;&#x433;&#x443; &#x434;&#x43B;&#x44F; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x442;&#x438;&#x43F;&#x456;&#x432; &#x443; <em>ClojureScript</em>.</p>
+<p>&#x42F;&#x43A; &#x432;&#x456;&#x434;&#x43E;&#x43C;&#x43E;, &#x443; <em>ClojureScript</em>  &#x43F;&#x435;&#x440;&#x435;&#x432;&#x430;&#x436;&#x43D;&#x43E; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x44E;&#x442;&#x44C;&#x441;&#x44F; &#x447;&#x438;&#x441;&#x442;&#x456; &#x442;&#x438;&#x43F;&#x438;, &#x442;&#x430;&#x43A;&#x456; &#x44F;&#x43A; &#x43C;&#x430;&#x43F;&#x438;, &#x430;&#x43B;&#x435; &#x434;&#x43B;&#x44F; &#x43F;&#x440;&#x435;&#x434;&#x441;&#x442;&#x430;&#x432;&#x43B;&#x435;&#x43D;&#x43D;&#x44F; &#x441;&#x443;&#x442;&#x43D;&#x43E;&#x441;&#x442;&#x435;&#x439; &#x43D;&#x430;&#x448;&#x438;&#x445; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x443;&#x43D;&#x43A;&#x456;&#x432; &#x43D;&#x430;&#x439;&#x447;&#x430;&#x441;&#x442;&#x456;&#x448;&#x435; &#x43D;&#x430;&#x43C; &#x43F;&#x43E;&#x442;&#x440;&#x456;&#x431;&#x43D;&#x456; &#x456;&#x43C;&#x435;&#x43D;&#x43E;&#x432;&#x430;&#x43D;&#x456; &#x442;&#x438;&#x43F;&#x438;, &#x456; &#x442;&#x43E;&#x434;&#x456; &#x443; &#x43D;&#x430;&#x433;&#x43E;&#x434;&#x456; &#x441;&#x442;&#x430;&#x44E;&#x442;&#x44C; &#x437;&#x430;&#x43F;&#x438;&#x441;&#x438;.</p>
+<p>&#x417;&#x430;&#x43F;&#x438;&#x441; (&#x430;&#x43D;&#x433;&#x43B;. <em>record</em>) &#x2014; &#x446;&#x435; &#x442;&#x438;&#x43F;, &#x44F;&#x43A;&#x438;&#x439; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x443;&#x454; &#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B; &#x442;&#x438;&#x43F;&#x443; &#xAB;&#x43C;&#x430;&#x43F;&#x430;&#xBB; &#x456;, &#x442;&#x430;&#x43A;&#x438;&#x43C; &#x447;&#x438;&#x43D;&#x43E;&#x43C;, &#x43C;&#x43E;&#x436;&#x435; &#x431;&#x443;&#x442;&#x438; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x439;, &#x44F;&#x43A; &#x431;&#x443;&#x434;&#x44C;-&#x44F;&#x43A;&#x430; &#x43C;&#x430;&#x43F;&#x430;, &#x430;&#x43B;&#x435; &#x437;&#x430;&#x432;&#x434;&#x44F;&#x43A;&#x438; &#x442;&#x43E;&#x43C;&#x443;, &#x449;&#x43E; &#x437;&#x430;&#x43F;&#x438;&#x441;&#x438; &#x2014; &#x446;&#x435; &#x432;&#x43B;&#x430;&#x441;&#x43D;&#x456; &#x442;&#x438;&#x43F;&#x438;, &#x447;&#x435;&#x440;&#x435;&#x437; &#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B;&#x438; &#x432;&#x43E;&#x43D;&#x438; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x443;&#x44E;&#x442;&#x44C; &#x43F;&#x43E;&#x43B;&#x456;&#x43C;&#x43E;&#x440;&#x444;&#x456;&#x437;&#x43C;, &#x437;&#x430;&#x441;&#x43D;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x439; &#x43D;&#x430; &#x442;&#x438;&#x43F;&#x430;&#x445;.</p>
+<p>&#x42F;&#x43A; &#x43D;&#x430;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x43A;, &#x43C;&#x438; &#x43E;&#x434;&#x43D;&#x43E;&#x447;&#x430;&#x441;&#x43D;&#x43E; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x430;&#x43B;&#x438; &#x43F;&#x435;&#x440;&#x435;&#x432;&#x430;&#x433;&#x438; &#x43C;&#x430;&#x43F; &#x442;&#x430; &#x442;&#x438;&#x43F;&#x456;&#x432;, &#x449;&#x43E; &#x43C;&#x43E;&#x436;&#x443;&#x442;&#x44C; &#x432;&#x438;&#x441;&#x442;&#x443;&#x43F;&#x430;&#x442;&#x438; &#x443; &#x440;&#x456;&#x437;&#x43D;&#x438;&#x445; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x456;&#x44F;&#x445;.</p>
+<p>&#x412;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x438;&#x43C;&#x43E; &#x442;&#x438;&#x43F; <code>User</code> &#x437;&#x430; &#x434;&#x43E;&#x43F;&#x43E;&#x43C;&#x43E;&#x433;&#x43E;&#x44E; &#x437;&#x430;&#x43F;&#x438;&#x441;&#x443;:</p>
+<pre><code class="lang-cljs">(defrecord User [firstname lastname])
+</code></pre>
+<p>&#x421;&#x438;&#x43D;&#x442;&#x430;&#x43A;&#x441;&#x438;&#x441; <code>defrecord</code> &#x434;&#x443;&#x436;&#x435; &#x441;&#x445;&#x43E;&#x436;&#x438;&#x439; &#x43D;&#x430; <code>deftype</code>; &#x43D;&#x430;&#x441;&#x43F;&#x440;&#x430;&#x432;&#x434;&#x456;, &#x437;&#x430; &#x43B;&#x430;&#x448;&#x442;&#x443;&#x43D;&#x43A;&#x430;&#x43C;&#x438; &#x43C;&#x430;&#x43A;&#x440;&#x43E;&#x441; <code>defrecord</code> &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x454; <code>deftype</code> &#x443; &#x44F;&#x43A;&#x43E;&#x441;&#x442;&#x456; &#x43D;&#x438;&#x437;&#x44C;&#x43A;&#x43E;&#x440;&#x456;&#x432;&#x43D;&#x435;&#x432;&#x43E;&#x433;&#x43E; &#x43F;&#x440;&#x438;&#x43C;&#x456;&#x442;&#x438;&#x432;&#x43D;&#x43E;&#x433;&#x43E; &#x442;&#x438;&#x43F;&#x443; &#x434;&#x43B;&#x44F; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x442;&#x438;&#x43F;&#x456;&#x432;.</p>
+<p>&#x417;&#x432;&#x435;&#x440;&#x43D;&#x456;&#x442;&#x44C; &#x443;&#x432;&#x430;&#x433;&#x443; &#x43D;&#x430; &#x442;&#x435;, &#x44F;&#x43A; &#x434;&#x43E;&#x441;&#x442;&#x443;&#x43F; &#x434;&#x43E; &#x43F;&#x43E;&#x43B;&#x456;&#x432; &#x432;&#x43B;&#x430;&#x441;&#x43D;&#x43E;&#x433;&#x43E; &#x442;&#x438;&#x43F;&#x443; &#x432;&#x456;&#x434;&#x440;&#x456;&#x437;&#x43D;&#x44F;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x432;&#x456;&#x434; &#x447;&#x438;&#x441;&#x442;&#x438;&#x445; &#x442;&#x438;&#x43F;&#x456;&#x432;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> person (<span class="hljs-name">User.</span> <span class="hljs-string">&quot;Yennefer&quot;</span> <span class="hljs-string">&quot;of Vengerberg&quot;</span>))
+
+(<span class="hljs-symbol">:firstname</span> person)
+<span class="hljs-comment">;; =&gt; &quot;Yennefer&quot;</span>
+
+(<span class="hljs-name"><span class="hljs-builtin-name">get</span></span> person <span class="hljs-symbol">:firstname</span>)
+<span class="hljs-comment">;; =&gt; &quot;Yennefer&quot;</span>
+</code></pre>
+<p>&#x42F;&#x43A; &#x43C;&#x438; &#x437;&#x433;&#x430;&#x434;&#x443;&#x432;&#x430;&#x43B;&#x438; &#x440;&#x430;&#x43D;&#x456;&#x448;&#x435;, &#x437;&#x430;&#x43F;&#x438;&#x441;&#x438; &#x2014; &#x446;&#x435; &#x43C;&#x430;&#x43F;&#x438;, &#x442;&#x43E;&#x43C;&#x443; &#x432;&#x43E;&#x43D;&#x438; &#x434;&#x435;&#x43C;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x44E;&#x442;&#x44C; &#x432;&#x456;&#x434;&#x43F;&#x43E;&#x434;&#x432;&#x456;&#x434;&#x43D;&#x443; &#x43F;&#x43E;&#x432;&#x435;&#x434;&#x456;&#x43D;&#x43A;&#x443;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">map?</span></span> person)
+<span class="hljs-comment">;; =&gt; true</span>
+</code></pre>
+<p>&#x422;&#x430;&#x43A;&#x43E;&#x436;, &#x43F;&#x43E;&#x434;&#x456;&#x431;&#x43D;&#x43E; &#x434;&#x43E; &#x43C;&#x430;&#x43F;, &#x437;&#x430;&#x43F;&#x438;&#x441;&#x438; &#x434;&#x43E;&#x437;&#x432;&#x43E;&#x43B;&#x44F;&#x44E;&#x442;&#x44C; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x442;&#x438; &#x43D;&#x43E;&#x432;&#x456; &#x43F;&#x43E;&#x43B;&#x44F;, &#x44F;&#x43A;&#x456; &#x43D;&#x435; &#x431;&#x443;&#x43B;&#x438; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x456; &#x432;&#x456;&#x434; &#x43F;&#x43E;&#x447;&#x430;&#x442;&#x43A;&#x443;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> person2 (<span class="hljs-name"><span class="hljs-builtin-name">assoc</span></span> person <span class="hljs-symbol">:age</span> <span class="hljs-number">92</span>))
+
+(<span class="hljs-symbol">:age</span> person2)
+<span class="hljs-comment">;; =&gt; 92</span>
+</code></pre>
+<p>&#x42F;&#x43A; &#x431;&#x430;&#x447;&#x438;&#x442;&#x435;, &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F; <code>assoc</code> &#x43F;&#x43E;&#x432;&#x43E;&#x434;&#x438;&#x442;&#x44C;&#x441;&#x44F; &#x43E;&#x447;&#x456;&#x43A;&#x443;&#x432;&#x430;&#x43D;&#x438;&#x43C; &#x447;&#x438;&#x43D;&#x43E;&#x43C; &#x442;&#x430; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; &#x43D;&#x43E;&#x432;&#x438;&#x439; &#x435;&#x43A;&#x437;&#x435;&#x43C;&#x43F;&#x43B;&#x44F;&#x440; &#x442;&#x43E;&#x433;&#x43E; &#x436; &#x442;&#x438;&#x43F;&#x443;, &#x430;&#x43B;&#x435; &#x437; &#x43D;&#x43E;&#x432;&#x43E;&#x44E; &#x43F;&#x430;&#x440;&#x43E;&#x44E; &#x43A;&#x43B;&#x44E;&#x447;-&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F;. &#x410;&#x43B;&#x435; &#x431;&#x443;&#x434;&#x44C;&#x442;&#x435; &#x43E;&#x431;&#x435;&#x440;&#x435;&#x436;&#x43D;&#x456; &#x456;&#x437; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x454;&#x44E; <code>dissoc</code>! &#x41F;&#x43E;&#x432;&#x435;&#x434;&#x456;&#x43D;&#x43A;&#x430; &#x446;&#x456;&#x454;&#x457; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; &#x456;&#x437; &#x437;&#x430;&#x43F;&#x438;&#x441;&#x430;&#x43C;&#x438; &#x442;&#x440;&#x43E;&#x445;&#x438; &#x432;&#x456;&#x434;&#x440;&#x456;&#x437;&#x43D;&#x44F;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x432;&#x456;&#x434; &#x43F;&#x43E;&#x432;&#x435;&#x434;&#x456;&#x43D;&#x43A;&#x438; &#x437; &#x43C;&#x430;&#x43F;&#x430;&#x43C;&#x438;: &#x44F;&#x43A;&#x449;&#x43E; &#x432;&#x438;&#x434;&#x430;&#x43B;&#x435;&#x43D;&#x435; &#x43F;&#x43E;&#x43B;&#x435; &#x431;&#x443;&#x43B;&#x43E; &#x43E;&#x43F;&#x446;&#x456;&#x43E;&#x43D;&#x430;&#x43B;&#x44C;&#x43D;&#x438;&#x43C;, <code>dissoc</code> &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; &#x43D;&#x43E;&#x432;&#x438;&#x439; &#x437;&#x430;&#x43F;&#x438;&#x441;, &#x430;&#x43B;&#x435; &#x44F;&#x43A;&#x449;&#x43E; &#x432;&#x438; &#x432;&#x438;&#x434;&#x430;&#x43B;&#x438;&#x442;&#x435; &#x43E;&#x431;&#x43E;&#x432;&apos;&#x44F;&#x437;&#x43A;&#x43E;&#x432;&#x435; &#x43F;&#x43E;&#x43B;&#x435;, &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x43D;&#x435; &#x43F;&#x43E;&#x440;&#x43E;&#x436;&#x43D;&#x44E; &#x43C;&#x430;&#x43F;&#x443;.</p>
+<p>&#x406;&#x43D;&#x448;&#x430; &#x432;&#x456;&#x434;&#x43C;&#x456;&#x43D;&#x43D;&#x456;&#x441;&#x442;&#x44C; &#x432;&#x456;&#x434; &#x43C;&#x430;&#x43F; &#x43F;&#x43E;&#x43B;&#x44F;&#x433;&#x430;&#x454; &#x443; &#x442;&#x43E;&#x43C;&#x443;, &#x449;&#x43E; &#x437;&#x430;&#x43F;&#x438;&#x441;&#x438; &#x43D;&#x435; &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x430;&#x442;&#x438; &#x44F;&#x43A; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> plain-person {<span class="hljs-symbol">:firstname</span> <span class="hljs-string">&quot;Yennefer&quot;</span>, <span class="hljs-symbol">:lastname</span> <span class="hljs-string">&quot;of Vengerberg&quot;</span>})
+
+(<span class="hljs-name">plain-person</span> <span class="hljs-symbol">:firstname</span>)
+<span class="hljs-comment">;; =&gt; &quot;Yennefer&quot;</span>
+
+(<span class="hljs-name">person</span> <span class="hljs-symbol">:firstname</span>)
+<span class="hljs-comment">;; =&gt; person.User does not implement IFn protocol.</span>
+</code></pre>
+<p>&#x414;&#x43B;&#x44F; &#x437;&#x440;&#x443;&#x447;&#x43D;&#x43E;&#x441;&#x442;&#x456; &#x43C;&#x430;&#x43A;&#x440;&#x43E;&#x441; <code>defrecord</code>, &#x43F;&#x43E;&#x434;&#x456;&#x431;&#x43D;&#x43E; &#x434;&#x43E; <code>deftype</code>, &#x43D;&#x430;&#x434;&#x430;&#x454; &#x434;&#x43E;&#x441;&#x442;&#x443;&#x43F; &#x434;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>-&gt;User</code>, &#x430; &#x442;&#x430;&#x43A;&#x43E;&#x436; &#x434;&#x43E; &#x434;&#x43E;&#x434;&#x430;&#x442;&#x43A;&#x43E;&#x432;&#x43E;&#x457; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457;-&#x43A;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x43E;&#x440;&#x430; <code>map-&gt;User</code>. &#x41D;&#x430;&#x448;&#x430; &#x434;&#x443;&#x43C;&#x43A;&#x430; &#x437; &#x446;&#x44C;&#x43E;&#x433;&#x43E; &#x43F;&#x440;&#x438;&#x432;&#x43E;&#x434;&#x443; &#x442;&#x430;&#x43A;&#x430; &#x441;&#x430;&#x43C;&#x430;, &#x44F;&#x43A; &#x456; &#x449;&#x43E;&#x434;&#x43E; &#x43A;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x43E;&#x440;&#x430;, &#x44F;&#x43A;&#x438;&#x439; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x43C;&#x430;&#x43A;&#x440;&#x43E;&#x441;&#x43E;&#x43C; <code>deftype</code>: &#x43C;&#x438; &#x440;&#x435;&#x43A;&#x43E;&#x43C;&#x435;&#x43D;&#x434;&#x443;&#x454;&#x43C;&#x43E; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x430;&#x442;&#x438; &#x432;&#x43B;&#x430;&#x441;&#x43D;&#x456; &#x43A;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x43E;&#x440;&#x438;.</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> cirilla (<span class="hljs-name">-&gt;User</span> <span class="hljs-string">&quot;Cirilla&quot;</span> <span class="hljs-string">&quot;Fiona&quot;</span>))
+(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> yen (<span class="hljs-name">map-&gt;User</span> {<span class="hljs-symbol">:firstname</span> <span class="hljs-string">&quot;Yennefer&quot;</span>
+                     <span class="hljs-symbol">:lastname</span> <span class="hljs-string">&quot;of Vengerberg&quot;</span>}))
+</code></pre>
+<h4 id="&#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x430;&#x446;&#x456;&#x44F;-&#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B;&#x456;&#x432;">&#x420;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x430;&#x446;&#x456;&#x44F; &#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B;&#x456;&#x432;</h4>
+<p>&#x41E;&#x431;&#x438;&#x434;&#x432;&#x430; &#x43F;&#x440;&#x438;&#x43C;&#x456;&#x442;&#x438;&#x432;&#x438; &#x434;&#x43B;&#x44F; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x432;&#x43B;&#x430;&#x441;&#x43D;&#x438;&#x445; &#x442;&#x438;&#x43F;&#x456;&#x432;, &#x44F;&#x43A;&#x456; &#x43C;&#x438; &#x440;&#x43E;&#x437;&#x433;&#x43B;&#x44F;&#x43D;&#x443;&#x43B;&#x438;, &#x434;&#x43E;&#x437;&#x432;&#x43E;&#x43B;&#x44F;&#x44E;&#x442;&#x44C; &#x432;&#x431;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x443; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x430;&#x446;&#x456;&#x44E; &#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B;&#x456;&#x432; (&#x434;&#x438;&#x432;. &#x43C;&#x438;&#x43D;&#x443;&#x43B;&#x438;&#x439; &#x440;&#x43E;&#x437;&#x434;&#x456;&#x43B;). &#x412;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x438;&#x43C;&#x43E; &#x442;&#x438;&#x43F; &#x434;&#x43B;&#x44F; &#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;&#x443;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defprotocol</span></span> IUser
+  <span class="hljs-string">&quot;A common abstraction for working with user types.&quot;</span>
+  (<span class="hljs-name">full-name</span> [_] <span class="hljs-string">&quot;Get the full name of the user.&quot;</span>))
+</code></pre>
+<p>&#x422;&#x435;&#x43F;&#x435;&#x440; &#x432;&#x438; &#x43C;&#x43E;&#x436;&#x435;&#x442;&#x435; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x438;&#x442;&#x438; &#x442;&#x438;&#x43F; &#x456;&#x437; &#x432;&#x431;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x43E;&#x44E; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x430;&#x446;&#x456;&#x454;&#x44E; &#x43F;&#x435;&#x432;&#x43D;&#x43E;&#x457; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x456;&#x457;, &#x443; &#x43D;&#x430;&#x448;&#x43E;&#x43C;&#x443; &#x432;&#x438;&#x43F;&#x430;&#x434;&#x43A;&#x443; &#x2014; <code>IUser</code>:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defrecord</span></span> User [firstname lastname]
+  IUser
+  (<span class="hljs-name">full-name</span> [_]
+    (<span class="hljs-name"><span class="hljs-builtin-name">str</span></span> firstname <span class="hljs-string">&quot; &quot;</span> lastname)))
+
+<span class="hljs-comment">;; Create an instance.</span>
+(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> user (<span class="hljs-name">User.</span> <span class="hljs-string">&quot;Yennefer&quot;</span> <span class="hljs-string">&quot;of Vengerberg&quot;</span>))
+
+(<span class="hljs-name">full-name</span> user)
+<span class="hljs-comment">;; =&gt; &quot;Yennefer of Vengerberg&quot;</span>
+</code></pre>
+<h4 id="&#x43C;&#x430;&#x43A;&#x440;&#x43E;&#x441;-reify">&#x41C;&#x430;&#x43A;&#x440;&#x43E;&#x441; Reify</h4>
+<p>&#x41C;&#x430;&#x43A;&#x440;&#x43E;&#x441; <code>reify</code>  &#x43F;&#x440;&#x435;&#x434;&#x441;&#x442;&#x430;&#x432;&#x43B;&#x44F;&#x454; &#x441;&#x43E;&#x431;&#x43E;&#x44E; &#x43A;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x43E;&#x440; &#x441;&#x43F;&#x435;&#x446;&#x456;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;&#x433;&#x43E; &#x43F;&#x440;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; (&#x430;&#x43D;&#x433;&#x43B;. <em>ad hoc constructor</em>), &#x44F;&#x43A;&#x438;&#x439; &#x434;&#x43E;&#x437;&#x432;&#x43E;&#x43B;&#x44F;&#x454; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x442;&#x438; &#x43E;&#x431;&apos;&#x454;&#x43A;&#x442;&#x438; &#x431;&#x435;&#x437; &#x43F;&#x43E;&#x43F;&#x435;&#x440;&#x435;&#x434;&#x43D;&#x44C;&#x43E;&#x433;&#x43E; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x442;&#x438;&#x43F;&#x443;. &#x420;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x430;&#x446;&#x456;&#x457; &#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B;&#x456;&#x432; &#x43C;&#x430;&#x43A;&#x440;&#x43E;&#x441;&#x443; <code>reify</code> &#x442;&#x430;&#x43A;&#x456; &#x441;&#x430;&#x43C;&#x456;, &#x44F;&#x43A; &#x456; &#x434;&#x43B;&#x44F; <code>deftype</code> &#x442;&#x430; <code>defrecord</code>, &#x430;&#x43B;&#x435; &#x43D;&#x430; &#x432;&#x456;&#x434;&#x43C;&#x456;&#x43D;&#x443; &#x432;&#x456;&#x434; &#x43D;&#x438;&#x445;, <code>reify</code>&#x43D;&#x435; &#x43C;&#x430;&#x454; &#x434;&#x43E;&#x441;&#x442;&#x443;&#x43F;&#x43D;&#x438;&#x445; &#x43F;&#x43E;&#x43B;&#x456;&#x432;.</p>
+<p>&#x41E;&#x441;&#x44C;, &#x44F;&#x43A; &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x435;&#x43C;&#x443;&#x43B;&#x44E;&#x432;&#x430;&#x442;&#x438; &#x435;&#x43A;&#x437;&#x435;&#x43C;&#x43F;&#x43B;&#x44F;&#x440; &#x442;&#x438;&#x43F;&#x443; <code>user</code>, &#x44F;&#x43A;&#x438;&#x439; &#x434;&#x43E;&#x431;&#x440;&#x435; &#x43F;&#x43E;&#x454;&#x434;&#x43D;&#x443;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x456;&#x437; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x456;&#x454;&#x44E;  <code>IUser</code>:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> user
+  [firstname lastname]
+  (<span class="hljs-name"><span class="hljs-builtin-name">reify</span></span>
+    IUser
+    (<span class="hljs-name">full-name</span> [_]
+      (<span class="hljs-name"><span class="hljs-builtin-name">str</span></span> firstname <span class="hljs-string">&quot; &quot;</span> lastname))))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> yen (<span class="hljs-name">user</span> <span class="hljs-string">&quot;Yennefer&quot;</span> <span class="hljs-string">&quot;of Vengerberg&quot;</span>))
+(<span class="hljs-name">full-name</span> yen)
+<span class="hljs-comment">;; =&gt; &quot;Yennefer of Vengerberg&quot;</span>
+</code></pre>
+<h4 id="&#x43C;&#x430;&#x43A;&#x440;&#x43E;&#x441;-specify">&#x41C;&#x430;&#x43A;&#x440;&#x43E;&#x441; Specify</h4>
+<p>&#x41C;&#x430;&#x43A;&#x440;&#x43E;&#x441; <code>specify!</code> &#x2014; &#x446;&#x435; &#x43F;&#x43E;&#x43A;&#x440;&#x430;&#x449;&#x435;&#x43D;&#x430; &#x430;&#x43B;&#x44C;&#x442;&#x435;&#x440;&#x43D;&#x430;&#x442;&#x438;&#x432;&#x430; <code>reify</code>, &#x44F;&#x43A;&#x430; &#x434;&#x43E;&#x437;&#x432;&#x43E;&#x43B;&#x44F;&#x454; &#x434;&#x43E;&#x434;&#x430;&#x432;&#x430;&#x442;&#x438; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x430;&#x446;&#x456;&#x457; &#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B;&#x456;&#x432; &#x434;&#x43E; &#x456;&#x441;&#x43D;&#x443;&#x44E;&#x447;&#x438;&#x445; &#x43E;&#x431;&apos;&#x454;&#x43A;&#x442;&#x456;&#x432; JavaScript. &#x426;&#x435; &#x43C;&#x43E;&#x436;&#x435; &#x431;&#x443;&#x442;&#x438; &#x43A;&#x43E;&#x440;&#x438;&#x441;&#x43D;&#x43E;, &#x44F;&#x43A;&#x449;&#x43E; &#x432;&#x438; &#x445;&#x43E;&#x447;&#x435;&#x442;&#x435; &#x434;&#x43E;&#x434;&#x430;&#x442;&#x438; &#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B;&#x438; &#x434;&#x43E; &#x43A;&#x43E;&#x43C;&#x43F;&#x43E;&#x43D;&#x435;&#x43D;&#x442;&#x456;&#x432; &#x441;&#x442;&#x430;&#x43D;&#x434;&#x430;&#x440;&#x442;&#x43D;&#x43E;&#x457; &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x438; JavaScript.</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> obj #js {})
+
+(<span class="hljs-name">specify!</span> obj
+  IUser
+  (<span class="hljs-name">full-name</span> [_]
+    <span class="hljs-string">&quot;my full name&quot;</span>))
+
+(<span class="hljs-name">full-name</span> obj)
+<span class="hljs-comment">;; =&gt; &quot;my full name&quot;</span>
+</code></pre>
+<p><code>specify</code> &#x2014; &#x446;&#x435; &#x43D;&#x435;&#x437;&#x43C;&#x456;&#x43D;&#x43D;&#x430; &#x432;&#x435;&#x440;&#x441;&#x456;&#x44F; &#x43C;&#x430;&#x43A;&#x440;&#x43E;&#x441;&#x443; <code>specify!</code>. <code>specify</code> &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x432;&#x430;&#x442;&#x438; &#x456;&#x437; &#x43D;&#x435;&#x437;&#x43C;&#x456;&#x43D;&#x43D;&#x438;&#x43C; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F;&#x43C;&#x438;, &#x44F;&#x43A;&#x456; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x443;&#x44E;&#x442;&#x44C; &#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B; <code>ICloneable</code> (&#x43D;&#x430;&#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;, &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x457; ClojureScript).</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> a {})
+
+(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> b (<span class="hljs-name">specify</span> a
+         IUser
+         (<span class="hljs-name">full-name</span> [_]
+           <span class="hljs-string">&quot;my full name&quot;</span>)))
+
+(<span class="hljs-name">full-name</span> a)
+<span class="hljs-comment">;; Error: No protocol method IUser.full-name defined for type cljs.core/PersistentArrayMap: {}</span>
+
+(<span class="hljs-name">full-name</span> b)
+<span class="hljs-comment">;; =&gt; &quot;my full name&quot;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="03-13-Abstractions-and-Polymorphism.html" class="navigation navigation-prev " aria-label="Previous page: Абстракції і поліморфізм">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="03-15-Host-interoperability.html" class="navigation navigation-next " aria-label="Next page: Сумісність з батьківською платформою">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Типи даних","level":"1.4.14","depth":2,"next":{"title":"Сумісність з батьківською платформою","level":"1.4.15","depth":2,"path":"manuscript/03-15-Host-interoperability.md","ref":"./manuscript/03-15-Host-interoperability.md","articles":[]},"previous":{"title":"Абстракції і поліморфізм","level":"1.4.13","depth":2,"path":"manuscript/03-13-Abstractions-and-Polymorphism.md","ref":"./manuscript/03-13-Abstractions-and-Polymorphism.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"3.x.x","theme":"default","variables":{},"plugins":["edit-link","github","ga","rss","github-buttons"],"pluginsConfig":{"github":{"url":"https://github.com/LambdaBooks/clojurescript-unraveled"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":["frontend","js","javascript","es6","es2015","ecmascript"],"title":"Розплутаний ClojureScript","description":"Український переклад книги «ClojureScript Unraveled».","author":"Denys Dovhan","site_url":"http://lambdabooks.com/clojurescript-unraveled","feed_url":"http://lambdabooks.com/clojurescript-unraveled/rss.xml","managingEditor":"denysdovhan@gmail.com (Denys Dovhan)","webMaster":"denysdovhan@gmail.com (Denys Dovhan)"},"highlight":{},"github-buttons":{"repo":"LambdaBooks/clojurescript-unraveled","types":["star"],"size":"small"},"ga":{"configuration":"auto","token":"UA-40496885-11"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Редагувати","base":"https://github.com/LambdaBooks/clojurescript-unraveled/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"manuscript/03-14-Data-types.md","mtime":"2017-10-26T13:33:53.217Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-26T13:35:13.263Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

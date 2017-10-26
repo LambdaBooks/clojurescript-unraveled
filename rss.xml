@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Розплутаний ClojureScript]]></title>
+        <description><![CDATA[Український переклад книги «ClojureScript Unraveled».]]></description>
+        <link>http://lambdabooks.com/clojurescript-unraveled</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Thu, 26 Oct 2017 13:35:19 GMT</lastBuildDate>
+        <atom:link href="http://lambdabooks.com/clojurescript-unraveled/rss.xml" rel="self" type="application/rss+xml"/>
+        <author><![CDATA[Denys Dovhan]]></author>
+        <managingEditor><![CDATA[denysdovhan@gmail.com (Denys Dovhan)]]></managingEditor>
+        <webMaster><![CDATA[denysdovhan@gmail.com (Denys Dovhan)]]></webMaster>
+        <category><![CDATA[frontend]]></category>
+        <category><![CDATA[js]]></category>
+        <category><![CDATA[javascript]]></category>
+        <category><![CDATA[es6]]></category>
+        <category><![CDATA[es2015]]></category>
+        <category><![CDATA[ecmascript]]></category>
+        <item>
+            <title><![CDATA[Розплутаний ClojureScript]]></title>
+            <description><![CDATA[PDF
+ePub
+Mobi
+Build Status
+Twitter
+RSS
+Stars]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveled</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveled</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Ця книга охоплює мову програмування ClojureScript, служить детальним керівництвом до інструментарію для розробки та представляє собою серію статей на теми, що пов'язані з щоденним програмуванням на ClojureScript.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/01-About-this-book.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/01-About-this-book.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[ClojureScript — це імплементація мови програмування Clojure, орієнтована на JavaScript. Завдяки цьому, вона може працювати в багатьох різних середовищах виконання, включаючи веб-браузери, Node.js, io.js та Nashorn.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/02-Introduction.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/02-Introduction.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Мова Lisp була розроблена Джоном МакКарті у 1958 році і на сьогодні є однією з найдавніших мов програмування, що досі використовуються. Від Lisp походить велика кількість мов, які називають діалектами Lisp. ClojureScript – один з таких діалектів. На мові Lisp програми пишуть за допомогою структур даних самої Lisp – списків у дужках, але Clojure(Script) додала до первинного синтаксису Lisp нові структури даних, завдяки чому код на Clojure(Script) більш приємно писати та читати.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-01-First-steps-with-Lisp-syntax.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-01-First-steps-with-Lisp-syntax.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Мова ClojureScript, як і більшість мов програмування має багатий набір типів даних. Вона має добре відомі вам скалярні типи даних, такі як числа, рядки та числа з рухомою крапкою. Також, в ній є багато інших, з якими ви можете бути незнайомі, такі як символи, ключові слова, регекспи (регулярні вирази), змінні, атоми та волатайли (volatile).]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-02-The-base-data-types.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-02-The-base-data-types.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[ClojureScript — це функціональна мова, зосереджена на незмінності даних. Через це, в ній немає поняття змінної, яке ви знаєте з багатьох інших мов програмування. Найбільш близькою аналогією до змінних будуть змінні в алгебрі; коли в математиці ми кажемо x = 6, це означає, що символу x відповідає число 6.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-03-Vars.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-03-Vars.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Час переходити до активних дій! Функції у ClojureScript - це так звані об’єкти першого класу: за своєю поведінкою вони не відрізняються від інших типів. Такі функції можна передавати як аргументи або отримати як значення. Контекст при цьому завжди визначається статично. У певних ситуаціях ClojureScript підтримує динамічне визначення контексту, але про це ми поговоримо в іншому розділі.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-04-Functions.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-04-Functions.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Підхід до керування потоком виконання програми у ClojureScript відрізняється від того, який зазвичай використовується в мовах JavaScript, C, та ін.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-05-Flow-control.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-05-Flow-control.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Семантика цього аспекту дуже різна у кожній мові (часто неправильна). Більшість мов уважають порожні колекції, ціле число 0 та інші схожі значення логічним false. В ClojureScript лише два значення можуть бути false: nil та false. Все інше — розглядається як логічне true.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-06-Truthiness.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-06-Truthiness.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[В ClojureScript немає поняття змінної, як в мовах родини ALGOL, але є так звані локальні зв'язування (для зручності будемо називати їх також змінними). Локальні змінні, зазвичай, не змінюють свої значення. Якщо спробувати їх змінити, компілятор видасть повідомлення про помилку.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-07-Locals-Blocks-and-Loops.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-07-Locals-Blocks-and-Loops.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Раніше ми вже згадували про те, що колекції у ClojureScript незмінні (immutable) та стійкі(persistent), але не пояснювали значення цих термінів.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-08-Collection-types.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-08-Collection-types.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Деструктурування — це процес вичитування окремих частин з структурованих даних, наприклад колекцій. В ClojureScript є спеціальний синтаксис для деструктурування індексованих послідовностей та асоціативних структур даних, що використовується у локальних зв'язуваннях та в аргументах функцій.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-09-Destructuring.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-09-Destructuring.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Потокові макроси, також відомі як функції–стрілки, використовуються для запису вкладених викликів функцій у простішому форматі, що більш зрозумілий для читання.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-10-Threading-Macros.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-10-Threading-Macros.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Ця особливість мови дає можливість діалектам Clojure використовувати код на різних платформах та мати частини коду, специфічні до кожної з цих платформ.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-11-Reader-Conditionals.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-11-Reader-Conditionals.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Простір імен (namespace) — основна одиниця модульності в ClojureScript. Простори імен схожі на пакети в Java або модулі в Ruby та Python. Вони створюються за допомогою макросу ns. Якщо ви бачили код на ClojureScript, ви могли помітити щось подібне на початку кожного файлу:]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-12-Namespaces.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-12-Namespaces.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Ви, напевно, не раз були в такій ситуації: ви створили абстракцію (наприклад, за допомогою інтерфейсів) для бізнес–логіки, з часом у вас виникає потреба працювати з іншим модулем, який ви не контролюєте, тому скоріш за все ви вирішили зробити адаптер, проксі, чи застосувати інші підходи, які приносять багато допоміжної складності.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-13-Abstractions-and-Polymorphism.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-13-Abstractions-and-Polymorphism.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[До цього моменту, для представлення даних, ми використовували мапи, множини, списки та вектори. У більшості випадків такий підхід є оптимальним, але інколи зʼявляється необхідність визначити власні типи. У цій книзі ми будемо називати такі типи типами «дані» (англ. data types).]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-14-Data-types.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-14-Data-types.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[ClojureScript — це гостьова мова так само, як і її сестра Clojure. Це означає, що обидві мови орієнтовані на інтеграцію з батьківською платформою (JavaScript для ClojureScript та JVM для Clojure).]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-15-Host-interoperability.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-15-Host-interoperability.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Ми вже знаємо, що однією з фундаментальних ідей в ClojureScript є незмінність даних. Скалярні значення та колекції в ClojureScript — незмінні. Змінювати можливо лише об'єкти JavaScript, наприклад Date, тому що вони змінні за своєю сутністю.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-16-State-management.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-16-State-management.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Ми розуміємо, що наші читачі вже втомилися від теоретичних пояснень аспектів мови та хочуть приступити до написання та виконання коду. У цьому розділі ми надамо вступні відомості про практику роботи з компілятором  ClojureScript.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/04-01-Getting-Started-with-the-Compiler.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/04-01-Getting-Started-with-the-Compiler.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Коли потрібно спробувати щось на ClojureScript, можна щоразу створювати та компілювати необхідні сирцеві файли, але для невеликих обчислень зручніше використовувати REPL. Абревіатура REPL розшифровується наступним чином:]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/04-02-Working-with-the-REPL.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/04-02-Working-with-the-REPL.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Google Closure Library — це бібліотека на JavaScript, розроблена в Google. Вона являє собою модульну бібліотеку з набором функцій для роботи з DOM та подіями в DOM, Ajax і JSON та багатьма іншими функціями.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/04-03-The-Closure-Library.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/04-03-The-Closure-Library.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[До цього моменту для компіляції коду у JavaScript ми користувалися готовим набором інструментів ClojureScript. Це мінімум, необхідний для компіляції та для розуміння основ роботи компілятора. Але для більш-менш великих проектів нам знадобиться більш потужний інструмент для збору проекту та керування залежностями від сторонніх бібліотек.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/04-04-Dependency-management.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/04-04-Dependency-management.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[За певних обставин вам можуть знадобитися можливості бібліотеки, написаної на JavaScript, аналогу якої немає в ClojureScript, тобто вам буде потрібно підключити таку бібліотеку в проект.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/04-05-External-dependencies.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/04-05-External-dependencies.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Як можна було очікувати, тестування в ClojureScript включає в себе ті самі концепції, що і тестування в інших мовах, таких як Clojure, Java, Python, JavaScript та ін.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/04-06-Unit-testing.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/04-06-Unit-testing.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Незмінні та стійкі стуктури даних мови ClojureScript відрізняються доволі високою продуктивністю, але трапляються ситуації, коли необхідно трансформувати великі структури даних за кілька окремих кроків і лише кінцевий результат має бути доступний для інших користувачів. Наприклад, функція стандартної бібліотеки into отримує колекцію та негайно заповнює її змістом наданої послідовності на кожній ітерації:]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/05-02-Transients.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/05-02-Transients.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+    </channel>
+</rss>
