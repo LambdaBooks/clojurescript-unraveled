@@ -24,12 +24,12 @@
   * [Основи роботи з компілятором](./manuscript/04-01-Getting-Started-with-the-Compiler.md)
   * [Робота з REPL](./manuscript/04-02-Working-with-the-REPL.md)
   * [Бібліотека Closure](./manuscript/04-03-The-Closure-Library.md)
-  * Керування залежностями
-  * Зовнішні залежності
-  * Модульне тестування
+  * [Керування залежностями](./manuscript/04-04-Dependency-management.md)
+  * [Зовнішні залежності](./manuscript/04-05-External-dependencies.md)
+  * [Модульне тестування](./manuscript/04-06-Unit-testing.md)
 * Мова (поглиблені теми)
   * Перетворювачі
-  * Перехідні структури даних
+  * [Перехідні структури даних](./manuscript/05-02-Transients.md)
   * Метадані
   * Основні протоколи
   * CSP (з core.async)
