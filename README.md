@@ -5,8 +5,9 @@
 [![Mobi][mobi-image]][mobi-url]
 [![Build Status][travis-image]][travis-url]
 [![Twitter][twitter-image]][twitter-url]
-[![RSS][rss-image]][rss-url]
+[![Facebook][facebook-image]][facebook-url]
 [![Slack][slack-image]][slack-url]
+[![RSS][rss-image]][rss-url]
 [![Stars][github-image]][github-url]
 
 
@@ -97,11 +98,14 @@ This book is licensed under a Creative Commons Attribution-ShareAlike 4.0 Intern
 [twitter-url]: https://twitter.com/LambdaBooks
 [twitter-image]: https://img.shields.io/badge/twitter-%40LambdaBooks-00ACEE.svg?style=flat-square
 
+[facebook-url]: https://www.facebook.com/lambdabooks/
+[facebook-image]: https://img.shields.io/badge/facebook-%40LambdaBooks-4267b2.svg?style=flat-square
+
+[slack-url]:  http://slack.lambdabooks.com
+[slack-image]: https://img.shields.io/badge/slack-LambdaBooks-red.svg?style=flat-square
+
 [rss-url]: http://clojurescript-unraveled.lambdabooks.github.io/rss.xml
 [rss-image]: https://img.shields.io/badge/rss-subscribe-F4B83F.svg?style=flat-square
 
 [github-url]: https://github.com/LambdaBooks/clojurescript-unraveled
 [github-image]: https://img.shields.io/github/stars/LambdaBooks/clojurescript-unraveled.svg?style=social&label=Star
-
-[slack-url]:  http://slack.lambdabooks.com
-[slack-image]: https://img.shields.io/badge/slack-Lambda%20Books-red.svg?style=flat-square
