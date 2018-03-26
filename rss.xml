@@ -4,17 +4,15 @@
         <description><![CDATA[Український переклад книги «ClojureScript Unraveled».]]></description>
         <link>http://lambdabooks.com/clojurescript-unraveled</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 26 Mar 2018 17:18:31 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 26 Mar 2018 17:30:21 GMT</lastBuildDate>
         <atom:link href="http://lambdabooks.com/clojurescript-unraveled/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Denys Dovhan]]></author>
         <managingEditor><![CDATA[denysdovhan@gmail.com (Denys Dovhan)]]></managingEditor>
         <webMaster><![CDATA[denysdovhan@gmail.com (Denys Dovhan)]]></webMaster>
         <category><![CDATA[frontend]]></category>
-        <category><![CDATA[js]]></category>
-        <category><![CDATA[javascript]]></category>
-        <category><![CDATA[es6]]></category>
-        <category><![CDATA[es2015]]></category>
-        <category><![CDATA[ecmascript]]></category>
+        <category><![CDATA[clojurescript]]></category>
+        <category><![CDATA[cljs]]></category>
+        <category><![CDATA[clojure]]></category>
         <item>
             <title><![CDATA[Розплутаний ClojureScript]]></title>
             <description><![CDATA[PDF
