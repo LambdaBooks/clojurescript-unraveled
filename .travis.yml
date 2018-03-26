@@ -6,6 +6,9 @@ deploy:
   local-dir: _book
   name: Denys Dovhan
   email: email@denysdovhan.com
+  keep-history: true
+  allow-empty-commit: true
+  # fqdn: {{custom_domain_here}}
   skip-cleanup: true
   on:
     branch: master
