@@ -5,6 +5,7 @@
 [![Mobi][mobi-image]][mobi-url]
 [![Build Status][travis-image]][travis-url]
 [![Twitter][twitter-image]][twitter-url]
+[![Facebook][facebook-image]][facebook-url]
 [![RSS][rss-image]][rss-url]
 [![Stars][github-image]][github-url]
 
@@ -100,3 +101,6 @@ This book is licensed under a Creative Commons Attribution-ShareAlike 4.0 Intern
 
 [github-url]: https://github.com/LambdaBooks/clojurescript-unraveled
 [github-image]: https://img.shields.io/github/stars/LambdaBooks/clojurescript-unraveled.svg?style=social&label=Star
+
+[facebook-url]: https://facebook.com/lambdabooks
+[facebook-image]: https://img.shields.io/badge/facebook-lambdabooks-blue.svg?style=flat-square
