@@ -6,8 +6,10 @@
 [![Build Status][travis-image]][travis-url]
 [![Twitter][twitter-image]][twitter-url]
 [![Facebook][facebook-image]][facebook-url]
+[![Slack][slack-image]][slack-url]
 [![RSS][rss-image]][rss-url]
 [![Stars][github-image]][github-url]
+
 
 > Перекладенo з дoзвoлу [Андрія Антуха](https://twitter.com/niwinz).  
 > Translated with permission from [Andrey Antukh](https://twitter.com/niwinz).
@@ -99,11 +101,11 @@ This book is licensed under a Creative Commons Attribution-ShareAlike 4.0 Intern
 [facebook-url]: https://www.facebook.com/lambdabooks/
 [facebook-image]: https://img.shields.io/badge/facebook-%40LambdaBooks-4267b2.svg?style=flat-square
 
+[slack-url]:  http://slack.lambdabooks.com
+[slack-image]: https://img.shields.io/badge/slack-LambdaBooks-red.svg?style=flat-square
+
 [rss-url]: http://clojurescript-unraveled.lambdabooks.github.io/rss.xml
 [rss-image]: https://img.shields.io/badge/rss-subscribe-F4B83F.svg?style=flat-square
 
 [github-url]: https://github.com/LambdaBooks/clojurescript-unraveled
 [github-image]: https://img.shields.io/github/stars/LambdaBooks/clojurescript-unraveled.svg?style=social&label=Star
-
-[facebook-url]: https://facebook.com/lambdabooks
-[facebook-image]: https://img.shields.io/badge/facebook-%40LambdaBooks-4267b2.svg?style=flat-square
