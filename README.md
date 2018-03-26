@@ -97,7 +97,7 @@ This book is licensed under a Creative Commons Attribution-ShareAlike 4.0 Intern
 [twitter-image]: https://img.shields.io/badge/twitter-%40LambdaBooks-00ACEE.svg?style=flat-square
 
 [facebook-url]: https://www.facebook.com/lambdabooks/
-[facebook-image]: https://img.shields.io/badge/facebook-%40LambdaBooks-00ACEE.svg?style=flat-square
+[facebook-image]: https://img.shields.io/badge/facebook-%40LambdaBooks-4267b2.svg?style=flat-square
 
 [rss-url]: http://clojurescript-unraveled.lambdabooks.github.io/rss.xml
 [rss-image]: https://img.shields.io/badge/rss-subscribe-F4B83F.svg?style=flat-square
