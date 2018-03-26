@@ -6,7 +6,9 @@
 [![Build Status][travis-image]][travis-url]
 [![Twitter][twitter-image]][twitter-url]
 [![RSS][rss-image]][rss-url]
+[![Slack][slack-image]][slack-url]
 [![Stars][github-image]][github-url]
+
 
 > Перекладенo з дoзвoлу [Андрія Антуха](https://twitter.com/niwinz).  
 > Translated with permission from [Andrey Antukh](https://twitter.com/niwinz).
@@ -100,3 +102,6 @@ This book is licensed under a Creative Commons Attribution-ShareAlike 4.0 Intern
 
 [github-url]: https://github.com/LambdaBooks/clojurescript-unraveled
 [github-image]: https://img.shields.io/github/stars/LambdaBooks/clojurescript-unraveled.svg?style=social&label=Star
+
+[slack-url]:  http://slack.lambdabooks.com
+[slack-image]: https://img.shields.io/badge/slack-Lambda%20Books-red.svg?style=flat-square
