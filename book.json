@@ -24,11 +24,9 @@
       "webMaster": "denysdovhan@gmail.com (Denys Dovhan)",
       "categories": [
         "frontend",
-        "js",
-        "javascript",
-        "es6",
-        "es2015",
-        "ecmascript"
+        "clojurescript",
+        "cljs",
+        "clojure"
       ]
     },
     "github-buttons": {
