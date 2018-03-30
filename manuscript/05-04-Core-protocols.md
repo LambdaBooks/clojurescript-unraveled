@@ -1,13 +1,12 @@
-### Core protocols
+### Протоколи стандартної бібліотеки
 
-One of the greatest qualities of the core ClojureScript functions is that they are implemented around protocols. This makes them open to work on any type that we extend with such protocols, be it defined by us or a third party.
+Велика перевага функцій ClojureScript полягає у тому, що вони реалізовані на базі протоколів. Це дозволяє функціям працювати з будь-яким типом, який було розширено такими протоколами. Це стосується як власних типів, так і сторонніх.
 
+#### Функції
 
-#### Functions
+Як ми дізналися з попередніх розділів, у ClojureScript викликати можна не лише функції. Вектори — це функції від власних індексів, мапи — функції від власних ключів, а множини — функції від значень.
 
-As we've learned in previous chapters not only functions can be invoked. Vectors are functions of their indexes, maps are functions of their keys and sets are functions of their values.
-
-We can extend types to be callable as functions implementing the `IFn` protocol. A collection that doesn't support calling it as a function is the queue, let's implement `IFn` for the `PersistentQueue` type so we're able to call queues as functions of their indexes:
+Ми можемо розширювати типи таким чином, що результат можна викликати як функції, що реалізують протокол `IFn`. Колекція, що не може бути викликана як функція, є чергою. Реалізуємо протокол `IFn` для типа `PersistentQueue` так, щоб мати змогу викликати чергу як функції від індексів:
 
 ```clojure
 (extend-type PersistentQueue
@@ -30,19 +29,15 @@ We can extend types to be callable as functions implementing the `IFn` protocol.
 ```
 
 
-#### Printing
+#### Виведення на друк
 
-////
-TODO: IWriter?
-////
-
-For learning about some of the core protocols we'll define a `Pair` type, which will hold a pair of values.
+Щоб познайомитися з деякими протоколами зі стандартної бібліотеки, визначимо тип `Pair`, який містить пару значень.
 
 ```clojure
 (deftype Pair [fst snd])
 ```
 
-If we want to customize how types are printed we can implement the `IPrintWithWriter` protocol. It defines a function called `-pr-writer` that receives the value to print, a writer object and options; this function uses the writer object's `-write` function to write the desired `Pair` string representation:
+Для виведення типів на друк у бажаному вигляді ми можемо реалізувати протокол `IPrintWithWriter`. Цей протокол визначає функцію під назвою `-pr-writer`, якій передається значення для друку, обʼєкт запису та опції. Ця функція використовує обʼєкт запису `-write`для запису бажаного рядкового представлення типу `Pair`:
 
 
 ```clojure
@@ -53,9 +48,9 @@ If we want to customize how types are printed we can implement the `IPrintWithWr
 ```
 
 
-#### Sequences
+#### Послідовності
 
-In a xref:the-sequence-abstraction[previous section] we learned about sequences, one of ClojureScript's main abstractions. Remember the `first` and `rest` functions for working with sequences? They are defined in the `ISeq` protocol, so we can extend types for responding to such functions:
+З попереднього розділу ми дізналися про послідовності — одну з основних абстракцій мови ClojureScript. Згадайте функції `first` та `rest` для роботи з послідовностями. Вони визначені у протоколі `ISeq`, тому ми можемо розширити типи та додати підтримку таких функцій:
 
 ```clojure
 (extend-type Pair
@@ -76,7 +71,7 @@ In a xref:the-sequence-abstraction[previous section] we learned about sequences,
 ;; => (2)
 ```
 
-Another handy function for working with sequences is `next`. Although `next` works as long as the given argument is a sequence, we can implement it explicitly with the `INext` protocol:
+Інша корисна функція для роботи з послідовностями — це `next`. Хоча `next` працює з будь-яким аргументом, що є послідовністю, ми можемо реалізувати це явно за допомогою протоколу `INext`:
 
 ```clojure
 (def p (Pair. 1 2))
@@ -95,7 +90,7 @@ Another handy function for working with sequences is `next`. Although `next` wor
 ;; => (2)
 ```
 
-Finally, we can make our own types seqable implementing the `ISeqable` protocol. This means we can pass them to `seq` for getting a sequence back.
+Врешті решт ми можемо створии власні типи, що реалізують протокол `ISeqable`. Це означає, що ми можемо передавати їх функції `seq` та отримувати послідовність.
 
 ISeqable
 ```clojure
@@ -110,7 +105,7 @@ ISeqable
 ;; => (1 2)
 ```
 
-Now our `Pair` type works with the plethora of ClojureScript functions for working with sequences:
+Тепер тип `Pair` може працювати з великою кількістю функцій ClojureScript для обробки послідовностей:
 
 ```clojure
 (def p (Pair. 1 2))
@@ -127,11 +122,11 @@ Now our `Pair` type works with the plethora of ClojureScript functions for worki
 ```
 
 
-#### Collections
+#### Колекції
 
-Collection functions are also defined in terms of protocols. For this section examples we will make the native JavaScript string act like a collection.
+Функції для роботи з колекціями також визначені на основі протоколів. Для прикладу у цьому розділі ми змусимо нативні рядки з JavaScript працювати як колекції.
 
-The most important function for working with collection is `conj`, defined in the `ICollection` protocol.  Strings are the only type which makes sense to `conj` to a string, so the `conj` operation for strings will be simply a concatenation:
+Найважливіша функція для роботи з колекціями — це `conj`, що її визначено у протоколі `ICollection`. Рядки — це єдиний тип, до яких має сенс застосовувати операцію `conj`, тому операція `conj` для рядків буде просто конкатенацією:
 
 ```clojure
 (extend-type string
@@ -146,7 +141,7 @@ The most important function for working with collection is `conj`, defined in th
 ;; => "foobarbaz"
 ```
 
-Another handy function for working with collections is `empty`, which is part of the `IEmptyableCollection` protocol. Let's implement it for the string type:
+Інша зручна функція для роботи з колекціями — `empty`, що є частиною протоколу `IEmptyableCollection`. Реалізуємо її для рядків:
 
 ```clojure
 (extend-type string
@@ -158,14 +153,14 @@ Another handy function for working with collections is `empty`, which is part of
 ;; => ""
 ```
 
-We used the `string` special symbol for extending the native JavaScript string. If you want to learn more about it check the xref:extending-javascript-types[section about extending JavaScript types].
+Ми використовували спеціальний символ `string` для розширення нативних рядків з JavaScript. За більш детальною інформацією рекомендуємо звернутися до розділу про розширені типи JavaScript.
 
 
-##### Collection traits
+##### Особливості колекцій
 
-There are some qualities that not all collections have, such as being countable in constant time or being reversible. These traits are splitted into different protocols since not all of them make sense for every collection. For illustrating these protocols we'll use the `Pair` type we defined earlier.
+Певні риси притаманні не усім колекціям, зокрема зліченність за постійний час, здатність до обернення. Такі риси розподіляються між різними протоколами, бо не усі ці риси підходять до кожної колекції. Для демонстрації відповідних протоколів скористаємося типом `Pair`, який ми визначили раніше.
 
-For collections that can be counted in constant time using the `count` function we can implement the `ICounted` protocol. It should be easy to implement it for the `Pair` type:
+Для колекції, обсяг яких може бути злічений за постійний час за допомогою функції `count`, ми можемо визначити протокол `ICounted`. Реалізувати такий протокол для типу `Pair` нескладно:
 
 ```clojure
 (extend-type Pair
@@ -179,7 +174,7 @@ For collections that can be counted in constant time using the `count` function 
 ;; => 2
 ```
 
-Some collection types such as vectors and lists can be indexed by a number using the `nth` function. If our types are indexed we can implement the `IIndexed` protocol:
+Певні типи колекцій (вектори, переліки) можуть бути проіндексовані за порядковим номером за допомогою функції `nth`. До проіндексованих типів можна застосувати протокол `IIndexed`:
 
 ```clojure
 (extend-type Pair
@@ -209,20 +204,11 @@ Some collection types such as vectors and lists can be indexed by a number using
 ;; => :default
 ```
 
-////
-TODO: ISorted?
-////
+#### Асоціативні структури
 
-////
-TODO: IReversible?
-////
+Існує багато структур даних, що відображають ключі на значення. Такі структури називаються асоціативними.Ми вже познайомилися з великою кількістю таких структур та функцій, що працюють з ними, зокрема `get`, `assoc` та `dissoc`. Розглянемо протоколи, на яких грунтуються ці функції.
 
-
-#### Associative
-
-There are many data structures that are associative: they map keys to values. We've encountered a few of them already and we know many functions for working with them like `get`, `assoc` or `dissoc`. Let's explore the protocols that these functions build upon.
-
-First of all, we need a way to look up keys on an associative data structure. The `ILookup` protocol defines a function for doing so, let's add the ability to look up keys in our `Pair` type since it is an associative data structure that maps the indices 0 and 1 to values.
+Перш за все, нам потрібен спосіб отримувати значення за ключем з асоціативних струтур даних. Протокол `ILookup` визначає функцію для цього. Додамо можливість отримувати значення за ключем до типу `Pair`, адже це асоціативна структура, що відображає індекси 0 та 1 на значення.
 
 ```clojure
 (extend-type Pair
@@ -249,7 +235,7 @@ First of all, we need a way to look up keys on an associative data structure. Th
 ;; => :default
 ```
 
-For using `assoc` on a data structure it must implement the `IAssociative` protocol. For our `Pair` type only 0 and 1 will be allowed as keys for associating values. `IAssociative` also has a function for asking whether a key is present or not.
+Для застосування функції `assoc` до струтури даних, така структура має реалізовувати протокол `IAssociative`. Для типу `Pair` дозволяється лише два значення ключів — 0 та 1. `IAssociative` також має функцію для запиту інформації щодо наявності певного ключа. 
 
 ```clojure
 (extend-type Pair
@@ -279,7 +265,7 @@ For using `assoc` on a data structure it must implement the `IAssociative` proto
 ;; Error: Can only assoc to 0 and 1 keys
 ```
 
-The complementary function for `assoc` is `dissoc` and it's part of the `IMap` protocol. It doesn't make much sense for our `Pair` type but we'll implement it nonetheless. Dissociating 0 or 1 will mean putting a `nil` in such position and invalid keys will be ignored.
+Функція, що є доповненням до `assoc`, це `dissoc`. `dissoc` є частиною протоколу `IMap`. Для нашого типу `Pair` ця функція не дуже корисна, але ми її реалізуємо. `dissoc` при застосуванні до 0 чи 1 встановлює значення `nil` у таку позицію, а недійсні ключі буде проігноровано.
 
 ```clojure
 (extend-type Pair
@@ -306,7 +292,7 @@ The complementary function for `assoc` is `dissoc` and it's part of the `IMap` p
 ;; => #<Pair ,>
 ```
 
-Associative data structures are made of key and value pairs we can call entries. The `key` and `val` functions allow us to query the key and value of such entries and they are built upon the `IMapEntry` protocol. Let's see a few examples of `key` and `val` and how map entries can be used to build up maps:
+Асоціативні струтури даних складаються з ключів та значень, які попарно називаються записами. Функції `key` та `val` дозволяю робити запити за ключем або значенням такого запису і грунтуються на протоколі `IMapEntry`. Розглянемо кілька прикладів функцій `key` та `val`, та подивимося, як записи можна використовувати для побудови відображень:
 
 ```clojure
 (key [:foo :bar])
@@ -319,7 +305,7 @@ Associative data structures are made of key and value pairs we can call entries.
 ;; => {:foo :bar, :baz :xyz}
 ```
 
-Pairs can be map entries too, we treat their first element as the key and the second as the value:
+Пари також можуть бути відображеннями. Ми розглядаємо перші елементи як ключі, а другі — як значення:
 
 ```clojure
 (extend-type Pair
@@ -343,10 +329,9 @@ Pairs can be map entries too, we treat their first element as the key and the se
 ;; => {1 2}
 ```
 
+#### Порівняння
 
-#### Comparison
-
-For checking whether two or more values are equivalent with `=` we must implement the `IEquiv` protocol. Let's do it for our  `Pair` type:
+Для перевірки еквівалентності значень через `=` слід реалізувати протокол `IEquiv`. Зробимо це для типу `Pair`:
 
 ```clojure
 (def p  (Pair. 1 2))
@@ -373,13 +358,9 @@ For checking whether two or more values are equivalent with `=` we must implemen
 ;; => true
 ```
 
-////
-TODO: IHash?
-////
+Типи також можна порівнювати. Функція `compare` отримує два значення та повертає відʼємне число, якщо перше значення менше за друге, 0 якщо значення рівні, та 1 якщо перше більше за друге. Для порівняння типів необхідно реалізувати протокол `IComparable`.
 
-We can also make types comparable. The function `compare` takes two values and returns a negative number if the first is less than the second, 0 if both are equal and 1 if the first is greater than the second. For making our types comparable we must implement  the `IComparable` protocol.
-
-For pairs, comparison will mean checking if the two first values are equal. If they are, the result will be the comparison of the second values. If not, we will return the result of the first comparison:
+Порівняння пар означатиме перевірку, чи два перші значення рівні. Якщо це правда, результатом буде порівняння других значень. Інакше кінцевим результатом буде результат порівняння перших значень:
 
 ```clojure
 (extend-type Pair
@@ -404,11 +385,11 @@ For pairs, comparison will mean checking if the two first values are equal. If t
 ```
 
 
-#### Metadata
+#### Метадані
 
-The `meta` and `with-meta` functions are also based upon two protocols: `IMeta` and `IWithMeta` respectively.  We can make our own types capable of carrying metadata adding an extra field for holding the metadata and implementing both protocols.
+Функції `meta` та `with-meta` також грунтуються на протоколах, а саме `IMeta` та `IWithMeta`. Для того, щоб наші типи також підтримували можливість додання метаданих, слід реалізувати додання додаткового поля для запису метаданих та реалізацію обох протоколів.
 
-Let's implement a version of `Pair` that can have metadata:
+Реалізуємо версію типу `Pair` із метаданими:
 
 ```clojure
 (deftype Pair [fst snd meta]
@@ -434,19 +415,17 @@ Let's implement a version of `Pair` that can have metadata:
 ```
 
 
-#### Interoperability with JavaScript
+#### Взаємодія з JavaScript
 
+ClojureScript  є гостьовою мовою у віртуальній машині JavaScript, тому часто виникає необхідність конвертації структур даних ClojureScript у відповідні структури JavaScript та навпаки. Також може зʼявитися необхідність участі типів JavaScript в абстраціях, представлених як протоколи.
 
-Since ClojureScript is hosted in a JavaScript VM we often need to convert ClojureScript data structures to JavaScript ones and viceversa. We also may want to make native JS types participate in an abstraction represented by a protocol.
+##### Розширення типів JavaScript
 
+Коли необхідно розширити обʼєкти JavaScript, слід використовувати спеціальни символи замість глобальних обʼєктів `js/String`, `js/Date`тощо. Таке обмеження захищає глобальні обʼєкти від небажаних мутацій.
 
-##### Extending JavaScript types
+Символи для розширення типів JavaScript — `object`, `array`, `number`, `string`, `function`, `boolean` та `nil`. Останній використовується для обʼєкта null. Розміщення протоколу на обʼєкти використовує функцію `goog.typeOf` бібліотеки Google Closure. Є Спеціальний символ `default` для стандартних реалізацій протоколу для будь-якого типу.
 
-When extending JavaScript objects instead of using JS globals like `js/String`, `js/Date` and such, special symbols are used. This is done for avoiding mutating global JS objects.
-
-The symbols for extending JS types are: `object`, `array`, `number`, `string`, `function`, `boolean` and `nil` is used for the null object. The dispatch of the protocol to native objects uses Google Closure's link:https://google.github.io/closure-library/api/namespace_goog.html#typeOf[goog.typeOf] function. There's a special `default` symbol that can be used for making a default implementation of a protocol for every type.
-
-For illustrating the extension of JS types we are going to define a `MaybeMutable` protocol that'll have a `mutable?` predicate as its only function. Since in JavaScript mutability is the default we'll extend the default JS type returning true from `mutable?`:
+Продемонструємо розширення типів JavaScript: визначимо протокол `MaybeMutable`, що має єдину функцію — предикат `mutable?`. Змінюваність — це стандартна поведінка у JavaScript, тому розширимо стандартний тип JavaScript, що повертає `true` в результаті виклику функції `mutable?`:
 
 ```clojure
 (defprotocol MaybeMutable
@@ -473,7 +452,7 @@ For illustrating the extension of JS types we are going to define a `MaybeMutabl
 ;; => true
 ```
 
-Since fortunately not all JS object's values are mutable we can refine the implementation of `MaybeMutable` for returning `false` for strings and functions.
+На щастя, не всі значення обʼєктів JavaScript є змінюваними, тому ми можемо змінити реалізацію `MaybeMutable` таким чином, що виклик буде повертати значення `false` для рядків та функцій.
 
 ```clojure
 (extend-protocol MaybeMutable
@@ -501,26 +480,24 @@ Since fortunately not all JS object's values are mutable we can refine the imple
 ;; => false
 ```
 
-There is no special symbol for JavaScript dates so we have to extend `js/Date` directly. The same applies to the rest of the types found in the global `js` namespace.
+Для дат з JavaScript не існує спеціального символу, тому доведеться розширювати `js/Date` напряму. Те саме стосується решти типів, які можна знайти у глобальному просторі `js`.
 
+##### Конвертація даних
 
-##### Converting data
+Для конвертації даних з типів ClojureScript до типів JavaScript та навпаки ми використовуємо функції `clj->js` та `js->clj`, що базуються на протоколах `IEncodeJS` та `IEncodeClojure`.
 
-For converting values from ClojureScript types to JavaScript ones and viceversa we use the `clj->js` and `js->clj` functions, which are based in the `IEncodeJS` and `IEncodeClojure` protocols respectively.
+Наприклад, скористаємося тип Set, що зʼявився у версії ES6. На сьогодні цей тип наявний не в кожному рантаймі.
 
-For the examples we'll use the Set type introduced in ES6. Note that is not available in every JS runtime.
+###### З ClojureScript до JS
 
-
-###### From ClojureScript to JS
-
-First of all we'll extend ClojureScript's set type for being able to convert it to JS. By default sets are converted to JavaScript arrays:
+Перш за все розширимо тип "множина" (set) з ClojureScript так, що його можна буде конвертувати у JS. За замовчування множини конвертуються у масиви:
 
 ```clojure
 (clj->js #{1 2 3})
 ;; => #js [1 3 2]
 ```
 
-Let's fix it, `clj->js` is supposed to convert values recursively so we'll make sure to convert all the set contents to JS and creating the set with the converted values:
+Давайте це виправимо. Функція `clj->js` має конвертувати значення рекурсивно, тому переконаємося у тому, що весь зміст множини сконвертований, та створимо нову множину із конвертованими даними:
 
 ```clojure
 (extend-type PersistentHashSet
@@ -545,13 +522,11 @@ Let's fix it, `clj->js` is supposed to convert values recursively so we'll make 
 ;; => false
 ```
 
-The `es6-iterator-seq` is an experimental function in ClojureScript core for obtaining a seq from an ES6 iterable.
+Функція `es6-iterator-seq` — експериментальна функція в стандартній бібліотеці ClojureScript для отримання послідовності з типів ES6, які можна ітерувати.
 
+###### З JS до ClojureScript
 
-###### From JS to ClojureScript
-
-
-Now it's time to extend the JS set to convert to ClojureScript. As with `clj->js`, `js->clj` recursively converts the value of the data structure:
+Час розширити тип set з JS та конвертувати його у ClojureScript. Подібно до фунції `clj->js`, функція `js->clj` рекурсивно конвертує значення структури даних:
 
 ```clojure
 (extend-type js/Set
@@ -568,14 +543,14 @@ Now it's time to extend the JS set to convert to ClojureScript. As with `clj->js
 ;; => true
 ```
 
-Note that there is no one-to-one mapping between ClojureScript and JavaScript values. For example, ClojureScript keywords are converted to JavaScript strings when passed to `clj->js`.
+Зауважимо, що не існує однозначних відповідностей між значенням ClojureScript та JavaScript. Наприклад, ключові слова ClojureScript при конвертації за допомогою `clj->js` перетворюються на рядки.
 
 
-#### Reductions
+#### Редукції
 
-The `reduce` function is based on the `IReduce` protocol, which enables us to make our own or third-party types reducible. Apart from using them with `reduce` they will automatically work with `transduce` too, which will allow us to make a reduction with a transducer.
+Функція `reduce` базується на протоколі `IReduce`, який дозволяє проводити редукцію сторонніх типів. Окрім використання таких типів із `reduce`, вони також будуть працювати з `transduce`, завдяки чому ми зможемо реалізувати редукцію із перетворювачем.
 
-The JS array is already reducible in ClojureScript:
+Масиви з JS у ClojureScript вже підтримують редукцію:
 
 ```clojure
 (reduce + #js [1 2 3])
@@ -585,7 +560,7 @@ The JS array is already reducible in ClojureScript:
 ;; => [2 3 4]
 ```
 
-However, the new ES6 Set type isn't so let's implement the `IReduce` protocol. We'll get an iterator using the Set's `values` method and convert it to a seq with the `es6-iterator-seq` function; after that we'll delegate to the original `reduce` function to reduce the obtained sequence.
+Але нові типи, що зʼявилися у версії ES6, не надають такої можливості, тому для них ми реалізуємо протокол `IReduce`. Ми отримаємо ітератор за допомогою функції `values`  множини та конвертуємо цей ітератор за допомогою функції `es6-iterator-seq` у послідовність. Після цього ми делегуємо редукцію отриманої послідовності оригінальній функції `reduce`.
 
 ```clojure
 (extend-type js/Set
@@ -605,9 +580,9 @@ However, the new ES6 Set type isn't so let's implement the `IReduce` protocol. W
 ;; => [2 3 4]
 ```
 
-Associative data structures can be reduced with the `reduce-kv` function, which is based in the `IKVReduce` protocol. The main difference between `reduce` and `reduce-kv` is that the latter uses a three-argument function as a reducer, receiving the accumulator, key and value for each item.
+До асоційовані структури даних можна застосовувати функцію `reduce-kv`, яка базується на протоколі `IKVReduce`. Основна відмінність між `reduce` та `reduce-kv` полягає у тому, що остання використуває у якості редʼєсера функцію, що очікує три аргумента. 
 
-Let's look at an example, we will reduce a map to a vector of pairs. Note that, since vectors associate indexes to values, they can also be reduced with `reduce-kv`.
+Розглянемо приклад. Ми проведемо редукцію мапи на вектор пар. Зауважте, що вектори поєднують вндекси та значення, тому редукцію векторів також можна проводити за допомогою `reduce-kv`.
 
 ```clojure
 (reduce-kv (fn [acc k v]
@@ -618,7 +593,7 @@ Let's look at an example, we will reduce a map to a vector of pairs. Note that, 
 ;; => [[:foo :bar] [:baz :xyz]]
 ```
 
-We'll extend the new ES6 map type to support `reduce-kv`, we'll do this by getting a sequence of key-value pairs and calling the reducing function with the accumulator, key and value as positional arguments:
+Розширимо новий тип map так, що він буде забезпечувати підтримку `reduce-kv`. Для цього отримаємо послідовність пар "ключ-значення" та викличемо фукнцію-редʼюсер із акумулятором, а ключі та значення передамо як позиційні аргументи: 
 
 ```clojure
 (extend-type js/Map
@@ -641,15 +616,14 @@ We'll extend the new ES6 map type to support `reduce-kv`, we'll do this by getti
 ;; => [["foo" "bar"] ["baz" "xyz"]]
 ```
 
-In both examples we ended up delegating to the `reduce` function, which is aware of reduced values and terminates when encountering one. Take into account that if you don't implement these protocols in terms of `reduce` you will have to check for
-reduced values for early termination.
+В обох прикладах ми здійснили делегування до функції `reduce`, що знає про отримані значення та завершує виконання, коли доходить до таких значень. Зверніть увагу на наступне. Якщо ви не реалізуєте такі протоколи, для використання функції `reduce` вам доведеться перевіряти значення для передчасного припинення виконання.
 
 
-#### Asynchrony
+#### Асинхронність
 
-There are some types that have the notion of asynchronous computation, the value they represent may not be realized yet. We can ask whether a value is realized using the `realized?` predicate.
+Існують типи, що передбачають асинхронні обчислення. Значення, яке представляють такі типи, може не бути реалізованим у певний момент часу. Дізнатися стан реалізації значення можна за допомогою предиката `realized?`.
 
-Let's ilustrate it with the `Delay` type, which takes a computation and executes it when the result is needed.  When we dereference a delay the computation is run and the delay is realized:
+Продемонструємо це на прикладі типу `Delay`, який отримує обчислення та виконує його у той момент, коли зʼявляється потреба у результаті. При запиті значення обчислення відбувається, і відстрочене значення реалізується.
 
 ```clojure
 (defn computation []
@@ -666,26 +640,23 @@ Let's ilustrate it with the `Delay` type, which takes a computation and executes
 ;; => 42
 
 (realized? d)
-;; => true
+ ;; => true
 
 @d
 ;; => 42
 ```
 
-Both `realized?` and `deref` sit atop two protocols: `IPending` and `IDeref`.
+Обидві функції базуються на протоколах, а саме `IPending` та `IDeref`.
 
-ES6 introduced a type that captures the notion of an asynchronous computation that might fail: the Promise.  A Promise represents an eventual value and can be in one of three states:
+Стандарт ES6 представив тип, що уособлює поняття асинхронного обчислення, що може привести до помилки: проміс. Проміс представляє значення, що буде реалізоване через невідомий час, і може знаходитися в одному з трьох станів:
 
- - pending: there is still no value available for this computation.
- - rejected: an error occurred and the promise contains a value that indicates
-   the error.
- - resolved: the computation succesfully executed and the promise contains a
-   value with the result.
+ - `pending`(очікування): значення недоступне для обчислення
+ - `rejected`(відмова): сталася помилка, проміс містить значення, що вказує на помилку
+ - `resolved`(вирішення): обчислення пройшло успішно, проміс містить значення результату
 
+Інтерфейс промісів, визначений у стандарті ES6, не дозволя. дізнатися стан промісу у певний час, ми скористаємося промісами з бібліотеки Bluebird. Проміси Bluebird можна використовувати з бібліотекою [Promesa](https://github.com/funcool/promesa).
 
-Since the ES6 defined interface for promises doesn't support querying its state we'll use Bluebird library's Promise type for the examples. You can use Bluebird's promise type with the link:https://github.com/funcool/promesa[Promesa] library.
-
-First of all we'll add the ability to check if a promise is realized (either resolved or rejected) using the `realized?` predicate. We just have to implement the `IPending` protocol:
+Почнемо з того, що додамо можливість перевірки, чи проміс здійснився (має стан resolved або rejected) за допомогою предиката `realized?`. Необхідно реалізувати протокол `IPending`:
 
 ```clojure
 (require '[promesa.core :as p])
@@ -715,7 +686,7 @@ First of all we'll add the ability to check if a promise is realized (either res
 ;; => true
 ```
 
-Now we'll extend promises to be derefable. When a promise that is still pending is dereferenced we will return a special keyword: `:promise/pending`. If it's not we'll just return the value it contains, be it an error or a result:
+Тепер розширимо тип промісів таким чином, що матимемо змогу отримувати значення проміса. Якщо проміс знаходиться у нереалізованому стані, результатом буде спеціальне ключове слово `:promise/pending`. Інакше отримаємо значення проміса, тобто помилку або результат:
 
 ```clojure
 (require '[promesa.core :as pro])
@@ -744,20 +715,20 @@ Now we'll extend promises to be derefable. When a promise that is still pending 
 ```
 
 
-#### State
+#### Стан
 
-The ClojureScript state constructs such as the Atom and the Volatile have different characteristics and semantics, and the operations on them like `add-watch`, `reset!` or `swap!` are backed by protocols.
+Конструкти стану у ClojureScript(атоми, волатайли) мають різні характеристики та семантику, а операції на таих конструктах, такі як `add-watch`, `reset!` або `swap!` визначаються протоколами.
 
 
-##### Atom
+##### Атом
 
-For ilustrating such protocols we will implement our own simplified version of an `Atom`. It won't support validators nor metadata, but we will be able to:
+Для демонстрації роботи таких протоколів реалізуємо власну спрощену версію `Atom`. Наша версія не матиме підтримки валідаторів та метаданих. Натомість будуть такі функції:
 
-- `deref` the atom for getting its current value
-- `reset!` the value contained in the atom
-- `swap!` the atom with a function for transforming its state
+- `deref` - отримати актуально значення атома
+- `reset!` - присвоїти попереднє значення
+- `swap!` - замінити на функцію для зміни стану
 
-`deref` is based on the `IDeref` protocol. `reset!` is based on the `IReset` protocol and `swap!` on `ISwap`. We'll start by defining a data type and a constructor for our atom implementation:
+Функція `deref` базується на протоколі `IDeref`, `reset!` — на `IReset`, а `swap!`, відповідно, на `ISwap`. Почнемо з визначення типу даних та конструктора для нашої реалізації атома:
 
 ```clojure
 (deftype MyAtom [^:mutable state ^:mutable watches]
@@ -778,9 +749,9 @@ For ilustrating such protocols we will implement our own simplified version of a
 ;; => #<MyAtom 42>
 ```
 
-Note that we've marked both the current state of the atom (`state`) and the map of watchers (`watches`) with the `{:mutable true}` metadata. We'll be modifying them and we're making this explicit with the annotations.
+Зауважте, що ми позначили поточний стан атома (`state`) та мапу спостерігачів  (`watches`) метаданими `{:mutable true}`. Ми будемо змінювати ці дані, і вказуємо це явно за допомогою анотацій.
 
-Our `MyAtom` type is not very useful yet, we'll start by implementing the `IDeref` protocol so we can dereference its current value:
+Наш тип `MyAtom` поки що не дуже корисний. Почнемо з реалізації протоколу `IDeref` для отримання поточного значення атому:
 
 ```clojure
 (extend-type MyAtom
@@ -794,7 +765,7 @@ Our `MyAtom` type is not very useful yet, we'll start by implementing the `IDere
 ;; => 42
 ```
 
-Now that we can dereference it we'll implement the `IWatchable` protocol, which will let us add and remove watches to our custom atom. We'll store the watches in the `watches` map of `MyAtom`, associating keys to callbacks.
+Тепер ми можемо отримати значення атом, тому перейдемо до реалізації протоколу `IWatchable`, завдяки якому ми зможемо додавати та видаляти спостерігачі до нашого атома. Зберагати спостерігачі будемо у мапі `watches`, поєднуючі ключі та функції-колбеки.
 
 ```clojure
 (extend-type MyAtom
@@ -812,7 +783,7 @@ Now that we can dereference it we'll implement the `IWatchable` protocol, which 
       (f key a oldval newval))))
 ```
 
-We can now add watches to our atom but is not very useful since we still can't change it. For incorporating change we have to implement the `IReset` protocol and make sure we notify the watches every time we reset the atom's value.
+Ми можемо додавати нові спостерігачі до атома, але це не дуже корисно, бо ми не можемо його змінювати. Для змін необхідно реалізувати протокол `IReset` та подбати про те, щоб повідомляти спостерігачів про зміну значення атома.
 
 ```clojure
 (extend-type MyAtom
@@ -824,7 +795,7 @@ We can now add watches to our atom but is not very useful since we still can't c
       newval)))
 ```
 
-Now let's check that we got it right. We'll add a watch, change the atom's value making sure the watch gets called and then remove it:
+Переконаємося у правильності результату. Додамо спостерігач, змінимо значення атома, викличемо спостерігач та видалимо його:
 
 ```clojure
 (def a (my-atom 41))
@@ -847,8 +818,7 @@ Now let's check that we got it right. We'll add a watch, change the atom's value
 ;; => 43
 ```
 
-Our atom is still missing the swapping functionality so we'll add that now, let's implement the `ISwap` protocol. There are four arities for the `-swap!` method of the protocol since the function passed to `swap!` may take one, two, three or more
-arguments:
+Реалізуємо також протокол `ISwap`. Метод `-swap!` може отримувати один, два, три або чотири аргумента:
 
 
 ```clojure
@@ -876,7 +846,7 @@ arguments:
        (reset! a newval)))))
 ```
 
-We now have a custom implementation of the atom abstraction, let's test it in the REPL and see if it behaves like we expect:
+ми отримали власну реалізацію абстракції атома. Перевіримо її роботу у REPL та переконаємося, що вона має очікувану поведінку:
 
 ```clojure
 (def a (my-atom 0))
@@ -917,14 +887,13 @@ We now have a custom implementation of the atom abstraction, let's test it in th
 ;; => #<MyAtom 42>
 ```
 
-We did it! We implemented a version of ClojureScript Atom without support for metadata nor validators, extending it to support such features is left as an exercise for the reader. Note that you'll need to modify the `MyAtom` type for being able to store metadata and a validator.
+Вийшло! Ми реалізували версію атома ClojureScript без підтримки метаданих чи валідаторів. Пропонуємо нашим читачам додати ці можливості самостійно для вправи. Зауважте, що вам доведеться змінювати тип `MyAtom` для збереження метаданих та валідатора.
 
+##### Волатайли
 
-##### Volatile
+Волатайли простіші за атоми, бо не підтримують спостереження за змінами. Усі зміни переписують попередні значення як змінювані сутнотсті, що присутні майже у кожній мові. Волатайли грунтуються на протоколі `IVolatile`, що визначає лише метод для `vreset!`, бо `vswap!` реалізований як макрос.
 
-Volatiles are simpler than atoms in that they don't support watching for changes. All changes override the previous value much like the mutable variables present in almost every programming language. Volatiles are based on the `IVolatile` protocol that only defines a method for `vreset!`, since `vswap!` is implemented as a macro.
-
-Let's start by creating our own volatile type and constructor:
+Створимо власний тип та конструктор:
 
 ```clojure
 (deftype MyVolatile [^:mutable state]
@@ -945,7 +914,7 @@ Let's start by creating our own volatile type and constructor:
 ;; => #<MyVolatile 42>
 ```
 
-Our `MyVolatile` still needs to support dereferencing and reseting it, let's implement `IDeref` and `IVolatile`, which will enable use to use `deref`, `vreset!` and `vswap!` in our custom volatile:
+`MyVolatile` все ще має забезпечити підтримку дереферування та повернення до попереднього значення. Реалізуємо `IDeref` та `IVolatile`, що дозволить нам використовувати `deref`, `vreset!` та `vswap!`.
 
 ```clojure
 (extend-type MyVolatile
@@ -975,34 +944,32 @@ Our `MyVolatile` still needs to support dereferencing and reseting it, let's imp
 ```
 
 
-#### Mutation
+#### Мутація
 
-In the xref:transients[section about transients] we learned about the mutable counterparts of the immutable and persistent data structures that ClojureScript provides. These data structures are mutable, and the operations on them end with a bang (`!`) to make that explicit. As you may have guessed every operation on transients is based on protocols.
+З розділу про перехідні струтури даних ми дізналися про змінювані аналоги незмінних та стіфких стуртур даних, що існують у ClojureScript. такі структури даних є змінюваними, а опеарції з такими стуртурами позначаються окличним знаком (`!`) на кінці назви. Як ви могли здогадатися, кожна операція зі змінюваними структурами даних грунтується на протоколі.
 
+##### Від стійких структур до перехідних та навпаки
 
-##### From persistent to transient and viceversa
+Ми дізналися, що можна трансформувати структури даних за допомогою функції `transient`, яка грунтується на протоколі `IEditableCollection`. Для трансформації у стійку структуру використовується `persistent!`, що грунтується на `ITransientCollection`.
 
-We've learned that we can transform a persistent data structure with the `transient` function, which is based on the `IEditableCollection` protocol; for transforming a transient data structure to a persistent one we use `persistent!`, based on
-`ITransientCollection`.
-
-Implementing immutable and persistent data structures and their transient counterparts is out of the scope of this book but we recommend taking a look at ClojureScript's data structure implementation if you are curious.
+Реалізація незмінюваних та стійких структур даних та відповідних змінюваних аналогів не входить до тем, що їх буде розглянуто у цій книзі, але ми рекомендуємо ознайомитися із реалізацією структур даних ClojureScript, якщо ця тема вас зацікавила.
 
 
-##### Case study: the hodgepodge library
+##### Приклад: бібліотека hodgepodge
 
-link:https://github.com/funcool/hodgepodge[Hodgepodge] is a ClojureScript library for treating the browser's local and session storage as if it were a transient data structure. It allows you to insert, read and delete ClojureScript data structures without worrying about encoding and decoding them.
+Бібліотека hodgepodge призначена для управління локальним сховищем та сесіями браузера як перехідними структурами даних у ClojureScript. Ця бібліотека дозволяє вставляти, читати та видаляти структури даних ClojureScript без необхідності кодування та декодування таких даних.
 
-Browser's storage is a simple key-value store that only supports strings. Since all of ClojureScript data structures can be dumped into a string and reified from a string using xref:the-reader[the reader] we can store arbitrary ClojureScript data in storage. We can also extend the reader for being able to read custom data types so we're able to put our types in storage and `hodgepodge` will handle the encoding and decoding for us.
+Сховище браузера — це просте сховище, що зберігає пари "ключ-значення" у вигляді рядків. Завдяки тому, що будь-які струкутри даних ClojureScript можна зберегти як рядки та читати за допомогою the reader, ми можемо зберігати дані на ClojureScript у сховищі. Також можливо розширювати reader таким чином, що стає можливим читання користувацьких типів даних. Завдяки цьому ми можемо зберігати дані, а кодування та декодування довірити бібліотеці `hodgepodge`.
 
-We'll start by wrapping the low-level storage methods with functions. The following operations are supported by the storage:
+Почнемо з того, що огорнемо низькорівневі методи сховища у функції. Сховище дозволяє виконання наступних операцій:
 
-- getting the value corresponding to a key
-- setting a key to a certain value
-- removing a value given its key
-- counting the number of entries
-- clearing the storage
+- отримання знаення, що відповідає ключеві
+- призначення ключеві певного значення
+- видалення значення за ключем
+- підрахунок кількості записів
+- очищення сховища
 
-Let's wrap them in a more idiomatic API for ClojureScript:
+Створимо для цих функцій більш ідіоматичний для ClojureScript інтерфейс:
 
 ```clojure
 (defn contains-key?
@@ -1038,7 +1005,7 @@ Let's wrap them in a more idiomatic API for ClojureScript:
   (.clear storage))
 ```
 
-Nothing too interesting going on there, we just wrapped the storage methods in a nicer API. Now we will define a couple functions for serializing and deserializing ClojureScript data structures to strings:
+Нічого цікавого, ми просто огорнули методи сховища у більш прийнятний інтерфейс. Тепер визначимо кілька функцій для серіалізації стурктур даних ClojureScript у рядки:
 
 ```clojure
 (require '[cljs.reader :as reader])
@@ -1052,14 +1019,14 @@ Nothing too interesting going on there, we just wrapped the storage methods in a
   (memoize reader/read-string))
 ```
 
-The `serialize` function is used for converting a ClojureScript data structure into a string using the `pr-str` function, configuring a couple dynamic variables for obtaining the desired behaviour:
+Функція `serialize` використовується для конвертації структури даних з ClojureScript у рядок за допомогою функції `pr-str` та конфігурування певних динамійних змінних для забезпечення бажаної поведінки:
 
-- `*print-dup*` is set to `true` for a printed object to preserve its type when read later 
-- `*print-readably*` is set to `true` for not converting non-alphanumeric characters to their escape sequences
+- `*print-dup*` призначено значення `true` для збереження типу обʼєктів при подальшому читанні 
+- `*print-readably*` призначено значення `true` для запобігання конвертації не-альфачислових знаків
 
-The `deserialize` function simply invokes the reader's function for reading a string into a ClojureScript data structure: `read-string`. It's memoized for not having to call the reader each time we deserialize a string since we can assume that a repeated string always corresponds to the same data structure.
+Функція `deserialize` викликає функцію читання рядка та збереження результату у структуру ClojureScript: `read-string`. Ця функція мемоізована, тому не буде викликати читання щоразу, коли необхідно серіалізувати рядок, тому що ми виходимо з того, що рядок, що зустрічається більше одного разу, відповідає одній структурі даних.
 
-Now we can start extending the browser's `Storage` type for acting like a transient data structure. Take into account that the `Storage` type is only available in browsers. We'll start by implementing the `ICounted` protocol for counting the items in the storage, we'll simply delegate to our previously defined `length` function:
+Тепер ми можем розширювати вбудований тип `Storage` браузера до поведінки перехідної структури. Не забувайте про те, що тип `Storage` доступний лише у середовищі браузера. Почнемо з реалізації протокола `ICounted` для підрахунку сутностей у сховищі. Звернемося до фукнції `length`, що її ми визначили раніше.
 
 ```clojure
 (extend-type js/Storage
@@ -1068,7 +1035,7 @@ Now we can start extending the browser's `Storage` type for acting like a transi
    (length s)))
 ```
 
-We want to be able to use `assoc!` and `dissoc!` for inserting and deleting key-value pairs in the storage, as well as the ability to read from it. We'll implement the `ITransientAssociative` protocol for `assoc!`, `ITransientMap` for `dissoc!` and `ILookup`  for reading storage keys.
+Ми б хотіли застосовувати функцію `assoc!` and `dissoc!` для додання та видалення пар "ключ-значення" зі сховища, а також для забезпечення можливості читання. Реалізуємо протокол `ITransientAssociative` для `assoc!`, `ITransientMap` для `dissoc!` та `ILookup`  для читання ключів зі сховища.
 
 ```clojure
 (extend-type js/Storage
@@ -1093,7 +1060,7 @@ We want to be able to use `assoc!` and `dissoc!` for inserting and deleting key-
            not-found)))))
 ```
 
-Now we're able to perform some operations on either session or local storage, let's give them a try:
+Тепер ми можем виконати деякі операції зі сховищем сесії та з локальним сховищем. Спробуємо це зробити:
 
 ```clojure
 (def local-storage js/localStorage)
@@ -1113,7 +1080,7 @@ Now we're able to perform some operations on either session or local storage, le
 ;; => :default
 ```
 
-Finally, we want to be able to use `conj!` and `persistent!` on local storage so we must implement the `ITransientCollection` protocol, let's give it a go:
+Насамкінець ми хочемо використовувати функцію `conj!` та `persistent!` із локальним сховищем, тому слід реалізувати протокол `ITransientCollection`:
 
 ```clojure
 (extend-type js/Storage
@@ -1130,7 +1097,7 @@ Finally, we want to be able to use `conj!` and `persistent!` on local storage so
             [(deserialize k) (deserialize v)]))))
 ```
 
-`conj!` simply obtains the key and value from the map entry and delegates to `assoc!`. `persistent!` deserializes every key-value pair in the storage and returns an immutable snapshot of the storage as a ClojureScript map. Let's try it out:
+Функція `conj!` отримує ключ та значення з запису та передає ці дані функції `assoc!`. Функція `persistent!` десеріалізує кожну пару "ключ-значення" у сховищі та повертає незмінну копію сховища у вигляді мапи.
 
 ```clojure
 (clear! local-storage)
@@ -1146,11 +1113,11 @@ Finally, we want to be able to use `conj!` and `persistent!` on local storage so
 ```
 
 
-##### Transient vectors and sets
+##### Перехідні вектори та множини
 
-We've learned about most of the protocols for transient data structures but we're missing two: `ITransientVector` for using `assoc!` on transient vectors and `ITransientSet` for using `disj!` on transient sets.
+Ми познайомилися з більшістю протоколів для перехідних даних, окрім двох — `ITransientVector`, що дозволяє використовувати функцію `assoc!` зі змінюваними векторами, та `ITransientSet` для використання `disj!` з множинами.
 
-For illustrating the `ITransientVector` protocol we'll extend the JavaScript array type for making it an associative transient data structure:
+Продемонструємо протокол `ITransientVector`: розширимо тип масиву так, що він стане перехідною структурою даних:
 
 ```clojure
 (extend-type array
@@ -1178,7 +1145,7 @@ For illustrating the `ITransientVector` protocol we'll extend the JavaScript arr
 ;; => #js [42 43 44]
 ```
 
-For illustrating the `ITransientSet` protocol we'll extend the ES6 Set type for making it a transient set, supporting the `conj!`, `disj!` and `persistent!` operations. Note that we've extended the Set type previously for being able to convert it to ClojureScript and we'll take advantage of that fact.
+Для демонстрації протоколу `ITransientSet` розширимо тип `Set` зі стандарту ES6 до перехідної структури, що підтримує операції `conj!`, `disj!` та `persistent!`. Зауважимо, що попередньо ми розширили тип Set таким чином, що його можна перетворити на структуру ClojureScript.
 
 ```clojure
 (extend-type js/Set
