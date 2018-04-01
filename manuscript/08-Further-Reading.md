@@ -1,10 +1,10 @@
-## Further Reading
+## Подальше читання
 
-Here is a list of more resources about ClojureScript.
+Ось список додаткових ресурсів про ClojureScript.
 
-* [ClojureScript wiki](https://github.com/clojure/clojurescript/wiki): a community-mantained wiki about ClojureScript.
-* [API Reference](https://github.com/cljsinfo/cljs-api-docs/blob/catalog/INDEX.md): a community-maintained complete language api reference.
-* [ClojureScript Cheatsheet](http://cljs.info/cheatsheet/): a comprehensive reference of the ClojureScript language.
-* [Études for ClojureScript](http://catcode.com/etudes-for-clojurescript/toc.html): a collection of exercises for learning ClojureScript.
-* [ClojureScript made easy](http://clojurescriptmadeeasy.com/): a collection of short articles about solving common problems in ClojureScript.
-* [The Google Closure Library API reference](http://google.github.io/closure-library/api/)
+* [ClojureScript wiki](https://github.com/clojure/clojurescript/wiki) — wiki-сторінки про ClojureScript, які підтримуються спільнотою.
+* [Довідник API](https://github.com/cljsinfo/cljs-api-docs/blob/catalog/INDEX.md) — повний довідник API мови, який підтримує спільнота.
+* [Шпаргалка ClojureScript](http://cljs.info/cheatsheet/) — повний довідник мови ClojureScript.
+* [Етюди ClojureScript](http://catcode.com/etudes-for-clojurescript/toc.html) — колекція завдань для вивчення ClojureScript.
+* [ClojureScript по-простому](http://clojurescriptmadeeasy.com/) — колекція коротких статей про вирішення типових проблем з ClojureScript.
+* [Довідник API бібліотеки Google Closure](http://google.github.io/closure-library/api/)
