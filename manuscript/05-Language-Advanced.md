@@ -1,3 +1,3 @@
-## Language (advanced topics)
+## Мова (поглиблені теми)
 
-This chapter intends to explain some advanced topics that are part of the language and that does not fit in the first chapter. The good candidates for this section are transducers, core protocols,transients, metadata. In summary: topics that are not mandatory for understand the language.
+У цій главі мова піде про поглиблені теми, які є частиною мови, але не вклались у першу главу. У цій главі знайдуть своє місце розділи присвячені перетворювачам, основним протоколам, перехідним структурам даних, метаданим. У підсумку: теми, які не є обов’язковими щоб зрозуміти мову.
