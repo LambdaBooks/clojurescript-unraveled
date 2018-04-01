@@ -1,3 +1,5 @@
-This chapter will be a little introduction to ClojureScript without assumptions about previous knowledge of the Clojure language, providing a quick tour over all the things you will need to know about ClojureScript and understand the rest of this book.
+## Мова (основи)
 
-You can run the code snippets in the online interactive repl: http://www.clojurescript.io/
+Ця глава — коротки вступ до ClojureScript який не вимагає попереднього досвіду з мовою Clojure. У ньому ми зробимо короткий огляд речей, які необхідно знати про ClojureScript та які потрібні, щоб зрозуміти решту матеріалу цієї книжки.
+
+Ви можете запускати приклади коду у інтерактивній онлайн-пісочниці: http://www.clojurescript.io/
