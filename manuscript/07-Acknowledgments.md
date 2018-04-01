@@ -1,21 +1,21 @@
-## Acknowledgments
+## Подяки
 
-Special thanks to:
+Окрема подяка:
 
-* *J David Eisenberg*: For the huge amount of time spend in fixing all kind of errors and writing entire sections of the book, as well as making very valuable suggestions.
+* *J David Eisenberg* — за значну кількість часу витраченого на виправлення різного роду помилок,написання цілих розділів книги та дуже цінні рекомендації.
 
-And here is an inevitably incomplete list of MUCH-APPRECIATED CONTRIBUTORS — people who have submitted corrections, new ideas and generally made the _ClojureScript Unraveled_ book much better:
+Нижче наведений далеко не повний список ДУЖЕ ЦІНОВАНИХ УЧАСНИКІВ — людей, які надсилали корективи, нові ідеї і загалом робили книгу _«Розплутаний ClojureScript»_ значно кращою:
 
-* Anler Hernández Peral (@anler)
-* Diego Sevilla Ruiz (@dsevilla)
-* Eduardo Ferro Aldama (@eferro)
-* Tyler Anderson (@Tyler-Anderson)
-* Chris Ulrich (@chrisulrich)
-* Jean Hadrien Chabran (@jhchabran)
-* Tienson Qin (@tiensonqin)
-* FungusHumungus (@FungusHumungus),
-* Chris Charles (@ccharles)
-* Jearvon Dharrie (@iamjarvo)
-* Shaun LeBron (@shaunlebron)
-* Wodin (@wodin)
-* Crocket (@crocket)
+* Anler Hernández Peral ([@anler](https://github.com/anler))
+* Diego Sevilla Ruiz ([@dsevilla](https://github.com/dsevilla))
+* Eduardo Ferro Aldama ([@eferro](https://github.com/eferro))
+* Tyler Anderson ([@Tyler-Anderson](https://github.com/Tyler-Anderson))
+* Chris Ulrich ([@chrisulrich](https://github.com/chrisulrich))
+* Jean Hadrien Chabran ([@jhchabran](https://github.com/jhchabran))
+* Tienson Qin ([@tiensonqin](https://github.com/tiensonqin))
+* FungusHumungus ([@FungusHumungus)](https://github.com/FungusHumungus)),
+* Chris Charles ([@ccharles](https://github.com/ccharles))
+* Jearvon Dharrie ([@iamjarvo](https://github.com/iamjarvo))
+* Shaun LeBron ([@shaunlebron](https://github.com/shaunlebron))
+* Wodin ([@wodin](https://github.com/wodin))
+* Crocket ([@crocket](https://github.com/crocket))
