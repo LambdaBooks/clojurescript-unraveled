@@ -1,14 +1,14 @@
-## Tooling & Compiler
+## Інструментарій та компілятор 
 
-This chapter will cover a little introduction to existing tooling for making things easy when developing using ClojureScript. It will cover:
+У цій главі ми познайомимось з інструментарієм, який існує зараз, для полегшення розробки з використанням ClojureScript. У ній ми розглянемо:
 
-* Using the REPL
-* Leiningen and cljsbuild
-* Google Closure Library
-* Modules
-* Unit testing
-* Library development
-* Browser based development
-* Server based development
+* Використання REPL
+* Leiningen та cljsbuild
+* Бібліотеку Google Closure
+* Модулі
+* Модульне тестування
+* Розробку бібліотек
+* Розробку під браузери
+* Розробку під сервери
 
-Unlike the previous chapter, this chapter intends to tell different stories each independent of the other.
+На відміну від попередньої глави, у цій різні теми не будуть пов’язані одна з одною.
