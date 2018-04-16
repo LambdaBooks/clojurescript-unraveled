@@ -69,7 +69,7 @@
 
 **Переклад:**
 
-[CC BY-NC-ND 4.0][cc-by-nc-nd-4.0] © [Roman Liutikov](https://romanliutikov.com) and LambdaBooks
+[CC BY-NC-SA 4.0][cc-by-nc-sa-4.0] © [Roman Liutikov](https://romanliutikov.com) and LambdaBooks
 
 **Оригінальний текст:**
 
@@ -90,7 +90,7 @@ This book is licensed under a Creative Commons Attribution-ShareAlike 4.0 Intern
 
 <!-- References -->
 
-[cc-by-nc-nd-4.0]: https://creativecommons.org/licenses/by-nc-nd/4.0/
+[cc-by-nc-sa-4.0]: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 [travis-url]: https://travis-ci.org/LambdaBooks/clojurescript-unraveled
 [travis-image]: https://img.shields.io/travis/LambdaBooks/clojurescript-unraveled.svg?style=flat-square
