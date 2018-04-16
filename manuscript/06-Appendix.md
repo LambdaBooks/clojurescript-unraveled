@@ -1,15 +1,15 @@
-### Appendix A: Interactive development with Figwheel
+### Додаток A: Інтрекактивна розробка за допомогою Figwheel
 
-#### Introduction
+#### Вступ
 
-In this project, we will *not* do “Hello World”&#8212; that has been done to death. Instead, this project will be a web page that asks you for your age in years and tells you how many days that is, using an approximation of 365 days per year.
+У цьому проекті ми не будемо у сотий раз писати “Hello World”&#8212;. Натомість створимо веб-сторінку, що запитує вік користувача та перераховує роки у дні, виходячі зі спрощення про 365 днів у році.
 
-For this project, we will use the _figwheel_ leiningen plugin. This plugin creates a fully interactive, REPL-based, autoreloading environment.
+Ми скористаємося плагіном _figwheel_ для `leiningen`. Це плагін створює повністю інтерактивне середовище на базі REPL з функцією автоматичного перезавантаження.
 
 
-#### First steps
+#### Перші кроки
 
-The first step is to create the new project using the _figwheel_ lein template. We will name the project `age`, and create it by typing:
+Найперший крок - створення нового проекта за допомогою шаблона _figwheel_ lein. Для створення проекту під назвою `age` введемо наступні команди:
 
 ```bash
 $ lein new figwheel age
@@ -19,7 +19,7 @@ Generating fresh 'lein new' figwheel project.
 $ cd age # move into newly created project directory
 ```
 
-The project has the following structure:
+Проект має таку структуру:
 
 ```
 > tree age      # the linux "tree" utility displays dir structure
@@ -37,9 +37,9 @@ age
         └── core.cljs
 ```
 
-The `project.clj` file contains information that Leiningen uses to download dependencies and build the project. For now, just trust that everything in that file is exactly as it should be.
+Файл `project.clj` містить інформацію, що її потребує Leiningen для завантаження залежностей та зборки проекту. Домовимося поки що вважати, в ньому є все необхідне для коректної роботи та не розглядати його зміст детально.
 
-Open the `index.html` file and make it look like the following:
+Відкрийте `index.html` та додайте наступний код:
 
 ```html
 <!DOCTYPE html>
@@ -63,7 +63,7 @@ Open the `index.html` file and make it look like the following:
 </html>
 ```
 
-The `core.cljs` file is where all the action takes place. For now, leave it exactly as it is, and start the figwheel environment, which will load a large number of dependencies and start a server.
+Найцікавіше відбувається у файлі `core.cljs`. Поки що не міняйте в ньому нічого та запустіть оточення figwheel, яке завантажить велику кількість залежностей, та запустіть сервер.
 
 ```bash
 $ lein figwheel
@@ -74,11 +74,11 @@ Retrieving org/clojure/clojurescript/1.7.228/clojurescript-1.7.228.pom from cent
 Prompt will show when Figwheel connects to your application
 ```
 
-If you are using Linux or Mac OS X, type the command as `rlwrap lein figwheel`. In your browser, go to URL `http://localhost:3449`, and you will see something like the following screenshot if you open up the web console.
+Якщо ви користуєтеся операційною системою Linux або Mac OS X, введіть команду `rlwrap lein figwheel`. У браузері перейдіть за посиланням `http://localhost:3449`. Відкривши консоль, ви маєте побачити щось подібне до наступного скріншота:
 
 image::localhost1.png[Screenshot of web page and console]
 
-The terminal will then give you a REPL prompt:
+У терміналі зʼявиться наступне поведомлення:
 
 ```
 $ rlwrap lein figwheel
@@ -86,30 +86,30 @@ To quit, type: :cljs/quit
 cljs.user=>
 ```
 
-For now, do what it says in the `core.cljs` file -- change the `(println...)` and then save the file. When you do so, you will see the change reflected immediately in the browser.
+Виконайте цю рекомендацію, а саме в файлі `core.cljs` замініть `(println...)` та збережіть файл. Зміни будуть образу відображені у браузері.
 
-Then make an error by adding an extra closing parenthesis to the `println`. When you save the file, will see a compile error in the browser window.
+Зробіть навмисну помилку: додайте зайву закриваючу дужку до `println`. Після збереження файлу браузер має показати помилку компіляції.
 
 
-#### Interacting with JavaScript
+#### Взаємодія з JavaScript
 
-In the REPL window, type the following to invoke JavaScript’s `window.alert()` function:
+У вікні REPL введіть наступну команду для виклику функції `window.alert()`:
 
 ```clojure
 (.alert js/window "It works!")
 ;; => nil
 ```
 
-The general format for invoking a JavaScript function from ClojureScript is to give the function name (preceded by a dot), the object that “owns” the function, and any parameters to that function. You should see an alert appear in your browser window; when you dismiss the alert, the REPL will print `nil` and give you another prompt. You can also do it this way:
+У загальному випадку виклик функцій JavaScript з контексту ClojureScript передбачає введення імені функції (перед яким вводиться крапка), обʼєкту, який містить цю функцію, та будь-яких необхідних параметрів. Після введеня команди ви маєте побачити вікно повідомлення у браузері. Натисніть "відміна", і побачите у терміналі `nil` та запит наступної команди. Інший спосіб:
 
 ```clojure
 (js/alert "It works!")
 ;; => nil
 ```
 
-However, the first version always works, so, for consistency, we will use that notation throughout this tutorial.
+Перший варіант працює у будь-якому випадку, тому для консистентності ми будемо користуватися ним у цьому уроці.
 
-JavaScript objects may be instanciated from ClojureScript using the same interop syntax as for Java/Clojure interop, using the class name followed by a dot. JavaScript methods may also be called using the familiar interop syntax:
+Обʼєкти JavaScript можна створювати з контексту ClojureScript за допомогою того ж самого синтаксису - вводити імʼя класу та крапку. Методи JavaScript також можна викликати:
 
 ```clojure
 > (def d (js/Date.))
@@ -126,7 +126,7 @@ JavaScript objects may be instanciated from ClojureScript using the same interop
 ;; => #object[HTMLInputElement [object HTMLInputElement]]
 ```
 
-The next example shows where we’re headed. To retrieve an object’s property, use the dot-dash or "access" syntax `.-` before the property name. In the browser window, type a number into the input field (in the example, we typed `24`), then do this in the REPL.
+Настіпний приклад має зробити наші кроки більш зрозумілими. Для читання властивості обʼєкта слід використовувати синтаксис з крапкою та дефісом: вводити `.-` перед назвою властивості. У вікні браузера введіть число у поле для вводу (24 у нашому прикладі), потім поверніться до терміналу.
 
 ```clojure
 (def year-field (.getElementById js/document "years"))
@@ -139,9 +139,9 @@ The next example shows where we’re headed. To retrieve an object’s property,
 ;; => "25"
 ```
 
-This works, but it is little more than a direct translation of JavaScript to ClojureScript. The next step is to add event handling to the button. Event handling is loaded with all sorts of cross-platform compatibility issues, so we’d like a step up from plain ClojureScript.
+Все праціє, але поки що ми побачили лише трохи більше, ніж прямий переклад з JavaScript на ClojureScript. Наступним кроком додамо обробник подій на кнопку. Обробка подій ускладнюється особливостями крос-платформної взаємодії, тому виконувати її на на простому ClojureScript не бажано.
 
-The solution is the Google Closure library. To use it, you have to modify the `:require` clause at the beginning of `core.cljs`:
+Рішенням є використання бібліотеки Google Closure library. Для вібключення цієї бібіліотеки внесіть зміни до `:require` на початку файла `core.cljs`:
 
 ```clojure
 (ns ^:figwheel-always age.core
@@ -149,7 +149,7 @@ The solution is the Google Closure library. To use it, you have to modify the `:
             [goog.events :as events]))
 ```
 
-Getting an element and setting its value is now slightly easier. Do this in the REPL and see the results in the browser window.
+Тепер отримати доступ до елементу та задати його знчення стало простіше. Виконайте наступні кроки у терміналі REPL та спостерігайте за змінами у вікні браузера:
 
 ```clojure
 (in-ns 'age.core)
@@ -163,7 +163,7 @@ Getting an element and setting its value is now slightly easier. Do this in the 
 ;; => nil
 ```
 
-To add an event, you define a function that takes a single argument (the event to be handled), and then tell the appropriate HTML element to listen for it. The `events/listen` function takes three arguments: the element to listen to, the event to listen for, and the function that will handle the event.
+Щоб додати подію, слід визначити функцію від одного аргумента (а саме події, яку треба оборобити), та наказати відповідному елементу HTML очікувати на потрібну подію. Функція `events/listen` приймає три аргумента: елемент, подію та функцію-обробник.
 
 ```clojure
 (defn testing [evt] (js/alert "Responding to click"))
@@ -173,14 +173,14 @@ To add an event, you define a function that takes a single argument (the event t
 ;; => #<[object Object]>
 ```
 
-After doing this, the browser should respond to a click on the button.  If you would like to remove the listener, use `unlisten`.
+Після цього браузер має реагувати на натискання на кнопку. Для видалення обробника подій слід викликати функцію `unlisten`.
 
 ```clojure
 (events/unlisten (dom/getElement "calculate") "click" testing)
 ;; => true
 ```
 
-Now, put that all together in the `core.cljs` file as follows:
+Зберемо усе разом у файлі `core.cljs`:
 
 ```clojure
 (ns ^:figwheel-always age.core
@@ -202,16 +202,16 @@ Now, put that all together in the `core.cljs` file as follows:
 ```
 
 
-### Appendix B: Setting up a ClojureScript development environment
+### Додаток B: Налаштування оточення для розробки на ClojureScript
 
 #### Cursive
 
-TODO
+Розділ не завершено.
 
 #### Emacs
 
-TODO
+Розділ не завершено.
 
 #### Vim
 
-TODO
+Розділ не завершено.
