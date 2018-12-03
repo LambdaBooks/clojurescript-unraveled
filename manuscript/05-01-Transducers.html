@@ -1,0 +1,1242 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Перетворювачі · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="05-02-Transients.html" />
+    
+    
+    <link rel="prev" href="05-Language-Advanced.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"LambdaBooks/clojurescript-unraveled","types":["star"],"size":"small"};
+    </script>
+
+    <link href="http://lambdabooks.com/clojurescript-unraveled/rss.xml" title="Розплутаний ClojureScript" rel="alternate" type="application/rss+xml" />
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Розплутаний ClojureScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-About-this-book.html">
+            
+                <a href="01-About-this-book.html">
+            
+                    
+                    Про цю книгу
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-Introduction.html">
+            
+                <a href="02-Introduction.html">
+            
+                    
+                    Вступ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="03-Language-Basics.html">
+            
+                <a href="03-Language-Basics.html">
+            
+                    
+                    Мова (основи)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="03-01-First-steps-with-Lisp-syntax.html">
+            
+                <a href="03-01-First-steps-with-Lisp-syntax.html">
+            
+                    
+                    Перші кроки з Lisp–синтаксисом
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="03-02-The-base-data-types.html">
+            
+                <a href="03-02-The-base-data-types.html">
+            
+                    
+                    Базові типи даних
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="03-03-Vars.html">
+            
+                <a href="03-03-Vars.html">
+            
+                    
+                    Змінні
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03-04-Functions.html">
+            
+                <a href="03-04-Functions.html">
+            
+                    
+                    Функції
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="03-05-Flow-control.html">
+            
+                <a href="03-05-Flow-control.html">
+            
+                    
+                    Керування потоком виконання
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="03-06-Truthiness.html">
+            
+                <a href="03-06-Truthiness.html">
+            
+                    
+                    Істинність
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="03-07-Locals-Blocks-and-Loops.html">
+            
+                <a href="03-07-Locals-Blocks-and-Loops.html">
+            
+                    
+                    Локальні змінні, блоки та цикли
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="03-08-Collection-types.html">
+            
+                <a href="03-08-Collection-types.html">
+            
+                    
+                    Типи колекцій
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="03-09-Destructuring.html">
+            
+                <a href="03-09-Destructuring.html">
+            
+                    
+                    Деструктурування
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="03-10-Threading-Macros.html">
+            
+                <a href="03-10-Threading-Macros.html">
+            
+                    
+                    Потокові макроси
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="03-11-Reader-Conditionals.html">
+            
+                <a href="03-11-Reader-Conditionals.html">
+            
+                    
+                    Умови читача
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="03-12-Namespaces.html">
+            
+                <a href="03-12-Namespaces.html">
+            
+                    
+                    Простори імен
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="03-13-Abstractions-and-Polymorphism.html">
+            
+                <a href="03-13-Abstractions-and-Polymorphism.html">
+            
+                    
+                    Абстракції і поліморфізм
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.14" data-path="03-14-Data-types.html">
+            
+                <a href="03-14-Data-types.html">
+            
+                    
+                    Типи даних
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.15" data-path="03-15-Host-interoperability.html">
+            
+                <a href="03-15-Host-interoperability.html">
+            
+                    
+                    Сумісність з батьківською платформою
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.16" data-path="03-16-State-management.html">
+            
+                <a href="03-16-State-management.html">
+            
+                    
+                    Керування станом
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="04-Tooling-and-Compiler.html">
+            
+                <a href="04-Tooling-and-Compiler.html">
+            
+                    
+                    Інструментарій та компілятор
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="04-01-Getting-Started-with-the-Compiler.html">
+            
+                <a href="04-01-Getting-Started-with-the-Compiler.html">
+            
+                    
+                    Основи роботи з компілятором
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="04-02-Working-with-the-REPL.html">
+            
+                <a href="04-02-Working-with-the-REPL.html">
+            
+                    
+                    Робота з REPL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="04-03-The-Closure-Library.html">
+            
+                <a href="04-03-The-Closure-Library.html">
+            
+                    
+                    Бібліотека Closure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="04-04-Dependency-management.html">
+            
+                <a href="04-04-Dependency-management.html">
+            
+                    
+                    Керування залежностями
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="04-05-External-dependencies.html">
+            
+                <a href="04-05-External-dependencies.html">
+            
+                    
+                    Зовнішні залежності
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="04-06-Unit-testing.html">
+            
+                <a href="04-06-Unit-testing.html">
+            
+                    
+                    Модульне тестування
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="05-Language-Advanced.html">
+            
+                <a href="05-Language-Advanced.html">
+            
+                    
+                    Мова (поглиблені теми)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.6.1" data-path="05-01-Transducers.html">
+            
+                <a href="05-01-Transducers.html">
+            
+                    
+                    Перетворювачі
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="05-02-Transients.html">
+            
+                <a href="05-02-Transients.html">
+            
+                    
+                    Перехідні структури даних
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="05-03-Metadata.html">
+            
+                <a href="05-03-Metadata.html">
+            
+                    
+                    Метадані
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="05-04-Core-protocols.html">
+            
+                <a href="05-04-Core-protocols.html">
+            
+                    
+                    Основні протоколи
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="05-05-CSP.html">
+            
+                <a href="05-05-CSP.html">
+            
+                    
+                    CSP (з core.async)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="06-Appendix.html">
+            
+                <a href="06-Appendix.html">
+            
+                    
+                    Додатки
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="06-Appendix.html">
+            
+                <a href="06-Appendix.html">
+            
+                    
+                    Додаток А: Інтерактивна розробка з Figwheel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="06-Appendix.html">
+            
+                <a href="06-Appendix.html">
+            
+                    
+                    Додаток Б: Встановлення середовища розробки на ClojureScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="07-Acknowledgments.html">
+            
+                <a href="07-Acknowledgments.html">
+            
+                    
+                    Подяки
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="08-Further-Reading.html">
+            
+                <a href="08-Further-Reading.html">
+            
+                    
+                    Подальше читання
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Перетворювачі</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="&#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;">&#x41F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;</h3>
+<h4 id="&#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x44F;-&#x434;&#x430;&#x43D;&#x438;&#x445;">&#x422;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x44F; &#x434;&#x430;&#x43D;&#x438;&#x445;</h4>
+<p><em>ClojureScript</em>  &#x43C;&#x430;&#x454; &#x432;&#x435;&#x43B;&#x438;&#x43A;&#x438;&#x439; &#x43D;&#x430;&#x431;&#x456;&#x440; &#x456;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x456;&#x432; &#x434;&#x43B;&#x44F; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x43D;&#x44F; &#x434;&#x430;&#x43D;&#x438;&#x445;, &#x449;&#x43E; &#x43F;&#x43E;&#x431;&#x443;&#x434;&#x43E;&#x432;&#x430;&#x43D;&#x456; &#x43D;&#x430;&#x434; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x43A;&#x446;&#x456;&#x454;&#x44E; &#x43F;&#x43E;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x432;&#x43D;&#x43E;&#x441;&#x442;&#x456;. &#x422;&#x430;&#x43A;&#x438;&#x43C; &#x447;&#x438;&#x43D;&#x43E;&#x43C; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x44F; &#x434;&#x430;&#x43D;&#x438;&#x445; &#x441;&#x442;&#x430;&#x454; &#x43D;&#x430;&#x439;&#x431;&#x456;&#x43B;&#x44C;&#x448; &#x443;&#x437;&#x430;&#x433;&#x430;&#x43B;&#x44C;&#x43D;&#x435;&#x43D;&#x43E;&#x44E; &#x442;&#x430; &#x43F;&#x440;&#x438;&#x434;&#x430;&#x442;&#x43D;&#x43E;&#x44E; &#x434;&#x43E; &#x43A;&#x43E;&#x43C;&#x43F;&#x43E;&#x437;&#x438;&#x446;&#x456;&#x457;. &#x41F;&#x43E;&#x434;&#x438;&#x432;&#x438;&#x43C;&#x43E;&#x441;&#x44F;, &#x44F;&#x43A; &#x43F;&#x43E;&#x454;&#x434;&#x43D;&#x430;&#x442;&#x438; &#x43A;&#x456;&#x43B;&#x44C;&#x43A;&#x430; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x439; &#x434;&#x43B;&#x44F; &#x43E;&#x431;&#x440;&#x43E;&#x431;&#x43A;&#x438; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x439; &#x432; &#x43E;&#x434;&#x43D;&#x443;. &#x423; &#x446;&#x44C;&#x43E;&#x43C;&#x443; &#x440;&#x43E;&#x437;&#x434;&#x456;&#x43B;&#x456; &#x43C;&#x438; &#x431;&#x443;&#x434;&#x435;&#x43C;&#x43E; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x432;&#x430;&#x442;&#x438; &#x44F;&#x43A; &#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434; &#x43D;&#x430;&#x441;&#x442;&#x443;&#x43F;&#x43D;&#x435; &#x43D;&#x435;&#x441;&#x43A;&#x43B;&#x430;&#x434;&#x43D;&#x435; &#x437;&#x430;&#x432;&#x434;&#x430;&#x43D;&#x43D;&#x44F;: &#x442;&#x440;&#x435;&#x431;&#x430; &#x440;&#x43E;&#x437;&#x434;&#x456;&#x43B;&#x438;&#x442;&#x438; &#x433;&#x440;&#x43E;&#x43D;&#x430; &#x432;&#x438;&#x43D;&#x43E;&#x433;&#x440;&#x430;&#x434;&#x443; &#x43D;&#x430; &#x43E;&#x43A;&#x440;&#x435;&#x43C;&#x456; &#x44F;&#x433;&#x43E;&#x434;&#x438;, &#x432;&#x456;&#x434;&#x456;&#x431;&#x440;&#x430;&#x442;&#x438; &#x437;&#x456;&#x43F;&#x441;&#x43E;&#x432;&#x430;&#x43D;&#x456; &#x442;&#x430; &#x432;&#x438;&#x43C;&#x438;&#x442;&#x438; &#x440;&#x435;&#x448;&#x442;&#x443;. &#x41C;&#x438; &#x43C;&#x430;&#x454;&#x43C;&#x43E; &#x43D;&#x430;&#x441;&#x442;&#x443;&#x43F;&#x43D;&#x443; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x44E; &#x433;&#x440;&#x43E;&#x43D; &#x432;&#x438;&#x43D;&#x43E;&#x433;&#x440;&#x430;&#x434;&#x443;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> grape-clusters
+  [{<span class="hljs-symbol">:grapes</span> [{<span class="hljs-symbol">:rotten?</span> <span class="hljs-literal">false</span> <span class="hljs-symbol">:clean?</span> <span class="hljs-literal">false</span>}
+             {<span class="hljs-symbol">:rotten?</span> <span class="hljs-literal">true</span> <span class="hljs-symbol">:clean?</span> <span class="hljs-literal">false</span>}]
+    <span class="hljs-symbol">:color</span> <span class="hljs-symbol">:green</span>}
+   {<span class="hljs-symbol">:grapes</span> [{<span class="hljs-symbol">:rotten?</span> <span class="hljs-literal">true</span> <span class="hljs-symbol">:clean?</span> <span class="hljs-literal">false</span>}
+             {<span class="hljs-symbol">:rotten?</span> <span class="hljs-literal">false</span> <span class="hljs-symbol">:clean?</span> <span class="hljs-literal">false</span>}]
+    <span class="hljs-symbol">:color</span> <span class="hljs-symbol">:black</span>}])
+</code></pre>
+<p>&#x41D;&#x430;&#x448;&#x430; &#x43C;&#x435;&#x442;&#x430; &#x2014; &#x43F;&#x456;&#x434;&#x433;&#x43E;&#x442;&#x443;&#x432;&#x430;&#x442;&#x438; &#x432;&#x438;&#x43D;&#x43E;&#x433;&#x440;&#x430;&#x434; &#x434;&#x43E; &#x432;&#x436;&#x438;&#x432;&#x430;&#x43D;&#x43D;&#x44F;, &#x430; &#x441;&#x430;&#x43C;&#x435;  &#x2014; &#x440;&#x43E;&#x437;&#x434;&#x456;&#x43B;&#x438;&#x442;&#x438; &#x433;&#x440;&#x43E;&#x43D;&#x430; &#x43D;&#x430; &#x43E;&#x43A;&#x440;&#x435;&#x43C;&#x456; &#x44F;&#x433;&#x43E;&#x434;&#x438;, &#x432;&#x456;&#x434;&#x456;&#x431;&#x440;&#x430;&#x442;&#x438; &#x437;&#x456;&#x43F;&#x441;&#x43E;&#x432;&#x430;&#x43D;&#x456; &#x442;&#x430; &#x43F;&#x43E;&#x43C;&#x438;&#x442;&#x438; &#x440;&#x435;&#x448;&#x442;&#x443;. &#x417; <em>ClojureScript</em> &#x43C;&#x438; &#x43C;&#x430;&#x454;&#x43C;&#x43E; &#x431;&#x430;&#x433;&#x430;&#x442;&#x438;&#x439; &#x432;&#x438;&#x431;&#x456;&#x440; &#x456;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x456;&#x432; &#x434;&#x43B;&#x44F; &#x432;&#x438;&#x440;&#x456;&#x448;&#x435;&#x43D;&#x43D;&#x44F; &#x446;&#x456;&#x454;&#x457; &#x437;&#x430;&#x434;&#x430;&#x447;&#x456;. &#x417;&#x43E;&#x43A;&#x440;&#x435;&#x43C;&#x430;, &#x43C;&#x438; &#x43C;&#x43E;&#x436;&#x435;&#x43C;&#x43E; &#x441;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x442;&#x438;&#x441;&#x44F; &#x432;&#x436;&#x435; &#x437;&#x43D;&#x430;&#x439;&#x43E;&#x43C;&#x438;&#x43C;&#x438; &#x43D;&#x430;&#x43C; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F;&#x43C;&#x438; <code>map</code>, <code>filter</code> &#x442;&#x430; <code>mapcat</code>:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> split-cluster
+  [c]
+  (<span class="hljs-symbol">:grapes</span> c))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> not-rotten
+  [g]
+  (<span class="hljs-name"><span class="hljs-builtin-name">not</span></span> (<span class="hljs-symbol">:rotten?</span> g)))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> clean-grape
+  [g]
+  (<span class="hljs-name"><span class="hljs-builtin-name">assoc</span></span> g <span class="hljs-symbol">:clean?</span> <span class="hljs-literal">true</span>))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">-&gt;&gt;</span></span> grape-clusters
+     (<span class="hljs-name"><span class="hljs-builtin-name">mapcat</span></span> split-cluster)
+     (<span class="hljs-name"><span class="hljs-builtin-name">filter</span></span> not-rotten)
+     (<span class="hljs-name"><span class="hljs-builtin-name">map</span></span> clean-grape))
+<span class="hljs-comment">;; =&gt; ({rotten? false :clean? true} {:rotten? false :clean? true})</span>
+</code></pre>
+<p>&#x423; &#x446;&#x44C;&#x43E;&#x43C;&#x443; &#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;&#x456; &#x43C;&#x438; &#x443;&#x441;&#x43F;&#x456;&#x448;&#x43D;&#x43E; &#x432;&#x438;&#x440;&#x456;&#x448;&#x438;&#x43B;&#x438; &#x43F;&#x440;&#x43E;&#x431;&#x43B;&#x435;&#x43C;&#x443; &#x432;&#x456;&#x434;&#x431;&#x43E;&#x440;&#x443; &#x442;&#x430; &#x43C;&#x438;&#x442;&#x442;&#x44F; &#x44F;&#x433;&#x456;&#x434;, &#x456; &#x43D;&#x430;&#x432;&#x456;&#x442;&#x44C; &#x43C;&#x43E;&#x436;&#x435;&#x43C;&#x43E; &#x430;&#x431;&#x441;&#x442;&#x440;&#x430;&#x433;&#x443;&#x432;&#x430;&#x442;&#x438; &#x442;&#x430;&#x43A;&#x443; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x44E; &#x448;&#x43B;&#x44F;&#x445;&#x43E;&#x43C; &#x43F;&#x43E;&#x454;&#x434;&#x43D;&#x430;&#x43D;&#x43D;&#x44F; &#x43E;&#x43F;&#x435;&#x440;&#x430;&#x446;&#x456;&#x439; <code>mapcat</code>, <code>filter</code> &#x442;&#x430; <code>map</code> &#x437;&#x430; &#x434;&#x43E;&#x43F;&#x43E;&#x43C;&#x43E;&#x433;&#x43E;&#x44E; &#x447;&#x430;&#x441;&#x442;&#x43A;&#x43E;&#x432;&#x43E;&#x433;&#x43E; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x443;&#x432;&#x430;&#x43D;&#x43D;&#x44F; &#x442;&#x430; &#x43A;&#x43E;&#x43C;&#x43F;&#x43E;&#x437;&#x438;&#x446;&#x456;&#x457; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x439;.</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> process-clusters
+  (<span class="hljs-name"><span class="hljs-builtin-name">comp</span></span>
+    (<span class="hljs-name"><span class="hljs-builtin-name">partial</span></span> map clean-grape)
+    (<span class="hljs-name"><span class="hljs-builtin-name">partial</span></span> filter not-rotten)
+    (<span class="hljs-name"><span class="hljs-builtin-name">partial</span></span> mapcat split-cluster)))
+
+(<span class="hljs-name">process-clusters</span> grape-clusters)
+<span class="hljs-comment">;; =&gt; ({rotten? false :clean? true} {:rotten? false :clean? true})</span>
+</code></pre>
+<p>&#x426;&#x435; &#x447;&#x438;&#x441;&#x442;&#x438;&#x439; &#x43A;&#x43E;&#x434;, &#x430;&#x43B;&#x435; &#x432;&#x456;&#x43D; &#x43C;&#x430;&#x454; &#x43F;&#x435;&#x432;&#x43D;&#x456; &#x432;&#x430;&#x434;&#x438;. &#x41D;&#x430;&#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;, &#x43A;&#x43E;&#x436;&#x435;&#x43D; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A; <code>mapcat</code>, <code>filter</code> &#x442;&#x430; <code>map</code> &#x441;&#x43F;&#x43E;&#x436;&#x438;&#x432;&#x430;&#x454; &#x442;&#x430; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x454; &#x43F;&#x43E;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x432;&#x43D;&#x456;&#x441;&#x442;&#x44C;, &#x44F;&#x43A;&#x430; &#x454; &#x43B;&#x456;&#x43D;&#x438;&#x432;&#x43E;&#x44E;, &#x430;&#x43B;&#x435; &#x442;&#x438;&#x43C; &#x43D;&#x435; &#x43C;&#x435;&#x43D;&#x448; &#x433;&#x435;&#x43D;&#x435;&#x440;&#x443;&#x454; &#x43F;&#x440;&#x43E;&#x43C;&#x456;&#x436;&#x43D;&#x456; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;&#x438;, &#x44F;&#x43A;&#x456; &#x43D;&#x435; &#x431;&#x443;&#x434;&#x443;&#x442;&#x44C; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x43D;&#x456;. &#x41A;&#x43E;&#x436;&#x43D;&#x430; &#x43F;&#x43E;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x432;&#x43D;&#x456;&#x441;&#x442;&#x44C; &#x43F;&#x435;&#x440;&#x435;&#x445;&#x43E;&#x434;&#x438;&#x442;&#x44C; &#x443; &#x43D;&#x430;&#x441;&#x442;&#x443;&#x43F;&#x43D;&#x443; &#x444;&#x430;&#x437;&#x443;, &#x449;&#x43E; &#x442;&#x430;&#x43A;&#x43E;&#x436; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; &#x43F;&#x43E;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x432;&#x43D;&#x456;&#x441;&#x442;&#x44C;. &#x411;&#x443;&#x43B;&#x43E; &#x431; &#x447;&#x443;&#x434;&#x43E;&#x432;&#x43E; &#x432;&#x438;&#x43A;&#x43E;&#x43D;&#x430;&#x442;&#x438; &#x446;&#x44E; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x44E; &#x437;&#x430; &#x43E;&#x434;&#x438;&#x43D; &#x43E;&#x431;&#x445;&#x456;&#x434; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x457; <code>grape-cluster</code>, &#x447;&#x438; &#x43D;&#x435; &#x442;&#x430;&#x43A;?</p>
+<p>&#x414;&#x440;&#x443;&#x433;&#x430; &#x43F;&#x440;&#x43E;&#x431;&#x43B;&#x435;&#x43C;&#x430; &#x43F;&#x43E;&#x43B;&#x44F;&#x433;&#x430;&#x454; &#x443; &#x442;&#x43E;&#x43C;&#x443;, &#x449;&#x43E; &#x444;&#x443;&#x43A;&#x43D;&#x446;&#x456;&#x44F; <code>grape-cluster</code> &#x43C;&#x43E;&#x436;&#x435; &#x43F;&#x440;&#x430;&#x446;&#x44E;&#x432;&#x430;&#x442;&#x438; &#x437; &#x431;&#x443;&#x434;&#x44C;-&#x44F;&#x43A;&#x43E;&#x44E; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x454;&#x44E;, &#x430;&#x43B;&#x435; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x443;&#x432;&#x430;&#x442;&#x438; &#x457;&#x457; &#x434;&#x43E; &#x456;&#x43D;&#x448;&#x438;&#x445; &#x442;&#x438;&#x43F;&#x456;&#x432; &#x434;&#x430;&#x43D;&#x438;&#x445; &#x43C;&#x438; &#x43D;&#x435; &#x43C;&#x43E;&#x436;&#x435;&#x43C;&#x43E;. &#x423;&#x44F;&#x432;&#x456;&#x442;&#x44C; &#x441;&#x43E;&#x431;&#x456;, &#x449;&#x43E; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x44F; &#x433;&#x440;&#x43E;&#x43D; &#x432;&#x438;&#x43D;&#x43E;&#x433;&#x440;&#x430;&#x434;&#x443; &#x43D;&#x435; &#x431;&#x443;&#x434;&#x435; &#x437;&#x431;&#x435;&#x440;&#x456;&#x433;&#x430;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x443; &#x43F;&#x430;&#x43C;&#x2BC;&#x44F;&#x442;&#x456;  &#x2014; &#x43D;&#x430;&#x442;&#x43E;&#x43C;&#x456;&#x441;&#x442;&#x44C; &#x432;&#x43E;&#x43D;&#x430; &#x43D;&#x430;&#x434;&#x445;&#x43E;&#x434;&#x438;&#x442;&#x44C; &#x430;&#x441;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x43E; &#x443; &#x432;&#x438;&#x433;&#x43B;&#x44F;&#x434;&#x456; &#x43F;&#x43E;&#x442;&#x43E;&#x43A;&#x443;. &#x412; &#x442;&#x430;&#x43A;&#x456;&#x439; &#x441;&#x438;&#x442;&#x443;&#x430;&#x446;&#x456;&#x457; &#x43C;&#x438; &#x43D;&#x435; &#x437;&#x43C;&#x43E;&#x436;&#x435;&#x43C;&#x43E; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x442;&#x438; <code>process-clusters</code>, &#x431;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>map</code>, <code>filter</code> &#x442;&#x430; <code>mapcat</code> &#x43C;&#x430;&#x44E;&#x442;&#x44C; &#x43A;&#x43E;&#x43D;&#x43A;&#x440;&#x435;&#x442;&#x43D;&#x456; &#x456;&#x43C;&#x43F;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x430;&#x446;&#x456;&#x457; &#x437;&#x430;&#x43B;&#x435;&#x436;&#x43D;&#x43E; &#x432;&#x456;&#x434; &#x442;&#x438;&#x43F;&#x443;.</p>
+<h4 id="&#x443;&#x437;&#x430;&#x433;&#x430;&#x43B;&#x44C;&#x43D;&#x435;&#x43D;&#x43D;&#x44F;-&#x434;&#x43E;-&#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x439;-&#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x443;">&#x423;&#x437;&#x430;&#x433;&#x430;&#x43B;&#x44C;&#x43D;&#x435;&#x43D;&#x43D;&#x44F; &#x434;&#x43E; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x439; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x443;</h4>
+<p>&#x41F;&#x440;&#x43E;&#x446;&#x435;&#x441; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x443;&#x432;&#x430;&#x43D;&#x43D;&#x44F; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x439; <code>map</code>, <code>filter</code> &#x442;&#x430; <code>mapcat</code> &#x43D;&#x435; &#x43E;&#x431;&#x43E;&#x432;&#x2BC;&#x44F;&#x437;&#x43A;&#x43E;&#x432;&#x43E; &#x43F;&#x43E;&#x432;&#x2BC;&#x44F;&#x437;&#x430;&#x43D;&#x438;&#x439; &#x437; &#x43A;&#x43E;&#x43D;&#x43A;&#x440;&#x435;&#x442;&#x43D;&#x438;&#x43C; &#x442;&#x438;&#x43F;&#x43E;&#x43C;, &#x430;&#x43B;&#x435; &#x43C;&#x438; &#x43C;&#x43E;&#x436;&#x435;&#x43C;&#x43E; &#x43F;&#x43E;&#x432;&#x442;&#x43E;&#x440;&#x43D;&#x43E; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x443;&#x432;&#x430;&#x442;&#x438; &#x439;&#x43E;&#x433;&#x43E; &#x434;&#x43B;&#x44F; &#x440;&#x456;&#x437;&#x43D;&#x438;&#x445; &#x442;&#x438;&#x43F;&#x456;&#x432;. &#x41F;&#x43E;&#x434;&#x438;&#x432;&#x438;&#x43C;&#x43E;&#x441;&#x44F;, &#x44F;&#x43A; &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x443;&#x437;&#x430;&#x433;&#x430;&#x43B;&#x44C;&#x43D;&#x438;&#x442;&#x438; &#x442;&#x430;&#x43A;&#x456; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x438; &#x442;&#x430; &#x437;&#x440;&#x43E;&#x431;&#x438;&#x442;&#x438; &#x457;&#x445; &#x43D;&#x435;&#x437;&#x430;&#x43B;&#x435;&#x436;&#x43D;&#x438;&#x43C;&#x438; &#x432;&#x456;&#x434; &#x43A;&#x43E;&#x43D;&#x442;&#x435;&#x43A;&#x441;&#x442;&#x443;. &#x41F;&#x43E;&#x447;&#x43D;&#x435;&#x43C;&#x43E; &#x437; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x430;&#x446;&#x456;&#x457; &#x43D;&#x430;&#x457;&#x432;&#x43D;&#x43E;&#x457; &#x432;&#x435;&#x440;&#x441;&#x456;&#x457; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x439; <code>map</code> &#x442;&#x430; <code>filter</code> &#x442;&#x430; &#x43F;&#x43E;&#x434;&#x438;&#x432;&#x438;&#x43C;&#x43E;&#x441;&#x44F; &#x43D;&#x430; &#x457;&#x457; &#x432;&#x43D;&#x443;&#x442;&#x440;&#x456;&#x448;&#x43D;&#x44E; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x430;&#x446;&#x456;&#x44E;.</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> my-map
+  [f coll]
+  (<span class="hljs-name"><span class="hljs-builtin-name">when-let</span></span> [s (<span class="hljs-name"><span class="hljs-builtin-name">seq</span></span> coll)]
+    (<span class="hljs-name"><span class="hljs-builtin-name">cons</span></span> (<span class="hljs-name">f</span> (<span class="hljs-name"><span class="hljs-builtin-name">first</span></span> s)) (<span class="hljs-name">my-map</span> f (<span class="hljs-name"><span class="hljs-builtin-name">rest</span></span> s)))))
+
+(<span class="hljs-name">my-map</span> inc [<span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>])
+<span class="hljs-comment">;; =&gt; (1 2 3)</span>
+
+(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> my-filter
+  [pred coll]
+  (<span class="hljs-name"><span class="hljs-builtin-name">when-let</span></span> [s (<span class="hljs-name"><span class="hljs-builtin-name">seq</span></span> coll)]
+    (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [f (<span class="hljs-name"><span class="hljs-builtin-name">first</span></span> s)
+          r (<span class="hljs-name"><span class="hljs-builtin-name">rest</span></span> s)]
+      (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name">pred</span> f)
+        (<span class="hljs-name"><span class="hljs-builtin-name">cons</span></span> f (<span class="hljs-name">my-filter</span> pred r))
+        (<span class="hljs-name">my-filter</span> pred r)))))
+
+(<span class="hljs-name">my-filter</span> odd? [<span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>])
+<span class="hljs-comment">;; =&gt; (1)</span>
+</code></pre>
+<p>&#x42F;&#x43A; &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x43F;&#x43E;&#x431;&#x430;&#x447;&#x438;&#x442;&#x438;, &#x43E;&#x431;&#x438;&#x434;&#x432;&#x456; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; &#x43E;&#x447;&#x456;&#x43A;&#x443;&#x44E;&#x442;&#x44C; &#x43F;&#x43E;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x432;&#x43D;&#x456;&#x441;&#x442;&#x44C; &#x447;&#x438; &#x456;&#x43D;&#x448;&#x443; &#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x443;&#x440;&#x443;, &#x449;&#x43E; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x443;&#x454; &#x456;&#x43D;&#x442;&#x435;&#x440;&#x444;&#x435;&#x439;&#x441; &#x43F;&#x43E;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x432;&#x43D;&#x43E;&#x441;&#x442;&#x456; &#x442;&#x430; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x44E;&#x442;&#x44C; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x44E;. &#x41F;&#x43E;&#x434;&#x456;&#x431;&#x43D;&#x43E; &#x434;&#x43E; &#x431;&#x456;&#x43B;&#x44C;&#x448;&#x43E;&#x441;&#x442;&#x456; &#x440;&#x435;&#x43A;&#x443;&#x440;&#x441;&#x438;&#x432;&#x43D;&#x438;&#x445; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x439;, &#x432;&#x43E;&#x43D;&#x438; &#x43C;&#x43E;&#x436;&#x443;&#x442;&#x44C; &#x431;&#x443;&#x442;&#x438; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x43E;&#x432;&#x430;&#x43D;&#x456; &#x437;&#x430; &#x434;&#x43E;&#x43F;&#x43E;&#x43C;&#x43E;&#x433;&#x43E;&#x44E; &#x432;&#x436;&#x435; &#x437;&#x43D;&#x430;&#x439;&#x43E;&#x43C;&#x43E;&#x457; &#x43D;&#x430;&#x43C; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>reduce</code>. &#x417;&#x430;&#x443;&#x432;&#x430;&#x436;&#x438;&#x43C;&#x43E;, &#x449;&#x43E; &#x444;&#x443;&#x43A;&#x43D;&#x446;&#x456;&#x457;, &#x44F;&#x43A;&#x456; &#x43F;&#x43E;&#x442;&#x440;&#x430;&#x43F;&#x43B;&#x44F;&#x44E;&#x442;&#x44C; &#x434;&#x43E; <code>reduce</code>, &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x443;&#x44E;&#x442;&#x44C; &#x430;&#x43A;&#x443;&#x43C;&#x443;&#x43B;&#x44F;&#x442;&#x43E;&#x440; &#x442;&#x430; &#x43F;&#x435;&#x432;&#x43D;&#x456; &#x434;&#x430;&#x43D;&#x456; &#x442;&#x430; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x44E;&#x442;&#x44C; &#x43D;&#x43E;&#x432;&#x438;&#x439; &#x430;&#x43A;&#x443;&#x43C;&#x443;&#x43B;&#x44F;&#x442;&#x43E;&#x440;. &#x417; &#x446;&#x44C;&#x43E;&#x433;&#x43E; &#x43C;&#x43E;&#x43C;&#x435;&#x43D;&#x442;&#x443; &#x43F;&#x43E;&#x434;&#x456;&#x431;&#x43D;&#x456; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; &#x43C;&#x438; &#x431;&#x443;&#x434;&#x435;&#x43C;&#x43E; &#x43D;&#x430;&#x437;&#x438;&#x432;&#x430;&#x442;&#x438; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F;&#x43C;&#x438;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;&#x430;&#x43C;&#x438;.</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> my-mapr
+  [f coll]
+  (<span class="hljs-name"><span class="hljs-builtin-name">reduce</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span> [acc input]         <span class="hljs-comment">;; reducing function</span>
+            (<span class="hljs-name"><span class="hljs-builtin-name">conj</span></span> acc (<span class="hljs-name">f</span> input)))
+          []                      <span class="hljs-comment">;; initial value</span>
+          coll))                  <span class="hljs-comment">;; collection to reduce</span>
+
+(<span class="hljs-name">my-mapr</span> inc [<span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>])
+<span class="hljs-comment">;; =&gt; [1 2 3]</span>
+
+(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> my-filterr
+  [pred coll]
+  (<span class="hljs-name"><span class="hljs-builtin-name">reduce</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span> [acc input]         <span class="hljs-comment">;; reducing function</span>
+            (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name">pred</span> input)
+              (<span class="hljs-name"><span class="hljs-builtin-name">conj</span></span> acc input)
+              acc))
+          []                      <span class="hljs-comment">;; initial value</span>
+          coll))                  <span class="hljs-comment">;; collection to reduce</span>
+
+(<span class="hljs-name">my-filterr</span> odd? [<span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>])
+<span class="hljs-comment">;; =&gt; [1]</span>
+</code></pre>
+<p>&#x41F;&#x43E;&#x43F;&#x435;&#x440;&#x435;&#x434;&#x43D;&#x456; &#x432;&#x435;&#x440;&#x441;&#x456;&#x457; &#x43C;&#x438; &#x440;&#x43E;&#x431;&#x438;&#x43B;&#x438; &#x431;&#x456;&#x43B;&#x44C;&#x448; &#x443;&#x437;&#x430;&#x433;&#x430;&#x43B;&#x44C;&#x43D;&#x435;&#x43D;&#x438;&#x43C;&#x438;, &#x431;&#x43E; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x43D;&#x43D;&#x44F; <code>reduce</code> &#x434;&#x43E;&#x437;&#x432;&#x43E;&#x43B;&#x44F;&#x454; &#x43D;&#x430;&#x448;&#x438;&#x43C; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F;&#x43C; &#x43F;&#x440;&#x430;&#x446;&#x44E;&#x432;&#x430;&#x442;&#x438; &#x437; &#x431;&#x443;&#x434;&#x44C;-&#x44F;&#x43A;&#x43E;&#x44E; &#x441;&#x442;&#x440;&#x443;&#x43A;&#x443;&#x442;&#x440;&#x43E;&#x44E; &#x434;&#x430;&#x43D;&#x438;&#x445;, &#x44F;&#x43A;&#x443; &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x430;&#x432;&#x430;&#x442;&#x438; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>reduce</code>, &#x430; &#x43D;&#x435; &#x442;&#x456;&#x43B;&#x44C;&#x43A;&#x438; &#x437; &#x43F;&#x43E;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x432;&#x43D;&#x43E;&#x441;&#x442;&#x44F;&#x43C;&#x438;. &#x410;&#x43B;&#x435; &#x432;&#x438; &#x43C;&#x43E;&#x436;&#x435;&#x442;&#x435; &#x43F;&#x43E;&#x431;&#x430;&#x447;&#x438;&#x442;&#x438;, &#x449;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457;  <code>my-mapr</code> &#x442;&#x430; <code>my-filterr</code> &#x43D;&#x435; &#x437;&#x43D;&#x430;&#x44E;&#x442;&#x44C; &#x43D;&#x456;&#x447;&#x43E;&#x433;&#x43E; &#x43F;&#x440;&#x43E; &#x434;&#x436;&#x435;&#x440;&#x435;&#x43B;&#x43E; (<code>coll</code>), &#x430;&#x43B;&#x435; &#x432;&#x43E;&#x43D;&#x438; &#x442;&#x438;&#x43C; &#x43D;&#x435; &#x43C;&#x435;&#x43D;&#x448; &#x43F;&#x440;&#x438;&#x432;&#x2BC;&#x44F;&#x437;&#x430;&#x43D;&#x456; &#x434;&#x43E; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;&#x443;, &#x44F;&#x43A;&#x438;&#x439; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x44E;&#x442;&#x44C; (&#x432;&#x435;&#x43A;&#x442;&#x43E;&#x440;) &#x447;&#x435;&#x440;&#x435;&#x437; &#x432;&#x438;&#x445;&#x456;&#x434;&#x43D;&#x435; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; reduce ([]) &#x442;&#x430; &#x437;&#x430;&#x43F;&#x438;&#x441;&#x430;&#x43D;&#x443; &#x432; &#x442;&#x456;&#x43B;&#x456; &#x444;&#x443;&#x43A;&#x43D;&#x446;&#x456;&#x457;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;&#x430; &#x43E;&#x43F;&#x435;&#x440;&#x430;&#x446;&#x456;&#x44E; <code>conj</code>. &#x41C;&#x438; &#x43C;&#x43E;&#x433;&#x43B;&#x438; &#x431; &#x437;&#x456;&#x431;&#x440;&#x430;&#x442;&#x438; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;&#x438; &#x432; &#x456;&#x43D;&#x448;&#x443; &#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x443;&#x440;&#x443; &#x434;&#x430;&#x43D;&#x438;&#x445;, &#x43D;&#x430;&#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;, &#x443; &#x43B;&#x456;&#x43D;&#x438;&#x432;&#x443; &#x43F;&#x43E;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x432;&#x43D;&#x456;&#x441;&#x442;&#x44C;, &#x430;&#x43B;&#x435; &#x434;&#x43B;&#x44F; &#x446;&#x44C;&#x43E;&#x433;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; &#x434;&#x43E;&#x432;&#x435;&#x434;&#x435;&#x442;&#x44C;&#x441;&#x44F; &#x43F;&#x435;&#x440;&#x435;&#x43F;&#x438;&#x441;&#x430;&#x442;&#x438;.</p>
+<p>&#x42F;&#x43A; &#x437;&#x440;&#x43E;&#x431;&#x438;&#x442;&#x438; &#x442;&#x430;&#x43A;&#x456; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; &#x43F;&#x43E;-&#x441;&#x43F;&#x440;&#x430;&#x432;&#x436;&#x43D;&#x44C;&#x43E;&#x43C;&#x443; &#x443;&#x437;&#x430;&#x433;&#x430;&#x43B;&#x44C;&#x43D;&#x435;&#x43D;&#x438;&#x43C;&#x438;? &#x412;&#x43E;&#x43D;&#x438; &#x43D;&#x435; &#x43C;&#x430;&#x44E;&#x442;&#x44C; &#x437;&#x43D;&#x430;&#x442;&#x438; &#x430;&#x43D;&#x456; &#x43F;&#x440;&#x43E; &#x434;&#x436;&#x435;&#x440;&#x435;&#x43B;&#x43E; &#x43D;&#x430;&#x434;&#x445;&#x43E;&#x434;&#x436;&#x435;&#x43D;&#x43D;&#x44F; &#x434;&#x430;&#x43D;&#x438;&#x445;, &#x44F;&#x43A;&#x456; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x443;&#x432;&#x430;&#x442;&#x438;&#x43C;&#x443;&#x442;&#x44C;, &#x430;&#x43D;&#x456; &#x43F;&#x440;&#x43E; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;, &#x44F;&#x43A;&#x438;&#x439; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x442;&#x438;&#x43C;&#x443;&#x442;&#x44C;. &#x427;&#x438; &#x43F;&#x43E;&#x43C;&#x456;&#x442;&#x438;&#x43B;&#x438; &#x432;&#x438;, &#x449;&#x43E; <code>conj</code> &#x2014; &#x446;&#x435; &#x43F;&#x440;&#x43E;&#x441;&#x442;&#x43E; &#x449;&#x435; &#x43E;&#x434;&#x43D;&#x430; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F;, &#x449;&#x43E; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x443;&#x454; &#x456;&#x43D;&#x442;&#x435;&#x440;&#x444;&#x435;&#x439;&#x441; <code>reduce</code>? &#x426;&#x44F; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F; &#x43E;&#x447;&#x456;&#x43A;&#x443;&#x454; &#x430;&#x43A;&#x443;&#x43C;&#x443;&#x43B;&#x44F;&#x442;&#x43E;&#x440; &#x442;&#x430; &#x434;&#x430;&#x43D;&#x456; &#x456; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; &#x43D;&#x43E;&#x432;&#x438;&#x439; &#x430;&#x43A;&#x443;&#x43C;&#x443;&#x43B;&#x44F;&#x442;&#x43E;&#x440;. &#x422;&#x430;&#x43A;&#x438;&#x43C; &#x447;&#x438;&#x43D;&#x43E;&#x43C;, &#x44F;&#x43A;&#x449;&#x43E; &#x43C;&#x438; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x438;&#x43C;&#x43E; &#x43F;&#x430;&#x440;&#x430;&#x43C;&#x435;&#x442;&#x440;&#x438; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457;, &#x44F;&#x43A;&#x443; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x44E;&#x442;&#x44C; <code>my-mapr</code> &#x442;&#x430; <code>my-filterr</code>, &#x442;&#x43E; &#x446;&#x456; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; &#x43D;&#x435; &#x431;&#x443;&#x434;&#x443;&#x442;&#x44C; &#x437;&#x43D;&#x430;&#x442;&#x438; &#x43F;&#x440;&#x43E; &#x442;&#x438;&#x43F; &#x432;&#x43B;&#x430;&#x441;&#x43D;&#x43E;&#x433;&#x43E;  &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;&#x443;. &#x414;&#x430;&#x432;&#x430;&#x439;&#x442;&#x435; &#x441;&#x43F;&#x440;&#x43E;&#x431;&#x443;&#x454;&#x43C;&#x43E;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> my-mapt
+  [f]                         <span class="hljs-comment">;; function to map over inputs</span>
+  (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span> [rfn]                   <span class="hljs-comment">;; parameterised reducing function</span>
+    (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span> [acc input]           <span class="hljs-comment">;; transformed reducing function, now it maps `f`!</span>
+      (<span class="hljs-name">rfn</span> acc (<span class="hljs-name">f</span> input)))))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> incer (<span class="hljs-name">my-mapt</span> inc))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">reduce</span></span> (<span class="hljs-name">incer</span> conj) [] [<span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>])
+<span class="hljs-comment">;; =&gt; [1 2 3]</span>
+
+(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> my-filtert
+  [pred]                      <span class="hljs-comment">;; predicate to filter out inputs</span>
+  (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span> [rfn]                   <span class="hljs-comment">;; parameterised reducing function</span>
+    (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span> [acc input]           <span class="hljs-comment">;; transformed reducing function, now it discards values based on `pred`!</span>
+      (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name">pred</span> input)
+        (<span class="hljs-name">rfn</span> acc input)
+        acc))))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> only-odds (<span class="hljs-name">my-filtert</span> odd?))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">reduce</span></span> (<span class="hljs-name">only-odds</span> conj) [] [<span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>])
+<span class="hljs-comment">;; =&gt; [1]</span>
+</code></pre>
+<p>&#x424;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x439; &#x432;&#x438;&#x449;&#x43E;&#x433;&#x43E; &#x43F;&#x43E;&#x440;&#x44F;&#x434;&#x43A;&#x443; &#x441;&#x442;&#x430;&#x454; &#x432;&#x441;&#x435; &#x431;&#x456;&#x43B;&#x44C;&#x448;&#x435;, &#x442;&#x43E;&#x436; &#x434;&#x430;&#x432;&#x430;&#x439;&#x442;&#x435; &#x440;&#x43E;&#x437;&#x431;&#x435;&#x440;&#x435;&#x43C;&#x43E;&#x441;&#x44F; &#x434;&#x435;&#x442;&#x430;&#x43B;&#x44C;&#x43D;&#x456;&#x448;&#x435; &#x443; &#x442;&#x43E;&#x43C;&#x443;, &#x449;&#x43E; &#x432;&#x456;&#x434;&#x431;&#x443;&#x432;&#x430;&#x454;&#x442;&#x44C;&#x441;&#x44F;. &#x41F;&#x440;&#x43E;&#x439;&#x434;&#x435;&#x43C;&#x43E; &#x43A;&#x440;&#x43E;&#x43A;&#x438; &#x440;&#x43E;&#x431;&#x43E;&#x442;&#x438; <code>my-mapt</code>. &#x41C;&#x435;&#x445;&#x430;&#x43D;&#x456;&#x437;&#x43C; &#x434;&#x43B;&#x44F; <code>my-filtert</code> &#x441;&#x445;&#x43E;&#x436;&#x438;&#x439;, &#x442;&#x43E;&#x43C;&#x443; &#x43D;&#x430; &#x43D;&#x44C;&#x43E;&#x433;&#x43E; &#x43D;&#x435; &#x431;&#x443;&#x434;&#x435;&#x43C;&#x43E; &#x437;&#x430;&#x440;&#x430;&#x437; &#x432;&#x438;&#x442;&#x440;&#x430;&#x447;&#x430;&#x442;&#x438; &#x447;&#x430;&#x441;. </p>
+<p>&#x41F;&#x43E;-&#x43F;&#x440;&#x435;&#x448;&#x435;, <code>my-mapt</code> &#x43E;&#x447;&#x456;&#x43A;&#x443;&#x454; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;, &#x449;&#x43E; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x443;&#x454; &#x432;&#x456;&#x434;&#x43E;&#x431;&#x440;&#x430;&#x436;&#x435;&#x43D;&#x43D;&#x44F; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x44C;. &#x412; &#x43D;&#x430;&#x448;&#x43E;&#x43C;&#x443; &#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;&#x456; &#x43C;&#x438; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x430;&#x454;&#x43C;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E; <code>inc</code> &#x442;&#x430; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x443;&#x454;&#x43C;&#x43E; &#x43D;&#x43E;&#x432;&#x443; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;. &#x417;&#x430;&#x43C;&#x456;&#x43D;&#x438;&#x43C;&#x43E; <code>f</code> &#x43D;&#x430; <code>inc</code> &#x456; &#x43F;&#x43E;&#x434;&#x438;&#x432;&#x438;&#x43C;&#x43E;&#x441;&#x44F;, &#x449;&#x43E; &#x432;&#x456;&#x434;&#x431;&#x443;&#x432;&#x430;&#x454;&#x442;&#x44C;&#x441;&#x44F;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> incer (<span class="hljs-name">my-mapt</span> inc))
+<span class="hljs-comment">;; (fn [rfn]</span>
+<span class="hljs-comment">;;   (fn [acc input]</span>
+<span class="hljs-comment">;;     (rfn acc (inc input))))</span>
+<span class="hljs-comment">;;               ^^^</span>
+</code></pre>
+<p>&#x41E;&#x442;&#x440;&#x438;&#x43C;&#x430;&#x43D;&#x430; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F; &#x432;&#x441;&#x435; &#x449;&#x435; &#x43E;&#x447;&#x456;&#x43A;&#x443;&#x454; &#x43D;&#x430; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;, &#x44F;&#x43A;&#x43E;&#x43C;&#x443; &#x432;&#x43E;&#x43D;&#x430; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x430;&#x441;&#x442;&#x44C; &#x434;&#x430;&#x43D;&#x456; &#x434;&#x43B;&#x44F; &#x43E;&#x431;&#x440;&#x43E;&#x431;&#x43A;&#x438;. &#x429;&#x43E; &#x436; &#x431;&#x443;&#x434;&#x435;, &#x44F;&#x43A;&#x449;&#x43E; &#x43C;&#x438; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x430;&#x43C;&#x43E; &#x457;&#x439; <code>conj</code>? </p>
+<pre><code class="lang-clojure">(<span class="hljs-name">incer</span> conj)
+<span class="hljs-comment">;; (fn [acc input]</span>
+<span class="hljs-comment">;;   (conj acc (inc input)))</span>
+<span class="hljs-comment">;;    ^^^^</span>
+</code></pre>
+<p>&#x41C;&#x438; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x430;&#x43B;&#x438; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;, &#x44F;&#x43A;&#x430; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x454; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E; <code>inc</code> &#x434;&#x43B;&#x44F; &#x43E;&#x431;&#x440;&#x43E;&#x431;&#x43A;&#x438; &#x434;&#x430;&#x43D;&#x438;&#x445; &#x442;&#x430; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E; <code>conj</code> &#x44F;&#x43A; &#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440; &#x434;&#x43B;&#x44F; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x430;&#x43D;&#x43D;&#x44F; &#x430;&#x43A;&#x443;&#x43C;&#x443;&#x43B;&#x44C;&#x43E;&#x432;&#x430;&#x43D;&#x43E;&#x433;&#x43E; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;&#x443;. &#x412; &#x446;&#x456;&#x43B;&#x43E;&#x43C;&#x443;, &#x43C;&#x438; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x438;&#x43B;&#x438; &#x432;&#x456;&#x434;&#x43E;&#x431;&#x440;&#x430;&#x436;&#x435;&#x43D;&#x43D;&#x44F; &#x44F;&#x43A; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x44E; &#x434;&#x43B;&#x44F; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;&#x430;. &#x424;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F;, &#x449;&#x43E; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x443;&#x454; &#x43E;&#x434;&#x438;&#x43D; &#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440; &#x432; &#x456;&#x43D;&#x448;&#x438;&#x439;, &#x432; <em>ClojureScript</em> &#x43D;&#x430;&#x437;&#x438;&#x432;&#x430;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x435;&#x43C;.</p>
+<p>&#x414;&#x43B;&#x44F; &#x456;&#x43B;&#x44E;&#x441;&#x442;&#x440;&#x430;&#x446;&#x456;&#x457; &#x437;&#x430;&#x433;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;&#x441;&#x442;&#x456; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;&#x432; &#x434;&#x430;&#x432;&#x430;&#x439;&#x442;&#x435; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x454;&#x43C;&#x43E; &#x440;&#x456;&#x437;&#x43D;&#x456; &#x434;&#x436;&#x435;&#x440;&#x435;&#x43B;&#x430; &#x442;&#x430; &#x43F;&#x440;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x443; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x443; <code>reduce</code>:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">reduce</span></span> (<span class="hljs-name">incer</span> str) <span class="hljs-string">&quot;&quot;</span> [<span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>])
+<span class="hljs-comment">;; =&gt; &quot;123&quot;</span>
+
+(<span class="hljs-name"><span class="hljs-builtin-name">reduce</span></span> (<span class="hljs-name">only-odds</span> str) <span class="hljs-string">&quot;&quot;</span> &apos;(<span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>))
+<span class="hljs-comment">;; =&gt; &quot;1&quot;</span>
+</code></pre>
+<p>&#x41D;&#x43E;&#x432;&#x430; &#x432;&#x435;&#x440;&#x441;&#x456;&#x44F; <code>map</code> &#x442;&#x430; <code>filter</code>, &#x44F;&#x43A;&#x430; &#x454; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x435;&#x43C;, &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x454; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;, &#x449;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x430;&#x454; &#x434;&#x430;&#x43D;&#x456; &#x432;&#x456;&#x434; &#x434;&#x436;&#x435;&#x440;&#x435;&#x43B;&#x430; &#x434;&#x43E; &#x43F;&#x440;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F;, &#x430;&#x43B;&#x435; &#x43D;&#x435; &#x437;&#x43D;&#x430;&#x454; &#x43D;&#x456;&#x447;&#x43E;&#x433;&#x43E; &#x43F;&#x440;&#x43E; &#x442;&#x435;, &#x437;&#x432;&#x456;&#x434;&#x43A;&#x438; &#x432;&#x437;&#x44F;&#x43B;&#x438;&#x441;&#x44F; &#x434;&#x430;&#x43D;&#x456;, &#x456; &#x43A;&#x443;&#x434;&#x438; &#x43F;&#x43E;&#x442;&#x440;&#x430;&#x43F;&#x43B;&#x44F;&#x442;&#x44C; &#x43F;&#x43E;&#x442;&#x456;&#x43C;. &#x406;&#x43C;&#x43F;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x430;&#x446;&#x456;&#x44F; &#x442;&#x430;&#x43A;&#x438;&#x445; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x439; &#x434;&#x435;&#x43C;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x454; &#x442;&#x435;, &#x434;&#x43E; &#x447;&#x43E;&#x433;&#x43E; &#x43C;&#x438; &#x43F;&#x440;&#x430;&#x433;&#x43D;&#x435;&#x43C;&#x43E;, &#x430; &#x441;&#x430;&#x43C;&#x435; - &#x43D;&#x435;&#x437;&#x430;&#x43B;&#x435;&#x436;&#x43D;&#x456;&#x441;&#x442;&#x44C; &#x432;&#x456;&#x434; &#x43A;&#x43E;&#x43D;&#x442;&#x435;&#x43A;&#x441;&#x442;&#x443;.</p>
+<p>&#x422;&#x435;&#x43F;&#x435;&#x440; &#x43C;&#x438; &#x437;&#x43D;&#x430;&#x454;&#x43C;&#x43E; &#x431;&#x456;&#x43B;&#x44C;&#x448;&#x435; &#x43F;&#x440;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;, &#x442;&#x43E;&#x436; &#x441;&#x43F;&#x440;&#x43E;&#x431;&#x443;&#x454;&#x43C;&#x43E; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x443;&#x432;&#x430;&#x442;&#x438; &#x432;&#x43B;&#x430;&#x441;&#x43D;&#x443; &#x432;&#x435;&#x440;&#x441;&#x456;&#x44E; <code>mapcat</code>. &#x41C;&#x438; &#x432;&#x436;&#x435; &#x43C;&#x430;&#x454;&#x43C;&#x43E; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x443; &#x447;&#x430;&#x441;&#x442;&#x438;&#x43D;&#x443;, &#x430; &#x441;&#x430;&#x43C;&#x435; - &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447; <code>map</code>. &#x417;&#x430;&#x432;&#x434;&#x430;&#x43D;&#x43D;&#x44F; <code>mapcat</code> &#x2014; &#x43E;&#x431;&#x440;&#x43E;&#x431;&#x438;&#x442;&#x438; &#x432;&#x445;&#x456;&#x434;&#x43D;&#x456; &#x434;&#x430;&#x43D;&#x456; &#x442;&#x430; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x43D;&#x443;&#x442;&#x438; &#x441;&#x43F;&#x440;&#x43E;&#x449;&#x435;&#x43D;&#x443; &#x43D;&#x430; &#x43E;&#x434;&#x438;&#x43D; &#x440;&#x456;&#x432;&#x435;&#x43D;&#x44C; &#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x443;&#x440;&#x443;. &#x414;&#x430;&#x432;&#x430;&#x439;&#x442;&#x435; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x443;&#x454;&#x43C;&#x43E; &#x43A;&#x430;&#x442;&#x435;&#x43D;&#x430;&#x446;&#x456;&#x44E; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> my-cat
+  [rfn]
+  (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span> [acc input]
+    (<span class="hljs-name"><span class="hljs-builtin-name">reduce</span></span> rfn acc input)))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">reduce</span></span> (<span class="hljs-name">my-cat</span> conj) [] [[<span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>] [<span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span>]])
+<span class="hljs-comment">;; =&gt; [0 1 2 3 4 5]</span>
+</code></pre>
+<p>&#x41F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447; <code>my-cat</code> &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;, &#x449;&#x43E; &#x43F;&#x43E;&#x454;&#x434;&#x43D;&#x443;&#x454; &#x432;&#x445;&#x456;&#x434;&#x43D;&#x456; &#x434;&#x430;&#x43D;&#x456; &#x437; &#x430;&#x43A;&#x443;&#x43C;&#x443;&#x43B;&#x44F;&#x442;&#x43E;&#x440;&#x43E;&#x43C;, &#x430; &#x441;&#x430;&#x43C;&#x435; - &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x43E;&#x432;&#x443;&#x454; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E; <code>rfn</code> &#x434;&#x43E; <code>input</code> &#x442;&#x430; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x454; &#x430;&#x43A;&#x443;&#x43C;&#x443;&#x43B;&#x44F;&#x442;&#x43E;&#x440; (<code>acc</code>) &#x44F;&#x43A; &#x432;&#x438;&#x445;&#x456;&#x434;&#x43D;&#x435; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F;. <code>mapcat</code> &#x2014; &#x446;&#x435; &#x43F;&#x440;&#x43E;&#x441;&#x442;&#x43E; &#x43A;&#x43E;&#x43C;&#x43F;&#x43E;&#x437;&#x438;&#x446;&#x456;&#x44F; <code>map</code> &#x442;&#x430; <code>cat</code>. &#x41F;&#x43E;&#x440;&#x44F;&#x434;&#x43E;&#x43A;, &#x443; &#x44F;&#x43A;&#x43E;&#x43C;&#x443; &#x43F;&#x440;&#x43E;&#x445;&#x43E;&#x434;&#x438;&#x442;&#x44C; &#x43A;&#x43E;&#x43C;&#x43F;&#x43E;&#x437;&#x438;&#x446;&#x456;&#x44F; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;&#x432;, &#x43C;&#x43E;&#x436;&#x435; &#x437;&#x434;&#x430;&#x442;&#x438;&#x441;&#x44F; &#x434;&#x438;&#x432;&#x43D;&#x438;&#x43C;, &#x430;&#x43B;&#x435; &#x43C;&#x438; &#x437;&#x433;&#x43E;&#x434;&#x43E;&#x43C; &#x43F;&#x43E;&#x44F;&#x441;&#x43D;&#x438;&#x43C;&#x43E;, &#x447;&#x43E;&#x43C;&#x443; &#x442;&#x430;&#x43A; &#x432;&#x456;&#x434;&#x431;&#x443;&#x432;&#x430;&#x454;&#x442;&#x44C;&#x441;&#x44F;. </p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> my-mapcat
+  [f]
+  (<span class="hljs-name"><span class="hljs-builtin-name">comp</span></span> (<span class="hljs-name">my-mapt</span> f) my-cat))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> dupe
+  [x]
+  [x x])
+
+(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> duper (<span class="hljs-name">my-mapcat</span> dupe))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">reduce</span></span> (<span class="hljs-name">duper</span> conj) [] [<span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>])
+<span class="hljs-comment">;; =&gt; [0 0 1 1 2 2]</span>
+</code></pre>
+<h4 id="&#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;-&#x432;-&#x441;&#x442;&#x430;&#x43D;&#x434;&#x430;&#x440;&#x442;&#x43D;&#x456;&#x439;-&#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x446;&#x456;-clojurescript">&#x41F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456; &#x432; &#x441;&#x442;&#x430;&#x43D;&#x434;&#x430;&#x440;&#x442;&#x43D;&#x456;&#x439; &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x446;&#x456; ClojureScript</h4>
+<p>&#x41F;&#x435;&#x432;&#x43D;&#x456; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; &#x441;&#x442;&#x430;&#x43D;&#x434;&#x430;&#x440;&#x442;&#x43D;&#x43E;&#x457; &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x438; <em>ClojureScript</em>, &#x430; &#x441;&#x430;&#x43C;&#x435; - <code>map</code>, <code>filter</code> &#x442;&#x430; <code>mapcat</code> &#x43C;&#x430;&#x44E;&#x442;&#x44C; &#x443;&#x43D;&#x430;&#x440;&#x43D;&#x443; &#x432;&#x435;&#x440;&#x441;&#x456;&#x44E;, &#x449;&#x43E; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;. &#x41F;&#x435;&#x440;&#x435;&#x433;&#x43B;&#x44F;&#x43D;&#x435;&#x43C;&#x43E; &#x43D;&#x430;&#x448;&#x435; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; <code>process-cluster</code> &#x442;&#x430; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x438;&#x43C;&#x43E; &#x446;&#x44E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E; &#x43D;&#x430; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x456; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;&#x432;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> process-clusters
+  (<span class="hljs-name"><span class="hljs-builtin-name">comp</span></span>
+    (<span class="hljs-name"><span class="hljs-builtin-name">mapcat</span></span> split-cluster)
+    (<span class="hljs-name"><span class="hljs-builtin-name">filter</span></span> not-rotten)
+    (<span class="hljs-name"><span class="hljs-builtin-name">map</span></span> clean-grape)))
+</code></pre>
+<p>&#x417; &#x43C;&#x43E;&#x43C;&#x435;&#x43D;&#x442;&#x443; &#x43F;&#x43E;&#x43F;&#x435;&#x440;&#x435;&#x434;&#x43D;&#x44C;&#x43E;&#x433;&#x43E; &#x43E;&#x433;&#x43E;&#x43B;&#x43E;&#x448;&#x435;&#x43D;&#x43D;&#x44F; <code>process-cluster</code> &#x434;&#x435;&#x449;&#x43E; &#x437;&#x43C;&#x456;&#x43D;&#x438;&#x43B;&#x43E;&#x441;&#x44F;. &#x41F;&#x43E;-&#x43F;&#x435;&#x440;&#x448;&#x435;, &#x43C;&#x438; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x454;&#x43C;&#x43E; &#x432;&#x435;&#x440;&#x441;&#x456;&#x457; <code>mapcat</code>, <code>filter</code> and <code>map</code>, &#x449;&#x43E; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x44E;&#x442;&#x44C; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;, &#x437;&#x430;&#x43C;&#x456;&#x441;&#x442;&#x44C; &#x447;&#x430;&#x441;&#x442;&#x43A;&#x43E;&#x432;&#x43E;&#x433;&#x43E; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x443;&#x432;&#x430;&#x43D;&#x43D;&#x44F; &#x441;&#x442;&#x430;&#x43D;&#x434;&#x430;&#x440;&#x442;&#x43D;&#x438;&#x43C;&#x445; &#x432;&#x435;&#x440;&#x441;&#x456;&#x439; &#x434;&#x43B;&#x44F; &#x440;&#x43E;&#x431;&#x43E;&#x442;&#x438; &#x437; &#x43F;&#x43E;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x432;&#x43D;&#x43E;&#x441;&#x442;&#x44F;&#x43C;&#x438;.</p>
+<p>&#x422;&#x430;&#x43A;&#x43E;&#x436; &#x432;&#x438; &#x43C;&#x43E;&#x433;&#x43B;&#x438; &#x43F;&#x43E;&#x43C;&#x456;&#x442;&#x438;&#x442;&#x438;, &#x449;&#x43E; &#x43F;&#x43E;&#x440;&#x44F;&#x434;&#x43E;&#x43A; &#x43A;&#x43E;&#x43C;&#x43F;&#x43E;&#x437;&#x438;&#x446;&#x456;&#x457; &#x437;&#x43C;&#x456;&#x43D;&#x438;&#x432;&#x441;&#x44F; &#x43D;&#x430; &#x43F;&#x440;&#x43E;&#x442;&#x438;&#x43B;&#x435;&#x436;&#x43D;&#x438;&#x439;. &#x424;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; &#x437;&#x2BC;&#x44F;&#x432;&#x43B;&#x44F;&#x44E;&#x442;&#x44C;&#x441;&#x44F; &#x443; &#x442;&#x43E;&#x43C;&#x443; &#x43F;&#x43E;&#x440;&#x44F;&#x434;&#x43A;&#x443;, &#x432; &#x44F;&#x43A;&#x43E;&#x43C;&#x443; &#x432;&#x438;&#x43A;&#x43E;&#x43D;&#x443;&#x44E;&#x442;&#x44C;&#x441;&#x44F;. &#x417;&#x430;&#x443;&#x432;&#x430;&#x436;&#x438;&#x43C;&#x43E;, &#x449;&#x43E; &#x443;&#x441;&#x456; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>map</code>, <code>filter</code> and <code>mapcat</code> &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x44E;&#x442;&#x44C; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;. &#x424;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F; <code>filter</code> &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x443;&#x454; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;, &#x449;&#x43E; &#x457;&#x457; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; <code>map</code>, &#x448;&#x43B;&#x44F;&#x445;&#x43E;&#x43C; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x432;&#x430;&#x43D;&#x43D;&#x44F; &#x444;&#x456;&#x43B;&#x44C;&#x442;&#x440;&#x443; &#x434;&#x43E; &#x43F;&#x43E;&#x434;&#x430;&#x43B;&#x44C;&#x448;&#x43E;&#x433;&#x43E; &#x432;&#x438;&#x43A;&#x43E;&#x43D;&#x430;&#x43D;&#x43D;&#x44F; &#x43A;&#x43E;&#x434;&#x443;, <code>mapcat</code> &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x443;&#x454; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;, &#x44F;&#x43A;&#x443; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; <code>filter</code>, &#x448;&#x43B;&#x44F;&#x445;&#x43E;&#x43C; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x443;&#x432;&#x430;&#x43D;&#x43D;&#x44F; &#x432;&#x456;&#x434;&#x43E;&#x431;&#x440;&#x430;&#x436;&#x435;&#x43D;&#x43D;&#x44F; &#x442;&#x430; &#x43A;&#x430;&#x442;&#x435;&#x43D;&#x430;&#x446;&#x456;&#x457; &#x434;&#x43E; &#x43F;&#x43E;&#x434;&#x430;&#x43B;&#x44C;&#x448;&#x43E;&#x433;&#x43E; &#x432;&#x438;&#x43A;&#x43E;&#x43D;&#x430;&#x43D;&#x43D;&#x44F; &#x43A;&#x43E;&#x434;&#x443;.</p>
+<p>&#x41E;&#x434;&#x43D;&#x456;&#x454;&#x44E; &#x437; &#x43F;&#x435;&#x440;&#x435;&#x432;&#x430;&#x433; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;&#x432; &#x454; &#x442;&#x435;, &#x449;&#x43E; &#x457;&#x445; &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x43A;&#x43E;&#x43C;&#x431;&#x456;&#x43D;&#x443;&#x432;&#x430;&#x442;&#x438; &#x437;&#x430; &#x434;&#x43E;&#x43F;&#x43E;&#x43C;&#x43E;&#x433;&#x43E;&#x44E; &#x437;&#x432;&#x438;&#x447;&#x430;&#x439;&#x43D;&#x43E;&#x457; &#x43A;&#x43E;&#x43C;&#x43F;&#x43E;&#x437;&#x438;&#x446;&#x456;&#x457; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x439;. &#x429;&#x435; &#x431;&#x456;&#x43B;&#x44C;&#x448; &#x435;&#x43B;&#x435;&#x433;&#x430;&#x43D;&#x442;&#x43D;&#x438;&#x43C; &#x454; &#x442;&#x435;, &#x449;&#x43E; &#x43A;&#x43E;&#x43C;&#x43F;&#x43E;&#x437;&#x438;&#x446;&#x456;&#x44F; &#x440;&#x456;&#x437;&#x43D;&#x438;&#x445; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;&#x432; &#x2014; &#x446;&#x435; &#x442;&#x430;&#x43A;&#x43E;&#x436; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;! &#x426;&#x435; &#x43E;&#x437;&#x43D;&#x430;&#x447;&#x430;&#x454;, &#x449;&#x43E; &#x43D;&#x430;&#x43F;&#x438;&#x441;&#x430;&#x43D;&#x438;&#x439; &#x43D;&#x430;&#x43C;&#x438; <code>process-cluster</code> &#x2014; &#x446;&#x435; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;, &#x442;&#x43E;&#x43C;&#x443; &#x43C;&#x438; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x438;&#x43B;&#x438; &#x430;&#x43B;&#x433;&#x43E;&#x440;&#x438;&#x442;&#x43C;&#x456;&#x447;&#x43D;&#x443;, &#x43D;&#x435;&#x437;&#x430;&#x43B;&#x435;&#x436;&#x43D;&#x443; &#x432;&#x456;&#x434; &#x43A;&#x43E;&#x43D;&#x442;&#x435;&#x43A;&#x441;&#x442;&#x443; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x44E;, &#x44F;&#x43A;&#x443; &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x43A;&#x43E;&#x43C;&#x43F;&#x43E;&#x43D;&#x443;&#x432;&#x430;&#x442;&#x438;.</p>
+<p>&#x421;&#x435;&#x440;&#x435;&#x434; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x439; &#x441;&#x442;&#x430;&#x43D;&#x434;&#x430;&#x440;&#x442;&#x43D;&#x43E;&#x457; &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x438; <em>ClojureScript</em> &#x454; &#x431;&#x430;&#x433;&#x430;&#x442;&#x43E; &#x442;&#x430;&#x43A;&#x438;&#x445;, &#x449;&#x43E; &#x43C;&#x43E;&#x436;&#x443;&#x442;&#x44C; &#x431;&#x443;&#x442;&#x438; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x430;&#x43D;&#x456; &#x437; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430;&#x43C;&#x438; &#x443; &#x44F;&#x43A;&#x43E;&#x441;&#x442;&#x456; &#x430;&#x440;&#x433;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x456;&#x432;. &#x420;&#x43E;&#x437;&#x433;&#x43B;&#x44F;&#x43D;&#x435;&#x43C;&#x43E; &#x43A;&#x456;&#x43B;&#x44C;&#x43A;&#x430; &#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;&#x456;&#x432; &#x456; &#x441;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x443;&#x454;&#x43C;&#x43E;&#x441;&#x44F; &#x434;&#x43B;&#x44F; &#x446;&#x44C;&#x43E;&#x433;&#x43E; &#x449;&#x43E;&#x439;&#x43D;&#x43E; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x438;&#x43C; <code>process-cluster</code>:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">into</span></span> [] process-clusters grape-clusters)
+<span class="hljs-comment">;; =&gt; [{:rotten? false, :clean? true} {:rotten? false, :clean? true}]</span>
+
+(<span class="hljs-name"><span class="hljs-builtin-name">sequence</span></span> process-clusters grape-clusters)
+<span class="hljs-comment">;; =&gt; ({:rotten? false, :clean? true} {:rotten? false, :clean? true})</span>
+
+(<span class="hljs-name"><span class="hljs-builtin-name">reduce</span></span> (<span class="hljs-name">process-clusters</span> conj) [] grape-clusters)
+<span class="hljs-comment">;; =&gt; [{:rotten? false, :clean? true} {:rotten? false, :clean? true}]</span>
+</code></pre>
+<p>&#x412;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x43D;&#x43D;&#x44F; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; reduce &#x456;&#x437; &#x444;&#x443;&#x43A;&#x43D;&#x446;&#x456;&#x454;&#x44E;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;&#x43E;&#x43C; &#x44F;&#x43A; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;&#x43E;&#x43C; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430; &#x437;&#x443;&#x441;&#x442;&#x440;&#x456;&#x447;&#x430;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x434;&#x443;&#x436;&#x435; &#x447;&#x430;&#x441;&#x442;&#x43E;, &#x442;&#x43E;&#x43C;&#x443; &#x454; &#x43E;&#x43A;&#x440;&#x435;&#x43C;&#x430; &#x444;&#x443;&#x43A;&#x43D;&#x446;&#x456;&#x44F;, &#x449;&#x43E; &#x43F;&#x440;&#x43E;&#x432;&#x43E;&#x434;&#x438;&#x442;&#x44C; &#x440;&#x435;&#x434;&#x443;&#x43A;&#x446;&#x456;&#x44E; &#x442;&#x430; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x44E;. &#x412;&#x43E;&#x43D;&#x430; &#x43D;&#x430;&#x437;&#x438;&#x432;&#x430;&#x454;&#x442;&#x44C;&#x441;&#x44F; <code>transduce</code>. &#x422;&#x435;&#x43F;&#x435;&#x440; &#x43C;&#x438; &#x43C;&#x43E;&#x436;&#x435;&#x43C;&#x443; &#x43F;&#x435;&#x440;&#x435;&#x43F;&#x438;&#x441;&#x430;&#x442;&#x438; &#x43F;&#x43E;&#x43F;&#x435;&#x440;&#x435;&#x434;&#x43D;&#x456;&#x439; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A; &#x456; &#x43F;&#x440;&#x43E;&#x432;&#x435;&#x441;&#x442;&#x438; &#x440;&#x435;&#x434;&#x443;&#x43A;&#x446;&#x456;&#x44E; &#x437;&#x430; &#x434;&#x43E;&#x43F;&#x43E;&#x43C;&#x43E;&#x433;&#x43E;&#x44E; <code>transduce</code>:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name">transduce</span> process-clusters conj [] grape-clusters)
+<span class="hljs-comment">;; =&gt; [{:rotten? false, :clean? true} {:rotten? false, :clean? true}]</span>
+</code></pre>
+<h4 id="&#x456;&#x43D;&#x456;&#x446;&#x456;&#x430;&#x43B;&#x456;&#x437;&#x430;&#x446;&#x456;&#x44F;">&#x406;&#x43D;&#x456;&#x446;&#x456;&#x430;&#x43B;&#x456;&#x437;&#x430;&#x446;&#x456;&#x44F;</h4>
+<p>&#x412; &#x43E;&#x441;&#x442;&#x430;&#x43D;&#x43D;&#x44C;&#x43E;&#x43C;&#x443; &#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;&#x456; &#x43C;&#x438; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x430;&#x43B;&#x438; &#x432;&#x438;&#x445;&#x456;&#x434;&#x43D;&#x435; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; transduce ([]), &#x430;&#x43B;&#x435; &#x43C;&#x438; &#x43C;&#x43E;&#x436;&#x435;&#x43C;&#x43E; &#x446;&#x44C;&#x43E;&#x433;&#x43E; &#x43D;&#x435; &#x440;&#x43E;&#x431;&#x438;&#x442;&#x438; &#x456; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x430;&#x442;&#x438; &#x442;&#x43E;&#x439; &#x441;&#x430;&#x43C;&#x438;&#x439; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name">transduce</span> process-clusters conj grape-clusters)
+<span class="hljs-comment">;; =&gt; [{:rotten? false, :clean? true} {:rotten? false, :clean? true}]</span>
+</code></pre>
+<p>&#x429;&#x43E; &#x432;&#x456;&#x434;&#x431;&#x443;&#x432;&#x430;&#x454;&#x442;&#x44C;&#x441;&#x44F;? &#x417;&#x432;&#x456;&#x434;&#x43A;&#x438; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F; <code>transduce</code> &#x437;&#x43D;&#x430;&#x454;, &#x44F;&#x43A;&#x435; &#x432;&#x438;&#x445;&#x456;&#x434;&#x43D;&#x435; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x442;&#x438; &#x434;&#x43B;&#x44F; &#x43D;&#x430;&#x43A;&#x43E;&#x43F;&#x438;&#x447;&#x443;&#x432;&#x430;&#x447;&#x430;, &#x44F;&#x43A;&#x449;&#x43E; &#x43C;&#x438; &#x446;&#x44C;&#x43E;&#x433;&#x43E; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x43D;&#x435; &#x437;&#x430;&#x434;&#x430;&#x432;&#x430;&#x43B;&#x438;? &#x412;&#x438; &#x437;&#x440;&#x43E;&#x437;&#x443;&#x43C;&#x456;&#x442;&#x435;, &#x449;&#x43E; &#x432;&#x456;&#x434;&#x431;&#x443;&#x432;&#x430;&#x454;&#x442;&#x44C;&#x441;&#x44F;, &#x44F;&#x43A;&#x449;&#x43E; &#x441;&#x43F;&#x440;&#x43E;&#x431;&#x443;&#x454;&#x442;&#x435; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x430;&#x442;&#x438; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E; <code>conj</code> &#x431;&#x435;&#x437; &#x430;&#x440;&#x433;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x456;&#x432;.</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">conj</span></span>)
+<span class="hljs-comment">;; =&gt; []</span>
+</code></pre>
+<p>&#x424;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F; <code>conj</code> &#x43C;&#x430;&#x454; &#x432;&#x430;&#x440;&#x456;&#x430;&#x43D;&#x442; &#x456;&#x437; &#x43D;&#x443;&#x43B;&#x44C;&#x43E;&#x432;&#x43E;&#x44E; &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44C;&#x44E;, &#x44F;&#x43A;&#x438;&#x439; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; &#x43F;&#x43E;&#x440;&#x43E;&#x436;&#x43D;&#x456;&#x439; &#x432;&#x435;&#x43A;&#x442;&#x43E;&#x440;. &#x410;&#x43B;&#x435; &#x446;&#x435; &#x43D;&#x435; &#x454;&#x434;&#x438;&#x43D;&#x430; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F;-&#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;, &#x449;&#x43E; &#x43C;&#x43E;&#x436;&#x435; &#x431;&#x443;&#x442;&#x438; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x430;&#x43D;&#x430; &#x431;&#x435;&#x437; &#x436;&#x43E;&#x434;&#x43D;&#x438;&#x456;&#x445; &#x430;&#x440;&#x433;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x456;&#x432;. &#x41F;&#x43E;&#x434;&#x438;&#x432;&#x438;&#x43C;&#x43E;&#x441;&#x44F; &#x43D;&#x430; &#x456;&#x43D;&#x448;&#x456;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">+</span></span>)
+<span class="hljs-comment">;; =&gt; 0</span>
+
+(<span class="hljs-name"><span class="hljs-builtin-name">*</span></span>)
+<span class="hljs-comment">;; =&gt; 1</span>
+
+(<span class="hljs-name"><span class="hljs-builtin-name">str</span></span>)
+<span class="hljs-comment">;; =&gt; &quot;&quot;</span>
+
+(<span class="hljs-name"><span class="hljs-builtin-name">=</span></span> identity (<span class="hljs-name"><span class="hljs-builtin-name">comp</span></span>))
+<span class="hljs-comment">;; =&gt; true</span>
+</code></pre>
+<p>&#x424;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440; &#x437; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430; &#x43C;&#x430;&#x454; &#x43F;&#x456;&#x434;&#x442;&#x440;&#x438;&#x43C;&#x443;&#x432;&#x430;&#x442;&#x438; &#x442;&#x430;&#x43A;&#x43E;&#x436; &#x43D;&#x443;&#x43B;&#x44C;&#x43E;&#x432;&#x443; &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44C;; &#x43D;&#x430;&#x439;&#x447;&#x430;&#x441;&#x442;&#x456;&#x448;&#x435; &#x43F;&#x440;&#x438; &#x446;&#x44C;&#x43E;&#x43C;&#x443; &#x431;&#x443;&#x434;&#x435; &#x432;&#x438;&#x43A;&#x43E;&#x43D;&#x443;&#x432;&#x430;&#x442;&#x438;&#x441;&#x44F; &#x434;&#x435;&#x43B;&#x435;&#x433;&#x443;&#x432;&#x430;&#x43D;&#x43D;&#x44F; &#x434;&#x43E; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x43E;&#x432;&#x430;&#x43D;&#x43E;&#x457; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;&#x430;. &#x41D;&#x435; &#x456;&#x441;&#x43D;&#x443;&#x454; &#x436;&#x43E;&#x434;&#x43D;&#x43E;&#x457; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x430;&#x446;&#x456;&#x457;&#x457; &#x43D;&#x443;&#x43B;&#x44C;&#x43E;&#x432;&#x43E;&#x457; &#x430;&#x440;&#x43D;&#x43E;&#x441;&#x442;&#x456; &#x434;&#x43B;&#x44F; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430;, &#x44F;&#x43A;&#x438;&#x439; &#x43C;&#x438; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x43E;&#x432;&#x443;&#x432;&#x430;&#x43B;&#x438; &#x434;&#x43E; &#x446;&#x44C;&#x43E;&#x433;&#x43E; &#x43C;&#x43E;&#x43C;&#x435;&#x43D;&#x442;&#x430;, &#x442;&#x43E;&#x43C;&#x443; &#x43C;&#x438; &#x43F;&#x440;&#x43E;&#x441;&#x442;&#x43E; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x447;&#x435;&#x43C;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440; &#x431;&#x435;&#x437; &#x430;&#x440;&#x433;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x456;&#x432;. &#x41E;&#x441;&#x44C;, &#x44F;&#x43A; &#x43C;&#x43E;&#x436;&#x435; &#x432;&#x438;&#x433;&#x43B;&#x44F;&#x434;&#x430;&#x442;&#x438; &#x43C;&#x43E;&#x434;&#x438;&#x444;&#x456;&#x43A;&#x43E;&#x432;&#x430;&#x43D;&#x430; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F; <code>my-mapt</code>: </p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> my-mapt
+  [f]
+  (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span> [rfn]
+    (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span>
+      ([] (<span class="hljs-name">rfn</span>))                <span class="hljs-comment">;; arity 0 that delegates to the reducing fn</span>
+      ([acc input]
+        (<span class="hljs-name">rfn</span> acc (<span class="hljs-name">f</span> input))))))
+</code></pre>
+<p>&#x41F;&#x440;&#x438; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x443; &#x432;&#x435;&#x440;&#x441;&#x456;&#x457; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;&#x430;, &#x441;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x43E;&#x457; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x435;&#x43C;, &#x456;&#x437; &#x43D;&#x443;&#x43B;&#x44C;&#x43E;&#x432;&#x43E;&#x44E; &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44E;, &#x431;&#x443;&#x434;&#x435; &#x437;&#x434;&#x456;&#x439;&#x441;&#x43D;&#x44E;&#x432;&#x430;&#x442;&#x438;&#x441;&#x44F; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A; &#x43A;&#x43E;&#x436;&#x43D;&#x43E;&#x457; &#x432;&#x43A;&#x43B;&#x430;&#x434;&#x435;&#x43D;&#x43E;&#x457; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; &#x443; &#x432;&#x435;&#x440;&#x441;&#x456;&#x457; &#x437; &#x43D;&#x443;&#x43B;&#x44C;&#x43E;&#x432;&#x43E;&#x44E; &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44E;. &#x41D;&#x430; &#x43F;&#x435;&#x432;&#x43D;&#x43E;&#x43C;&#x443; &#x435;&#x442;&#x430;&#x43F;&#x456; &#x431;&#x443;&#x434;&#x435; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x430;&#x43D;&#x430; &#x43F;&#x435;&#x440;&#x448;&#x430; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;. &#x41F;&#x43E;&#x434;&#x438;&#x432;&#x438;&#x43C;&#x43E;&#x441;&#x44F; &#x43D;&#x430; &#x446;&#x435; &#x43D;&#x430; &#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;&#x456; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430; <code>process-clusters</code>:</p>
+<pre><code class="lang-clojure">((<span class="hljs-name">process-clusters</span> conj))
+<span class="hljs-comment">;; =&gt; []</span>
+</code></pre>
+<p>&#x412;&#x438;&#x43A;&#x43B;&#x438;&#x43A; &#x432;&#x435;&#x440;&#x441;&#x456;&#x457; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; &#x456;&#x437; &#x43D;&#x443;&#x43B;&#x44C;&#x43E;&#x432;&#x43E;&#x44E; &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44E; &#x43F;&#x440;&#x43E;&#x445;&#x43E;&#x434;&#x438;&#x442;&#x44C; &#x432;&#x435;&#x441;&#x44C; &#x441;&#x442;&#x435;&#x43A; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430; &#x442;&#x430; &#x432;&#x440;&#x435;&#x448;&#x442;&#x456;-&#x440;&#x435;&#x448;&#x442; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x430;&#x454; <code>(conj)</code>.</p>
+<h4 id="&#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;-&#x449;&#x43E;-&#x437;&#x431;&#x435;&#x440;&#x456;&#x433;&#x430;&#x44E;&#x442;&#x44C;-&#x441;&#x442;&#x430;&#x43D;">&#x41F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;, &#x449;&#x43E; &#x437;&#x431;&#x435;&#x440;&#x456;&#x433;&#x430;&#x44E;&#x442;&#x44C; &#x441;&#x442;&#x430;&#x43D;</h4>
+<p>&#x414;&#x43E; &#x446;&#x44C;&#x43E;&#x433;&#x43E; &#x43C;&#x43E;&#x43C;&#x435;&#x43D;&#x442;&#x443; &#x43C;&#x438; &#x440;&#x43E;&#x437;&#x433;&#x43B;&#x44F;&#x434;&#x430;&#x43B;&#x438; &#x442;&#x456;&#x43B;&#x44C;&#x43A;&#x438; &#x447;&#x438;&#x441;&#x442;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x43E;&#x43D;&#x430;&#x43B;&#x44C;&#x43D;&#x456; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;. &#x412;&#x43E;&#x43D;&#x438; &#x43D;&#x435; &#x43C;&#x430;&#x44E;&#x442;&#x44C; &#x43D;&#x435;&#x44F;&#x432;&#x43D;&#x43E;&#x433;&#x43E; &#x441;&#x442;&#x430;&#x43D;&#x443; &#x456; &#x43F;&#x43E;&#x432;&#x43E;&#x434;&#x44F;&#x442;&#x44C;&#x441;&#x44F; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x431;&#x430;&#x447;&#x443;&#x432;&#x430;&#x43D;&#x43E;. &#x410;&#x43B;&#x435; &#x456;&#x441;&#x43D;&#x443;&#x454; &#x431;&#x430;&#x433;&#x430;&#x442;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x439; &#x434;&#x43B;&#x44F; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x457; &#x434;&#x430;&#x43D;&#x438;&#x445;, &#x449;&#x43E; &#x43C;&#x430;&#x44E;&#x442;&#x44C; &#x441;&#x442;&#x430;&#x43D;, &#x43D;&#x430;&#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434; <code>take</code>. <code>take</code> &#x43E;&#x447;&#x456;&#x43A;&#x443;&#x454; &#x43A;&#x456;&#x43B;&#x44C;&#x43A;&#x456;&#x441;&#x442;&#x44C; <code>n</code> &#x435;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x456;&#x432;, &#x44F;&#x43A;&#x443; &#x441;&#x43B;&#x456;&#x434; &#x437;&#x430;&#x43B;&#x438;&#x448;&#x438;&#x442;&#x438; &#x442;&#x430; &#x43F;&#x435;&#x432;&#x43D;&#x443; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x44E;, &#x430; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x44E;, &#x449;&#x43E; &#x43C;&#x456;&#x441;&#x442;&#x438;&#x442;&#x44C; &#x43D;&#x435; &#x431;&#x456;&#x43B;&#x44C;&#x448; &#x43D;&#x456;&#x436; <code>n</code> &#x435;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x456;&#x432;.</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">take</span></span> <span class="hljs-number">10</span> (<span class="hljs-name"><span class="hljs-builtin-name">range</span></span> <span class="hljs-number">100</span>))
+<span class="hljs-comment">;; =&gt; (0 1 2 3 4 5 6 7 8 9)</span>
+</code></pre>
+<p>&#x414;&#x430;&#x432;&#x430;&#x439;&#x442;&#x435; &#x437;&#x432;&#x435;&#x440;&#x43D;&#x435;&#x43C;&#x43E; &#x443;&#x432;&#x430;&#x433;&#x443; &#x43D;&#x430; &#x437;&#x430;&#x432;&#x447;&#x430;&#x441;&#x43D;&#x435; &#x43F;&#x440;&#x438;&#x43F;&#x438;&#x43D;&#x435;&#x43D;&#x43D;&#x44F; &#x432;&#x438;&#x43A;&#x43E;&#x43D;&#x430;&#x43D;&#x43D;&#x44F; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>reduce</code>. &#x41C;&#x438; &#x43C;&#x43E;&#x436;&#x435;&#x43C;&#x43E; &#x43E;&#x433;&#x43E;&#x440;&#x43D;&#x443;&#x442;&#x438; &#x430;&#x43A;&#x443;&#x43C;&#x443;&#x43B;&#x44F;&#x442;&#x43E;&#x440; &#x443; &#x442;&#x438;&#x43F; <code>reduced</code> &#x456; &#x441;&#x43F;&#x43E;&#x432;&#x456;&#x441;&#x442;&#x438;&#x442;&#x438; &#x442;&#x430;&#x43A;&#x438;&#x43C; &#x447;&#x438;&#x43D;&#x43E;&#x43C; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E; <code>reduce</code> &#x43F;&#x440;&#x43E; &#x442;&#x435;, &#x449;&#x43E; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x441; &#x43E;&#x431;&#x440;&#x43E;&#x431;&#x43A;&#x438; &#x43C;&#x430;&#x454; &#x431;&#x443;&#x442;&#x438; &#x43D;&#x435;&#x433;&#x430;&#x439;&#x43D;&#x43E; &#x43F;&#x440;&#x438;&#x43F;&#x438;&#x43D;&#x435;&#x43D;&#x438;&#x439; &#x443; &#x43F;&#x435;&#x432;&#x43D;&#x438;&#x439; &#x43C;&#x43E;&#x43C;&#x435;&#x43D;&#x442;. &#x420;&#x43E;&#x437;&#x433;&#x43B;&#x44F;&#x43D;&#x435;&#x43C;&#x43E; &#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;, &#x432; &#x44F;&#x43A;&#x43E;&#x43C;&#x443; &#x432;&#x445;&#x456;&#x434;&#x43D;&#x456; &#x434;&#x430;&#x43D;&#x456; &#x441;&#x43A;&#x43B;&#x430;&#x434;&#x430;&#x44E;&#x442;&#x44C;&#x441;&#x44F; &#x432; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x44E;, &#x430; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441; &#x437;&#x430;&#x432;&#x435;&#x440;&#x448;&#x443;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x44F;&#x43A; &#x442;&#x456;&#x43B;&#x44C;&#x43A;&#x438; &#x430;&#x43A;&#x443;&#x43C;&#x443;&#x43B;&#x44F;&#x442;&#x43E;&#x440; &#x43C;&#x456;&#x441;&#x442;&#x438;&#x442;&#x44C; 10 &#x435;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x456;&#x432;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">reduce</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span> [acc input]
+          (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">=</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">count</span></span> acc) <span class="hljs-number">10</span>)
+            (<span class="hljs-name"><span class="hljs-builtin-name">reduced</span></span> acc)
+            (<span class="hljs-name"><span class="hljs-builtin-name">conj</span></span> acc input)))
+         []
+         (<span class="hljs-name"><span class="hljs-builtin-name">range</span></span> <span class="hljs-number">100</span>))
+<span class="hljs-comment">;; =&gt; [0 1 2 3 4 5 6 7 8 9]</span>
+</code></pre>
+<p>&#x427;&#x435;&#x440;&#x435;&#x437; &#x442;&#x435;, &#x449;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456; &#x454; &#x43C;&#x43E;&#x434;&#x438;&#x444;&#x456;&#x43A;&#x430;&#x446;&#x456;&#x44F;&#x43C;&#x438; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x439;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;&#x456;&#x432;, &#x432;&#x43E;&#x43D;&#x438; &#x442;&#x430;&#x43A;&#x43E;&#x436; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x44E;&#x442;&#x44C; <code>reduced</code> &#x434;&#x43B;&#x44F; &#x437;&#x430;&#x432;&#x447;&#x430;&#x441;&#x43D;&#x43E;&#x433;&#x43E; &#x43F;&#x440;&#x438;&#x43F;&#x438;&#x43D;&#x435;&#x43D;&#x43D;&#x44F; &#x432;&#x438;&#x43A;&#x43E;&#x43D;&#x430;&#x43D;&#x43D;&#x44F;. &#x417;&#x432;&#x435;&#x440;&#x43D;&#x456;&#x442;&#x44C; &#x443;&#x432;&#x430;&#x433;&#x443; &#x43D;&#x430; &#x442;&#x435;, &#x449;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;, &#x449;&#x43E; &#x437;&#x431;&#x435;&#x440;&#x456;&#x433;&#x430;&#x44E;&#x442;&#x44C; &#x441;&#x442;&#x430;&#x43D;, &#x43C;&#x43E;&#x436;&#x443;&#x442;&#x44C; &#x431;&#x443;&#x442;&#x438; &#x437;&#x43C;&#x443;&#x448;&#x435;&#x43D;&#x456; &#x432;&#x438;&#x434;&#x430;&#x43B;&#x438;&#x442;&#x438; &#x431;&#x456;&#x43B;&#x44C;&#x448;&#x435; &#x434;&#x430;&#x43D;&#x438;&#x445; &#x43F;&#x435;&#x440;&#x435;&#x434; &#x437;&#x430;&#x432;&#x435;&#x440;&#x448;&#x435;&#x43D;&#x43D;&#x44F;&#x43C; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x443;, &#x442;&#x43E;&#x43C;&#x443; &#x43C;&#x430;&#x44E;&#x442;&#x44C; &#x43F;&#x456;&#x434;&#x442;&#x440;&#x438;&#x43C;&#x443;&#x432;&#x430;&#x442;&#x438; &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44C; &quot;1&quot; &#x443; &#x44F;&#x43A;&#x43E;&#x441;&#x442;&#x456; &#x437;&#x430;&#x43A;&#x456;&#x43D;&#x447;&#x443;&#x44E;&#x447;&#x43E;&#x433;&#x43E; &#x43A;&#x440;&#x43E;&#x43A;&#x443;. &#x417;&#x430;&#x437;&#x432;&#x438;&#x447;&#x430;&#x439;, &#x44F;&#x43A; &#x456; &#x437; &#x43D;&#x443;&#x43B;&#x44C;&#x43E;&#x432;&#x43E;&#x44E; &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44C;&#x44E;, &#x442;&#x430;&#x43A;&#x430; &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44C; &#x434;&#x435;&#x43B;&#x435;&#x433;&#x443;&#x454; &#x432;&#x438;&#x43A;&#x43E;&#x43D;&#x430;&#x43D;&#x43D;&#x44F; &#x434;&#x43E; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x43E;&#x432;&#x430;&#x43D;&#x43E;&#x457; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;&#x430;. </p>
+<p>&#x422;&#x430;&#x43A;&#x438;&#x43C; &#x447;&#x438;&#x43D;&#x43E;&#x43C;, &#x43C;&#x438; &#x43C;&#x43E;&#x436;&#x435;&#x43C;&#x43E;  &#x43F;&#x438;&#x441;&#x430;&#x442;&#x438; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;, &#x442;&#x430;&#x43A;&#x456; &#x44F;&#x43A; <code>take</code>. &#x41C;&#x438; &#x431;&#x443;&#x434;&#x435;&#x43C;&#x43E; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x432;&#x430;&#x442;&#x438; &#x437;&#x43C;&#x456;&#x43D;&#x44E;&#x432;&#x430;&#x43D;&#x456; &#x441;&#x442;&#x430;&#x43D;&#x438; &#x434;&#x43B;&#x44F; &#x432;&#x456;&#x434;&#x441;&#x43B;&#x456;&#x434;&#x43A;&#x43E;&#x432;&#x443;&#x432;&#x430;&#x43D;&#x43D;&#x44F; &#x43A;&#x456;&#x43B;&#x44C;&#x43A;&#x43E;&#x441;&#x442;&#x456; &#x434;&#x430;&#x43D;&#x438;&#x445;, &#x449;&#x43E; &#x432;&#x436;&#x435; &#x43D;&#x430;&#x434;&#x456;&#x439;&#x448;&#x43B;&#x438;, &#x430; &#x442;&#x430;&#x43A;&#x43E;&#x436; &#x43E;&#x433;&#x43E;&#x440;&#x43D;&#x435;&#x43C;&#x43E; &#x430;&#x43A;&#x443;&#x43C;&#x443;&#x43B;&#x44F;&#x442;&#x43E;&#x440; &#x443; <code>reduced</code>, &#x44F;&#x43A; &#x442;&#x456;&#x43B;&#x44C;&#x43A;&#x438; &#x43F;&#x43E;&#x431;&#x430;&#x447;&#x438;&#x43C;&#x43E; &#x434;&#x43E;&#x441;&#x442;&#x430;&#x442;&#x43D;&#x44C;&#x43E; &#x435;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x456;&#x432;.</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> my-take
+  [n]
+  (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span> [rfn]
+    (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [remaining (<span class="hljs-name">volatile!</span> n)]
+      (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span>
+        ([] (<span class="hljs-name">rfn</span>))
+        ([acc] (<span class="hljs-name">rfn</span> acc))
+        ([acc input]
+          (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [rem @remaining
+                nr (<span class="hljs-name">vswap!</span> remaining dec)
+                result (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">pos?</span></span> rem)
+                         (<span class="hljs-name">rfn</span> acc input)   <span class="hljs-comment">;; we still have items to take</span>
+                         acc)]             <span class="hljs-comment">;; we&apos;re done, acc becomes the result</span>
+            (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">not</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">pos?</span></span> nr))
+              (<span class="hljs-name">ensure-reduced</span> result)      <span class="hljs-comment">;; wrap result in reduced if not already</span>
+              result)))))))
+</code></pre>
+<p>&#x426;&#x435; &#x441;&#x43F;&#x440;&#x43E;&#x449;&#x435;&#x43D;&#x430; &#x432;&#x435;&#x440;&#x441;&#x456;&#x44F; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>take</code> &#x437;&#x456; &#x441;&#x442;&#x430;&#x43D;&#x434;&#x430;&#x440;&#x442;&#x43D;&#x43E;&#x457; &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x438; <em>ClojureScript</em>. &#x41D;&#x435;&#x43E;&#x431;&#x445;&#x456;&#x434;&#x43D;&#x43E; &#x432;&#x456;&#x434;&#x43C;&#x456;&#x442;&#x438;&#x442;&#x438; &#x43A;&#x456;&#x43B;&#x44C;&#x43A;&#x430; &#x43D;&#x44E;&#x430;&#x43D;&#x441;&#x456;&#x432;, &#x442;&#x43E;&#x43C;&#x443; &#x434;&#x430;&#x432;&#x430;&#x439;&#x442;&#x435; &#x432;&#x438;&#x432;&#x447;&#x438;&#x43C;&#x43E; &#x457;&#x457; &#x440;&#x43E;&#x431;&#x43E;&#x442;&#x443; &#x431;&#x456;&#x43B;&#x44C;&#x448; &#x434;&#x435;&#x442;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;.</p>
+<p>&#x41F;&#x435;&#x440;&#x448;&#x435;, &#x43D;&#x430; &#x449;&#x43E; &#x442;&#x440;&#x435;&#x431;&#x430; &#x437;&#x432;&#x435;&#x440;&#x43D;&#x443;&#x442;&#x438; &#x443;&#x432;&#x430;&#x433;&#x443;: &#x43C;&#x438; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x454;&#x43C;&#x43E; &#x437;&#x43C;&#x456;&#x43D;&#x44E;&#x432;&#x430;&#x43D;&#x435; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x432; &#x441;&#x435;&#x440;&#x435;&#x434;&#x438;&#x43D;&#x456; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430;. &#x41C;&#x438; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x454;&#x43C;&#x43E; &#x446;&#x435; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F;, &#x44F;&#x43A; &#x442;&#x456;&#x43B;&#x44C;&#x43A;&#x438; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x443;&#x454;&#x43C;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440; &#x434;&#x43B;&#x44F; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x457;. &#x42F;&#x43A;&#x449;&#x43E; &#x431; &#x43C;&#x438; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x438;&#x43B;&#x438; &#x446;&#x435; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x440;&#x430;&#x43D;&#x456;&#x448;&#x435;, &#x43C;&#x438; &#x437;&#x43C;&#x43E;&#x433;&#x43B;&#x438; &#x431; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x442;&#x438; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E; <code>my-take</code> &#x43B;&#x438;&#x448;&#x435; &#x43E;&#x434;&#x438;&#x43D; &#x440;&#x430;&#x437;. &#x41F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x443;&#x454; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440; &#x43D;&#x430;&#x43D;&#x43E;&#x432;&#x43E; &#x43A;&#x43E;&#x436;&#x435;&#x43D; &#x440;&#x430;&#x437; &#x43F;&#x440;&#x438; &#x439;&#x43E;&#x433;&#x43E; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x43D;&#x43D;&#x456;, &#x442;&#x43E;&#x43C;&#x443; &#x43C;&#x438; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x454;&#x43C;&#x43E; &#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440; &#x43F;&#x43E;&#x432;&#x442;&#x43E;&#x440;&#x43D;&#x43E; &#x442;&#x430; &#x437;&#x43C;&#x456;&#x43D;&#x44E;&#x432;&#x430;&#x43D;&#x435; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x441;&#x442;&#x440;&#x43E;&#x44E;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x449;&#x43E;&#x440;&#x430;&#x437;&#x443;.</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span> [rfn]
+  (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [remaining (<span class="hljs-name">volatile!</span> n)] <span class="hljs-comment">;; make sure to create mutable variables inside the transducer</span>
+    (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span>
+      <span class="hljs-comment">;; ...</span>
+)))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> take-five (<span class="hljs-name">my-take</span> <span class="hljs-number">5</span>))
+
+(<span class="hljs-name">transduce</span> take-five conj (<span class="hljs-name"><span class="hljs-builtin-name">range</span></span> <span class="hljs-number">100</span>))
+<span class="hljs-comment">;; =&gt; [0 1 2 3 4]</span>
+
+(<span class="hljs-name">transduce</span> take-five conj (<span class="hljs-name"><span class="hljs-builtin-name">range</span></span> <span class="hljs-number">100</span>))
+<span class="hljs-comment">;; =&gt; [0 1 2 3 4]</span>
+</code></pre>
+<p>&#x420;&#x43E;&#x437;&#x431;&#x435;&#x440;&#x435;&#x43C;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;, &#x441;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x443; <code>my-take</code>. &#x41F;&#x435;&#x440;&#x448; &#x437;&#x430; &#x432;&#x441;&#x435;, &#x43C;&#x438; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x43E;&#x432;&#x443;&#x454;&#x43C;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E; <code>deref</code> &#x434;&#x43E; &#x432;&#x43E;&#x43B;&#x430;&#x442;&#x430;&#x439;&#x43B;&#x430; &#x442;&#x430; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x443;&#x454;&#x43C;&#x43E; &#x43A;&#x456;&#x43B;&#x44C;&#x43A;&#x456;&#x441;&#x442;&#x44C; &#x435;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x456;&#x432;, &#x449;&#x43E; &#x43B;&#x438;&#x448;&#x430;&#x44E;&#x442;&#x44C;&#x441;&#x44F;, &#x442;&#x430; &#x437;&#x43C;&#x435;&#x43D;&#x448;&#x443;&#x454;&#x43C;&#x43E; &#x457;&#x457; &#x434;&#x43B;&#x44F; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x430;&#x43D;&#x43D;&#x44F; &#x43D;&#x430;&#x441;&#x442;&#x443;&#x43F;&#x43D;&#x43E;&#x433;&#x43E; &#x437;&#x430;&#x43B;&#x438;&#x448;&#x43A;&#x443;. &#x42F;&#x43A;&#x449;&#x43E; &#x435;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x438; &#x449;&#x435; &#x43B;&#x438;&#x448;&#x438;&#x43B;&#x438;&#x441;&#x44F;, &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x430;&#x454;&#x43C;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E; <code>rfn</code> &#x456; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x430;&#x454;&#x43C;&#x43E; &#x430;&#x43A;&#x443;&#x43C;&#x443;&#x43B;&#x44F;&#x442;&#x43E;&#x440; &#x442;&#x430; &#x432;&#x445;&#x456;&#x434;&#x43D;&#x456; &#x434;&#x430;&#x43D;&#x456;. &#x406;&#x43D;&#x430;&#x43A;&#x448;&#x435; &#x43C;&#x438; &#x432;&#x432;&#x430;&#x436;&#x430;&#x454;&#x43C;&#x43E;, &#x449;&#x43E; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x430;&#x43B;&#x438; &#x444;&#x456;&#x43D;&#x430;&#x43B;&#x44C;&#x43D;&#x438;&#x439; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;. </p>
+<pre><code class="lang-clojure">([acc input]
+  (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [rem @remaining
+        nr (<span class="hljs-name">vswap!</span> remaining dec)
+        result (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">pos?</span></span> rem)
+                 (<span class="hljs-name">rfn</span> acc input)
+                 acc)]
+    <span class="hljs-comment">;; ...</span>
+))
+</code></pre>
+<p>&#x422;&#x456;&#x43B;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>my-take</code> &#x43C;&#x430;&#x454; &#x431;&#x443;&#x442;&#x438; &#x432;&#x430;&#x43C; &#x432;&#x436;&#x435; &#x437;&#x440;&#x43E;&#x437;&#x443;&#x43C;&#x456;&#x43B;&#x438;&#x43C;. &#x41C;&#x438; &#x43F;&#x435;&#x440;&#x435;&#x432;&#x456;&#x440;&#x44F;&#x454;&#x43C;&#x43E;, &#x447;&#x438; &#x43B;&#x438;&#x448;&#x438;&#x43B;&#x438;&#x441;&#x44F; &#x43D;&#x435;&#x43E;&#x431;&#x440;&#x43E;&#x431;&#x43B;&#x435;&#x43D;&#x456; &#x435;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x438; &#x437;&#x430; &#x434;&#x43E;&#x43F;&#x43E;&#x43C;&#x43E;&#x433;&#x43E;&#x44E; (<code>nr</code>). &#x42F;&#x43A;&#x449;&#x43E; &#x43D;&#x456;, &#x442;&#x43E; &#x43E;&#x433;&#x43E;&#x440;&#x442;&#x430;&#x454;&#x43C;&#x43E; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442; &#x443; <code>reduced</code> &#x437;&#x430; &#x434;&#x43E;&#x43F;&#x43E;&#x43C;&#x43E;&#x433;&#x43E;&#x44E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>ensure-reduced</code>. &#x426;&#x44F; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442; &#x430;&#x431;&#x43E; &#x43E;&#x433;&#x43E;&#x440;&#x442;&#x430;&#x454; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x443; <code>reduced</code> &#x437;&#x430; &#x43D;&#x435;&#x43E;&#x431;&#x445;&#x456;&#x434;&#x43D;&#x43E;&#x441;&#x442;&#x456;. &#x42F;&#x43A;&#x449;&#x43E; &#x43E;&#x431;&#x440;&#x43E;&#x431;&#x43A;&#x430; &#x43D;&#x435; &#x437;&#x430;&#x43A;&#x456;&#x43D;&#x447;&#x435;&#x43D;&#x430;, &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; &#x430;&#x43A;&#x443;&#x43C;&#x443;&#x43B;&#x44C;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x439; <code>result</code> &#x434;&#x43B;&#x44F; &#x43F;&#x43E;&#x434;&#x430;&#x43B;&#x44C;&#x448;&#x43E;&#x457; &#x43E;&#x431;&#x440;&#x43E;&#x431;&#x43A;&#x438;.</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">not</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">pos?</span></span> nr))
+  (<span class="hljs-name">ensure-reduced</span> result)
+  result)
+</code></pre>
+<p>&#x41C;&#x438; &#x43F;&#x43E;&#x431;&#x430;&#x447;&#x438;&#x43B;&#x438; &#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430;, &#x449;&#x43E; &#x437;&#x431;&#x435;&#x440;&#x456;&#x433;&#x430;&#x454; &#x441;&#x442;&#x430;&#x43D;, &#x430;&#x43B;&#x435; &#x432;&#x456;&#x43D; &#x43D;&#x456;&#x447;&#x43E;&#x433;&#x43E; &#x43D;&#x435; &#x440;&#x43E;&#x431;&#x438;&#x432; &#x43D;&#x430; &#x437;&#x430;&#x432;&#x435;&#x440;&#x448;&#x443;&#x44E;&#x447;&#x43E;&#x43C;&#x443; &#x43A;&#x440;&#x43E;&#x446;&#x456; &#x440;&#x43E;&#x431;&#x43E;&#x442;&#x438;. &#x420;&#x43E;&#x437;&#x433;&#x43B;&#x44F;&#x43D;&#x435;&#x43C;&#x43E; &#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x434;&#x430; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430;, &#x44F;&#x43A;&#x438;&#x439; &#x432;&#x438;&#x434;&#x430;&#x43B;&#x44F;&#x454; &#x43D;&#x430;&#x43A;&#x43E;&#x43F;&#x438;&#x447;&#x435;&#x43D;&#x435; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x43D;&#x430; &#x43E;&#x441;&#x442;&#x430;&#x43D;&#x43D;&#x44C;&#x43E;&#x43C;&#x443; &#x43A;&#x440;&#x43E;&#x446;&#x456;. &#x420;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x443;&#x454;&#x43C;&#x43E; &#x441;&#x43F;&#x440;&#x43E;&#x449;&#x435;&#x43D;&#x443; &#x432;&#x435;&#x440;&#x441;&#x456;&#x44E; <code>partition-all</code>, &#x449;&#x43E; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x443;&#x454; &#x447;&#x438;&#x441;&#x43B;&#x43E; &#x435;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x456;&#x432; <code>n</code> &#x442;&#x430; &#x43A;&#x43E;&#x43D;&#x432;&#x435;&#x440;&#x442;&#x443;&#x454; &#x432;&#x445;&#x456;&#x434;&#x43D;&#x456; &#x434;&#x430;&#x43D;&#x456; &#x443; &#x432;&#x435;&#x43A;&#x442;&#x43E;&#x440;&#x438; &#x440;&#x43E;&#x437;&#x43C;&#x456;&#x440;&#x443; <code>n</code>. &#x414;&#x43B;&#x44F; &#x43A;&#x440;&#x430;&#x449;&#x43E;&#x433;&#x43E; &#x440;&#x43E;&#x437;&#x443;&#x43C;&#x456;&#x43D;&#x43D;&#x44F; &#x43F;&#x43E;&#x434;&#x438;&#x432;&#x438;&#x43C;&#x43E;&#x441;&#x44F;, &#x449;&#x43E; &#x43C;&#x438; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x430;&#x454;&#x43C;&#x43E; &#x432;&#x456;&#x434; &#x432;&#x435;&#x440;&#x441;&#x456;&#x457; &#x437; &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44E; 2, &#x44F;&#x43A;&#x449;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x430;&#x442;&#x438; &#x442;&#x430;&#x43A;&#x456;&#x439; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; &#x447;&#x438;&#x441;&#x43B;&#x43E; &#x442;&#x430; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x44E;: </p>
+<pre><code class="lang-clojure">(<span class="hljs-name">partition-all</span> <span class="hljs-number">3</span> (<span class="hljs-name"><span class="hljs-builtin-name">range</span></span> <span class="hljs-number">10</span>))
+<span class="hljs-comment">;; =&gt; ((0 1 2) (3 4 5) (6 7 8) (9))</span>
+</code></pre>
+<p>&#x41F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;, &#x449;&#x43E; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E; &#x437; <code>partition-all</code>, &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x443;&#x454; &#x447;&#x438;&#x441;&#x43B;&#x43E; <code>n</code>, &#x442;&#x430; &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;, &#x449;&#x43E; &#x433;&#x440;&#x443;&#x43F;&#x443;&#x454; &#x432;&#x445;&#x456;&#x434;&#x43D;&#x456; &#x434;&#x430;&#x43D;&#x456; &#x443; &#x432;&#x435;&#x43A;&#x442;&#x43E;&#x440;&#x438; &#x440;&#x43E;&#x437;&#x43C;&#x456;&#x440;&#x443; <code>n</code>. &#x417;&#x430;&#x432;&#x435;&#x440;&#x448;&#x443;&#x44E;&#x447;&#x438;&#x439; &#x43A;&#x440;&#x43E;&#x43A; &#x43F;&#x435;&#x440;&#x435;&#x432;&#x456;&#x440;&#x44F;&#x454;, &#x447;&#x438; &#x454; &#x430;&#x43A;&#x443;&#x43C;&#x443;&#x43B;&#x44C;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x439; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;, &#x442;&#x430; &#x434;&#x43E;&#x434;&#x430;&#x454; &#x434;&#x43E; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;&#x443;. &#x41E;&#x441;&#x44C; &#x441;&#x43F;&#x440;&#x43E;&#x449;&#x435;&#x43D;&#x430; &#x432;&#x435;&#x440;&#x441;&#x456;&#x44F; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457;  <code>partition-all</code> &#x437;&#x456; &#x441;&#x442;&#x430;&#x43D;&#x434;&#x430;&#x440;&#x442;&#x43D;&#x43E;&#x457; &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x438; ClojureScript, &#x434;&#x435; <code>array-list</code> &#x2014; &#x446;&#x435; &#x43E;&#x431;&#x433;&#x43E;&#x440;&#x442;&#x43A;&#x430; &#x437;&#x43C;&#x456;&#x43D;&#x44E;&#x432;&#x430;&#x43D;&#x43E;&#x433;&#x43E; &#x43C;&#x430;&#x441;&#x438;&#x432;&#x430; &#x437; JavaScript:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> my-partition-all
+  [n]
+  (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span> [rfn]
+    (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [a (<span class="hljs-name">array-list</span>)]
+      (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span>
+        ([] (<span class="hljs-name">rfn</span>))
+        ([result]
+          (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [result (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name">.isEmpty</span> a)                  <span class="hljs-comment">;; no inputs accumulated, don&apos;t have to modify result</span>
+                         result
+                         (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [v (<span class="hljs-name"><span class="hljs-builtin-name">vec</span></span> (<span class="hljs-name">.toArray</span> a))]
+                           (<span class="hljs-name">.clear</span> a)                    <span class="hljs-comment">;; flush array contents for garbage collection</span>
+                           (<span class="hljs-name">unreduced</span> (<span class="hljs-name">rfn</span> result v))))] <span class="hljs-comment">;; pass to `rfn`, removing the reduced wrapper if present</span>
+            (<span class="hljs-name">rfn</span> result)))
+        ([acc input]
+          (<span class="hljs-name">.add</span> a input)
+          (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">==</span></span> n (<span class="hljs-name">.size</span> a))                           <span class="hljs-comment">;; got enough results for a chunk</span>
+            (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [v (<span class="hljs-name"><span class="hljs-builtin-name">vec</span></span> (<span class="hljs-name">.toArray</span> a))]
+              (<span class="hljs-name">.clear</span> a)
+              (<span class="hljs-name">rfn</span> acc v))                               <span class="hljs-comment">;; the accumulated chunk becomes input to `rfn`</span>
+            acc))))))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> triples (<span class="hljs-name">my-partition-all</span> <span class="hljs-number">3</span>))
+
+(<span class="hljs-name">transduce</span> triples conj (<span class="hljs-name"><span class="hljs-builtin-name">range</span></span> <span class="hljs-number">10</span>))
+<span class="hljs-comment">;; =&gt; [[0 1 2] [3 4 5] [6 7 8] [9]]</span>
+</code></pre>
+<h4 id="&#x435;&#x434;&#x443;&#x43A;&#x446;&#x456;&#x457;">&#x415;&#x434;&#x443;&#x43A;&#x446;&#x456;&#x457;</h4>
+<p>&#x415;&#x434;&#x443;&#x43A;&#x446;&#x456;&#x457; &#x2014; &#x446;&#x435; &#x441;&#x43F;&#x43E;&#x441;&#x456;&#x431; &#x43F;&#x43E;&#x454;&#x434;&#x43D;&#x430;&#x43D;&#x43D;&#x44F; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x457; &#x442;&#x430; &#x43E;&#x434;&#x43D;&#x43E;&#x457; &#x447;&#x438; &#x431;&#x456;&#x43B;&#x44C;&#x448;&#x435; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x439;, &#x449;&#x43E; &#x457;&#x445; &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x441;&#x43F;&#x440;&#x43E;&#x449;&#x443;&#x432;&#x430;&#x442;&#x438; &#x442;&#x430; &#x43F;&#x435;&#x440;&#x435;&#x431;&#x438;&#x440;&#x430;&#x442;&#x438;, &#x43F;&#x440;&#x438; &#x446;&#x44C;&#x43E;&#x43C;&#x443; &#x449;&#x43E;&#x440;&#x430;&#x437;&#x443; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x43E;&#x432;&#x443;&#x44E;&#x442;&#x44C;&#x441;&#x44F; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x457;. &#x42F;&#x43A;&#x449;&#x43E; &#x43C;&#x438; &#x43C;&#x430;&#x454;&#x43C;&#x43E; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x44E;, &#x44F;&#x43A;&#x443; &#x43F;&#x43E;&#x442;&#x440;&#x456;&#x431;&#x43D;&#x43E; &#x43E;&#x431;&#x440;&#x43E;&#x431;&#x438;&#x442;&#x438;, &#x442;&#x430; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x44E; &#x446;&#x456;&#x454;&#x457; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x457;, &#x449;&#x43E; &#x457;&#x457; &#x43F;&#x43E;&#x442;&#x440;&#x456;&#x431;&#x43D;&#x43E; &#x440;&#x43E;&#x437;&#x448;&#x438;&#x440;&#x438;&#x442;&#x438;, &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x430;&#x442;&#x438; &#x457;&#x43C; &#x435;&#x434;&#x443;&#x43A;&#x446;&#x456;&#x44E; &#x456; &#x442;&#x430;&#x43A;&#x438;&#x43C; &#x447;&#x438;&#x43D;&#x43E;&#x43C; &#x456;&#x437;&#x43E;&#x43B;&#x44E;&#x432;&#x430;&#x442;&#x438; &#x432;&#x438;&#x445;&#x456;&#x434;&#x43D;&#x443; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x44E; &#x442;&#x430; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x430;&#x446;&#x456;&#x44E;. &#x415;&#x434;&#x443;&#x43A;&#x446;&#x456;&#x457; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x44E;&#x442;&#x44C;&#x441;&#x44F; &#x437;&#x430; &#x434;&#x43E;&#x43F;&#x43E;&#x43C;&#x43E;&#x433;&#x44E; &#x444;&#x443;&#x43A;&#x43D;&#x446;&#x456;&#x457; <code>eduction</code>:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> ed (<span class="hljs-name">eduction</span> (<span class="hljs-name"><span class="hljs-builtin-name">filter</span></span> odd?) (<span class="hljs-name"><span class="hljs-builtin-name">take</span></span> <span class="hljs-number">5</span>) (<span class="hljs-name"><span class="hljs-builtin-name">range</span></span> <span class="hljs-number">100</span>)))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">reduce</span></span> + <span class="hljs-number">0</span> ed)
+<span class="hljs-comment">;; =&gt; 25</span>
+
+(<span class="hljs-name">transduce</span> (<span class="hljs-name">partition-all</span> <span class="hljs-number">2</span>) conj ed)
+<span class="hljs-comment">;; =&gt; [[1 3] [5 7] [9]]</span>
+</code></pre>
+<h4 id="&#x456;&#x43D;&#x448;&#x456;-&#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;-&#x443;-&#x441;&#x442;&#x430;&#x43D;&#x434;&#x430;&#x440;&#x442;&#x43D;&#x456;&#x439;-&#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x446;&#x456;-clojurescript">&#x406;&#x43D;&#x448;&#x456; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456; &#x443; &#x441;&#x442;&#x430;&#x43D;&#x434;&#x430;&#x440;&#x442;&#x43D;&#x456;&#x439; &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x446;&#x456; ClojureScript</h4>
+<p>&#x41C;&#x438; &#x43F;&#x43E;&#x437;&#x43D;&#x430;&#x439;&#x43E;&#x43C;&#x438;&#x43B;&#x438;&#x441;&#x44F; &#x437; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F;&#x43C;&#x438; <code>map</code>, <code>filter</code>, <code>mapcat</code>, <code>take</code> &#x442;&#x430; <code>partition-all</code>, &#x430;&#x43B;&#x435; &#x443; <em>ClojureScript</em> &#x454; &#x437;&#x43D;&#x430;&#x447;&#x43D;&#x43E; &#x431;&#x456;&#x43B;&#x44C;&#x448;&#x435; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;&#x432;. &#x41D;&#x430;&#x432;&#x435;&#x434;&#x435;&#x43C;&#x43E; &#x43D;&#x435;&#x43F;&#x43E;&#x432;&#x43D;&#x438;&#x439; &#x441;&#x43F;&#x438;&#x441;&#x43E;&#x43A; &#x432;&#x430;&#x440;&#x442;&#x438;&#x445; &#x443;&#x432;&#x430;&#x433;&#x438; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;&#x432;:</p>
+<ul>
+<li><code>drop</code> &#x2014; &#x446;&#x435; &#x434;&#x43E;&#x43F;&#x43E;&#x432;&#x43D;&#x435;&#x43D;&#x43D;&#x44F; &#x434;&#x43E; <code>take</code>, &#x449;&#x43E; &#x43F;&#x440;&#x43E;&#x43F;&#x443;&#x441;&#x43A;&#x430;&#x454; <code>n</code> &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x44C; &#x43F;&#x435;&#x440;&#x435;&#x434; &#x442;&#x438;&#x43C;, &#x44F;&#x43A; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x430;&#x442;&#x438; &#x432;&#x445;&#x456;&#x434;&#x43D;&#x456; &#x434;&#x430;&#x43D;&#x456; &#x434;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;&#x430;</li>
+<li><code>distinct</code> &#x434;&#x43E;&#x437;&#x432;&#x43E;&#x43B;&#x44F;&#x454; &#x43B;&#x438;&#x448;&#x435; &#x432;&#x445;&#x456;&#x434;&#x43D;&#x456; &#x434;&#x430;&#x43D;&#x456;, &#x449;&#x43E; &#x43D;&#x435; &#x43F;&#x43E;&#x432;&#x442;&#x43E;&#x440;&#x44E;&#x44E;&#x442;&#x44C;&#x441;&#x44F;</li>
+<li><code>dedupe</code> &#x432;&#x438;&#x434;&#x430;&#x43B;&#x44F;&#x454; &#x43F;&#x43E;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x432;&#x43D;&#x456; &#x434;&#x443;&#x431;&#x43B;&#x456;&#x43A;&#x430;&#x442;&#x438; &#x437; &#x432;&#x445;&#x456;&#x434;&#x43D;&#x438;&#x445; &#x434;&#x430;&#x43D;&#x438;&#x445;</li>
+</ul>
+<p>&#x420;&#x435;&#x43A;&#x43E;&#x43C;&#x435;&#x43D;&#x434;&#x443;&#x454;&#x43C;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x433;&#x43B;&#x44F;&#x43D;&#x443;&#x442;&#x438; &#x434;&#x43E;&#x43A;&#x443;&#x43C;&#x435;&#x43D;&#x442;&#x430;&#x446;&#x456;&#x44E; &#x441;&#x442;&#x430;&#x43D;&#x434;&#x430;&#x440;&#x442;&#x43D;&#x43E;&#x457; &#x431;&#x456;&#x431;&#x43B;&#x456;&#x43E;&#x442;&#x435;&#x43A;&#x438; ClojureScript &#x442;&#x430; &#x43F;&#x43E;&#x434;&#x438;&#x432;&#x438;&#x442;&#x438;&#x441;&#x44F;, &#x44F;&#x43A;&#x456; &#x449;&#x435; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456; &#x43F;&#x440;&#x435;&#x434;&#x441;&#x442;&#x430;&#x432;&#x43B;&#x435;&#x43D;&#x456; &#x443; &#x43C;&#x43E;&#x432;&#x456;.</p>
+<h4 id="&#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F;-&#x432;&#x43B;&#x430;&#x441;&#x43D;&#x438;&#x445;-&#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;&#x432;">&#x412;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x432;&#x43B;&#x430;&#x441;&#x43D;&#x438;&#x445; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;&#x432;</h4>
+<p>&#x41F;&#x435;&#x440;&#x435;&#x434; &#x43D;&#x430;&#x43F;&#x438;&#x441;&#x430;&#x43D;&#x43D;&#x44F;&#x43C; &#x432;&#x43B;&#x430;&#x441;&#x43D;&#x438;&#x445; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;&#x432; &#x441;&#x43B;&#x456;&#x434; &#x437;&#x432;&#x435;&#x440;&#x43D;&#x443;&#x442;&#x438; &#x443;&#x432;&#x430;&#x433;&#x443; &#x43D;&#x430; &#x43F;&#x435;&#x432;&#x43D;&#x456; &#x43D;&#x44E;&#x430;&#x43D;&#x441;&#x438;, &#x442;&#x43E;&#x43C;&#x443; &#x432; &#x446;&#x44C;&#x43E;&#x43C;&#x443; &#x440;&#x43E;&#x437;&#x434;&#x456;&#x43B;&#x456; &#x43C;&#x438; &#x434;&#x456;&#x437;&#x43D;&#x430;&#x454;&#x43C;&#x43E;&#x441;&#x44F;, &#x44F;&#x43A; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x43E;&#x432;&#x443;&#x432;&#x430;&#x442;&#x438; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456; &#x43F;&#x440;&#x430;&#x432;&#x438;&#x43B;&#x44C;&#x43D;&#x43E;. &#x41F;&#x435;&#x440;&#x448; &#x437;&#x430; &#x432;&#x441;&#x435;, &#x43C;&#x438; &#x432;&#x438;&#x432;&#x447;&#x438;&#x43B;&#x438;, &#x449;&#x43E; &#x443; &#x437;&#x430;&#x433;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;&#x43C;&#x443; &#x432;&#x438;&#x43F;&#x430;&#x434;&#x43A;&#x443; &#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x443;&#x440;&#x430; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430; &#x442;&#x430;&#x43A;&#x430;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span> [xf]
+  (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span>
+    ([]          <span class="hljs-comment">;; init</span>
+      ...)
+    ([r]         <span class="hljs-comment">;; completion</span>
+      ...)
+    ([acc input] <span class="hljs-comment">;; step</span>
+      ...)))
+</code></pre>
+<p>&#x417;&#x430;&#x437;&#x432;&#x438;&#x447;&#x430;&#x439; &#x432;&#x456;&#x434; &#x43E;&#x434;&#x43D;&#x43E;&#x433;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430; &#x434;&#x43E; &#x43D;&#x430;&#x441;&#x442;&#x443;&#x43F;&#x43D;&#x43E;&#x433;&#x43E; &#x437;&#x43C;&#x456;&#x43D;&#x44E;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x43B;&#x438;&#x448;&#x435; &#x43A;&#x43E;&#x434;, &#x43F;&#x43E;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x438;&#x439; &#x443; &#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;&#x456; &#x437;&#x43D;&#x430;&#x43A;&#x43E;&#x43C; <code>...</code>. &#x41E;&#x441;&#x44C; &#x456;&#x43D;&#x432;&#x430;&#x440;&#x456;&#x430;&#x43D;&#x442;&#x438;, &#x449;&#x43E; &#x43C;&#x430;&#x44E;&#x442;&#x44C; &#x437;&#x431;&#x435;&#x440;&#x456;&#x433;&#x430;&#x442;&#x438;&#x441;&#x44F; &#x437; &#x43A;&#x43E;&#x436;&#x43D;&#x43E;&#x44E; &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44E; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x443;&#x44E;&#x447;&#x43E;&#x457; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457;:</p>
+<ul>
+<li>&#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44C; 0(init): &#x43C;&#x430;&#x454; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x430;&#x442;&#x438; &#x43D;&#x443;&#x43B;&#x44C;&#x43E;&#x432;&#x443; &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44C; &#x432;&#x43A;&#x43B;&#x430;&#x434;&#x435;&#x43D;&#x43E;&#x457; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>xf</code></li>
+<li>&#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44C; 1 (completion): &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x434;&#x43B;&#x44F; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x43D;&#x44F; &#x444;&#x456;&#x43D;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;&#x433;&#x43E; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x442;&#x430; &#x43C;&#x43E;&#x436;&#x43B;&#x438;&#x432;&#x43E;&#x433;&#x43E; &#x432;&#x438;&#x434;&#x430;&#x43B;&#x435;&#x43D;&#x43D;&#x44F; &#x441;&#x442;&#x430;&#x43D;&#x456;&#x432;, &#x441;&#x43B;&#x456;&#x434; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x430;&#x442;&#x438; &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44C; 1 &#x432;&#x43A;&#x43B;&#x430;&#x434;&#x435;&#x43D;&#x43E;&#x457; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>xf</code> &#x43B;&#x438;&#x448;&#x435; &#x43E;&#x434;&#x438;&#x43D; &#x440;&#x430;&#x437;</li>
+<li>&#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44C; 2 (step): &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44F;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;, &#x449;&#x43E; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x447;&#x435; &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44C; 2 &#x432;&#x43A;&#x43B;&#x430;&#x434;&#x435;&#x43D;&#x43E;&#x457; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>xf</code> &#x43D;&#x443;&#x43B;&#x44C;, &#x43E;&#x434;&#x438;&#x43D; &#x430;&#x431;&#x43E; &#x431;&#x456;&#x43B;&#x44C;&#x448;&#x435; &#x440;&#x430;&#x437;&#x456;&#x432;.</li>
+</ul>
+<h4 id="&#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x438;-&#x449;&#x43E;-&#x43C;&#x43E;&#x436;&#x443;&#x442;&#x44C;-&#x431;&#x443;&#x442;&#x438;-&#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x456;">&#x41F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x438;, &#x449;&#x43E; &#x43C;&#x43E;&#x436;&#x443;&#x442;&#x44C; &#x431;&#x443;&#x442;&#x438; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x456;</h4>
+<p>&#x41F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x43E;&#x43C;, &#x449;&#x43E; &#x43C;&#x43E;&#x436;&#x435; &#x431;&#x443;&#x442;&#x438; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x438;&#x439;, &#x43D;&#x430;&#x437;&#x438;&#x432;&#x430;&#x44E;&#x442;&#x44C; &#x431;&#x443;&#x434;&#x44C;-&#x44F;&#x43A;&#x438;&#x439; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;, &#x449;&#x43E; &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x438;&#x442;&#x438; &#x44F;&#x43A; &#x43F;&#x43E;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x432;&#x43D;&#x456;&#x441;&#x442;&#x44C; &#x43A;&#x440;&#x43E;&#x43A;&#x456;&#x432; &#x437; &#x43F;&#x435;&#x440;&#x435;&#x440;&#x43E;&#x431;&#x43A;&#x438; &#x432;&#x445;&#x456;&#x434;&#x43D;&#x438;&#x445; &#x434;&#x430;&#x43D;&#x438;&#x445;. &#x414;&#x436;&#x435;&#x440;&#x435;&#x43B;&#x43E; &#x43D;&#x430;&#x434;&#x445;&#x43E;&#x434;&#x436;&#x435;&#x43D;&#x43D;&#x44F; &#x432;&#x445;&#x456;&#x434;&#x43D;&#x438;&#x445; &#x434;&#x430;&#x43D;&#x438;&#x445; &#x43C;&#x43E;&#x436;&#x435; &#x431;&#x443;&#x442;&#x438; &#x440;&#x456;&#x437;&#x43D;&#x438;&#x43C; &#x437;&#x430;&#x43B;&#x435;&#x436;&#x43D;&#x43E; &#x432;&#x456;&#x434; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x443;. &#x411;&#x456;&#x43B;&#x44C;&#x448;&#x456;&#x441;&#x442;&#x44C; &#x43D;&#x430;&#x432;&#x435;&#x434;&#x435;&#x43D;&#x438;&#x445; &#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;&#x456;&#x432; &#x434;&#x435;&#x43C;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x432;&#x430;&#x43B;&#x438; &#x43D;&#x430;&#x434;&#x445;&#x43E;&#x434;&#x436;&#x435;&#x43D;&#x43D;&#x44F; &#x434;&#x430;&#x43D;&#x438;&#x445; &#x437; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x457; &#x430;&#x431;&#x43E; &#x437; &#x43B;&#x456;&#x43D;&#x438;&#x432;&#x43E;&#x457; &#x43F;&#x43E;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x432;&#x43D;&#x43E;&#x441;&#x442;&#x456;, &#x430;&#x43B;&#x435; &#x434;&#x430;&#x43D;&#x456; &#x43C;&#x43E;&#x436;&#x443;&#x442;&#x44C; &#x442;&#x430;&#x43A;&#x43E;&#x436; &#x43D;&#x430;&#x434;&#x445;&#x43E;&#x434;&#x438;&#x442;&#x438; &#x437; &#x430;&#x441;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x43E;&#x433;&#x43E; &#x43F;&#x43E;&#x442;&#x43E;&#x43A;&#x443; &#x430;&#x431;&#x43E; &#x437; &#x43A;&#x430;&#x43D;&#x430;&#x43B;&#x443; <code>core.async</code>. &#x420;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;&#x438; &#x440;&#x43E;&#x431;&#x43E;&#x442;&#x438; &#x43A;&#x43E;&#x436;&#x43D;&#x43E;&#x433;&#x43E; &#x43A;&#x440;&#x43E;&#x43A;&#x443; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x443; &#x442;&#x430;&#x43A;&#x43E;&#x436; &#x43C;&#x43E;&#x436;&#x443;&#x442;&#x44C; &#x431;&#x443;&#x442;&#x438; &#x440;&#x456;&#x437;&#x43D;&#x456;. <code>into</code> &#x441;&#x432;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x454; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x44E; &#x437; &#x43A;&#x43E;&#x436;&#x43D;&#x43E;&#x433;&#x43E; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;&#x443; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430;, <code>sequence</code> &#x43F;&#x43E;&#x432;&#x435;&#x440;&#x442;&#x430;&#x454; &#x43B;&#x456;&#x43D;&#x438;&#x432;&#x443; &#x43F;&#x43E;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x432;&#x43D;&#x456;&#x441;&#x442;&#x44C;, &#x430; &#x430;&#x441;&#x438;&#x43D;&#x445;&#x440;&#x43E;&#x43D;&#x43D;&#x456; &#x43F;&#x43E;&#x442;&#x43E;&#x43A;&#x438; &#x432;&#x456;&#x440;&#x43E;&#x433;&#x456;&#x434;&#x43D;&#x43E; &#x432;&#x456;&#x434;&#x43F;&#x440;&#x430;&#x432;&#x43B;&#x44F;&#x442;&#x44C; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442; &#x441;&#x432;&#x43E;&#x457;&#x43C; &#x441;&#x43B;&#x443;&#x445;&#x430;&#x447;&#x430;&#x43C;.</p>
+<p>&#x414;&#x43B;&#x44F; &#x43F;&#x43E;&#x43A;&#x440;&#x430;&#x449;&#x435;&#x43D;&#x43D;&#x44F; &#x440;&#x43E;&#x437;&#x443;&#x43C;&#x456;&#x43D;&#x43D;&#x44F; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x456;&#x432;, &#x449;&#x43E; &#x43C;&#x43E;&#x436;&#x443;&#x442;&#x44C; &#x431;&#x443;&#x442;&#x438; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x456;, &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x443;&#x454;&#x43C;&#x43E; &#x43D;&#x435;&#x43E;&#x431;&#x43C;&#x435;&#x436;&#x435;&#x43D;&#x443; &#x447;&#x435;&#x440;&#x433;&#x443;, &#x431;&#x43E; &#x434;&#x43E;&#x434;&#x430;&#x432;&#x430;&#x43D;&#x43D;&#x44F; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x44C; &#x434;&#x43E; &#x43D;&#x435;&#x457; &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x43F;&#x440;&#x435;&#x434;&#x441;&#x442;&#x430;&#x432;&#x438;&#x442;&#x438; &#x44F;&#x43A; &#x43F;&#x43E;&#x441;&#x43B;&#x456;&#x434;&#x43E;&#x432;&#x43D;&#x456; &#x43A;&#x440;&#x43E;&#x43A;&#x438; &#x437; &#x43E;&#x431;&#x440;&#x43E;&#x431;&#x43A;&#x438; &#x432;&#x445;&#x456;&#x434;&#x43D;&#x438;&#x445; &#x434;&#x430;&#x43D;&#x438;&#x445;. &#x41F;&#x435;&#x440;&#x448; &#x437;&#x430; &#x432;&#x441;&#x435;, &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x438;&#x43C;&#x43E; &#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B; &#x442;&#x430; &#x442;&#x438;&#x43F; &#x434;&#x430;&#x43D;&#x438;&#x445;, &#x449;&#x43E; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x443;&#x454; &#x43D;&#x435;&#x43E;&#x431;&#x43C;&#x435;&#x436;&#x435;&#x43D;&#x443; &#x447;&#x435;&#x440;&#x433;&#x443;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defprotocol</span></span> Queue
+  (<span class="hljs-name">put!</span> [q item] <span class="hljs-string">&quot;put an item into the queue&quot;</span>)
+  (<span class="hljs-name">take!</span> [q] <span class="hljs-string">&quot;take an item from the queue&quot;</span>)
+  (<span class="hljs-name">shutdown!</span> [q] <span class="hljs-string">&quot;stop accepting puts in the queue&quot;</span>))
+
+(<span class="hljs-name"><span class="hljs-builtin-name">deftype</span></span> UnboundedQueue [^<span class="hljs-symbol">:mutable</span> arr ^<span class="hljs-symbol">:mutable</span> closed]
+  Queue
+  (<span class="hljs-name">put!</span> [_ item]
+    (<span class="hljs-name"><span class="hljs-builtin-name">assert</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">not</span></span> closed))
+    (<span class="hljs-name"><span class="hljs-builtin-name">assert</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">not</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">nil?</span></span> item)))
+    (<span class="hljs-name">.push</span> arr item)
+    item)
+  (<span class="hljs-name">take!</span> [_]
+    (<span class="hljs-name">aget</span> (<span class="hljs-name">.splice</span> arr <span class="hljs-number">0</span> <span class="hljs-number">1</span>) <span class="hljs-number">0</span>))
+  (<span class="hljs-name">shutdown!</span> [_]
+    (<span class="hljs-name"><span class="hljs-builtin-name">set!</span></span> closed <span class="hljs-literal">true</span>)))
+</code></pre>
+<p>&#x41C;&#x438; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x438;&#x43B;&#x438; &#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B; <code>Queue</code>, &#x456; &#x432;&#x438; &#x43C;&#x43E;&#x436;&#x435;&#x442;&#x435; &#x43F;&#x43E;&#x43C;&#x456;&#x442;&#x438;&#x442;&#x438;, &#x449;&#x43E; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x430;&#x446;&#x456;&#x44F; <code>UnboundedQueue</code> &#x43D;&#x435; &#x437;&#x43D;&#x430;&#x454; &#x43F;&#x440;&#x43E;  &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;. &#x41D;&#x430;&#x442;&#x43E;&#x43C;&#x456;&#x441;&#x442;&#x44C; &#x434;&#x43B;&#x44F; &#x43D;&#x435;&#x457; &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x430; &#x43E;&#x43F;&#x435;&#x440;&#x430;&#x446;&#x456;&#x44F; <code>put!</code>, &#x456; &#x43C;&#x438; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x446;&#x454;&#x43C;&#x43E; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;, &#x449;&#x43E; &#x43C;&#x43E;&#x436;&#x435; &#x431;&#x443;&#x442;&#x438; &#x442;&#x440;&#x430;&#x43D;&#x441;&#x444;&#x43E;&#x440;&#x43C;&#x43E;&#x432;&#x430;&#x43D;&#x438;&#x439;, &#x43D;&#x430; &#x431;&#x430;&#x437;&#x456; &#x446;&#x44C;&#x43E;&#x433;&#x43E; &#x456;&#x43D;&#x442;&#x435;&#x440;&#x444;&#x435;&#x439;&#x441;&#x443;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> unbounded-queue
+  ([]
+   (<span class="hljs-name">unbounded-queue</span> <span class="hljs-literal">nil</span>))
+  ([xform]
+   (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [put! (<span class="hljs-name">completing</span> put!)
+         xput! (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> xform (<span class="hljs-name">xform</span> put!) put!)
+         q (<span class="hljs-name">UnboundedQueue.</span> #js [] <span class="hljs-literal">false</span>)]
+     (<span class="hljs-name"><span class="hljs-builtin-name">reify</span></span>
+       Queue
+       (<span class="hljs-name">put!</span> [_ item]
+         (<span class="hljs-name"><span class="hljs-builtin-name">when-not</span></span> (<span class="hljs-name">.-closed</span> q)
+           (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [val (<span class="hljs-name">xput!</span> q item)]
+             (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">reduced?</span></span> val)
+               (<span class="hljs-name"><span class="hljs-builtin-name">do</span></span>
+                 (<span class="hljs-name">xput!</span> @val)  <span class="hljs-comment">;; call completion step</span>
+                 (<span class="hljs-name">shutdown!</span> q) <span class="hljs-comment">;; respect reduced</span>
+                 @val)
+               val))))
+       (<span class="hljs-name">take!</span> [_]
+         (<span class="hljs-name">take!</span> q))
+       (<span class="hljs-name">shutdown!</span> [_]
+         (<span class="hljs-name">shutdown!</span> q))))))
+</code></pre>
+<p>&#x412;&#x438; &#x43C;&#x43E;&#x436;&#x435;&#x442;&#x435; &#x43F;&#x43E;&#x431;&#x430;&#x447;&#x438;&#x442;&#x438;, &#x449;&#x43E; &#x43A;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43A;&#x442;&#x43E;&#x440; <code>unbounded-queue</code> &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x454; &#x435;&#x43A;&#x437;&#x435;&#x43C;&#x43F;&#x43B;&#x44F;&#x440; <code>UnboundedQueue</code>, &#x43F;&#x435;&#x440;&#x435;&#x445;&#x43E;&#x43F;&#x43B;&#x44E;&#x454; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x438; <code>take!</code> &#x456; <code>shutdown!</code> &#x442;&#x456; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x443;&#x454; &#x43B;&#x43E;&#x433;&#x456;&#x433;&#x43A;&#x443; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x443; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x43D;&#x44F; &#x443; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>put!</code>. &#x420;&#x43E;&#x437;&#x433;&#x43B;&#x44F;&#x43D;&#x435;&#x43C;&#x43E; &#x434;&#x435;&#x442;&#x430;&#x43B;&#x44C;&#x43D;&#x456;&#x448;&#x435; &#x43A;&#x43E;&#x436;&#x435;&#x43D; &#x43A;&#x440;&#x43E;&#x43A;.</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [put! (<span class="hljs-name">completing</span> put!)
+      xput! (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> xform (<span class="hljs-name">xform</span> put!) put!)
+      q (<span class="hljs-name">UnboundedQueue.</span> #js [] <span class="hljs-literal">false</span>)]
+  <span class="hljs-comment">;; ...</span>
+)
+</code></pre>
+<p>&#x41F;&#x435;&#x440;&#x448; &#x437;&#x430; &#x432;&#x441;&#x435;, &#x43C;&#x438; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x43E;&#x432;&#x443;&#x454;&#x43C;&#x43E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E; <code>completing</code> &#x434;&#x43B;&#x44F; &#x442;&#x43E;&#x433;&#x43E;, &#x449;&#x43E;&#x431; &#x434;&#x43E;&#x434;&#x430;&#x442;&#x438; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>put!</code> &#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B;&#x443; <code>Queue</code> &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44C; 0 &#x442;&#x430; &#x430;&#x440;&#x43D;&#x456;&#x441;&#x442;&#x44C; 1. &#x426;&#x435; &#x437;&#x430;&#x431;&#x435;&#x437;&#x43F;&#x435;&#x447;&#x438;&#x442;&#x44C; &#x431;&#x435;&#x437;&#x43F;&#x440;&#x43E;&#x431;&#x43B;&#x435;&#x43C;&#x43D;&#x443; &#x440;&#x43E;&#x431;&#x43E;&#x442;&#x443; &#x437; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430;&#x43C;&#x438;, &#x44F;&#x43A;&#x449;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x430;&#x442;&#x438; &#x446;&#x44E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>xform</code> &#x434;&#x43B;&#x44F; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x430;&#x43D;&#x43D;&#x44F; &#x456;&#x43D;&#x448;&#x43E;&#x457;. &#x42F;&#x43A;&#x449;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447; (<code>xform</code>) &#x432;&#x438;&#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x438;&#x439;, &#x442;&#x43E; &#x43F;&#x456;&#x441;&#x43B;&#x44F; &#x446;&#x44C;&#x43E;&#x433;&#x43E; &#x43C;&#x438; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x454;&#x43C;&#x43E; &#x43F;&#x43E;&#x445;&#x456;&#x434;&#x43D;&#x443; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440; &#x448;&#x43B;&#x44F;&#x445;&#x43E;&#x43C; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x443;&#x432;&#x430;&#x43D;&#x43D;&#x44F; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430; &#x434;&#x43E; <code>put!</code>. &#x42F;&#x43A;&#x449;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447; &#x432;&#x456;&#x434;&#x441;&#x443;&#x442;&#x43D;&#x456;&#x439;, &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x454;&#x43C;&#x43E; <code>put!</code>. <code>q</code> - &#x446;&#x435; &#x432;&#x43D;&#x443;&#x442;&#x440;&#x456;&#x448;&#x43D;&#x456;&#x439; &#x435;&#x43A;&#x437;&#x435;&#x43C;&#x43F;&#x43B;&#x44F;&#x440; <code>UnboundedQueue</code>.</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">reify</span></span>
+  Queue
+  (<span class="hljs-name">put!</span> [_ item]
+    (<span class="hljs-name"><span class="hljs-builtin-name">when-not</span></span> (<span class="hljs-name">.-closed</span> q)
+      (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [val (<span class="hljs-name">xput!</span> q item)]
+        (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">reduced?</span></span> val)
+          (<span class="hljs-name"><span class="hljs-builtin-name">do</span></span>
+            (<span class="hljs-name">xput!</span> @val)  <span class="hljs-comment">;; call completion step</span>
+            (<span class="hljs-name">shutdown!</span> q) <span class="hljs-comment">;; respect reduced</span>
+            @val)
+          val))))
+  <span class="hljs-comment">;; ...</span>
+)
+</code></pre>
+<p>&#x41E;&#x43F;&#x435;&#x440;&#x430;&#x446;&#x456;&#x44F; <code>put!</code> &#x432;&#x438;&#x43A;&#x43E;&#x43D;&#x443;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x43B;&#x438;&#x448;&#x435; &#x443; &#x442;&#x43E;&#x43C;&#x443; &#x432;&#x438;&#x43F;&#x430;&#x434;&#x43A;&#x443;, &#x43A;&#x43E;&#x43B;&#x438; &#x447;&#x435;&#x440;&#x433;&#x430; &#x43D;&#x435; &#x437;&#x430;&#x432;&#x435;&#x440;&#x448;&#x438;&#x43B;&#x430;&#x441;&#x44F;. &#x417;&#x430;&#x443;&#x432;&#x430;&#x436;&#x438;&#x43C;&#x43E;, &#x449;&#x43E; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x430;&#x446;&#x456;&#x44F; <code>put!</code> &#x437; <code>UnboundedQueue</code> &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x454; &#x43A;&#x43E;&#x43D;&#x441;&#x442;&#x440;&#x443;&#x43A;&#x446;&#x456;&#x44E; <code>assert</code>, &#x449;&#x43E;&#x431; &#x43F;&#x435;&#x440;&#x435;&#x43A;&#x43E;&#x43D;&#x430;&#x442;&#x438;&#x441;&#x44F; &#x443; &#x43C;&#x43E;&#x436;&#x43B;&#x438;&#x432;&#x43E;&#x441;&#x442;&#x456; &#x434;&#x43E;&#x434;&#x430;&#x432;&#x430;&#x43D;&#x43D;&#x44F; &#x43F;&#x43E;&#x434;&#x430;&#x43B;&#x44C;&#x448;&#x438;&#x445; &#x434;&#x430;&#x43D;&#x438;&#x445; &#x456; &#x43D;&#x435; &#x432;&#x430;&#x440;&#x442;&#x43E; &#x43F;&#x43E;&#x440;&#x443;&#x448;&#x443;&#x432;&#x430;&#x442;&#x438; &#x446;&#x44E; &#x43F;&#x43E;&#x432;&#x435;&#x434;&#x456;&#x43D;&#x43A;&#x443;. &#x42F;&#x43A;&#x449;&#x43E; &#x447;&#x435;&#x440;&#x433;&#x430; &#x43D;&#x435; &#x437;&#x430;&#x432;&#x435;&#x440;&#x448;&#x438;&#x43B;&#x430;&#x441;&#x44F;, &#x434;&#x43E; &#x43D;&#x435;&#x457; &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x434;&#x43E;&#x434;&#x430;&#x432;&#x430;&#x442;&#x438; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F;. &#x414;&#x43B;&#x44F; &#x446;&#x44C;&#x43E;&#x433;&#x43E; &#x43C;&#x43E;&#x436;&#x43D;&#x430; &#x441;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x442;&#x438;&#x441;&#x44F; <code>xput!</code>.</p>
+<p>&#x42F;&#x43A;&#x449;&#x43E; &#x440;&#x435;&#x437;&#x443;&#x43B;&#x44C;&#x442;&#x430;&#x442;&#x43E;&#x43C; &#x43E;&#x43F;&#x435;&#x440;&#x430;&#x446;&#x456;&#x457; <code>put</code> &#x441;&#x442;&#x430;&#x43D;&#x435; &#x43E;&#x447;&#x456;&#x43A;&#x443;&#x432;&#x430;&#x43D;&#x435; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F;, &#x43C;&#x438; &#x437;&#x440;&#x43E;&#x437;&#x443;&#x43C;&#x456;&#x454;&#x43C;&#x43E;, &#x449;&#x43E; &#x447;&#x430;&#x441; &#x43F;&#x440;&#x438;&#x43F;&#x438;&#x43D;&#x44F;&#x442;&#x438; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x438;&#x439; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;. &#x423; &#x446;&#x44C;&#x43E;&#x43C;&#x443; &#x432;&#x438;&#x43F;&#x430;&#x434;&#x43A;&#x443; &#x446;&#x435; &#x43E;&#x437;&#x43D;&#x430;&#x447;&#x430;&#x454; &#x437;&#x430;&#x43A;&#x440;&#x438;&#x442;&#x442;&#x44F; &#x447;&#x435;&#x440;&#x433;&#x438; &#x442;&#x430;&#x43A;&#x438;&#x43C; &#x447;&#x438;&#x43D;&#x43E;&#x43C;, &#x449;&#x43E; &#x432;&#x43E;&#x43D;&#x430; &#x43D;&#x435; &#x43F;&#x440;&#x438;&#x439;&#x43C;&#x430;&#x454; &#x43F;&#x43E;&#x434;&#x430;&#x43B;&#x44C;&#x448;&#x456; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F;. &#x42F;&#x43A;&#x449;&#x43E; &#x43C;&#x438; &#x43D;&#x435; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x430;&#x43B;&#x438; &#x43E;&#x447;&#x456;&#x43A;&#x443;&#x432;&#x430;&#x43D;&#x435; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F;, &#x442;&#x43E; &#x43F;&#x440;&#x43E;&#x434;&#x43E;&#x432;&#x436;&#x443;&#x454;&#x43C;&#x43E; &#x43E;&#x442;&#x440;&#x438;&#x43C;&#x443;&#x432;&#x430;&#x442;&#x438; &#x43D;&#x43E;&#x432;&#x456; &#x434;&#x430;&#x43D;&#x456;.</p>
+<p>&#x41F;&#x43E;&#x434;&#x438;&#x432;&#x438;&#x43C;&#x43E;&#x441;&#x44F; &#x43D;&#x430; &#x43F;&#x43E;&#x432;&#x435;&#x434;&#x456;&#x43D;&#x43A;&#x443; &#x447;&#x435;&#x440;&#x433;&#x438; &#x431;&#x435;&#x437; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;&#x432;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> q (<span class="hljs-name">unbounded-queue</span>))
+<span class="hljs-comment">;; =&gt; #&lt;[object Object]&gt;</span>
+
+(<span class="hljs-name">put!</span> q <span class="hljs-number">1</span>)
+<span class="hljs-comment">;; =&gt; 1</span>
+(<span class="hljs-name">put!</span> q <span class="hljs-number">2</span>)
+<span class="hljs-comment">;; =&gt; 2</span>
+
+(<span class="hljs-name">take!</span> q)
+<span class="hljs-comment">;; =&gt; 1</span>
+(<span class="hljs-name">take!</span> q)
+<span class="hljs-comment">;; =&gt; 2</span>
+(<span class="hljs-name">take!</span> q)
+<span class="hljs-comment">;; =&gt; nil</span>
+</code></pre>
+<p>&#x41F;&#x43E;&#x432;&#x435;&#x434;&#x456;&#x43D;&#x43A;&#x430; &#x432;&#x456;&#x434;&#x43F;&#x43E;&#x432;&#x456;&#x434;&#x430;&#x454; &#x43D;&#x430;&#x448;&#x438;&#x43C; &#x43E;&#x447;&#x456;&#x43A;&#x443;&#x432;&#x430;&#x43D;&#x43D;&#x44F;&#x43C;. &#x421;&#x43F;&#x440;&#x43E;&#x431;&#x443;&#x454;&#x43C;&#x43E; &#x442;&#x435;&#x43F;&#x435;&#x440; &#x437;&#x430;&#x441;&#x442;&#x43E;&#x441;&#x443;&#x432;&#x430;&#x442;&#x438; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447; &#x431;&#x435;&#x437; &#x441;&#x442;&#x430;&#x43D;&#x443;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> incq (<span class="hljs-name">unbounded-queue</span> (<span class="hljs-name"><span class="hljs-builtin-name">map</span></span> inc)))
+<span class="hljs-comment">;; =&gt; #&lt;[object Object]&gt;</span>
+
+(<span class="hljs-name">put!</span> incq <span class="hljs-number">1</span>)
+<span class="hljs-comment">;; =&gt; 2</span>
+(<span class="hljs-name">put!</span> incq <span class="hljs-number">2</span>)
+<span class="hljs-comment">;; =&gt; 3</span>
+
+(<span class="hljs-name">take!</span> incq)
+<span class="hljs-comment">;; =&gt; 2</span>
+(<span class="hljs-name">take!</span> incq)
+<span class="hljs-comment">;; =&gt; 3</span>
+(<span class="hljs-name">take!</span> incq)
+<span class="hljs-comment">;; =&gt; nil</span>
+</code></pre>
+<p>&#x429;&#x43E;&#x431; &#x43F;&#x435;&#x440;&#x435;&#x43A;&#x43E;&#x43D;&#x430;&#x442;&#x438;&#x441;&#x44F; &#x443; &#x442;&#x43E;&#x43C;&#x443;, &#x449;&#x43E; &#x43C;&#x438; &#x440;&#x435;&#x430;&#x43B;&#x456;&#x437;&#x443;&#x432;&#x430;&#x43B;&#x438; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;, &#x449;&#x43E; &#x43F;&#x456;&#x434;&#x434;&#x430;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x43D;&#x44E;, &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x454;&#x43C;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;, &#x449;&#x43E; &#x437;&#x431;&#x435;&#x440;&#x456;&#x433;&#x430;&#x454; &#x441;&#x442;&#x430;&#x43D;. &#x41C; &#x438; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x454;&#x43C;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;, &#x449;&#x43E; &#x43F;&#x440;&#x438;&#x439;&#x43C;&#x430;&#x454; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F;, &#x43D;&#x435; &#x440;&#x456;&#x432;&#x43D;&#x456; &#x447;&#x43E;&#x442;&#x438;&#x440;&#x44C;&#x43E;&#x43C;, &#x442;&#x430; &#x440;&#x43E;&#x437;&#x431;&#x438;&#x432;&#x430;&#x454; &#x432;&#x445;&#x456;&#x434;&#x43D;&#x456; &#x434;&#x430;&#x43D;&#x456; &#x43D;&#x430; &#x431;&#x43B;&#x43E;&#x43A;&#x438; &#x43F;&#x43E; &#x434;&#x432;&#x430; &#x435;&#x43B;&#x435;&#x43C;&#x435;&#x43D;&#x442;&#x430;:</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> xq (<span class="hljs-name">unbounded-queue</span> (<span class="hljs-name"><span class="hljs-builtin-name">comp</span></span>
+                           (<span class="hljs-name"><span class="hljs-builtin-name">take-while</span></span> #(<span class="hljs-name"><span class="hljs-builtin-name">not=</span></span> % <span class="hljs-number">4</span>))
+                           (<span class="hljs-name">partition-all</span> <span class="hljs-number">2</span>))))
+
+(<span class="hljs-name">put!</span> xq <span class="hljs-number">1</span>)
+(<span class="hljs-name">put!</span> xq <span class="hljs-number">2</span>)
+<span class="hljs-comment">;; =&gt; [1 2]</span>
+(<span class="hljs-name">put!</span> xq <span class="hljs-number">3</span>)
+(<span class="hljs-name">put!</span> xq <span class="hljs-number">4</span>) <span class="hljs-comment">;; shouldn&apos;t accept more values from here on</span>
+(<span class="hljs-name">put!</span> xq <span class="hljs-number">5</span>)
+<span class="hljs-comment">;; =&gt; nil</span>
+
+(<span class="hljs-name">take!</span> xq)
+<span class="hljs-comment">;; =&gt; [1 2]</span>
+(<span class="hljs-name">take!</span> xq) <span class="hljs-comment">;; seems like `partition-all` flushed correctly!</span>
+<span class="hljs-comment">;; =&gt; [3]</span>
+(<span class="hljs-name">take!</span> xq)
+<span class="hljs-comment">;; =&gt; nil</span>
+</code></pre>
+<p>&#x41F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434; &#x437; &#x447;&#x435;&#x440;&#x433;&#x43E;&#x44E; &#x437;&#x2BC;&#x44F;&#x432;&#x438;&#x432;&#x441;&#x44F; &#x437;&#x430;&#x432;&#x434;&#x44F;&#x43A;&#x438; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x43D;&#x43D;&#x44E; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;&#x432; &#x43A;&#x430;&#x43D;&#x430;&#x43B;&#x430;&#x43C;&#x438; <code>core.async</code> &#x443; &#x432;&#x43D;&#x443;&#x442;&#x440;&#x456;&#x448;&#x43D;&#x456;&#x457; &#x43F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x430;&#x445;. &#x41F;&#x440;&#x43E; &#x43A;&#x430;&#x43D;&#x430;&#x43B;&#x438; &#x442;&#x430; &#x43F;&#x440;&#x43E; &#x442;&#x435;, &#x44F;&#x43A; &#x432;&#x43E;&#x43D;&#x438; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x43E;&#x432;&#x443;&#x44E;&#x442;&#x44C; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x456;, &#x43F;&#x43E;&#x433;&#x43E;&#x432;&#x43E;&#x440;&#x438;&#x43C;&#x43E; &#x443; &#x43D;&#x430;&#x441;&#x442;&#x443;&#x43F;&#x43D;&#x438;&#x445; &#x440;&#x43E;&#x437;&#x434;&#x456;&#x43B;&#x430;&#x445;.</p>
+<p>&#x41F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x438;, &#x449;&#x43E; &#x43F;&#x456;&#x434;&#x434;&#x430;&#x44E;&#x442;&#x44C;&#x441;&#x44F; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x43D;&#x44E;, &#x43C;&#x430;&#x44E;&#x442;&#x44C; &#x43F;&#x43E;&#x432;&#x430;&#x436;&#x430;&#x442;&#x438; <code>reduced</code>  &#x44F;&#x43A; &#x441;&#x43F;&#x43E;&#x441;&#x456;&#x431; &#x43F;&#x43E;&#x434;&#x430;&#x43D;&#x43D;&#x44F; &#x441;&#x438;&#x433;&#x43D;&#x430;&#x43B;&#x443; &#x43F;&#x440;&#x43E; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x447;&#x430;&#x441;&#x43D;&#x435; &#x437;&#x430;&#x432;&#x435;&#x440;&#x448;&#x435;&#x43D;&#x43D;&#x44F; &#x440;&#x43E;&#x431;&#x43E;&#x442;&#x438;. &#x41D;&#x430;&#x43F;&#x440;&#x438;&#x43A;&#x43B;&#x430;&#x434;, &#x441;&#x442;&#x432;&#x43E;&#x440;&#x435;&#x43D;&#x43D;&#x44F; &#x43A;&#x43E;&#x43B;&#x435;&#x43A;&#x446;&#x456;&#x457; &#x437;&#x443;&#x43F;&#x438;&#x43D;&#x44F;&#x454;&#x442;&#x44C;&#x441;&#x44F; &#x43D;&#x430; &#x437;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x456; <code>reduced</code>, &#x430; &#x43A;&#x430;&#x43D;&#x430;&#x43B;&#x438; <code>core.async</code> &#x456;&#x437; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x432;&#x430;&#x447;&#x430;&#x43C;&#x438; &#x437;&#x430;&#x43A;&#x440;&#x438;&#x442;&#x456;. &#x417;&#x43D;&#x430;&#x447;&#x435;&#x43D;&#x43D;&#x44F; &#x43C;&#x430;&#x454; &#x431;&#x443;&#x442;&#x438; &#x440;&#x43E;&#x437;&#x433;&#x43E;&#x440;&#x43D;&#x443;&#x442;&#x435; &#x437;&#x430; &#x434;&#x43E;&#x43F;&#x43E;&#x43C;&#x43E;&#x433;&#x43E;&#x44E; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x457; <code>deref</code> &#x442;&#x430; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x430;&#x43D;&#x435; &#x434;&#x43E; &#x437;&#x430;&#x432;&#x435;&#x440;&#x448;&#x430;&#x43B;&#x44C;&#x43D;&#x43E;&#x433;&#x43E; &#x43A;&#x440;&#x43E;&#x43A;&#x443;, &#x449;&#x43E; &#x439;&#x43E;&#x433;&#x43E; &#x431;&#x443;&#x434;&#x435; &#x432;&#x438;&#x43A;&#x43B;&#x438;&#x43A;&#x430;&#x43D;&#x43E; &#x43B;&#x438;&#x448;&#x435; &#x43E;&#x434;&#x438;&#x43D; &#x440;&#x430;&#x437;.</p>
+<p>&#x41F;&#x440;&#x43E;&#x446;&#x435;&#x441;&#x438;, &#x449;&#x43E; &#x43F;&#x456;&#x434;&#x434;&#x430;&#x44E;&#x442;&#x44C;&#x441;&#x44F; &#x43F;&#x435;&#x440;&#x435;&#x442;&#x432;&#x440;&#x435;&#x43D;&#x43D;&#x44E;, &#x43C;&#x430;&#x44E;&#x442;&#x44C; &#x445;&#x43E;&#x432;&#x430;&#x442;&#x438; &#x444;&#x443;&#x43D;&#x43A;&#x446;&#x456;&#x44E;-&#x440;&#x435;&#x434;&#x44C;&#x44E;&#x441;&#x435;&#x440;, &#x44F;&#x43A;&#x443; &#x441;&#x442;&#x432;&#x43E;&#x440;&#x44E;&#x44E;&#x442;&#x44C;, &#x456;&#x43D;&#x430;&#x43A;&#x448;&#x435; &#x446;&#x435; &#x43C;&#x43E;&#x436;&#x435; &#x43F;&#x440;&#x438;&#x432;&#x435;&#x441;&#x442;&#x438; &#x434;&#x43E; &#x43F;&#x43E;&#x44F;&#x432;&#x438; &#x441;&#x442;&#x430;&#x43D;&#x443; &#x442;&#x430; &#x441;&#x442;&#x430;&#x43D;&#x435; &#x43D;&#x435;&#x431;&#x435;&#x437;&#x43F;&#x435;&#x447;&#x43D;&#x438;&#x43C; &#x434;&#x43B;&#x44F; &#x432;&#x438;&#x43A;&#x43E;&#x440;&#x438;&#x441;&#x442;&#x430;&#x43D;&#x43D;&#x44F;.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="05-Language-Advanced.html" class="navigation navigation-prev " aria-label="Previous page: Мова (поглиблені теми)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="05-02-Transients.html" class="navigation navigation-next " aria-label="Next page: Перехідні структури даних">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Перетворювачі","level":"1.6.1","depth":2,"next":{"title":"Перехідні структури даних","level":"1.6.2","depth":2,"path":"manuscript/05-02-Transients.md","ref":"./manuscript/05-02-Transients.md","articles":[]},"previous":{"title":"Мова (поглиблені теми)","level":"1.6","depth":1,"path":"manuscript/05-Language-Advanced.md","ref":"./manuscript/05-Language-Advanced.md","articles":[{"title":"Перетворювачі","level":"1.6.1","depth":2,"path":"manuscript/05-01-Transducers.md","ref":"./manuscript/05-01-Transducers.md","articles":[]},{"title":"Перехідні структури даних","level":"1.6.2","depth":2,"path":"manuscript/05-02-Transients.md","ref":"./manuscript/05-02-Transients.md","articles":[]},{"title":"Метадані","level":"1.6.3","depth":2,"path":"manuscript/05-03-Metadata.md","ref":"./manuscript/05-03-Metadata.md","articles":[]},{"title":"Основні протоколи","level":"1.6.4","depth":2,"path":"manuscript/05-04-Core-protocols.md","ref":"./manuscript/05-04-Core-protocols.md","articles":[]},{"title":"CSP (з core.async)","level":"1.6.5","depth":2,"path":"manuscript/05-05-CSP.md","ref":"./manuscript/05-05-CSP.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"3.x.x","theme":"default","variables":{},"plugins":["edit-link","github","ga","rss","github-buttons"],"pluginsConfig":{"github":{"url":"https://github.com/LambdaBooks/clojurescript-unraveled"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":["frontend","clojurescript","cljs","clojure"],"title":"Розплутаний ClojureScript","description":"Український переклад книги «ClojureScript Unraveled».","author":"Denys Dovhan","site_url":"http://lambdabooks.com/clojurescript-unraveled","feed_url":"http://lambdabooks.com/clojurescript-unraveled/rss.xml","managingEditor":"denysdovhan@gmail.com (Denys Dovhan)","webMaster":"denysdovhan@gmail.com (Denys Dovhan)"},"highlight":{},"github-buttons":{"repo":"LambdaBooks/clojurescript-unraveled","types":["star"],"size":"small"},"ga":{"configuration":"auto","token":"UA-40496885-11"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Редагувати","base":"https://github.com/LambdaBooks/clojurescript-unraveled/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"manuscript/05-01-Transducers.md","mtime":"2018-12-03T21:57:20.816Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-03T21:58:26.589Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -4,7 +4,7 @@
         <description><![CDATA[Український переклад книги «ClojureScript Unraveled».]]></description>
         <link>http://lambdabooks.com/clojurescript-unraveled</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 08 Oct 2018 17:59:20 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 03 Dec 2018 21:58:33 GMT</lastBuildDate>
         <atom:link href="http://lambdabooks.com/clojurescript-unraveled/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Denys Dovhan]]></author>
         <managingEditor><![CDATA[denysdovhan@gmail.com (Denys Dovhan)]]></managingEditor>
@@ -40,6 +40,13 @@ Stars]]></description>
             <description><![CDATA[ClojureScript — це імплементація мови програмування Clojure, орієнтована на JavaScript. Завдяки цьому, вона може працювати в багатьох різних середовищах виконання, включаючи веб-браузери, Node.js, io.js та Nashorn.]]></description>
             <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/02-Introduction.html</link>
             <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/02-Introduction.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Ця глава — коротки вступ до ClojureScript, який не вимагає попереднього досвіду з мовою Clojure. У ньому ми зробимо короткий огляд речей, які необхідно знати про ClojureScript, та які потрібні, щоб зрозуміти решту матеріалу цієї книжки.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-Language-Basics.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-Language-Basics.html</guid>
             <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
         </item>
         <item>
@@ -156,6 +163,13 @@ Stars]]></description>
         </item>
         <item>
             <title><![CDATA[No title]]></title>
+            <description><![CDATA[У цій главі ми познайомимось з інструментарієм, який існує зараз для полегшення розробки з використанням ClojureScript. У ній ми розглянемо:]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/04-Tooling-and-Compiler.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/04-Tooling-and-Compiler.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
             <description><![CDATA[Ми розуміємо, що наші читачі вже втомилися від теоретичних пояснень аспектів мови та хочуть приступити до написання та виконання коду. У цьому розділі ми надамо вступні відомості про практику роботи з компілятором  ClojureScript.]]></description>
             <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/04-01-Getting-Started-with-the-Compiler.html</link>
             <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/04-01-Getting-Started-with-the-Compiler.html</guid>
@@ -198,9 +212,65 @@ Stars]]></description>
         </item>
         <item>
             <title><![CDATA[No title]]></title>
+            <description><![CDATA[У цьому розділі ми детальніше розглянемо деякі аспекти мови, про які не згадувалося в першій главі. Ітиметься про перетворювачі, основні протоколи, перехідні структури даних та метадані - теми, які не є обов'язковими для розуміння мови.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/05-Language-Advanced.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/05-Language-Advanced.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[ClojureScript  має великий набір інструментів для перетворення даних, що побудовані над абстракцією послідовності. Таким чином трансформація даних стає найбільш узагальненою та придатною до композиції. Подивимося, як поєднати кілька функцій для обробки колекцій в одну. У цьому розділі ми будемо використовувати як приклад наступне нескладне завдання: треба розділити грона винограду на окремі ягоди, відібрати зіпсовані та вимити решту. Ми маємо наступну колекцію грон винограду:]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/05-01-Transducers.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/05-01-Transducers.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
             <description><![CDATA[Незмінні та стійкі стуктури даних мови ClojureScript відрізняються доволі високою продуктивністю, але трапляються ситуації, коли необхідно трансформувати великі структури даних за кілька окремих кроків і лише кінцевий результат має бути доступний для інших користувачів. Наприклад, функція стандартної бібліотеки into отримує колекцію та негайно заповнює її змістом наданої послідовності на кожній ітерації:]]></description>
             <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/05-02-Transients.html</link>
             <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/05-02-Transients.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[ClojureScript дозволяє додавати до символів, варів та стійких колекцій метадані. Вони мають форму мапи та містять інформацію про сутність, до якої відносяться. Компілятор ClojureScript використовує їх для певних цілей, зокрема для визначення типів; також система метаданих може бути корисною для розробників інструментів, бібліотек та застосунків.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/05-03-Metadata.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/05-03-Metadata.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Значною перевагою функцій ClojureScript є те, що вони реалізовані на базі протоколів. Це дозволяє функціям працювати з будь-яким типом, який було розширено такими протоколами. Це стосується як власних типів, так і сторонніх.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/05-04-Core-protocols.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/05-04-Core-protocols.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Абревіатура "CSP" розшифровується як Communicating Sequential Processes, що означає "Взаємодія послідовних процесів". Це формалізм для опису рівночасних систем, вперше описаний Ч. Е. Р. Гоаром у 1978 році. Це модель паралельних процесів, що грунтується на передачі повідомлень та синхронізації через канали. Глибоке вивчення теоретичної моделі, що стоїть за CSP, не входить до цієї книги. Натомість ми сфокусуємо увагу на розгляді примітивів паралельного виконання, що їх пропонує бібліотека core.async.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/05-05-CSP.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/05-05-CSP.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[У цьому проекті ми не будемо у сотий раз писати “Hello World”—. Натомість створимо веб-сторінку, що запитує вік користувача та перераховує роки у дні, виходячи зі спрощення про 365 днів у році.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/06-Appendix.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/06-Appendix.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Окрема подяка:]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/07-Acknowledgments.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/07-Acknowledgments.html</guid>
+            <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[Ось список додаткових ресурсів про ClojureScript.]]></description>
+            <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/08-Further-Reading.html</link>
+            <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/08-Further-Reading.html</guid>
             <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
         </item>
     </channel>
