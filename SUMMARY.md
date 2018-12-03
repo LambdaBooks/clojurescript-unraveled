@@ -28,11 +28,11 @@
   * [Зовнішні залежності](./manuscript/04-05-External-dependencies.md)
   * [Модульне тестування](./manuscript/04-06-Unit-testing.md)
 * Мова (поглиблені теми)
-  * Перетворювачі
+  * [Перетворювачі](./manuscript/05-01-Transducers.md)
   * [Перехідні структури даних](./manuscript/05-02-Transients.md)
-  * Метадані
-  * Основні протоколи
-  * CSP (з core.async)
+  * [Метадані](./manuscript/05-03-Metadata.md)
+  * [Основні протоколи](./manuscript/05-04-Core-protocols.md)
+  * [CSP (з core.async)](./manuscript/05-05-CSP.md)
 * Додатки
   * Додаток А: Інтерактивна розробка з Figwheel
   * Додаток Б: Встановлення середовища розробки на ClojureScript
