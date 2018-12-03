@@ -34,7 +34,7 @@
   * [Основні протоколи](./manuscript/05-04-Core-protocols.md)
   * [CSP (з core.async)](./manuscript/05-05-CSP.md)
 * Додатки
-  * Додаток А: Інтерактивна розробка з Figwheel
-  * Додаток Б: Встановлення середовища розробки на ClojureScript
+  * [Додаток А: Інтерактивна розробка з Figwheel](./manuscript/06-Appendix.md)
+  * [Додаток Б: Встановлення середовища розробки на ClojureScript](./manuscript/06-Appendix.md)
 * Подяки
 * Подальше читання
