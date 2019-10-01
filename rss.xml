@@ -4,7 +4,7 @@
         <description><![CDATA[Український переклад книги «ClojureScript Unraveled».]]></description>
         <link>http://lambdabooks.com/clojurescript-unraveled</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 03 Dec 2018 22:03:10 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 01 Oct 2019 19:31:13 GMT</lastBuildDate>
         <atom:link href="http://lambdabooks.com/clojurescript-unraveled/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Denys Dovhan]]></author>
         <managingEditor><![CDATA[denysdovhan@gmail.com (Denys Dovhan)]]></managingEditor>
@@ -44,7 +44,7 @@ Stars]]></description>
         </item>
         <item>
             <title><![CDATA[No title]]></title>
-            <description><![CDATA[Ця глава — коротки вступ до ClojureScript, який не вимагає попереднього досвіду з мовою Clojure. У ньому ми зробимо короткий огляд речей, які необхідно знати про ClojureScript, та які потрібні, щоб зрозуміти решту матеріалу цієї книжки.]]></description>
+            <description><![CDATA[Ця глава — короткий вступ до ClojureScript, який не вимагає попереднього досвіду з мовою Clojure. У ньому ми зробимо короткий огляд речей, які необхідно знати про ClojureScript, та які потрібні, щоб зрозуміти решту матеріалу цієї книжки.]]></description>
             <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/03-Language-Basics.html</link>
             <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/03-Language-Basics.html</guid>
             <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
@@ -226,7 +226,7 @@ Stars]]></description>
         </item>
         <item>
             <title><![CDATA[No title]]></title>
-            <description><![CDATA[Незмінні та стійкі стуктури даних мови ClojureScript відрізняються доволі високою продуктивністю, але трапляються ситуації, коли необхідно трансформувати великі структури даних за кілька окремих кроків і лише кінцевий результат має бути доступний для інших користувачів. Наприклад, функція стандартної бібліотеки into отримує колекцію та негайно заповнює її змістом наданої послідовності на кожній ітерації:]]></description>
+            <description><![CDATA[Незмінні та стійкі структури даних мови ClojureScript відрізняються доволі високою продуктивністю, але трапляються ситуації, коли необхідно трансформувати великі структури даних за кілька окремих кроків і лише кінцевий результат має бути доступний для інших користувачів. Наприклад, функція стандартної бібліотеки into отримує колекцію та негайно заповнює її змістом наданої послідовності на кожній ітерації:]]></description>
             <link>http://lambdabooks.com/clojurescript-unraveledmanuscript/05-02-Transients.html</link>
             <guid isPermaLink="true">http://lambdabooks.com/clojurescript-unraveledmanuscript/05-02-Transients.html</guid>
             <dc:creator><![CDATA[Denys Dovhan]]></dc:creator>
