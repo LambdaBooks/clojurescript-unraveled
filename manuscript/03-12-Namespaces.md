@@ -79,7 +79,7 @@ _core.cljs_ inside the _myapp_ directory.  So, the preceding examples with
 namespaces `myapp.core` and `myapp.main` would be found in project with a file
 structure like this:
 
-Ящко у вас є простір імен, наприклад `myapp.core`, код у ньому повинен бути у файлі _core.cljs_, що знаходиться у директорії _myapp_. Файлова структура проекту з просторами імен `myapp.core` та `myapp.main` буде виглядати наступним чином:
+Якщо у вас є простір імен, наприклад `myapp.core`, код у ньому повинен бути у файлі _core.cljs_, що знаходиться у директорії _myapp_. Файлова структура проекту з просторами імен `myapp.core` та `myapp.main` буде виглядати наступним чином:
 
 ```
 myapp
